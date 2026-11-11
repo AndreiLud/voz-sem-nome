@@ -1,0 +1,58 @@
+# Build settings of the static site (site/src -> site/public).
+# Runtime settings (k, retention, comment size) come from config/settings.yaml.
+
+languages: [pt, en]
+default_language: pt
+html_lang: {pt: pt-BR, en: en}
+og_locale: {pt: pt_BR, en: en_US}
+
+github_url: "https://github.com/AndreiLud/voz-sem-nome"
+author: {name: "Andrei Ludescher", url: "https://andreiludescher.com"}
+
+api_base: "/api/v1/public"
+poll_interval_ms: 4000
+
+# Turnstile: the environment variable TURNSTILE_SITE_KEY wins; without it the build uses
+# Cloudflare's official test key, which always passes (dev only).
+turnstile_test_key: "1x00000000000000000000AA"
+turnstile_script: "https://challenges.cloudflare.com/turnstile/v0/api.js"
+
+# Page id -> URL path per language. Paths ending in "/" are written as <dir>/index.html.
+pages:
+  home: {pt: "/", en: "/en/"}
+  dashboard: {pt: "/painel/", en: "/en/dashboard/"}
+  submit: {pt: "/enviar/", en: "/en/submit/"}
+  privacy: {pt: "/privacidade/", en: "/en/privacy/"}
+  not_found: {pt: "/404.html", en: "/en/404.html"}
+
+# Landing section ids, so the language toggle can translate the hash.
+anchors:
+  problem: {pt: problema, en: problem}
+  solution: {pt: solucao, en: solution}
+  how: {pt: como-funciona, en: how-it-works}
+  results: {pt: resultados, en: results}
+  estimate: {pt: estimativa, en: estimate}
+  dashboard_preview: {pt: painel-resumo, en: dashboard-preview}
+  privacy_summary: {pt: privacidade-resumo, en: privacy-summary}
+  demo: {pt: demo, en: demo}
+
+# Query parameters whose names or values differ between languages.
+query:
+  dataset:
+    param: {pt: base, en: dataset}
+    values:
+      synthetic: {pt: sintetica, en: synthetic}
+      public: {pt: publica, en: public}
+  code:
+    param: {pt: c, en: c}
+
+# Defaults of the hours-saved estimator on the landing page. They are editable assumptions,
+# shown as such, never measurements. Shares are fractions (0.45 = 45%).
+estimator:
+  responses_per_cycle: 1000
+  comment_share: 0.45
+  minutes_read_classify: 1.5
+  minutes_anonymize: 1.0
+  cycles_per_year: 2
+  review_share: 0.15
+  minutes_per_review: 2.0

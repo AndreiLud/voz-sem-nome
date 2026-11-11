@@ -1,0 +1,12 @@
+{
+  "name": "voz-sem-nome-worker",
+  "private": true,
+  "description": "Cloudflare Worker in front of the public API of Voz sem nome. No dependencies.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

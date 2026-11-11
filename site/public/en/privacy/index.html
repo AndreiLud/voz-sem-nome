@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Privacy | Voz sem nome</title>
+<meta name="description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/en/privacy/">
+<link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/privacidade/">
+<link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/privacidade/">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voz sem nome">
+<meta property="og:title" content="Privacy | Voz sem nome">
+<meta property="og:description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/en/privacy/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy | Voz sem nome">
+<meta name="twitter:description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta name="twitter:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="privacy">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="/en/" aria-label="Voz sem nome, home page">
+      <span class="wordmark__text" aria-hidden="true">Voz sem</span>
+      <span class="wordmark__bar" aria-hidden="true"></span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a class="lang-switch__item" id="lang-toggle" href="/privacidade/" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT<span class="visually-hidden"> versão em português</span></a>
+      <span class="lang-switch__item is-current" aria-hidden="true">EN</span>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="/en/#how-it-works">How it works</a></li>
+        <li><a href="/en/dashboard/">Dashboard</a></li>
+        <li><a href="/en/submit/">Demo</a></li>
+        <li><a href="/en/privacy/" aria-current="page">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <h1>Privacy</h1>
+    <p class="lead">This page explains what the public demo collects and how each item is handled. It is a portfolio project and uses a fictitious company.</p>
+    <p class="note">Applies to the current version of the demo.</p>
+  </div>
+</div>
+
+<div class="wrap prose-layout">
+  <nav class="toc" aria-labelledby="toc-title">
+    <p class="toc__title" id="toc-title">On this page</p>
+    <ol>
+      <li><a href="#collect">What the demo collects</a></li>
+      <li><a href="#anonymize">What is anonymized and how</a></li>
+      <li><a href="#never">What is never stored</a></li>
+      <li><a href="#retention">How long data is kept</a></li>
+      <li><a href="#min-group">Minimum group</a></li>
+      <li><a href="#who">Who sees what</a></li>
+      <li><a href="#legal">Suggested legal basis for a real company</a></li>
+      <li><a href="#rights">Questions</a></li>
+    </ol>
+  </nav>
+
+  <div class="prose">
+    <section id="collect">
+      <h2>What the demo collects</h2>
+      <ul>
+<li>The score from 0 to 10, the area and the tenure you pick.</li><li>The comment, if you write one. It is anonymized before it is stored.</li><li>The page language and the date and time of the submission.</li><li>The result of the bot check (Cloudflare Turnstile). The token is verified and dropped.</li>      </ul>
+    </section>
+
+    <section id="anonymize">
+      <h2>What is anonymized and how</h2>
+      <p>Before storing anything, the system looks for personal data in the comment and replaces each item with a placeholder. Fixed rules find documents and contact details by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, and a small name recognition model find people and places. Only the text with placeholders goes on to the language model.</p>
+      <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
+        <table class="table">
+          <caption id="placeholders-caption">Placeholders used instead of personal data</caption>
+          <thead><tr><th scope="col">Placeholder</th><th scope="col">What it replaces</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="chip" data-placeholder="PESSOA"><span class="chip__bracket">[</span>PESSOA<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">person&#39;s name</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="LOCAL"><span class="chip__bracket">[</span>LOCAL<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">place</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="EMAIL"><span class="chip__bracket">[</span>EMAIL<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">email address</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="TELEFONE"><span class="chip__bracket">[</span>TELEFONE<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">phone number</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="CPF"><span class="chip__bracket">[</span>CPF<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">CPF, Brazilian taxpayer number</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="CNPJ"><span class="chip__bracket">[</span>CNPJ<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">CNPJ, Brazilian company number</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="RG"><span class="chip__bracket">[</span>RG<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">RG, Brazilian ID card</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="CEP"><span class="chip__bracket">[</span>CEP<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">CEP, Brazilian postal code</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="MATRICULA"><span class="chip__bracket">[</span>MATRICULA<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">employee ID</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="PLACA"><span class="chip__bracket">[</span>PLACA<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">license plate</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="DOCUMENTO"><span class="chip__bracket">[</span>DOCUMENTO<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">other document</td></tr>
+            <tr><th scope="row"><span class="chip" data-placeholder="ofensivo"><span class="chip__bracket">[</span>ofensivo<span class="chip__bracket">]</span></span></th><td data-label="What it replaces">swear word, in public excerpts</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No method is always right. That is why we ask you not to write real data. In public excerpts on the dashboard, swear words also become a placeholder.</p>
+    </section>
+
+    <section id="never">
+      <h2>What is never stored</h2>
+      <ul class="checklist">
+<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The original comment text.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Your IP address. It stays in memory only, to limit excessive submissions and to count distinct people per day with a code that changes every day.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Tracking cookies or audience analytics. The site uses none.</span></li>      </ul>
+    </section>
+
+    <section id="retention">
+      <h2>How long data is kept</h2>
+      <ul>
+<li>Public submissions: deleted after 30 days.</li><li>Alert log: only an identifier, the case types and timestamps, deleted after 90 days.</li><li>Daily counters without any text, such as number of submissions and analysis time: kept for the production statistics.</li>      </ul>
+    </section>
+
+    <section id="min-group">
+      <h2>Minimum group</h2>
+      <p>No group, cross tab or slice with fewer than 5 answers is shown on the dashboard. Small areas are merged into one unnamed group. When that group is small too, the smallest visible area joins it, so nobody can find a hidden group by subtracting the others from the total.</p>
+    </section>
+
+    <section id="who">
+      <h2>Who sees what</h2>
+      <div class="table-wrap" role="region" aria-labelledby="who-caption" tabindex="0">
+        <table class="table table--stack">
+          <caption id="who-caption">Access to the demo data</caption>
+          <thead><tr><th scope="col">Who</th><th scope="col">What they see</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Anyone on the site</th><td data-label="What they see">Aggregated numbers with a minimum group and anonymized excerpts of critical cases, without tenure and with the area only when the group is large enough.</td></tr>
+            <tr><th scope="row">The person who submitted</th><td data-label="What they see">Their own result, with the tracking code.</td></tr>
+            <tr><th scope="row">Person in charge of the project</th><td data-label="What they see">The alerts, with the anonymized text, which can go to Telegram, and the database, which keeps anonymized text only.</td></tr>
+            <tr><th scope="row">Cloudflare</th><td data-label="What they see">Connection data to deliver the site, run the bot check and block abuse, under Cloudflare&#39;s own policy.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="legal">
+      <h2>Suggested legal basis for a real company</h2>
+      <p>In this demo, the basis is your consent, given with the confirmation box on the form. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered.</p>
+      <div class="callout"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>This is a portfolio project and not legal advice. A real company should confirm the legal basis with its data protection officer and legal team.</p></div>
+    </section>
+
+    <section id="rights">
+      <h2>Questions</h2>
+      <p>Submissions are anonymous, so there is no way to find yours without the tracking code. For questions about the project, use the contact at <a href="https://andreiludescher.com">andreiludescher.com</a>.</p>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="wordmark wordmark--static" aria-hidden="true"><span class="wordmark__text">Voz sem</span> <span class="wordmark__bar"></span></p>
+    <div class="site-footer__text">
+      <p>Portfolio project by <a href="https://andreiludescher.com">Andrei Ludescher</a>.</p>
+      <p>Synthetic data and fictitious submissions. Talvana Distribuição does not exist.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul>
+        <li><a href="https://github.com/AndreiLud/voz-sem-nome"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#github"></use></svg>Code on GitHub</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script type="application/json" id="page-data">{"lang":"en","page":"privacy","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand."},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"}}</script>
+</body>
+</html>

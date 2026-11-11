@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ s.meta.site_name }}</title>
+<style>
+@font-face { font-family: "Atkinson Hyperlegible Next"; src: url("/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2") format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Atkinson Hyperlegible Mono"; src: url("/assets/fonts/AtkinsonHyperlegibleMono-latin.woff2") format("woff2"); font-weight: 200 800; }
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; }
+body {
+  background: #f9f9f7; color: #0b0b0b;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  padding: 64px 72px; display: grid; grid-template-rows: auto 1fr auto; gap: 36px;
+}
+.mark { display: flex; align-items: center; gap: 14px; font-size: 44px; font-weight: 800; letter-spacing: -0.02em; }
+.bar { width: 104px; height: 36px; background: #0b0b0b; border-radius: 2px; transform: translateY(3px); }
+h1 { font-size: 68px; line-height: 1.04; letter-spacing: -0.03em; font-weight: 780; max-width: 15ch; }
+.row { display: flex; justify-content: space-between; align-items: end; gap: 48px; }
+.quote { font-size: 26px; line-height: 1.5; color: #52514e; max-width: 34ch; border-left: 4px solid #0b0b0b; padding-left: 20px; }
+.chip { background: #0b0b0b; color: #f9f9f7; font-family: "Atkinson Hyperlegible Mono", monospace; font-weight: 700; font-size: 0.8em; padding: 1px 8px 2px; border-radius: 4px; }
+.chip__bracket { display: none; }
+.host { font-family: "Atkinson Hyperlegible Mono", monospace; font-size: 24px; font-weight: 700; color: #52514e; white-space: nowrap; }
+</style>
+</head>
+<body>
+  <p class="mark">Voz sem <span class="bar"></span></p>
+  <h1>{{ s.home.hero.title }}</h1>
+  <div class="row">
+    <p class="quote" lang="{{ comment_lang }}">{{ comment }}</p>
+    <p class="host">{{ host }}</p>
+  </div>
+</body>
+</html>

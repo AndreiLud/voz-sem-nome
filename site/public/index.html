@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="pt-BR" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Voz sem nome: pesquisa de clima e eNPS com IA local</title>
+<meta name="description" content="Comentários de pesquisa de clima anonimizados antes de qualquer modelo ler, classificados por IA local e mostrados num painel que protege grupos pequenos.">
+<link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/">
+<link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voz sem nome">
+<meta property="og:title" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<meta property="og:description" content="Comentários de pesquisa de clima anonimizados antes de qualquer modelo ler, classificados por IA local e mostrados num painel que protege grupos pequenos.">
+<meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-pt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<meta name="twitter:description" content="Comentários de pesquisa de clima anonimizados antes de qualquer modelo ler, classificados por IA local e mostrados num painel que protege grupos pequenos.">
+<meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-pt.png">
+<meta name="twitter:image:alt" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="home">
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="/" aria-label="Voz sem nome, página inicial">
+      <span class="wordmark__text" aria-hidden="true">Voz sem</span>
+      <span class="wordmark__bar" aria-hidden="true"></span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <span class="lang-switch__item is-current" aria-hidden="true">PT</span>
+      <a class="lang-switch__item" id="lang-toggle" href="/en/" hreflang="en" lang="en" data-lang="en">EN<span class="visually-hidden"> English version</span></a>
+    </div>
+    <nav class="site-nav" aria-label="Principal">
+      <ul class="site-nav__list">
+        <li><a href="/#como-funciona">Como funciona</a></li>
+        <li><a href="/painel/">Painel</a></li>
+        <li><a href="/enviar/">Demo</a></li>
+        <li><a href="/privacidade/">Privacidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">Projeto de portfólio</p>
+      <h1>Pesquisa de clima e eNPS com IA local</h1>
+      <p class="lead lead--hero">O Voz sem nome tira nomes, documentos e contatos dos comentários antes de qualquer modelo ler o texto. Depois, um modelo de linguagem rodando no próprio servidor separa os temas, mede o sentimento e sinaliza casos que pedem atenção do RH, como assédio e burnout.</p>
+      <p class="cluster hero__actions">
+        <a class="btn btn--primary" href="/enviar/">Testar a demo<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></a>
+        <a class="btn btn--secondary" href="/painel/">Ver o painel</a>
+      </p>
+    </div>
+    <figure class="doc-card hero__example">
+      <figcaption class="doc-card__head">
+        <span class="doc-card__title">Um comentário depois de passar pelo sistema</span>
+        <span class="badge badge--quiet">Exemplo ilustrativo</span>
+      </figcaption>
+      <blockquote class="doc-card__quote" lang="pt-BR">
+        <p>Desde que <span class="chip" data-placeholder="PESSOA"><span class="chip__bracket">[</span>PESSOA<span class="chip__bracket">]</span></span> virou coordenador em <span class="chip" data-placeholder="LOCAL"><span class="chip__bracket">[</span>LOCAL<span class="chip__bracket">]</span></span>, ele grita com a equipe na frente de todo mundo. Já pedi ajuda no RH e nada mudou.</p>
+      </blockquote>
+      <p class="doc-card__removed"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg>Removido: 1 nome de pessoa e 1 lugar</p>
+      <dl class="doc-card__labels">
+        <div><dt>Tema</dt><dd>Liderança</dd></div>
+        <div><dt>Sentimento</dt><dd>Negativo</dd></div>
+        <div><dt>Caso crítico</dt><dd><span class="badge badge--critical"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#alert"></use></svg><span>Assédio moral</span></span></dd></div>
+      </dl>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="problema">
+  <div class="wrap">
+    <header class="section-head">
+  <h2 id="problem-title">O problema</h2>
+<p class="lead">Numa pesquisa de clima, a nota diz pouco. O motivo está nos comentários abertos, e alguém precisa ler um por um.</p></header>
+    <ol class="grid grid--3 numbered">
+      <li class="card">
+        <h3>Leitura manual</h3>
+        <p>Ler, separar por tema e contar comentários toma dias do time de RH a cada ciclo. Com centenas de respostas, a análise chega tarde.</p>
+      </li>
+      <li class="card">
+        <h3>Risco de privacidade</h3>
+        <p>Comentários citam colegas, gestores, filiais e às vezes telefone ou e-mail. Quem lê descobre de quem se fala, e um recorte pequeno pode revelar quem respondeu.</p>
+      </li>
+      <li class="card">
+        <h3>Sinais graves se perdem</h3>
+        <p>Um relato de assédio ou de esgotamento pode ficar no meio das outras respostas até o relatório final.</p>
+      </li>
+    </ol>
+    <div class="callout">
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg>
+      <p><strong>Contexto.</strong> Desde 26/05/2026, a NR-1 inclui os fatores de risco psicossociais no gerenciamento de riscos ocupacionais das empresas. Uma pesquisa de clima não cumpre essa exigência sozinha, mas os comentários costumam mostrar esses riscos cedo. Isto é contexto, não orientação jurídica.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="solucao">
+  <div class="wrap">
+    <header class="section-head">
+  <h2 id="solution-title">A solução</h2>
+<p class="lead">Um fluxo que trata cada comentário como dado sensível, do envio ao painel.</p></header>
+    <ul class="grid grid--2 features">
+      <li class="feature">
+        <h3>Anonimização antes de tudo</h3>
+        <p>Regras e um modelo pequeno de reconhecimento de nomes trocam dados pessoais por marcadores como PESSOA e CPF. O texto original não é gravado.</p>
+      </li>
+      <li class="feature">
+        <h3>IA no próprio servidor</h3>
+        <p>A classificação roda num modelo aberto com Ollama, na CPU do servidor. Nenhum comentário vai para API de terceiros.</p>
+      </li>
+      <li class="feature">
+        <h3>Painel com grupo mínimo</h3>
+        <p>Nenhum grupo com menos de 5 respostas aparece. Áreas pequenas são somadas para que ninguém seja identificado por subtração.</p>
+      </li>
+      <li class="feature">
+        <h3>Alerta de caso crítico</h3>
+        <p>Quando o modelo ou o léxico de risco aponta assédio, discriminação, burnout ou ameaça, o n8n registra o alerta e pode avisar o responsável pelo Telegram, só com o texto anonimizado.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="como-funciona">
+  <div class="wrap">
+    <header class="section-head">
+  <h2 id="how-title">Como funciona</h2>
+<p class="lead">Cada resposta passa por peças de quatro tipos. A legenda mostra o que é regra fixa, o que é modelo pequeno de reconhecimento de nomes, o que é modelo de linguagem e o que é automação.</p></header>
+    <div class="how">
+      <figure class="how__figure">
+
+
+<svg class="diagram" viewBox="0 0 360 772" role="img" aria-labelledby="dg-title dg-desc" focusable="false">
+  <title id="dg-title">Caminho de uma resposta, do envio ao painel e ao alerta</title>
+  <desc id="dg-desc">As cores e as etiquetas indicam o tipo de cada peça. A mesma informação aparece em texto na lista numerada.</desc>
+  <defs>
+    <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-arrowhead" d="M0 0L10 5L0 10z"></path>
+    </marker>
+  </defs>
+  <g class="dg-links">
+    <path d="M180 80V101"></path>
+    <path d="M180 176V201"></path>
+    <path d="M180 276V297"></path>
+    <path d="M180 332V353"></path>
+    <path d="M180 428V453"></path>
+    <path d="M180 528V553"></path>
+    <path d="M180 628V652H95V673"></path>
+    <path d="M180 652H265V673"></path>
+  </g>
+  <text class="dg-branch" x="137" y="646" text-anchor="middle">todas</text>
+  <text class="dg-branch" x="223" y="646" text-anchor="middle">se crítico</text>
+  <g class="dg-step dg-step--plain">
+  <rect class="dg-node dg-node--plain" x="16" y="8" width="328" height="72" rx="8"></rect>
+  <text class="dg-title" x="30" y="34">Resposta</text>
+  <text class="dg-line" x="30" y="55">Nota de 0 a 10, área, tempo de casa</text>
+  <text class="dg-line" x="30" y="72">e um comentário opcional</text>
+</g>
+  <g class="dg-step dg-step--rule">
+  <rect class="dg-node dg-node--rule" x="16" y="104" width="328" height="72" rx="2"></rect>
+  <text class="dg-title" x="30" y="130">Regras de dados pessoais</text>
+  <rect class="dg-swatch dg-swatch--rule" x="283.0" y="117" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="126" text-anchor="end">REGRA</text>
+  <text class="dg-line" x="30" y="151">CPF, CNPJ, RG, CEP, e-mail, telefone,</text>
+  <text class="dg-line" x="30" y="168">placa e matrícula; lista de nomes do IBGE</text>
+</g>
+  <g class="dg-step dg-step--ner">
+  <rect class="dg-node dg-node--ner" x="16" y="204" width="328" height="72" rx="2"></rect>
+  <text class="dg-title" x="30" y="230">Reconhecimento de nomes</text>
+  <rect class="dg-swatch dg-swatch--ner" x="297.8" y="217" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="226" text-anchor="end">NER</text>
+  <text class="dg-line" x="30" y="251">Modelo pequeno do spaCy acha pessoas</text>
+  <text class="dg-line" x="30" y="268">e lugares que as regras não cobrem</text>
+</g>
+  <g class="dg-divider">
+    <rect class="dg-redact" x="16" y="300" width="328" height="32" rx="2"></rect>
+    <text class="dg-redact-text" x="180" y="321" text-anchor="middle">Daqui em diante, só texto anonimizado</text>
+  </g>
+  <g class="dg-step dg-step--rule">
+  <rect class="dg-node dg-node--rule" x="16" y="356" width="328" height="72" rx="2"></rect>
+  <text class="dg-title" x="30" y="382">Léxico de risco</text>
+  <rect class="dg-swatch dg-swatch--rule" x="283.0" y="369" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="378" text-anchor="end">REGRA</text>
+  <text class="dg-line" x="30" y="403">Frases explícitas de assédio, violência</text>
+  <text class="dg-line" x="30" y="420">ou autolesão marcam o caso na hora</text>
+</g>
+  <g class="dg-step dg-step--llm">
+  <rect class="dg-node dg-node--llm" x="16" y="456" width="328" height="72" rx="12"></rect>
+  <text class="dg-title" x="30" y="482">Modelo de linguagem local</text>
+  <rect class="dg-swatch dg-swatch--llm" x="297.8" y="469" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="478" text-anchor="end">LLM</text>
+  <text class="dg-line" x="30" y="503">gemma4:e2b-it-qat no Ollama devolve temas,</text>
+  <text class="dg-line" x="30" y="520">sentimento e um primeiro sinal crítico</text>
+</g>
+  <g class="dg-step dg-step--llm">
+  <rect class="dg-node dg-node--llm" x="16" y="556" width="328" height="72" rx="12"></rect>
+  <text class="dg-title" x="30" y="582">Segunda leitura</text>
+  <rect class="dg-swatch dg-swatch--llm" x="297.8" y="569" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="578" text-anchor="end">LLM</text>
+  <text class="dg-line" x="30" y="603">Quando há sinal de risco, o modelo relê.</text>
+  <text class="dg-line" x="30" y="620">Na dúvida, o caso fica marcado.</text>
+</g>
+  <g class="dg-step dg-step--plain">
+  <rect class="dg-node dg-node--plain" x="16" y="676" width="158" height="88" rx="8"></rect>
+  <text class="dg-title" x="30" y="702">Painel</text>
+  <text class="dg-line" x="30" y="723">Grupos com 5 ou</text>
+  <text class="dg-line" x="30" y="740">mais respostas</text>
+</g>
+  <g class="dg-step dg-step--n8n">
+  <rect class="dg-node dg-node--n8n" x="186" y="676" width="158" height="88" rx="22"></rect>
+  <text class="dg-title" x="200" y="702">n8n</text>
+  <rect class="dg-swatch dg-swatch--n8n" x="297.8" y="689" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="334" y="698" text-anchor="end">N8N</text>
+  <text class="dg-line" x="200" y="723">Alertas, resumo</text>
+  <text class="dg-line" x="200" y="740">e limpeza</text>
+</g>
+</svg>
+        <figcaption class="note">As cores e as etiquetas indicam o tipo de cada peça. A mesma informação aparece em texto na lista numerada.</figcaption>
+      </figure>
+      <div class="how__text">
+        <h3>Legenda</h3>
+        <ul class="kind-legend">
+          <li>
+            <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--rule" x="2" y="2" width="40" height="24" rx="2"></rect><rect class="dg-swatch dg-swatch--rule" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
+            <span><span class="kind-tag">REGRA</span> <strong>Regra fixa:</strong> padrões, listas e dígitos verificadores. Sempre dá o mesmo resultado.</span>
+          </li>
+          <li>
+            <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--ner" x="2" y="2" width="40" height="24" rx="2"></rect><rect class="dg-swatch dg-swatch--ner" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
+            <span><span class="kind-tag">NER</span> <strong>Modelo pequeno:</strong> reconhecimento de nomes de pessoas e lugares com spaCy.</span>
+          </li>
+          <li>
+            <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--llm" x="2" y="2" width="40" height="24" rx="8"></rect><rect class="dg-swatch dg-swatch--llm" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
+            <span><span class="kind-tag">LLM</span> <strong>Modelo de linguagem:</strong> lê o texto anonimizado e devolve rótulos num formato fixo.</span>
+          </li>
+          <li>
+            <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--n8n" x="2" y="2" width="40" height="24" rx="12"></rect><rect class="dg-swatch dg-swatch--n8n" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
+            <span><span class="kind-tag">N8N</span> <strong>Automação:</strong> fluxos do n8n que avisam, resumem e limpam.</span>
+          </li>
+        </ul>
+        <h3>O diagrama em texto</h3>
+        <ol class="steps">
+          <li>
+            <strong>Resposta</strong>            <span class="steps__text">A resposta chega com nota de 0 a 10, área, tempo de casa e um comentário opcional.</span>
+          </li>
+          <li>
+            <strong>Regras de dados pessoais</strong> <span class="kind-tag">REGRA</span>            <span class="steps__text">Padrões e dígitos verificadores acham CPF, CNPJ, RG, CEP, e-mail, telefone, placa e matrícula. Uma lista de nomes do IBGE ajuda a achar nomes próprios.</span>
+          </li>
+          <li>
+            <strong>Reconhecimento de nomes</strong> <span class="kind-tag">NER</span>            <span class="steps__text">Um modelo pequeno do spaCy acha nomes de pessoas e lugares que as regras não cobrem. Cada achado vira um marcador como PESSOA. O texto original é descartado aqui.</span>
+          </li>
+          <li>
+            <strong>Léxico de risco</strong> <span class="kind-tag">REGRA</span>            <span class="steps__text">Frases explícitas de assédio, violência ou autolesão marcam o caso como crítico, mesmo que o modelo falhe.</span>
+          </li>
+          <li>
+            <strong>Modelo de linguagem local</strong> <span class="kind-tag">LLM</span>            <span class="steps__text">O modelo gemma4:e2b-it-qat, rodando no Ollama, devolve temas, sentimento e um primeiro sinal de caso crítico.</span>
+          </li>
+          <li>
+            <strong>Segunda leitura</strong> <span class="kind-tag">LLM</span>            <span class="steps__text">Quando há qualquer sinal de risco, o modelo relê o comentário com foco em casos críticos. Na dúvida, o caso fica marcado.</span>
+          </li>
+          <li>
+            <strong>Painel</strong>            <span class="steps__text">O painel mostra só grupos com 5 ou mais respostas.</span>
+          </li>
+          <li>
+            <strong>n8n</strong> <span class="kind-tag">N8N</span>            <span class="steps__text">O n8n apaga envios públicos depois de 30 dias e monitora a fila. Com o Telegram ligado, ele também manda os alertas e um resumo diário.</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="resultados">
+  <div class="wrap">
+    <header class="section-head">
+      <h2 id="results-title">Resultados</h2>
+      <p class="lead">Números medidos na base sintética. Cada um mostra quantos casos entraram na conta e como foi medido.</p>
+    </header>
+    <ul class="results-grid">
+      <li class="stat">
+        <p class="stat__label">Dados pessoais encontrados</p>
+        <p class="stat__value">97%</p>
+        <ul class="stat__meta">
+<li>n = 104 dados pessoais</li><li>IC 95%: 92% a 99%</li>        </ul>
+        <p class="stat__method">Parcela dos dados pessoais plantados na base sintética que o anonimizador trocou por marcadores.</p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Medido</span></p>
+
+      </li>
+      <li class="stat">
+        <p class="stat__label">Comentários com vazamento</p>
+        <p class="stat__value">1%</p>
+        <ul class="stat__meta">
+<li>n = 340 comentários</li>        </ul>
+        <p class="stat__method">Comentários em que sobrou pelo menos um dado pessoal plantado, entre os que tinham algum.</p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Medido</span></p>
+
+      </li>
+      <li class="stat stat--missing">
+        <p class="stat__label">Casos críticos encontrados</p>
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Ainda não medido</span></p>
+        <p class="stat__method">Casos críticos do conjunto de teste que o sistema marcou. É o número que mais importa: um caso perdido custa mais que um alarme falso.</p>
+        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Ainda não medido</span></p>
+
+      </li>
+      <li class="stat stat--missing">
+        <p class="stat__label">Alertas corretos</p>
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Ainda não medido</span></p>
+        <p class="stat__method">Entre os comentários marcados como críticos, a parcela que de fato era crítica.</p>
+        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Ainda não medido</span></p>
+
+      </li>
+      <li class="stat stat--missing">
+        <p class="stat__label">Sentimento correto</p>
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Ainda não medido</span></p>
+        <p class="stat__method">Comentários do conjunto de teste em que o sentimento bateu com a referência.</p>
+        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Ainda não medido</span></p>
+
+      </li>
+      <li class="stat stat--missing">
+        <p class="stat__label">Temas, F1 macro</p>
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Ainda não medido</span></p>
+        <p class="stat__method">Média do F1 de cada tema. Temas raros pesam o mesmo que temas comuns.</p>
+        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Ainda não medido</span></p>
+
+      </li>
+      <li class="stat stat--missing">
+        <p class="stat__label">Tempo por comentário</p>
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Ainda não medido</span></p>
+        <p class="stat__method">Mediana do tempo de classificação na CPU do servidor, sem GPU, depois do modelo carregado.</p>
+        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Ainda não medido</span></p>
+
+      </li>
+    </ul>
+
+    <div class="estimate" id="estimativa">
+      <header class="section-head section-head--sub">
+        <h3 id="estimate-title">Horas economizadas</h3>
+        <p class="badge badge--estimate"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#estimate"></use></svg><span>Estimativa</span></p>
+        <p class="lead">Uma conta simples para a sua realidade. Mude os valores da tabela e o resultado muda na hora.</p>
+        <p class="note">Os valores padrão são suposições de exemplo, não medições. O tempo de máquina vem da medição acima, quando existe.</p>
+      </header>
+      <form class="estimate__grid" id="estimator" novalidate aria-labelledby="estimate-title">
+        <div class="table-wrap">
+          <table class="table table--inputs">
+            <caption>Suposições da estimativa</caption>
+            <thead>
+              <tr><th scope="col">Suposição</th><th scope="col">Valor</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><label for="est-responses_per_cycle">Respostas por ciclo</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-responses_per_cycle" name="responses_per_cycle" type="text" inputmode="decimal" autocomplete="off" value="1.000" data-kind="count" data-min="1" data-max="1000000" aria-describedby="est-responses_per_cycle-unit est-responses_per_cycle-error">
+                    <span class="input-unit__unit" id="est-responses_per_cycle-unit">respostas</span>
+                  </span>
+                  <span class="field-error" id="est-responses_per_cycle-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-comment_share">Parcela com comentário</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-comment_share" name="comment_share" type="text" inputmode="decimal" autocomplete="off" value="45" data-kind="share" data-min="0" data-max="100" aria-describedby="est-comment_share-unit est-comment_share-error">
+                    <span class="input-unit__unit" id="est-comment_share-unit">%</span>
+                  </span>
+                  <span class="field-error" id="est-comment_share-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-minutes_read_classify">Minutos para ler e classificar um comentário</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-minutes_read_classify" name="minutes_read_classify" type="text" inputmode="decimal" autocomplete="off" value="1,5" data-kind="minutes" data-min="0" data-max="120" aria-describedby="est-minutes_read_classify-unit est-minutes_read_classify-error">
+                    <span class="input-unit__unit" id="est-minutes_read_classify-unit">min</span>
+                  </span>
+                  <span class="field-error" id="est-minutes_read_classify-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-minutes_anonymize">Minutos para anonimizar um comentário à mão</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-minutes_anonymize" name="minutes_anonymize" type="text" inputmode="decimal" autocomplete="off" value="1" data-kind="minutes" data-min="0" data-max="120" aria-describedby="est-minutes_anonymize-unit est-minutes_anonymize-error">
+                    <span class="input-unit__unit" id="est-minutes_anonymize-unit">min</span>
+                  </span>
+                  <span class="field-error" id="est-minutes_anonymize-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-cycles_per_year">Ciclos de pesquisa por ano</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-cycles_per_year" name="cycles_per_year" type="text" inputmode="decimal" autocomplete="off" value="2" data-kind="count" data-min="1" data-max="52" aria-describedby="est-cycles_per_year-unit est-cycles_per_year-error">
+                    <span class="input-unit__unit" id="est-cycles_per_year-unit">ciclos</span>
+                  </span>
+                  <span class="field-error" id="est-cycles_per_year-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-review_share">Parcela que ainda precisa de revisão humana</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-review_share" name="review_share" type="text" inputmode="decimal" autocomplete="off" value="15" data-kind="share" data-min="0" data-max="100" aria-describedby="est-review_share-unit est-review_share-error">
+                    <span class="input-unit__unit" id="est-review_share-unit">%</span>
+                  </span>
+                  <span class="field-error" id="est-review_share-error" hidden></span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="est-minutes_per_review">Minutos por revisão</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-minutes_per_review" name="minutes_per_review" type="text" inputmode="decimal" autocomplete="off" value="2" data-kind="minutes" data-min="0" data-max="120" aria-describedby="est-minutes_per_review-unit est-minutes_per_review-error">
+                    <span class="input-unit__unit" id="est-minutes_per_review-unit">min</span>
+                  </span>
+                  <span class="field-error" id="est-minutes_per_review-error" hidden></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="estimate__out">
+          <h4>Resultado da estimativa</h4>
+          <dl class="estimate__list">
+            <div><dt>Comentários por ano</dt><dd><span data-out="comments">900</span></dd></div>
+            <div><dt>Horas de trabalho manual por ano</dt><dd><span data-out="manual">37,5</span> h</dd></div>
+            <div><dt>Horas de revisão com o sistema</dt><dd><span data-out="review">4,5</span> h</dd></div>
+            <div class="estimate__main"><dt>Horas economizadas por ano</dt><dd><output data-out="saved" aria-live="polite">33,0 h</output></dd></div>
+            <div><dt>Tempo de máquina por ano</dt><dd><span class="muted">Ainda não medido</span></dd></div>
+          </dl>
+          <p><button class="btn btn--ghost btn--small" type="reset">Voltar aos valores padrão</button></p>
+          <details class="details">
+            <summary>Como a conta é feita</summary>
+            <ul class="formula">
+<li>Comentários por ano = respostas × parcela com comentário × ciclos.</li><li>Trabalho manual = comentários × (minutos de leitura + minutos de anonimização) ÷ 60.</li><li>Revisão com o sistema = comentários × parcela revisada × minutos por revisão ÷ 60.</li><li>Horas economizadas = trabalho manual menos revisão. O tempo de máquina usa a média medida por comentário e não conta como trabalho de pessoas.</li>            </ul>
+          </details>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="painel-resumo">
+  <div class="wrap preview">
+    <div class="preview__copy">
+      <header class="section-head">
+  <h2 id="preview-title">O painel</h2>
+<p class="lead">O painel mostra eNPS, temas, sentimento e casos críticos sem expor grupos pequenos.</p></header>
+      <p><a class="btn btn--secondary" href="/painel/">Ver o painel completo<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></a></p>
+    </div>
+    <div class="card preview__card">
+<p class="badge badge--sample"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#sample"></use></svg><span>Dados de exemplo</span></p>      <p class="preview__label">eNPS da base sintética</p>
+      <p class="hero-number">−13</p>
+      <p class="muted">480 respostas</p>
+      <svg class="seg-bar" width="100%" height="20" aria-hidden="true" focusable="false">
+        <rect class="seg seg--promoters" x="0.0%" y="0" width="23.5%" height="20"></rect>
+        <rect class="seg seg--passives" x="23.5%" y="0" width="39.6%" height="20"></rect>
+        <rect class="seg seg--detractors" x="63.1%" y="0" width="36.9%" height="20"></rect>
+      </svg>
+      <ul class="seg-legend" aria-label="Distribuição das respostas">
+        <li><span class="swatch swatch--promoters" aria-hidden="true"></span><span class="seg-legend__name">Promotores</span> <strong>24%</strong> <span class="muted">(113)</span></li>
+        <li><span class="swatch swatch--passives" aria-hidden="true"></span><span class="seg-legend__name">Neutros</span> <strong>40%</strong> <span class="muted">(190)</span></li>
+        <li><span class="swatch swatch--detractors" aria-hidden="true"></span><span class="seg-legend__name">Detratores</span> <strong>37%</strong> <span class="muted">(177)</span></li>
+      </ul>
+      <p class="note">eNPS é a porcentagem de promotores (notas 9 e 10) menos a de detratores (0 a 6). Vai de −100 a +100.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="privacidade-resumo">
+  <div class="wrap">
+    <header class="section-head">
+  <h2 id="privacy-summary-title">Privacidade</h2>
+<p class="lead">A demonstração foi desenhada para guardar o mínimo.</p></header>
+    <ul class="checklist">
+      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>O texto original do comentário não é gravado. Só a versão anonimizada.</span></li>
+      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>O endereço IP não é gravado. Ele só serve, em memória, para limitar envios em excesso.</span></li>
+      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Envios públicos são apagados depois de 30 dias.</span></li>
+      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Grupos com menos de 5 respostas não aparecem no painel.</span></li>
+    </ul>
+    <p class="more-link"><a href="/privacidade/">Ler a página de privacidade</a></p>
+  </div>
+</section>
+
+<section class="section section--cta" id="demo">
+  <div class="wrap cta">
+    <h2 id="demo-title">Teste com uma resposta fictícia</h2>
+    <p class="lead">Escreva como se trabalhasse na Talvana Distribuição, uma empresa inventada. Você recebe um código para acompanhar o resultado enquanto ele passa pela fila.</p>
+    <p><a class="btn btn--primary btn--large" href="/enviar/">Enviar uma resposta<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="wordmark wordmark--static" aria-hidden="true"><span class="wordmark__text">Voz sem</span> <span class="wordmark__bar"></span></p>
+    <div class="site-footer__text">
+      <p>Projeto de portfólio de <a href="https://andreiludescher.com">Andrei Ludescher</a>.</p>
+      <p>Dados sintéticos e envios fictícios. A Talvana Distribuição não existe.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Rodapé">
+      <ul>
+        <li><a href="https://github.com/AndreiLud/voz-sem-nome"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#github"></use></svg>Código no GitHub</a></li>
+        <li><a href="/privacidade/">Privacidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script type="application/json" id="page-data">{"lang":"pt","page":"home","strings":{"copy":"Copiar","copied":"Copiado","copy_failed":"Não deu para copiar. Selecione o texto e copie à mão.","estimate":{"title":"Horas economizadas","lead":"Uma conta simples para a sua realidade. Mude os valores da tabela e o resultado muda na hora.","note":"Os valores padrão são suposições de exemplo, não medições. O tempo de máquina vem da medição acima, quando existe.","table_caption":"Suposições da estimativa","col_assumption":"Suposição","col_value":"Valor","rows":{"responses_per_cycle":{"label":"Respostas por ciclo","unit":"respostas"},"comment_share":{"label":"Parcela com comentário","unit":"%"},"minutes_read_classify":{"label":"Minutos para ler e classificar um comentário","unit":"min"},"minutes_anonymize":{"label":"Minutos para anonimizar um comentário à mão","unit":"min"},"cycles_per_year":{"label":"Ciclos de pesquisa por ano","unit":"ciclos"},"review_share":{"label":"Parcela que ainda precisa de revisão humana","unit":"%"},"minutes_per_review":{"label":"Minutos por revisão","unit":"min"}},"outputs_title":"Resultado da estimativa","outputs":{"comments":"Comentários por ano","manual":"Horas de trabalho manual por ano","review":"Horas de revisão com o sistema","saved":"Horas economizadas por ano","machine":"Tempo de máquina por ano"},"machine_not_measured":"Ainda não medido","hours":"{value} h","formula_title":"Como a conta é feita","formula":["Comentários por ano = respostas × parcela com comentário × ciclos.","Trabalho manual = comentários × (minutos de leitura + minutos de anonimização) ÷ 60.","Revisão com o sistema = comentários × parcela revisada × minutos por revisão ÷ 60.","Horas economizadas = trabalho manual menos revisão. O tempo de máquina usa a média medida por comentário e não conta como trabalho de pessoas."],"reset":"Voltar aos valores padrão","invalid":"Use um número entre {min} e {max}."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"},"estimator":{"defaults":{"responses_per_cycle":1000,"comment_share":0.45,"minutes_read_classify":1.5,"minutes_anonymize":1.0,"cycles_per_year":2,"review_share":0.15,"minutes_per_review":2.0},"machine_s":null}}</script>
+</body>
+</html>

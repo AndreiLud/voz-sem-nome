@@ -1,0 +1,323 @@
+{
+  "sample": true,
+  "dataset": "public",
+  "generated_at": "2026-11-10T15:00:00.000+00:00",
+  "min_group_size": 5,
+  "totals": {
+    "responses": null,
+    "with_comment": null,
+    "enps": null,
+    "promoters": null,
+    "passives": null,
+    "detractors": null,
+    "pct_promoters": null,
+    "pct_passives": null,
+    "pct_detractors": null,
+    "critical": null
+  },
+  "by_area": [],
+  "other_areas": null,
+  "by_tenure": [],
+  "other_tenures": null,
+  "area_tenure": [
+    {
+      "area": "operacoes",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "operacoes",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "gt5",
+      "suppressed": true
+    }
+  ],
+  "themes": [
+    {
+      "code": "lid",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "rem",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "car",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "cre",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "rec",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "com",
+      "n": 1,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "eqp",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "flx",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "inf",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "bem",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "cul",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "out",
+      "n": 1,
+      "sentiment": {
+        "pos": 0,
+        "neu": 1,
+        "neg": 0
+      },
+      "critical": 0
+    }
+  ],
+  "critical": {
+    "total": 0,
+    "by_type": {
+      "am": 0,
+      "as": 0,
+      "di": 0,
+      "bo": 0,
+      "av": 0
+    },
+    "cases": []
+  },
+  "pipeline": {
+    "model": "qwen3.5:2b-q4_K_M",
+    "quantization": "Q4_K_M",
+    "prompt_version": "classify.v1",
+    "anonymizer_version": "1.0.0"
+  }
+}

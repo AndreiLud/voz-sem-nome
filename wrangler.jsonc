@@ -1,0 +1,66 @@
+{
+  // Every deploy applies this file over the dashboard: domains, workers.dev, previews,
+  // vars, bindings, cron and the compatibility date. Settings belong here. Secrets stay.
+  // Must match the Worker name in the Cloudflare dashboard.
+  "name": "voz-sem-nome",
+  // Only answers /api/* (see run_worker_first). Tests: node --test worker/test/
+  "main": "worker/index.js",
+  // Never a future date. Update it on purpose, then test.
+  "compatibility_date": "2026-11-10",
+  // fetch() to API_ORIGIN goes out through the public internet, like any visitor's request,
+  // so it reaches the tunnel hostname instead of being sent to an origin of this zone.
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "assets": {
+    // The static site built by `python -m enps.export.site`. Only this folder is uploaded,
+    // with its _headers file (CSP and cache rules).
+    "directory": "./site/public",
+    "binding": "ASSETS",
+    // Only the API runs the Worker; every other path is a static file and costs no
+    // Worker invocation.
+    "run_worker_first": ["/api/*"],
+    // /painel serves painel/index.html at /painel/.
+    "html_handling": "auto-trailing-slash",
+    // Unknown paths get the nearest 404.html (site/public/en/404.html under /en) with status 404.
+    "not_found_handling": "404-page"
+  },
+  // Custom Domains send every path to the Worker. This is the whole list: a deploy
+  // replaces the Worker's Custom Domains with it.
+  "routes": [
+    { "pattern": "voz-sem-nome.andreiludescher.com", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  // Workers Logs. A deploy without this key turns them off. The Worker never logs bodies.
+  "observability": { "enabled": true },
+  "vars": {
+    // Public hostname of the Cloudflare Tunnel in front of enps.api.public (port 8001).
+    // The Worker calls API_ORIGIN + /v1/public/...; the API refuses calls without
+    // the shared secret below.
+    "API_ORIGIN": "https://voz-sem-nome-api.andreiludescher.com"
+  },
+  // Last good copy of the dashboard and status answers, served when the origin is down.
+  // Written by the cron below only when the content changes.
+  "kv_namespaces": [
+    {
+      "binding": "SNAPSHOTS"
+      // Deploy step: create the namespace once with
+      //   npx wrangler kv namespace create voz-sem-nome-snapshots
+      // and add the printed id here as "id": "<id>". The id is not secret.
+    }
+  ],
+  // Per-IP limit on POST /api/v1/public/submissions, after Turnstile: 5 per 60 s per
+  // Cloudflare location. The API keeps its own stricter limits (config/settings.yaml).
+  // namespace_id is any number unique to this limit in the account.
+  "ratelimits": [
+    { "name": "RL", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+  ],
+  // Refresh the KV snapshots every 10 minutes.
+  "triggers": { "crons": ["*/10 * * * *"] }
+  // Secrets, set with `npx wrangler secret put <NAME>` (never in this file):
+  //   ORIGIN_SHARED_SECRET  same value as ORIGIN_SHARED_SECRET in the server's .env;
+  //                         sent to the API as X-Origin-Secret.
+  //   TURNSTILE_SECRET      secret key of the Turnstile widget whose site key is
+  //                         TURNSTILE_SITE_KEY at build time. For wrangler dev, put both
+  //                         in .dev.vars; the test secret 1x0000000000000000000000000000000AA
+  //                         always passes and 2x0000000000000000000000000000000AA always fails.
+}

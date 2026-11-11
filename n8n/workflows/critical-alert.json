@@ -1,0 +1,150 @@
+{
+  "id": "VsnCriticalAlert",
+  "name": "Critical alert",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "critical-alert",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "50f17bd0-9425-5ef6-9a8e-5769d325c179",
+      "name": "Critical case from worker",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "webhookId": "b1a183c7-508c-5a63-b908-2b140edd6f91"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://api-internal:8002/v1/internal/alerts/{{ $json.body.alert_id }}/sent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "316ce163-8cc2-560a-96cb-9e2285d43ef8",
+      "name": "Record delivery",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "// One item per external channel listed by the API (alerts.channels in config/settings.yaml).\n// With no channel configured nothing goes out: the alert is already recorded on the server.\nconst out = [];\nfor (const item of [{ json: $('Critical case from worker').first().json.body }]) {\n  const message = item.json.message_html;\n  for (const channel of item.json.channels || []) {\n    out.push({ json: { channel, message_html: message } });\n  }\n}\nreturn out;\n"
+      },
+      "id": "e0122db4-f67b-5ec7-993b-ea2a60b2a349",
+      "name": "Fan out to channels",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "VsnDeliverChan01",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "7de56bad-8d5a-5de6-949c-2869d69f54f2",
+      "name": "Deliver to channels",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Critical case from worker": {
+      "main": [
+        [
+          {
+            "node": "Record delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record delivery": {
+      "main": [
+        [
+          {
+            "node": "Fan out to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fan out to channels": {
+      "main": [
+        [
+          {
+            "node": "Deliver to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
+  "description": "The queue worker posts each critical case here. The alert is recorded as delivered on the server and sent to the optional channels, if any."
+}

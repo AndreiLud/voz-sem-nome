@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "themes": [
+    {
+      "code": "lid",
+      "label": {
+        "pt": "Liderança",
+        "en": "Leadership"
+      },
+      "definition": {
+        "pt": "Postura e atitude da gestão direta: apoio, feedback, cobrança, respeito, decisões do gestor.",
+        "en": "Direct management: support, feedback, pressure, respect, the manager's decisions."
+      }
+    },
+    {
+      "code": "rem",
+      "label": {
+        "pt": "Salário e benefícios",
+        "en": "Pay and benefits"
+      },
+      "definition": {
+        "pt": "Salário, reajuste, PLR, bônus, comissão, vale refeição, plano de saúde e outros benefícios.",
+        "en": "Salary, raises, profit sharing, bonus, commission, meal vouchers, health plan and other benefits."
+      }
+    },
+    {
+      "code": "car",
+      "label": {
+        "pt": "Carga de trabalho",
+        "en": "Workload"
+      },
+      "definition": {
+        "pt": "Volume de trabalho, prazos, horas extras, falta de gente na equipe, ritmo e pressão por metas.",
+        "en": "Amount of work, deadlines, overtime, understaffing, pace and target pressure."
+      }
+    },
+    {
+      "code": "cre",
+      "label": {
+        "pt": "Carreira e desenvolvimento",
+        "en": "Career and growth"
+      },
+      "definition": {
+        "pt": "Promoção, plano de carreira, critérios de crescimento, treinamento e aprendizado.",
+        "en": "Promotion, career paths, growth criteria, training and learning."
+      }
+    },
+    {
+      "code": "rec",
+      "label": {
+        "pt": "Reconhecimento",
+        "en": "Recognition"
+      },
+      "definition": {
+        "pt": "Se o esforço e os resultados são vistos, valorizados e agradecidos.",
+        "en": "Whether effort and results are noticed, valued and thanked."
+      }
+    },
+    {
+      "code": "com",
+      "label": {
+        "pt": "Comunicação e transparência",
+        "en": "Communication and transparency"
+      },
+      "definition": {
+        "pt": "Clareza das informações, mudanças comunicadas a tempo, transparência das decisões da empresa.",
+        "en": "Clear information, changes announced in time, transparency of company decisions."
+      }
+    },
+    {
+      "code": "eqp",
+      "label": {
+        "pt": "Colegas e equipe",
+        "en": "Team and peers"
+      },
+      "definition": {
+        "pt": "Relação com colegas, colaboração, clima entre pares, integração entre áreas.",
+        "en": "Relationships with peers, collaboration, team atmosphere, cooperation between teams."
+      }
+    },
+    {
+      "code": "flx",
+      "label": {
+        "pt": "Flexibilidade e modelo de trabalho",
+        "en": "Flexibility and work model"
+      },
+      "definition": {
+        "pt": "Home office, trabalho híbrido, horários, escala, folgas, banco de horas.",
+        "en": "Remote and hybrid work, schedules, shifts, days off, time bank."
+      }
+    },
+    {
+      "code": "inf",
+      "label": {
+        "pt": "Ferramentas e processos",
+        "en": "Tools and processes"
+      },
+      "definition": {
+        "pt": "Sistemas, equipamentos, estrutura física, burocracia e processos internos.",
+        "en": "Systems, equipment, facilities, bureaucracy and internal processes."
+      }
+    },
+    {
+      "code": "bem",
+      "label": {
+        "pt": "Saúde e bem-estar",
+        "en": "Health and well-being"
+      },
+      "definition": {
+        "pt": "Estresse, cansaço, ergonomia, segurança física no trabalho, ações de saúde. Casos graves também viram caso crítico.",
+        "en": "Stress, tiredness, ergonomics, physical safety at work, health programs. Severe cases are also flagged as critical."
+      }
+    },
+    {
+      "code": "cul",
+      "label": {
+        "pt": "Cultura e valores",
+        "en": "Culture and values"
+      },
+      "definition": {
+        "pt": "Valores da empresa, ética, diversidade e inclusão, propósito, coerência entre discurso e prática.",
+        "en": "Company values, ethics, diversity and inclusion, purpose, whether practice matches the message."
+      }
+    },
+    {
+      "code": "out",
+      "label": {
+        "pt": "Outro",
+        "en": "Other"
+      },
+      "definition": {
+        "pt": "Comentário que não se encaixa em nenhum tema acima. Use sozinho, nunca junto com outro tema.",
+        "en": "Comment that fits none of the themes above. Used alone, never with another theme."
+      }
+    }
+  ],
+  "sentiments": [
+    {
+      "code": "pos",
+      "label": {
+        "pt": "Positivo",
+        "en": "Positive"
+      },
+      "definition": {
+        "pt": "O tom geral é de satisfação ou elogio.",
+        "en": "The overall tone is satisfied or praising."
+      }
+    },
+    {
+      "code": "neu",
+      "label": {
+        "pt": "Neutro",
+        "en": "Neutral"
+      },
+      "definition": {
+        "pt": "Sem tom claro, apenas informativo, ou elogio e crítica com o mesmo peso.",
+        "en": "No clear tone, just informative, or praise and criticism with equal weight."
+      }
+    },
+    {
+      "code": "neg",
+      "label": {
+        "pt": "Negativo",
+        "en": "Negative"
+      },
+      "definition": {
+        "pt": "O tom geral é de insatisfação ou crítica, inclusive quando a crítica vem com ironia.",
+        "en": "The overall tone is dissatisfied or critical, including criticism expressed through irony."
+      }
+    }
+  ],
+  "critical_types": [
+    {
+      "code": "am",
+      "label": {
+        "pt": "Assédio moral",
+        "en": "Workplace bullying"
+      },
+      "definition": {
+        "pt": "Humilhação, gritos, xingamentos, exposição ao ridículo, perseguição, isolamento proposital, ameaça de demissão como forma de pressão.",
+        "en": "Humiliation, shouting, insults, public ridicule, persecution, deliberate isolation, threats of dismissal used as pressure."
+      }
+    },
+    {
+      "code": "as",
+      "label": {
+        "pt": "Assédio sexual",
+        "en": "Sexual harassment"
+      },
+      "definition": {
+        "pt": "Investidas, comentários sobre corpo ou roupa, toques, convites insistentes, chantagem de cunho sexual.",
+        "en": "Advances, comments about body or clothing, touching, insistent invitations, sexual coercion."
+      }
+    },
+    {
+      "code": "di",
+      "label": {
+        "pt": "Discriminação",
+        "en": "Discrimination"
+      },
+      "definition": {
+        "pt": "Tratamento desigual ou piadas por raça, gênero, orientação sexual, idade, deficiência, religião, origem ou gravidez.",
+        "en": "Unequal treatment or jokes based on race, gender, sexual orientation, age, disability, religion, origin or pregnancy."
+      }
+    },
+    {
+      "code": "bo",
+      "label": {
+        "pt": "Burnout e saúde mental",
+        "en": "Burnout and mental health"
+      },
+      "definition": {
+        "pt": "Esgotamento grave, crises de ansiedade ou pânico, uso de remédio para aguentar o trabalho, choro frequente, qualquer menção a se machucar ou a não querer viver.",
+        "en": "Severe exhaustion, anxiety or panic attacks, medication to cope with work, frequent crying, any mention of self-harm or not wanting to live."
+      }
+    },
+    {
+      "code": "av",
+      "label": {
+        "pt": "Ameaça ou violência",
+        "en": "Threat or violence"
+      },
+      "definition": {
+        "pt": "Agressão física, ameaça, intimidação, briga, arma, risco à integridade física de alguém.",
+        "en": "Physical aggression, threats, intimidation, fights, weapons, risk to someone's physical safety."
+      }
+    }
+  ],
+  "areas": [
+    {
+      "code": "operacoes",
+      "label": {
+        "pt": "Operações",
+        "en": "Operations"
+      }
+    },
+    {
+      "code": "transporte",
+      "label": {
+        "pt": "Transporte",
+        "en": "Transport"
+      }
+    },
+    {
+      "code": "atendimento",
+      "label": {
+        "pt": "Atendimento",
+        "en": "Customer service"
+      }
+    },
+    {
+      "code": "comercial",
+      "label": {
+        "pt": "Comercial",
+        "en": "Sales"
+      }
+    },
+    {
+      "code": "tecnologia",
+      "label": {
+        "pt": "Tecnologia",
+        "en": "Technology"
+      }
+    },
+    {
+      "code": "financeiro",
+      "label": {
+        "pt": "Financeiro",
+        "en": "Finance"
+      }
+    },
+    {
+      "code": "pessoas",
+      "label": {
+        "pt": "Pessoas e Cultura",
+        "en": "People and Culture"
+      }
+    },
+    {
+      "code": "juridico",
+      "label": {
+        "pt": "Jurídico",
+        "en": "Legal"
+      }
+    }
+  ],
+  "tenure_bands": [
+    {
+      "code": "lt1",
+      "label": {
+        "pt": "Menos de 1 ano",
+        "en": "Less than 1 year"
+      }
+    },
+    {
+      "code": "y1to3",
+      "label": {
+        "pt": "De 1 a 3 anos",
+        "en": "1 to 3 years"
+      }
+    },
+    {
+      "code": "y3to5",
+      "label": {
+        "pt": "De 3 a 5 anos",
+        "en": "3 to 5 years"
+      }
+    },
+    {
+      "code": "gt5",
+      "label": {
+        "pt": "Mais de 5 anos",
+        "en": "More than 5 years"
+      }
+    }
+  ],
+  "placeholders": [
+    {
+      "code": "PESSOA",
+      "label": {
+        "pt": "nome de pessoa",
+        "en": "person's name"
+      }
+    },
+    {
+      "code": "LOCAL",
+      "label": {
+        "pt": "lugar",
+        "en": "place"
+      }
+    },
+    {
+      "code": "EMAIL",
+      "label": {
+        "pt": "e-mail",
+        "en": "email address"
+      }
+    },
+    {
+      "code": "TELEFONE",
+      "label": {
+        "pt": "telefone",
+        "en": "phone number"
+      }
+    },
+    {
+      "code": "CPF",
+      "label": {
+        "pt": "CPF",
+        "en": "CPF, Brazilian taxpayer number"
+      }
+    },
+    {
+      "code": "CNPJ",
+      "label": {
+        "pt": "CNPJ",
+        "en": "CNPJ, Brazilian company number"
+      }
+    },
+    {
+      "code": "RG",
+      "label": {
+        "pt": "RG",
+        "en": "RG, Brazilian ID card"
+      }
+    },
+    {
+      "code": "CEP",
+      "label": {
+        "pt": "CEP",
+        "en": "CEP, Brazilian postal code"
+      }
+    },
+    {
+      "code": "MATRICULA",
+      "label": {
+        "pt": "matrícula",
+        "en": "employee ID"
+      }
+    },
+    {
+      "code": "PLACA",
+      "label": {
+        "pt": "placa de veículo",
+        "en": "license plate"
+      }
+    },
+    {
+      "code": "DOCUMENTO",
+      "label": {
+        "pt": "outro documento",
+        "en": "other document"
+      }
+    },
+    {
+      "code": "ofensivo",
+      "label": {
+        "pt": "palavrão, nos trechos públicos",
+        "en": "swear word, in public excerpts"
+      }
+    }
+  ],
+  "question": {
+    "pt": "Numa escala de 0 a 10, quanto você recomendaria a empresa como lugar para trabalhar?",
+    "en": "On a scale from 0 to 10, how likely are you to recommend the company as a place to work?"
+  }
+}

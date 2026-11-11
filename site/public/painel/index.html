@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Painel | Voz sem nome</title>
+<meta name="description" content="eNPS, temas, sentimento e casos críticos da Talvana Distribuição, empresa fictícia, com grupo mínimo de respostas.">
+<link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/painel/">
+<link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/painel/">
+<link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/dashboard/">
+<link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/painel/">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voz sem nome">
+<meta property="og:title" content="Painel | Voz sem nome">
+<meta property="og:description" content="eNPS, temas, sentimento e casos críticos da Talvana Distribuição, empresa fictícia, com grupo mínimo de respostas.">
+<meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/painel/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-pt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Painel | Voz sem nome">
+<meta name="twitter:description" content="eNPS, temas, sentimento e casos críticos da Talvana Distribuição, empresa fictícia, com grupo mínimo de respostas.">
+<meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-pt.png">
+<meta name="twitter:image:alt" content="Voz sem nome: pesquisa de clima e eNPS com IA local">
+<script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="dashboard">
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="/" aria-label="Voz sem nome, página inicial">
+      <span class="wordmark__text" aria-hidden="true">Voz sem</span>
+      <span class="wordmark__bar" aria-hidden="true"></span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <span class="lang-switch__item is-current" aria-hidden="true">PT</span>
+      <a class="lang-switch__item" id="lang-toggle" href="/en/dashboard/" hreflang="en" lang="en" data-lang="en">EN<span class="visually-hidden"> English version</span></a>
+    </div>
+    <nav class="site-nav" aria-label="Principal">
+      <ul class="site-nav__list">
+        <li><a href="/#como-funciona">Como funciona</a></li>
+        <li><a href="/painel/" aria-current="page">Painel</a></li>
+        <li><a href="/enviar/">Demo</a></li>
+        <li><a href="/privacidade/">Privacidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <h1>Painel</h1>
+    <p class="lead">Resultados da pesquisa de clima da Talvana Distribuição, empresa fictícia. A base sintética tem respostas criadas para o projeto. Os envios públicos vêm da demo.</p>
+  </div>
+</div>
+
+<div class="wrap dashboard" data-dashboard>
+  <div class="dash-controls">
+    <div class="segmented" role="group" aria-label="Escolha da base" data-slot="dataset-toggle">
+      <button class="segmented__btn" type="button" aria-pressed="true" data-dataset="synthetic">Base sintética</button>
+      <button class="segmented__btn" type="button" aria-pressed="false" data-dataset="public">Envios públicos</button>
+    </div>
+    <p class="dash-freshness note" data-slot="freshness"></p>
+  </div>
+
+  <div class="dash-banners" data-slot="banners">
+    <p class="badge badge--sample" data-slot="sample-badge" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#sample"></use></svg><span>Dados de exemplo</span></p>
+    <div class="alert alert--warning" data-slot="snapshot-banner" role="status" hidden>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#clock"></use></svg><p data-slot="snapshot-text"></p>
+    </div>
+    <div class="alert alert--info" data-slot="static-banner" hidden>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>A análise ao vivo não respondeu. Mostrando o arquivo publicado junto com o site.</p>
+    </div>
+  </div>
+
+  <p class="note dash-k"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Grupos com menos de 5 respostas não aparecem. Áreas e tempos de casa pequenos entram juntos num grupo sem nome.</span></p>
+
+  <noscript>
+    <div class="alert alert--info"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>O painel usa JavaScript para desenhar os gráficos. Os dados da base sintética estão em <a href="/data/dashboard-synthetic.json">dashboard-synthetic.json</a>.</p></div>
+  </noscript>
+
+  <div class="dash-status" data-slot="status" role="status"></div>
+
+  <div class="empty-state" data-slot="small-state" hidden>
+    <p data-slot="small-text">Os envios públicos ainda não chegaram a 5 respostas. Os números aparecem quando houver respostas suficientes para ninguém ser identificado.</p>
+    <p data-slot="small-cta"><a class="btn btn--primary" href="/enviar/">Enviar uma resposta fictícia<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></a></p>
+  </div>
+
+  <p id="viz-keys-hint" class="visually-hidden">Use as setas do teclado para passar pelos valores do gráfico. Os mesmos números estão na tabela logo abaixo.</p>
+
+  <div class="dash-grid" data-slot="content" hidden>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-overview">
+      <h2 id="dash-overview">eNPS geral</h2>
+      <p class="note">eNPS é a porcentagem de promotores (notas 9 e 10) menos a de detratores (0 a 6). Vai de −100 a +100.</p>
+      <div class="dash-panel__body" data-slot="overview"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-area">
+      <h2 id="dash-by-area">eNPS por área</h2>
+      <div class="dash-panel__body" data-slot="by-area"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-tenure">
+      <h2 id="dash-by-tenure">eNPS por tempo de casa</h2>
+      <div class="dash-panel__body" data-slot="by-tenure"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-themes">
+      <h2 id="dash-themes">Temas</h2>
+      <p class="note">Quantos comentários citam cada tema e o sentimento desses comentários. Um comentário pode ter mais de um tema.</p>
+      <div class="dash-panel__body" data-slot="themes"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-heatmap">
+      <h2 id="dash-heatmap">Temas por área</h2>
+      <p class="note">Parcela dos comentários de cada área que cita o tema. Na tabela, o número entre parênteses é a contagem de comentários.</p>
+      <div class="dash-panel__body" data-slot="heatmap"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-critical">
+      <h2 id="dash-critical">Casos críticos</h2>
+      <p class="note">Trechos anonimizados. A área aparece só quando o grupo tem 5 ou mais respostas. O tempo de casa nunca aparece.</p>
+      <div class="dash-panel__body" data-slot="critical"></div>
+    </section>
+  </div>
+
+  <section class="dash-panel" aria-labelledby="dash-production" data-slot="production-section" hidden>
+    <h2 id="dash-production">Fila e produção</h2>
+    <p class="note">Como a demo pública está funcionando agora.</p>
+    <div class="dash-panel__body" data-slot="production"></div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="wordmark wordmark--static" aria-hidden="true"><span class="wordmark__text">Voz sem</span> <span class="wordmark__bar"></span></p>
+    <div class="site-footer__text">
+      <p>Projeto de portfólio de <a href="https://andreiludescher.com">Andrei Ludescher</a>.</p>
+      <p>Dados sintéticos e envios fictícios. A Talvana Distribuição não existe.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Rodapé">
+      <ul>
+        <li><a href="https://github.com/AndreiLud/voz-sem-nome"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#github"></use></svg>Código no GitHub</a></li>
+        <li><a href="/privacidade/">Privacidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script type="application/json" id="page-data">{"lang":"pt","page":"dashboard","strings":{"copy":"Copiar","copied":"Copiado","copy_failed":"Não deu para copiar. Selecione o texto e copie à mão.","dashboard":{"title":"Painel","lead":"Resultados da pesquisa de clima da Talvana Distribuição, empresa fictícia. A base sintética tem respostas criadas para o projeto. Os envios públicos vêm da demo.","controls_label":"Escolha da base","datasets":{"synthetic":"Base sintética","public":"Envios públicos"},"loading":"Carregando o painel.","error":"Não foi possível carregar o painel. Tente de novo em alguns minutos.","retry":"Tentar de novo","refresh_failed":"A última atualização falhou. Os números abaixo são de {datetime}.","snapshot_banner":"Análise ao vivo fora do ar. Mostrando o retrato de {datetime}.","static_banner":"A análise ao vivo não respondeu. Mostrando o arquivo publicado junto com o site.","freshness_live":"Dados ao vivo, gerados em {datetime}.","freshness_static":"Dados gerados em {datetime}.","showing":"Mostrando: {dataset}.","min_group_note":"Grupos com menos de {k} respostas não aparecem. Áreas e tempos de casa pequenos entram juntos num grupo sem nome.","small_public":"Os envios públicos ainda não chegaram a {k} respostas. Os números aparecem quando houver respostas suficientes para ninguém ser identificado.","small_synthetic":"A base sintética ainda não tem respostas suficientes para mostrar números.","small_cta":"Enviar uma resposta fictícia","show_table":"Ver tabela","keys_hint":"Use as setas do teclado para passar pelos valores do gráfico. Os mesmos números estão na tabela logo abaixo.","other_areas":"Outras áreas (agrupadas)","other_tenures":"Outros tempos de casa (agrupados)","merged_note":{"areas":"{other} junta as áreas com menos de {k} respostas. Se esse grupo ainda ficar pequeno, a menor área visível entra nele também.","tenures":"{other} junta os tempos de casa com menos de {k} respostas. Se esse grupo ainda ficar pequeno, o menor grupo visível entra nele também."},"enps_explainer":"eNPS é a porcentagem de promotores (notas 9 e 10) menos a de detratores (0 a 6). Vai de −100 a +100.","groups_none":"Nenhum grupo tem respostas suficientes para aparecer.","themes_none":"Ainda não há comentários classificados nesta base.","themes_zero":"Sem menções nesta base: {themes}.","heat_empty":"Sem comentários classificados: {areas}.","overview_legend":"Grupos de nota","sentiment_legend":"Sentimento","heat_legend":{"title":"Parcela dos comentários da área","zero":"Nenhum","first":"até {hi}","range":"{lo} a {hi}"},"sections":{"overview":"eNPS geral","by_area":"eNPS por área","by_tenure":"eNPS por tempo de casa","themes":"Temas","heatmap":"Temas por área","critical":"Casos críticos","production":"Fila e produção"},"section_notes":{"themes":"Quantos comentários citam cada tema e o sentimento desses comentários. Um comentário pode ter mais de um tema.","heatmap":"Parcela dos comentários de cada área que cita o tema. Na tabela, o número entre parênteses é a contagem de comentários.","critical":"Trechos anonimizados. A área aparece só quando o grupo tem {k} ou mais respostas. O tempo de casa nunca aparece.","production":"Como a demo pública está funcionando agora."},"charts":{"overview":"Divisão das respostas entre promotores, neutros e detratores","by_area":"Gráfico de eNPS por área","by_tenure":"Gráfico de eNPS por tempo de casa","themes":"Gráfico de temas com o sentimento dos comentários","heatmap":"Mapa de calor de temas por área"},"summaries":{"groups":"Maior eNPS: {top}, {top_value}. Menor: {bottom}, {bottom_value}.","themes":"Tema mais citado: {theme}, em {count}.","heatmap":"Maior parcela: {theme} em {area}, citado em {share} dos comentários da área."},"units":{"answers_one":"{n} resposta","answers_other":"{n} respostas","comments_one":"{n} comentário","comments_other":"{n} comentários"},"marks":{"group":"{name}: eNPS {value}, {answers}.","part":"{name}: {count}, {share} das respostas.","theme":"{name}: {count}. {split}.","heat":"{theme} em {area}: {share}, {n} de {total} comentários."},"tips":{"split":"{promoters} promotores, {passives} neutros, {detractors} detratores","heat":"{n} de {total} comentários da área","of_answers":"das respostas"},"critical_types":"Casos por tipo","critical_recent":"Trechos mais recentes","critical_show_all":"Mostrar todos os {n} casos","critical_show_less":"Mostrar menos","critical_area_hidden":"Área oculta","critical_themes":"Temas: {themes}","critical_empty":"Nenhum caso crítico nesta base.","labels":{"promoters":"Promotores","passives":"Neutros","detractors":"Detratores","responses":"Respostas","with_comment":"Com comentário","critical":"Casos críticos","enps":"eNPS","count":"Comentários","share":"Parcela","group":"Grupo","area":"Área","tenure":"Tempo de casa","theme":"Tema"},"queue":{"title":"Fila agora","pending":"Na fila","processing":"Em análise","eta":"Espera estimada","eta_none":"Sem estimativa","worker":"Analisador","worker_online":"Ligado","worker_offline":"Desligado","worker_unknown":"Sem sinal","went_online":"O analisador voltou a funcionar.","went_offline":"O analisador parou de responder.","full":"A fila está cheia. Novos envios voltam a entrar quando ela andar.","error":"Não foi possível ler o estado da fila agora."},"production":{"title":"Desde o início da demo","since":"Desde {date}","none":"Sem dados","submissions":"Envios","distinct":"Pessoas diferentes","median":"Tempo até o resultado, mediana","p95":"Tempo até o resultado, p95","alerts":"Alertas enviados"},"noscript":"O painel usa JavaScript para desenhar os gráficos. Os dados da base sintética estão em [dashboard-synthetic.json](/data/dashboard-synthetic.json)."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"}}</script>
+</body>
+</html>

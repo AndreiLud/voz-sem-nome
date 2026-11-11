@@ -1,0 +1,60 @@
+{"id": "S0007", "spans": [{"start": 75, "end": 81, "type": "PESSOA", "text": "Sérgio"}, {"start": 88, "end": 93, "type": "MATRICULA", "text": "85830"}, {"start": 106, "end": 121, "type": "TELEFONE", "text": "(31) 90628-9074"}]}
+{"id": "S0009", "spans": [{"start": 2, "end": 6, "type": "PESSOA", "text": "José"}, {"start": 11, "end": 17, "type": "PESSOA", "text": "Thiago"}]}
+{"id": "S0011", "spans": [{"start": 53, "end": 76, "type": "PESSOA", "text": "Márcia Ferreira Martins"}, {"start": 78, "end": 105, "type": "EMAIL", "text": "marcia_ferreira@example.org"}]}
+{"id": "S0013", "spans": [{"start": 0, "end": 19, "type": "PESSOA", "text": "Luiz Carlos Moreira"}, {"start": 26, "end": 31, "type": "MATRICULA", "text": "17919"}, {"start": 55, "end": 63, "type": "PLACA", "text": "SAM-9512"}]}
+{"id": "S0018", "spans": [{"start": 63, "end": 70, "type": "PESSOA", "text": "Letícia"}, {"start": 75, "end": 80, "type": "PESSOA", "text": "Diego"}]}
+{"id": "S0028", "spans": [{"start": 12, "end": 29, "type": "PESSOA", "text": "Daniela Fernandes"}, {"start": 38, "end": 50, "type": "PESSOA", "text": "Felipe Silva"}]}
+{"id": "S0032", "spans": [{"start": 18, "end": 31, "type": "PESSOA", "text": "Paulo Ribeiro"}]}
+{"id": "S0033", "spans": [{"start": 29, "end": 40, "type": "CPF", "text": "88189156036"}]}
+{"id": "S0038", "spans": [{"start": 0, "end": 20, "type": "PESSOA", "text": "Mariana Almeida Lima"}, {"start": 26, "end": 37, "type": "CPF", "text": "47416659345"}, {"start": 42, "end": 52, "type": "RG", "text": "16858723-0"}]}
+{"id": "S0042", "spans": [{"start": 13, "end": 17, "type": "LOCAL", "text": "Mauá"}]}
+{"id": "S0044", "spans": [{"start": 50, "end": 60, "type": "PESSOA", "text": "João Pedro"}]}
+{"id": "S0055", "spans": [{"start": 40, "end": 52, "type": "RG", "text": "45.243.413-0"}]}
+{"id": "S0057", "spans": [{"start": 51, "end": 64, "type": "RG", "text": "RJ-26.513.687"}]}
+{"id": "S0059", "spans": [{"start": 69, "end": 77, "type": "PESSOA", "text": "Gabriela"}, {"start": 112, "end": 127, "type": "TELEFONE", "text": "(21) 90751-5238"}]}
+{"id": "S0063", "spans": [{"start": 103, "end": 107, "type": "PESSOA", "text": "João"}, {"start": 111, "end": 124, "type": "TELEFONE", "text": "81 90644-7507"}]}
+{"id": "S0065", "spans": [{"start": 2, "end": 7, "type": "PESSOA", "text": "Lucas"}]}
+{"id": "S0071", "spans": [{"start": 16, "end": 21, "type": "MATRICULA", "text": "16502"}]}
+{"id": "S0076", "spans": [{"start": 109, "end": 122, "type": "TELEFONE", "text": "51 90564-2898"}, {"start": 126, "end": 146, "type": "EMAIL", "text": "diego982@example.com"}]}
+{"id": "S0081", "spans": [{"start": 47, "end": 52, "type": "MATRICULA", "text": "57630"}]}
+{"id": "S0095", "spans": [{"start": 2, "end": 8, "type": "PESSOA", "text": "Carlos"}, {"start": 13, "end": 19, "type": "PESSOA", "text": "Débora"}]}
+{"id": "S0100", "spans": [{"start": 104, "end": 125, "type": "EMAIL", "text": "m.barbosa@example.org"}]}
+{"id": "S0111", "spans": [{"start": 4, "end": 18, "type": "PESSOA", "text": "Jéssica Soares"}, {"start": 24, "end": 35, "type": "CPF", "text": "67052436728"}, {"start": 45, "end": 59, "type": "LOCAL", "text": "embu das artes"}]}
+{"id": "S0134", "spans": [{"start": 2, "end": 9, "type": "PESSOA", "text": "Ricardo"}, {"start": 45, "end": 70, "type": "EMAIL", "text": "ricardo_ramos@example.com"}]}
+{"id": "S0135", "spans": [{"start": 19, "end": 36, "type": "PESSOA", "text": "Raquel Nascimento"}, {"start": 41, "end": 47, "type": "PESSOA", "text": "Marcos"}]}
+{"id": "S0157", "spans": [{"start": 0, "end": 16, "type": "PESSOA", "text": "Ana Paula Mendes"}, {"start": 21, "end": 33, "type": "RG", "text": "37.611.550-6"}]}
+{"id": "S0172", "spans": [{"start": 67, "end": 81, "type": "PESSOA", "text": "Bruna Carvalho"}, {"start": 93, "end": 99, "type": "MATRICULA", "text": "072890"}, {"start": 110, "end": 125, "type": "TELEFONE", "text": "(81) 90623-0606"}]}
+{"id": "S0175", "spans": [{"start": 11, "end": 18, "type": "PLACA", "text": "WFK1R79"}]}
+{"id": "S0183", "spans": [{"start": 0, "end": 14, "type": "PESSOA", "text": "Márcio Machado"}, {"start": 24, "end": 37, "type": "TELEFONE", "text": "91 90380-5148"}]}
+{"id": "S0187", "spans": [{"start": 44, "end": 60, "type": "PESSOA", "text": "Wellington Gomes"}]}
+{"id": "S0191", "spans": [{"start": 115, "end": 131, "type": "PESSOA", "text": "Vanessa Teixeira"}, {"start": 137, "end": 163, "type": "EMAIL", "text": "vanessa331@talvana.example"}]}
+{"id": "S0192", "spans": [{"start": 2, "end": 9, "type": "PESSOA", "text": "natalia"}]}
+{"id": "S0193", "spans": [{"start": 2, "end": 10, "type": "PESSOA", "text": "Fernanda"}, {"start": 31, "end": 42, "type": "CPF", "text": "19020091368"}, {"start": 52, "end": 64, "type": "RG", "text": "55.148.377-3"}]}
+{"id": "S0201", "spans": [{"start": 11, "end": 18, "type": "PLACA", "text": "GYJ7Y84"}]}
+{"id": "S0222", "spans": [{"start": 149, "end": 157, "type": "PESSOA", "text": "Priscila"}, {"start": 162, "end": 189, "type": "EMAIL", "text": "priscila582@talvana.example"}, {"start": 196, "end": 211, "type": "TELEFONE", "text": "(61) 90437-6019"}]}
+{"id": "S0238", "spans": [{"start": 2, "end": 7, "type": "PESSOA", "text": "Aline"}, {"start": 12, "end": 25, "type": "PESSOA", "text": "Maria Eduarda"}]}
+{"id": "S0256", "spans": [{"start": 59, "end": 66, "type": "PESSOA", "text": "Leandro"}]}
+{"id": "S0259", "spans": [{"start": 6, "end": 12, "type": "PESSOA", "text": "Amanda"}, {"start": 24, "end": 30, "type": "MATRICULA", "text": "053700"}, {"start": 40, "end": 45, "type": "LOCAL", "text": "Perus"}]}
+{"id": "S0261", "spans": [{"start": 0, "end": 15, "type": "PESSOA", "text": "Rodrigo Marques"}, {"start": 21, "end": 35, "type": "CPF", "text": "391.364.872-97"}]}
+{"id": "S0267", "spans": [{"start": 11, "end": 22, "type": "LOCAL", "text": "Parelheiros"}]}
+{"id": "S0268", "spans": [{"start": 29, "end": 35, "type": "MATRICULA", "text": "061957"}]}
+{"id": "S0271", "spans": [{"start": 66, "end": 80, "type": "PESSOA", "text": "Anderson Nunes"}]}
+{"id": "S0273", "spans": [{"start": 63, "end": 70, "type": "PESSOA", "text": "Antônio"}]}
+{"id": "S0286", "spans": [{"start": 2, "end": 8, "type": "PESSOA", "text": "cleber"}]}
+{"id": "S0293", "spans": [{"start": 65, "end": 90, "type": "LOCAL", "text": "Avenida Santa Luzia, 1182"}, {"start": 96, "end": 104, "type": "CEP", "text": "64364276"}]}
+{"id": "S0307", "spans": [{"start": 12, "end": 17, "type": "PESSOA", "text": "Edson"}, {"start": 30, "end": 37, "type": "PLACA", "text": "LNR3B54"}]}
+{"id": "S0308", "spans": [{"start": 87, "end": 108, "type": "EMAIL", "text": "renata502@example.org"}]}
+{"id": "S0309", "spans": [{"start": 86, "end": 93, "type": "PESSOA", "text": "Roberto"}]}
+{"id": "S0319", "spans": [{"start": 77, "end": 85, "type": "LOCAL", "text": "pirituba"}, {"start": 90, "end": 97, "type": "LOCAL", "text": "cajamar"}]}
+{"id": "S0325", "spans": [{"start": 22, "end": 27, "type": "MATRICULA", "text": "68664"}]}
+{"id": "S0327", "spans": [{"start": 64, "end": 71, "type": "PESSOA", "text": "Luciana"}, {"start": 76, "end": 81, "type": "PESSOA", "text": "André"}]}
+{"id": "S0329", "spans": [{"start": 19, "end": 27, "type": "LOCAL", "text": "Sorocaba"}, {"start": 49, "end": 54, "type": "PESSOA", "text": "Bruno"}]}
+{"id": "S0346", "spans": [{"start": 2, "end": 17, "type": "PESSOA", "text": "Fábio Rodrigues"}, {"start": 22, "end": 36, "type": "PESSOA", "text": "Patrícia Rocha"}]}
+{"id": "S0355", "spans": [{"start": 17, "end": 40, "type": "LOCAL", "text": "Rua dos Girassóis, 1706"}, {"start": 46, "end": 55, "type": "CEP", "text": "13088-376"}, {"start": 60, "end": 69, "type": "LOCAL", "text": "Guarulhos"}]}
+{"id": "S0358", "spans": [{"start": 87, "end": 96, "type": "CEP", "text": "92598-742"}, {"start": 100, "end": 125, "type": "LOCAL", "text": "avenida monte alegre 1139"}]}
+{"id": "S0363", "spans": [{"start": 79, "end": 100, "type": "PESSOA", "text": "Everton Ramos Barbosa"}]}
+{"id": "S0373", "spans": [{"start": 43, "end": 57, "type": "PESSOA", "text": "Wesley Pereira"}, {"start": 66, "end": 92, "type": "EMAIL", "text": "wesley_pereira@example.com"}, {"start": 102, "end": 117, "type": "TELEFONE", "text": "(47) 90171-2723"}]}
+{"id": "S0389", "spans": [{"start": 7, "end": 12, "type": "PESSOA", "text": "Graça"}]}
+{"id": "S0392", "spans": [{"start": 40, "end": 54, "type": "CPF", "text": "827.125.776-45"}]}
+{"id": "S0394", "spans": [{"start": 77, "end": 88, "type": "TELEFONE", "text": "43904778681"}]}
+{"id": "S0395", "spans": [{"start": 20, "end": 46, "type": "LOCAL", "text": "Rua Sete de Setembro, 1235"}, {"start": 48, "end": 56, "type": "LOCAL", "text": "Itaquera"}, {"start": 62, "end": 71, "type": "CEP", "text": "93297-696"}]}

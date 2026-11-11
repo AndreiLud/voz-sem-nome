@@ -1,0 +1,255 @@
+# Risk lexicon for critical comments. It runs on the ANONYMIZED text after lower-casing and
+# removing accents, so patterns are written without accents ("nao", "assedio", "ameac").
+#
+# strong: explicit wording. A strong hit alone makes the comment critical.
+# weak:   indirect signals. They send the comment to the verifier, and their type is added
+#         only when a model also says the comment is critical.
+# A strong hit preceded by a negation word (within `negation.window` words of the same clause)
+# becomes weak: "nunca sofri assedio" still gets a second look, but does not raise an alert alone.
+#
+# Patterns are Python regular expressions matched on whole words: the loader wraps each one in
+# (?<!\w)(?: ... )(?!\w), so stems need an explicit \w*. {{name}} expands a macro below.
+version: 1
+
+macros:
+  nao: '(?:nao|n|nn|naum|num)'
+  pra: '(?:pra|para|pro|pros|pras)'
+  me: '(?:me|mim)'
+  alvo: '(?:ele|ela|voce|vc|alguem|todo mundo|o \[pessoa\]|a \[pessoa\]|\[pessoa\])'
+  objeto: '(?:arma|faca|revolver|pistola|canivete|facao|estilete|tesoura)'
+
+negation:
+  window: 3
+  words: [nao, n, nn, naum, nunca, sem, nenhum, nenhuma, jamais]
+
+types:
+  am:
+    strong:
+      - 'assedi\w*(?!\s+sexua)'                       # assedio, assediou, assediador (not "assedio sexual")
+      - 'terror psicologico'
+      - 'tortura psicologica'
+    weak:
+      - 'grit(?:a|ou|am|aram|ando|ar|ava|avam) (?:com\w*|na cara|na frente)'
+      - 'aos gritos'
+      - 'berr(?:a|ou|am|aram|ando|ava)'
+      - 'humilh\w*'
+      - '{{me}} expo(?:e|s|r|em|ndo)'
+      - 'expo(?:e|s|r|em) (?:a gente|todo mundo|a equipe|o time|os erros|meus erros|minhas falhas)'
+      - 'exposi\w* (?:ao ridiculo|na frente)'
+      - 'ridiculariz\w*'
+      - 'ao ridiculo'
+      - 'motivo de piada'
+      - 'chacota'
+      - 'piadinha\w*'
+      - 'xing\w*'
+      - 'persegu\w*'
+      - 'cham(?:a|ou|am|aram|ando|ava) (?:\w+ )?de (?:burr[oa]|incompetente|lerd[oa]|inutil|idiota|imbecil|anta|jumento|lixo)'
+      - 'qualquer um (?:faz|faria|fazia) (?:o )?meu (?:trabalho|servico)'
+      - '(?:tirou|tiraram|excluiu|excluiram|deixa\w* de fora)\s+(?:\w+\s+){0,3}reuni\w*'
+      - 'isolad[oa]s?'
+      - '{{me}} isol\w*'
+      - '(?:da|dao|deu|deram|dando) (?:um )?gelo'
+      - 'lei do gelo'
+      - 'ameac\w* (?:\w+ ){0,2}(?:demissao|demitir|justa causa|mandar (?:\w+ )?embora|olho da rua)'
+      - 'abuso de (?:poder|autoridade)'
+      - 'pressao psicologica'
+      - '(?:ambiente|gestor\w*|chefe|chefia|lider\w*|gerente|coordenador\w*|supervisor\w*|clima) toxic[oa]s?'
+  as:
+    strong:
+      - 'assedi\w*\s+sexua\w*'
+      - 'importuna\w* sexua\w*'
+      - 'abuso sexual'
+      - 'abusou de mim'
+      - 'estupr\w*'
+      - 'pass(?:ou|a|am|aram|ando|ar|ava) a mao(?!\s+(?:n[ao]s?|pela|sobre) cabeca)'  # not the idiom "passar a mao na cabeca"
+      - 'encox\w*'
+      - 'apalp\w*'
+      - 'bolin(?:a|am|ar|ou|ava|aram|ando|ad[oa]s?)'   # not "bolinho", "bolinha"
+      - 'tent(?:ou|a|ava) {{me}} beijar'
+      - 'beij\w* a forca'
+      - 'roubou um beijo'
+      - 'me agarr(?:a|am|ou|aram|ava|avam|ando)'      # not "me agarrei a essa vaga"
+      - 'tent\w* {{me}} agarrar'
+      - 'nudes'                                        # "nude" alone is also a color
+      - '(?:um|uns) nudes?'
+      - '(?:pedi\w*|pede\w*|mandou|manda|mandar|mandando|envi\w*) nudes?'
+      - 'fotos? intimas?'
+      - 'fotos? (?:pelad[oa]s?|nu|nua|sem roupa)'
+      - 'chantagem sexual'
+      - '(?:sair|transar|ficar|dormir) com (?:ele|ela|o chefe|a chefe|o gerente|o gestor|\[pessoa\]) (?:\w+ ){0,2}(?:promo\w*|vaga|aumento|efetiva\w*)'
+    weak:
+      - 'cantad\w*'
+      - 'investidas?'                                 # not "investido", "investidor"
+      - '(?:da|dando|deu|dar|dava) em cima'
+      - 'coment\w* (?:\w+ ){0,3}(?:roupa|roupas|corpo|decote|saia|vestido|uniforme|bunda|seios?|peitos?|pernas?|curvas)'
+      - '(?:elogi\w*|olh\w*|encar\w*|fal\w*) (?:\w+ ){0,2}(?:meu|minha|meus|minhas|nosso|nossa) (?:corpo|decote|bunda|seios?|peitos?|pernas?|curvas|boca)'
+      - 'convit\w* (?:\w+ ){0,2}{{pra}} sair'
+      - 'cham(?:a|ou|am|ando|ava) (?:\w+ ){0,2}{{pra}} sair'
+      - 'insist\w* (?:\w+ ){0,3}(?:{{pra}} sair|encontro|jantar|carona|{{pra}} me levar)'
+      - 'mud\w* de caminho'
+      - 'evit\w* (?:cruzar|ficar sozinh[ao]|passar perto|ficar perto)'
+      - '{{nao}} fic\w* sozinh[ao]s? com'
+      - 'desconfortavel perto'
+      - '{{me}} toc(?:a|ou|am|ando|ar|ava)'
+      - 'toc\w* (?:em mim|no meu|na minha)'
+      - 'encost\w* em mim'
+      - 'duplo sentido'
+      - 'piad\w* (?:de cunho )?sexua\w*'
+      - 'piad\w* (?:pesad\w*|sujas?|indecente\w*)'
+      - 'cham\w* de (?:gostos[ao]|gat(?:inh)?[ao]|delicia|princesa|novinh[ao])'
+      - 'fic\w* {{me}} (?:olhando|encarando|secando)'
+  di:
+    strong:
+      - 'racis\w*'
+      - 'homofob\w*'
+      - 'transfob\w*'
+      - 'lgbt\w*fob\w*'
+      - 'xenofob\w*'
+      - 'misogin\w*'
+      - 'machis\w*'
+      - 'gordofob\w*'
+      - 'capacitis\w*'
+      - 'etaris\w*'
+      - 'preconceit\w*'
+      - 'discrimin\w*'
+      - 'injuria racial'
+      - 'intoleran\w* religios\w*'
+      - 'cham\w* (?:\w+ )?de (?:macac[oa]|viad[oa]|sapatao|traveco|bicha|mulherzinha|aleijad[oa]|retardad[oa]|negrinh[oa]|crioul[oa])'
+    weak:
+      - '{{nao}} (?:tem|tenho|temos|tinha) o perfil'
+      - 'perfil (?:da vaga|da empresa|certo|ideal|da casa)'
+      - 'quem tem o perfil'
+      - 'licenca[ -]?maternidade'
+      - 'gravidez'
+      - 'gravidas?'                                   # not "gravidade"
+      - 'gestante\w*'
+      - 'engravid\w*'
+      - 'por (?:eu )?ser (?:mulher|negr[oa]|pret[oa]|gay|lesbica|bissexual|trans|travesti|velh[oa]|idos[oa]|nordestin[oa]|baian[oa]|mae|pcd|deficiente|gord[oa]|evangelic[oa]|umbandista|candomblecista|estrangeir[oa])'
+      - 'por causa d[ao] minha (?:cor|idade|religiao|orientacao|deficiencia|origem|aparencia|raca|gravidez|sotaque|peso)'
+      - 'piad\w* (?:\w+ ){0,3}(?:sotaque|cabelo|cor|religiao|idade|peso|nordestin\w*|gays?|mulher\w*|negr\w*|gord\w*|velh\w*)'
+      - 'sotaque'
+      - 'cabelo (?:crespo|duro|black)'
+      - 'mulher\w* {{nao}} (?:serve\w*|aguenta\w*|da conta|sabe\w*|entende\w*|tem vez)'
+      - '(?:servico|trabalho|coisa|lugar) de (?:homem|mulher)'
+      - '(?:velh[oa]|idos[oa])s? demais'
+      - 'muito velh[oa]s?'
+      - 'velh[oa]s? {{pra}}'
+      - 'cadeirante'
+      - 'pcd'
+      - 'deficien\w*'
+      - 'neurodivergen\w*'
+      - 'autis\w*'
+      - 'macumb\w*'
+      - '(?:so|somente|apenas) (?:\w+ ){0,4}(?:homem|homens|branc[oa]s?)'
+  bo:
+    strong:
+      - '{{nao}} (?:quero|queria|aguento|consigo|vejo sentido em|tenho (?:mais )?vontade de) (?:mais )?viver'
+      - '(?:sem|perdi a|zero) vontade de viver'
+      - 'me mat(?:ar|o|aria)(?!\s+de)'                 # not "me matar de trabalhar"
+      - 'suicid\w*'
+      - 'tirar (?:a )?(?:minha )?(?:propria )?vida'
+      - 'acabar com (?:a )?minha (?:propria )?vida'
+      - 'por fim (?:a|na) minha vida'
+      - '(?:sumir|desaparecer) {{pra}} sempre'
+      - '(?:penso em|pensei em|pensando em|vontade de|quero|queria) (?:acabar|terminar) com tudo(?!\s+(?:que|o que|de|do|da)\s)'
+      - '(?:quero|queria|vontade de|penso em|pensei em|pensando em|prefiro|preferia|melhor) morrer'
+      - '{{nao}} (?:quero|queria) (?:mais )?(?:acordar|existir|estar viv[oa])'
+      - 'dormir e {{nao}} acordar'
+      - '(?:melhor|mais facil) {{nao}} (?:acordar|existir|ter nascido)'
+      - 'ninguem (?:sentiria|vai sentir|ia sentir) (?:minha falta|falta de mim)'
+      - 'se eu (?:morresse|nao existisse)'
+      - '(?:vontade de|penso em|pensei em|quero|queria) me (?:cortar|machucar|ferir)'
+      - 'automutil\w*'
+      - 'auto ?lesao'
+      - 'burn ?out'
+    weak:
+      - '{{nao}} (?:durmo|dormi|consigo dormir)'
+      - 'insonia'
+      - '{{nao}} lembro (?:\w+ ){0,4}dormi'
+      - '(?:dormindo|durmo) mal'
+      - 'perdi o sono'
+      - 'sem dormir'
+      - 'acordo (?:de madrugada|assustad[oa]|as \d+)'
+      - 'remedio\w* (?:\w+ ){0,2}{{pra}} (?:aguentar|conseguir|dormir|vir|trabalhar|segurar|ficar)'
+      - 'calmante\w*'
+      - 'antidepressiv\w*'
+      - 'ansiolitic\w*'
+      - 'rivotril'
+      - 'clonazepam'
+      - 'tarja preta'
+      - 'crises? de (?:ansiedade|panico|choro|nervos)'
+      - 'ataques? de (?:panico|ansiedade)'
+      - 'ansiedade'
+      - 'panico'
+      - 'depress(?:ao|oes|iv[oa]s?)'                  # not "depressa"
+      - 'psiquiatr\w*'
+      - 'chor(?:o|ei|ando|ar|ava|amos)(?!\s+(?:desconto|preco))'   # not "chorar desconto"
+      - 'esgotad[oa]s?'
+      - 'esgotamento'
+      - 'exaust(?!or)\w*'                            # not "exaustor"
+      - 'estafa'
+      - '{{nao}} aguento mais'
+      - 'no meu limite'
+      - 'colaps\w*'
+      - 'surt(?:o|os|ei|ou|ar|aram|ando|ava|ad[oa]s?)' # not "surtir efeito"
+      - '(?:queria|quero|vontade de) sumir'
+      - 'sumir de vez'
+      - 'se eu (?:sumisse|desaparecesse)'
+      - 'sem vontade de (?:nada|levantar|sair da cama|vir)'
+      - '{{nao}} vejo (?:saida|sentido|motivo)'
+      - 'ninguem (?:sentiria|vai sentir|ia sentir) (?:a )?falta'
+      - '{{nao}} queria (?:mais )?estar aqui'
+      - 'taquicardia'
+      - 'falta de ar'
+      - 'tremedeira'
+      - '(?:dor|aperto) no peito'
+  av:
+    strong:
+      - '{{me}} (?:bateu|bate|batia)(?!\s+(?:uma?|o|a)\s+(?!vez))'  # not "me bateu uma tristeza"
+      - '{{me}} (?:bateram|agrediu|agrediram|agride|empurrou|empurraram|esmurrou|socou|chutou|estapeou|enforcou|esfaqueou)'
+      - '(?:bateu|bateram|bate) em mim'
+      - 'agredi(?:u|ram|d[oa]s?)'
+      - 'agress(?:ao|oes) fisicas?'
+      - 'espanc\w*'
+      - 'porrada(?:s|ria)?(?!\s+de\s)'                # not the slang "uma porrada de pedidos"
+      - 'sai\w* no (?:soco|tapa|braco)'
+      - 'trocaram socos'
+      - 'briga\w* (?:fisica|de soco|corporal)'
+      - 'ameac\w* de morte'
+      - '(?:vou|vai|vamos|vao|ia|iria) te (?:matar|quebrar|bater|furar|apagar)'
+      - 'te mato'
+      - '(?:quebrar|arrebentar) (?:a )?(?:sua|tua|minha) cara'   # not the idiom "vai quebrar a cara"
+      - 'arrebentar a cara'
+      - '(?:apontou|puxou|mostrou|sacou) (?:\w+ ){0,2}{{objeto}}'
+      - '(?:veio|estava|anda|andava) armad[oa]'
+      - '(?:vou|vai|ia|iria|quero) matar {{alvo}}'
+    weak:
+      - '{{me}} ameac\w*'
+      - 'ameac\w*'
+      - 'sabe (?:onde|aonde) (?:eu )?(?:moro|mora|fico|estaciono|pego)'
+      - 'sabe (?:que horas|a hora que|o horario que) (?:eu )?saio'
+      - 'sabe (?:o )?meu endereco'
+      - '(?:me )?(?:seguiu|seguindo|seguia) (?:ate|{{pra}}) (?:casa|o ponto|o carro|o onibus|o estacionamento)'
+      - 'fic\w* {{me}} seguindo'
+      - 'medo (?:dele|dela|do \[pessoa\]|da \[pessoa\]|de \[pessoa\]|de apanhar|de ser agredid[oa]|de sair sozinh[oa]|de ficar sozinh[oa]|de voltar)'
+      - 'intimid(?!ade)\w*'                          # not "intimidade"
+      - 'peco carona {{pra}} (?:sair|ir embora)'
+      - '(?:saio|sair|vou embora|ir embora) acompanhad[oa]'
+      - 'escoltad[oa]'
+      - 'empurr(?:ao|ou|a|ar|aram|ando)'
+      - 'socos?'                                      # not "socorro"
+      - 'tapas?(?!-)'                                 # not "tapa-buraco"
+      - '(?:veio|partiu|foi|avancou) {{pra}} cima'
+      - 'briga\w* (?:feia|no patio|na saida|no estacionamento)'
+      - 'armas?'
+      - 'armad[oa]s?'
+      - '(?:uma|com|de|da|na|a) facas?'               # folded "faça" is also "faca"
+      - '(?:vou|vai|vamos|vao|ia|iria) te pegar'      # also "pick you up"
+      - 'canivete'
+      - 'revolver'
+      - 'pistola'
+      - 'agressiv[oa]s?'
+      - 'violen\w*'
+      - 'jog(?:ou|a|am|ando|ava) (?:\w+ ){0,3}(?:na|contra a) (?:parede|mesa|porta|cabeca)'
+      - 'soco na (?:porta|mesa|parede)'
+      - '(?:da proxima vez|na proxima) (?:\w+ ){0,2}em (?:mim|voce|vc)'

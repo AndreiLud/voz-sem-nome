@@ -1,0 +1,85 @@
+{% extends "base.html.j2" %}
+{% import "partials/macros.html.j2" as ui with context %}
+{% set d = s.dashboard %}
+{% block main %}
+<div class="page-head">
+  <div class="wrap">
+    <h1>{{ d.title }}</h1>
+    <p class="lead">{{ d.lead }}</p>
+  </div>
+</div>
+
+{# Hooks for js/dashboard.js: [data-dataset] buttons and the data-slot elements below.
+   Panels stay hidden until the data arrives; without JavaScript only the notice shows. #}
+<div class="wrap dashboard" data-dashboard>
+  <div class="dash-controls">
+    <div class="segmented" role="group" aria-label="{{ d.controls_label }}" data-slot="dataset-toggle">
+      <button class="segmented__btn" type="button" aria-pressed="true" data-dataset="synthetic">{{ d.datasets.synthetic }}</button>
+      <button class="segmented__btn" type="button" aria-pressed="false" data-dataset="public">{{ d.datasets.public }}</button>
+    </div>
+    <p class="dash-freshness note" data-slot="freshness"></p>
+  </div>
+
+  <div class="dash-banners" data-slot="banners">
+    <p class="badge badge--sample" data-slot="sample-badge" hidden>{{ ui.icon('sample') }}<span>{{ s.common.sample_badge }}</span></p>
+    <div class="alert alert--warning" data-slot="snapshot-banner" role="status" hidden>
+      {{ ui.icon('clock') }}<p data-slot="snapshot-text"></p>
+    </div>
+    <div class="alert alert--info" data-slot="static-banner" hidden>
+      {{ ui.icon('info') }}<p>{{ d.static_banner }}</p>
+    </div>
+  </div>
+
+  <p class="note dash-k">{{ ui.icon('lock') }}<span>{{ fill(d.min_group_note) }}</span></p>
+
+  <noscript>
+    <div class="alert alert--info">{{ ui.icon('info') }}<p>{{ md(d.noscript) }}</p></div>
+  </noscript>
+
+  <div class="dash-status" data-slot="status" role="status"></div>
+
+  <div class="empty-state" data-slot="small-state" hidden>
+    <p data-slot="small-text">{{ fill(d.small_public) }}</p>
+    <p data-slot="small-cta"><a class="btn btn--primary" href="{{ url('submit') }}">{{ d.small_cta }}{{ ui.icon('arrow') }}</a></p>
+  </div>
+
+  <p id="viz-keys-hint" class="visually-hidden">{{ d.keys_hint }}</p>
+
+  <div class="dash-grid" data-slot="content" hidden>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-overview">
+      <h2 id="dash-overview">{{ d.sections.overview }}</h2>
+      <p class="note">{{ d.enps_explainer }}</p>
+      <div class="dash-panel__body" data-slot="overview"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-area">
+      <h2 id="dash-by-area">{{ d.sections.by_area }}</h2>
+      <div class="dash-panel__body" data-slot="by-area"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-tenure">
+      <h2 id="dash-by-tenure">{{ d.sections.by_tenure }}</h2>
+      <div class="dash-panel__body" data-slot="by-tenure"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-themes">
+      <h2 id="dash-themes">{{ d.sections.themes }}</h2>
+      <p class="note">{{ d.section_notes.themes }}</p>
+      <div class="dash-panel__body" data-slot="themes"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-heatmap">
+      <h2 id="dash-heatmap">{{ d.sections.heatmap }}</h2>
+      <p class="note">{{ d.section_notes.heatmap }}</p>
+      <div class="dash-panel__body" data-slot="heatmap"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-critical">
+      <h2 id="dash-critical">{{ d.sections.critical }}</h2>
+      <p class="note">{{ fill(d.section_notes.critical) }}</p>
+      <div class="dash-panel__body" data-slot="critical"></div>
+    </section>
+  </div>
+
+  <section class="dash-panel" aria-labelledby="dash-production" data-slot="production-section" hidden>
+    <h2 id="dash-production">{{ d.sections.production }}</h2>
+    <p class="note">{{ d.section_notes.production }}</p>
+    <div class="dash-panel__body" data-slot="production"></div>
+  </section>
+</div>
+{% endblock %}

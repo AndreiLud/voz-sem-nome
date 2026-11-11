@@ -1,0 +1,771 @@
+{
+  "sample": true,
+  "dataset": "synthetic",
+  "generated_at": "2026-11-10T15:00:00.000+00:00",
+  "min_group_size": 5,
+  "totals": {
+    "responses": 480,
+    "with_comment": 294,
+    "enps": -13,
+    "promoters": 113,
+    "passives": 190,
+    "detractors": 177,
+    "pct_promoters": 23.5,
+    "pct_passives": 39.6,
+    "pct_detractors": 36.9,
+    "critical": 9
+  },
+  "by_area": [
+    {
+      "code": "operacoes",
+      "n": 156,
+      "enps": -32,
+      "promoters": 23,
+      "passives": 60,
+      "detractors": 73,
+      "themes": {
+        "lid": 11,
+        "rem": 24,
+        "car": 10,
+        "cre": 17,
+        "rec": 12,
+        "com": 20,
+        "eqp": 7,
+        "flx": 12,
+        "inf": 13,
+        "bem": 12,
+        "cul": 5,
+        "out": 14
+      },
+      "sentiment": {
+        "pos": 14,
+        "neu": 37,
+        "neg": 48
+      },
+      "critical": 5
+    },
+    {
+      "code": "transporte",
+      "n": 102,
+      "enps": -43,
+      "promoters": 10,
+      "passives": 38,
+      "detractors": 54,
+      "themes": {
+        "lid": 10,
+        "rem": 11,
+        "car": 8,
+        "cre": 10,
+        "rec": 6,
+        "com": 8,
+        "eqp": 1,
+        "flx": 13,
+        "inf": 11,
+        "bem": 6,
+        "cul": 3,
+        "out": 9
+      },
+      "sentiment": {
+        "pos": 5,
+        "neu": 26,
+        "neg": 32
+      },
+      "critical": 0
+    },
+    {
+      "code": "atendimento",
+      "n": 86,
+      "enps": -9,
+      "promoters": 20,
+      "passives": 38,
+      "detractors": 28,
+      "themes": {
+        "lid": 9,
+        "rem": 12,
+        "car": 2,
+        "cre": 9,
+        "rec": 3,
+        "com": 9,
+        "eqp": 3,
+        "flx": 5,
+        "inf": 7,
+        "bem": 8,
+        "cul": 3,
+        "out": 5
+      },
+      "sentiment": {
+        "pos": 11,
+        "neu": 22,
+        "neg": 18
+      },
+      "critical": 3
+    },
+    {
+      "code": "comercial",
+      "n": 56,
+      "enps": 21,
+      "promoters": 24,
+      "passives": 20,
+      "detractors": 12,
+      "themes": {
+        "lid": 5,
+        "rem": 7,
+        "car": 2,
+        "cre": 8,
+        "rec": 4,
+        "com": 5,
+        "eqp": 8,
+        "flx": 5,
+        "inf": 3,
+        "bem": 5,
+        "cul": 5,
+        "out": 3
+      },
+      "sentiment": {
+        "pos": 14,
+        "neu": 11,
+        "neg": 10
+      },
+      "critical": 1
+    },
+    {
+      "code": "tecnologia",
+      "n": 34,
+      "enps": 50,
+      "promoters": 19,
+      "passives": 13,
+      "detractors": 2,
+      "themes": {
+        "lid": 3,
+        "rem": 5,
+        "car": 0,
+        "cre": 4,
+        "rec": 3,
+        "com": 2,
+        "eqp": 3,
+        "flx": 1,
+        "inf": 2,
+        "bem": 0,
+        "cul": 3,
+        "out": 1
+      },
+      "sentiment": {
+        "pos": 12,
+        "neu": 6,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "pessoas",
+      "n": 28,
+      "enps": 18,
+      "promoters": 10,
+      "passives": 13,
+      "detractors": 5,
+      "themes": {
+        "lid": 2,
+        "rem": 2,
+        "car": 1,
+        "cre": 5,
+        "rec": 1,
+        "com": 4,
+        "eqp": 0,
+        "flx": 1,
+        "inf": 4,
+        "bem": 2,
+        "cul": 0,
+        "out": 2
+      },
+      "sentiment": {
+        "pos": 6,
+        "neu": 8,
+        "neg": 3
+      },
+      "critical": 0
+    }
+  ],
+  "other_areas": {
+    "codes": null,
+    "n": 18,
+    "enps": 22,
+    "promoters": 7,
+    "passives": 8,
+    "detractors": 3,
+    "themes": {
+      "lid": 2,
+      "rem": 1,
+      "car": 0,
+      "cre": 3,
+      "rec": 3,
+      "com": 3,
+      "eqp": 0,
+      "flx": 1,
+      "inf": 3,
+      "bem": 1,
+      "cul": 1,
+      "out": 3
+    },
+    "sentiment": {
+      "pos": 3,
+      "neu": 6,
+      "neg": 2
+    },
+    "critical": 0
+  },
+  "by_tenure": [
+    {
+      "code": "lt1",
+      "n": 106,
+      "enps": -9,
+      "promoters": 26,
+      "passives": 44,
+      "detractors": 36,
+      "themes": {
+        "lid": 9,
+        "rem": 13,
+        "car": 6,
+        "cre": 12,
+        "rec": 4,
+        "com": 13,
+        "eqp": 2,
+        "flx": 8,
+        "inf": 11,
+        "bem": 9,
+        "cul": 5,
+        "out": 6
+      },
+      "sentiment": {
+        "pos": 13,
+        "neu": 24,
+        "neg": 26
+      },
+      "critical": 2
+    },
+    {
+      "code": "y1to3",
+      "n": 188,
+      "enps": -18,
+      "promoters": 38,
+      "passives": 79,
+      "detractors": 71,
+      "themes": {
+        "lid": 12,
+        "rem": 30,
+        "car": 7,
+        "cre": 23,
+        "rec": 13,
+        "com": 19,
+        "eqp": 11,
+        "flx": 17,
+        "inf": 17,
+        "bem": 7,
+        "cul": 6,
+        "out": 12
+      },
+      "sentiment": {
+        "pos": 22,
+        "neu": 51,
+        "neg": 41
+      },
+      "critical": 3
+    },
+    {
+      "code": "y3to5",
+      "n": 105,
+      "enps": -7,
+      "promoters": 30,
+      "passives": 38,
+      "detractors": 37,
+      "themes": {
+        "lid": 9,
+        "rem": 7,
+        "car": 6,
+        "cre": 13,
+        "rec": 14,
+        "com": 10,
+        "eqp": 7,
+        "flx": 10,
+        "inf": 10,
+        "bem": 12,
+        "cul": 5,
+        "out": 10
+      },
+      "sentiment": {
+        "pos": 17,
+        "neu": 23,
+        "neg": 27
+      },
+      "critical": 2
+    },
+    {
+      "code": "gt5",
+      "n": 81,
+      "enps": -17,
+      "promoters": 19,
+      "passives": 29,
+      "detractors": 33,
+      "themes": {
+        "lid": 12,
+        "rem": 12,
+        "car": 4,
+        "cre": 8,
+        "rec": 1,
+        "com": 9,
+        "eqp": 2,
+        "flx": 3,
+        "inf": 5,
+        "bem": 6,
+        "cul": 4,
+        "out": 9
+      },
+      "sentiment": {
+        "pos": 13,
+        "neu": 18,
+        "neg": 19
+      },
+      "critical": 2
+    }
+  ],
+  "other_tenures": null,
+  "area_tenure": [
+    {
+      "area": "operacoes",
+      "tenure": "lt1",
+      "n": 29,
+      "enps": -34
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y1to3",
+      "n": 67,
+      "enps": -36
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y3to5",
+      "n": 30,
+      "enps": -30
+    },
+    {
+      "area": "operacoes",
+      "tenure": "gt5",
+      "n": 30,
+      "enps": -23
+    },
+    {
+      "area": "transporte",
+      "tenure": "lt1",
+      "n": 23,
+      "enps": -26
+    },
+    {
+      "area": "transporte",
+      "tenure": "y1to3",
+      "n": 39,
+      "enps": -44
+    },
+    {
+      "area": "transporte",
+      "tenure": "y3to5",
+      "n": 22,
+      "enps": -41
+    },
+    {
+      "area": "transporte",
+      "tenure": "gt5",
+      "n": 18,
+      "enps": -67
+    },
+    {
+      "area": "atendimento",
+      "tenure": "lt1",
+      "n": 24,
+      "enps": -8
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y1to3",
+      "n": 27,
+      "enps": -7
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y3to5",
+      "n": 19,
+      "enps": -5
+    },
+    {
+      "area": "atendimento",
+      "tenure": "gt5",
+      "n": 16,
+      "enps": -19
+    },
+    {
+      "area": "comercial",
+      "tenure": "lt1",
+      "n": 14,
+      "enps": 14
+    },
+    {
+      "area": "comercial",
+      "tenure": "y1to3",
+      "n": 26,
+      "enps": 23
+    },
+    {
+      "area": "comercial",
+      "tenure": "y3to5",
+      "n": 11,
+      "enps": 27
+    },
+    {
+      "area": "comercial",
+      "tenure": "gt5",
+      "n": 5,
+      "enps": 20
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "lt1",
+      "n": 5,
+      "enps": 60
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y1to3",
+      "n": 14,
+      "enps": 29
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y3to5",
+      "n": 5,
+      "enps": 100
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "gt5",
+      "n": 10,
+      "enps": 50
+    },
+    {
+      "area": "financeiro",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y1to3",
+      "n": 8,
+      "enps": 13
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y3to5",
+      "n": 13,
+      "enps": 23
+    },
+    {
+      "area": "pessoas",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "gt5",
+      "suppressed": true
+    }
+  ],
+  "themes": [
+    {
+      "code": "lid",
+      "n": 42,
+      "sentiment": {
+        "pos": 18,
+        "neu": 0,
+        "neg": 24
+      },
+      "critical": 5
+    },
+    {
+      "code": "rem",
+      "n": 62,
+      "sentiment": {
+        "pos": 16,
+        "neu": 25,
+        "neg": 21
+      },
+      "critical": 0
+    },
+    {
+      "code": "car",
+      "n": 23,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 23
+      },
+      "critical": 2
+    },
+    {
+      "code": "cre",
+      "n": 56,
+      "sentiment": {
+        "pos": 14,
+        "neu": 22,
+        "neg": 20
+      },
+      "critical": 2
+    },
+    {
+      "code": "rec",
+      "n": 32,
+      "sentiment": {
+        "pos": 12,
+        "neu": 0,
+        "neg": 20
+      },
+      "critical": 0
+    },
+    {
+      "code": "com",
+      "n": 51,
+      "sentiment": {
+        "pos": 0,
+        "neu": 31,
+        "neg": 20
+      },
+      "critical": 1
+    },
+    {
+      "code": "eqp",
+      "n": 22,
+      "sentiment": {
+        "pos": 22,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "flx",
+      "n": 38,
+      "sentiment": {
+        "pos": 0,
+        "neu": 17,
+        "neg": 21
+      },
+      "critical": 0
+    },
+    {
+      "code": "inf",
+      "n": 43,
+      "sentiment": {
+        "pos": 0,
+        "neu": 25,
+        "neg": 18
+      },
+      "critical": 0
+    },
+    {
+      "code": "bem",
+      "n": 34,
+      "sentiment": {
+        "pos": 9,
+        "neu": 0,
+        "neg": 25
+      },
+      "critical": 2
+    },
+    {
+      "code": "cul",
+      "n": 20,
+      "sentiment": {
+        "pos": 15,
+        "neu": 0,
+        "neg": 5
+      },
+      "critical": 5
+    },
+    {
+      "code": "out",
+      "n": 37,
+      "sentiment": {
+        "pos": 0,
+        "neu": 37,
+        "neg": 0
+      },
+      "critical": 0
+    }
+  ],
+  "critical": {
+    "total": 9,
+    "by_type": {
+      "am": 2,
+      "as": 0,
+      "di": 5,
+      "bo": 2,
+      "av": 0
+    },
+    "cases": [
+      {
+        "id": "sample0469",
+        "types": [
+          "di"
+        ],
+        "themes": [
+          "cul",
+          "lid"
+        ],
+        "area": "atendimento",
+        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
+        "date": "2026-10-17"
+      },
+      {
+        "id": "sample0418",
+        "types": [
+          "di"
+        ],
+        "themes": [
+          "cre",
+          "cul"
+        ],
+        "area": "comercial",
+        "excerpt": "Depois que voltei da licença maternidade me tiraram dos projetos e ninguém explica o motivo.",
+        "date": "2026-10-16"
+      },
+      {
+        "id": "sample0377",
+        "types": [
+          "am"
+        ],
+        "themes": [
+          "lid"
+        ],
+        "area": "operacoes",
+        "excerpt": "Meu coordenador [PESSOA] grita comigo na frente de todo mundo e vive dizendo que qualquer um faz meu trabalho.",
+        "date": "2026-10-15"
+      },
+      {
+        "id": "sample0335",
+        "types": [
+          "di"
+        ],
+        "themes": [
+          "cul",
+          "lid"
+        ],
+        "area": "atendimento",
+        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
+        "date": "2026-10-13"
+      },
+      {
+        "id": "sample0267",
+        "types": [
+          "di"
+        ],
+        "themes": [
+          "cre",
+          "cul"
+        ],
+        "area": "operacoes",
+        "excerpt": "Depois que voltei da licença maternidade me tiraram dos projetos e ninguém explica o motivo.",
+        "date": "2026-10-12"
+      },
+      {
+        "id": "sample0263",
+        "types": [
+          "di"
+        ],
+        "themes": [
+          "cul",
+          "lid"
+        ],
+        "area": "operacoes",
+        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
+        "date": "2026-10-12"
+      },
+      {
+        "id": "sample0222",
+        "types": [
+          "bo"
+        ],
+        "themes": [
+          "bem",
+          "car"
+        ],
+        "area": "operacoes",
+        "excerpt": "Não durmo direito faz meses, tomo remédio pra conseguir vir trabalhar e choro no carro antes de entrar.",
+        "date": "2026-10-11"
+      },
+      {
+        "id": "sample0198",
+        "types": [
+          "bo"
+        ],
+        "themes": [
+          "bem",
+          "car"
+        ],
+        "area": "atendimento",
+        "excerpt": "Não durmo direito faz meses, tomo remédio pra conseguir vir trabalhar e choro no carro antes de entrar.",
+        "date": "2026-10-10"
+      },
+      {
+        "id": "sample0155",
+        "types": [
+          "am"
+        ],
+        "themes": [
+          "lid",
+          "com"
+        ],
+        "area": "operacoes",
+        "excerpt": "Chefe chama a gente de burro no grupo da equipe. Já reclamei e piorou.",
+        "date": "2026-10-09"
+      }
+    ]
+  },
+  "pipeline": {
+    "model": "qwen3.5:2b-q4_K_M",
+    "quantization": "Q4_K_M",
+    "prompt_version": "classify.v1",
+    "anonymizer_version": "1.0.0"
+  }
+}

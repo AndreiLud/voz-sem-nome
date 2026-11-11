@@ -1,0 +1,164 @@
+# Closed taxonomy used by the classifier, the labeling guide, the dashboard and the evaluation.
+# Codes are short on purpose: the model writes them, and every output token costs time on a CPU.
+# Labels and definitions exist in Portuguese (what the model and the labeler read) and English
+# (site and README). Examples are illustrative and never copied into the synthetic data.
+version: 1
+
+themes:
+  - code: lid
+    label: {pt: "Liderança", en: "Leadership"}
+    definition:
+      pt: "Postura e atitude da gestão direta: apoio, feedback, cobrança, respeito, decisões do gestor."
+      en: "Direct management: support, feedback, pressure, respect, the manager's decisions."
+    examples:
+      - "Minha coordenadora escuta a equipe e defende a gente nas reuniões."
+      - "O gestor só aparece pra cobrar número, nunca pra ajudar."
+  - code: rem
+    label: {pt: "Salário e benefícios", en: "Pay and benefits"}
+    definition:
+      pt: "Salário, reajuste, PLR, bônus, comissão, vale refeição, plano de saúde e outros benefícios."
+      en: "Salary, raises, profit sharing, bonus, commission, meal vouchers, health plan and other benefits."
+    examples:
+      - "Faz dois anos sem reajuste e o mercado paga bem mais."
+      - "O plano de saúde é muito bom, uso direto com meus filhos."
+  - code: car
+    label: {pt: "Carga de trabalho", en: "Workload"}
+    definition:
+      pt: "Volume de trabalho, prazos, horas extras, falta de gente na equipe, ritmo e pressão por metas."
+      en: "Amount of work, deadlines, overtime, understaffing, pace and target pressure."
+    examples:
+      - "Desde que dois colegas saíram, faço o trabalho de três."
+      - "Tem semana que a gente fica até as nove da noite pra fechar o mês."
+  - code: cre
+    label: {pt: "Carreira e desenvolvimento", en: "Career and growth"}
+    definition:
+      pt: "Promoção, plano de carreira, critérios de crescimento, treinamento e aprendizado."
+      en: "Promotion, career paths, growth criteria, training and learning."
+    examples:
+      - "Ninguém sabe o que precisa fazer pra ser promovido."
+      - "Fiz três cursos pagos pela empresa esse ano."
+  - code: rec
+    label: {pt: "Reconhecimento", en: "Recognition"}
+    definition:
+      pt: "Se o esforço e os resultados são vistos, valorizados e agradecidos."
+      en: "Whether effort and results are noticed, valued and thanked."
+    examples:
+      - "Bati a meta o ano todo e ninguém disse nada."
+      - "Gosto que a diretoria agradece o time em público quando dá certo."
+  - code: com
+    label: {pt: "Comunicação e transparência", en: "Communication and transparency"}
+    definition:
+      pt: "Clareza das informações, mudanças comunicadas a tempo, transparência das decisões da empresa."
+      en: "Clear information, changes announced in time, transparency of company decisions."
+    examples:
+      - "A gente descobre as mudanças pelo corredor antes do comunicado oficial."
+      - "As reuniões mensais explicam bem os resultados da empresa."
+  - code: eqp
+    label: {pt: "Colegas e equipe", en: "Team and peers"}
+    definition:
+      pt: "Relação com colegas, colaboração, clima entre pares, integração entre áreas."
+      en: "Relationships with peers, collaboration, team atmosphere, cooperation between teams."
+    examples:
+      - "Meu time é o que me segura aqui, todo mundo se ajuda."
+      - "Logística e comercial vivem num cabo de guerra."
+  - code: flx
+    label: {pt: "Flexibilidade e modelo de trabalho", en: "Flexibility and work model"}
+    definition:
+      pt: "Home office, trabalho híbrido, horários, escala, folgas, banco de horas."
+      en: "Remote and hybrid work, schedules, shifts, days off, time bank."
+    examples:
+      - "Voltar pro presencial cinco dias por semana foi um baque."
+      - "A escala 6x1 não deixa tempo pra família."
+  - code: inf
+    label: {pt: "Ferramentas e processos", en: "Tools and processes"}
+    definition:
+      pt: "Sistemas, equipamentos, estrutura física, burocracia e processos internos."
+      en: "Systems, equipment, facilities, bureaucracy and internal processes."
+    examples:
+      - "O sistema cai todo dia na hora do pico."
+      - "Pra comprar uma caneta precisa de três aprovações."
+  - code: bem
+    label: {pt: "Saúde e bem-estar", en: "Health and well-being"}
+    definition:
+      pt: "Estresse, cansaço, ergonomia, segurança física no trabalho, ações de saúde. Casos graves também viram caso crítico."
+      en: "Stress, tiredness, ergonomics, physical safety at work, health programs. Severe cases are also flagged as critical."
+    examples:
+      - "A cadeira do posto acaba com a coluna."
+      - "Curti a ginástica laboral, fez diferença no turno."
+  - code: cul
+    label: {pt: "Cultura e valores", en: "Culture and values"}
+    definition:
+      pt: "Valores da empresa, ética, diversidade e inclusão, propósito, coerência entre discurso e prática."
+      en: "Company values, ethics, diversity and inclusion, purpose, whether practice matches the message."
+    examples:
+      - "A empresa fala de diversidade mas a liderança é toda igual."
+      - "Tenho orgulho do que a gente entrega pros clientes."
+  - code: out
+    label: {pt: "Outro", en: "Other"}
+    definition:
+      pt: "Comentário que não se encaixa em nenhum tema acima. Use sozinho, nunca junto com outro tema."
+      en: "Comment that fits none of the themes above. Used alone, never with another theme."
+    examples:
+      - "Nada a declarar."
+      - "Podiam colocar uma máquina de café no segundo andar."
+
+sentiments:
+  - code: pos
+    label: {pt: "Positivo", en: "Positive"}
+    definition:
+      pt: "O tom geral é de satisfação ou elogio."
+      en: "The overall tone is satisfied or praising."
+  - code: neu
+    label: {pt: "Neutro", en: "Neutral"}
+    definition:
+      pt: "Sem tom claro, apenas informativo, ou elogio e crítica com o mesmo peso."
+      en: "No clear tone, just informative, or praise and criticism with equal weight."
+  - code: neg
+    label: {pt: "Negativo", en: "Negative"}
+    definition:
+      pt: "O tom geral é de insatisfação ou crítica, inclusive quando a crítica vem com ironia."
+      en: "The overall tone is dissatisfied or critical, including criticism expressed through irony."
+
+# A comment is critical when it suggests a situation that HR must look at quickly.
+# Recall comes first: when in doubt, flag it. A false alarm costs a few minutes; a missed case costs much more.
+critical_types:
+  - code: am
+    label: {pt: "Assédio moral", en: "Workplace bullying"}
+    definition:
+      pt: "Humilhação, gritos, xingamentos, exposição ao ridículo, perseguição, isolamento proposital, ameaça de demissão como forma de pressão."
+      en: "Humiliation, shouting, insults, public ridicule, persecution, deliberate isolation, threats of dismissal used as pressure."
+    signals:
+      pt: "Pode aparecer sem a palavra assédio: 'me expõe na frente de todos', 'vive dizendo que qualquer um faz meu trabalho', 'me tirou de todas as reuniões'."
+      en: "Often appears without the word harassment: being exposed in front of everyone, constant belittling, being cut out of meetings."
+  - code: as
+    label: {pt: "Assédio sexual", en: "Sexual harassment"}
+    definition:
+      pt: "Investidas, comentários sobre corpo ou roupa, toques, convites insistentes, chantagem de cunho sexual."
+      en: "Advances, comments about body or clothing, touching, insistent invitations, sexual coercion."
+    signals:
+      pt: "Pode aparecer como desconforto e evitação: 'mudo de caminho pra não cruzar com ele', 'comentários sobre minha roupa'."
+      en: "Can appear as discomfort and avoidance: changing routes to avoid someone, remarks about clothing."
+  - code: di
+    label: {pt: "Discriminação", en: "Discrimination"}
+    definition:
+      pt: "Tratamento desigual ou piadas por raça, gênero, orientação sexual, idade, deficiência, religião, origem ou gravidez."
+      en: "Unequal treatment or jokes based on race, gender, sexual orientation, age, disability, religion, origin or pregnancy."
+    signals:
+      pt: "Pode aparecer como padrão: 'promoção só sai pra quem tem o perfil', 'depois que voltei da licença maternidade...'."
+      en: "Can appear as a pattern: promotions only for people with 'the right profile', changes after maternity leave."
+  - code: bo
+    label: {pt: "Burnout e saúde mental", en: "Burnout and mental health"}
+    definition:
+      pt: "Esgotamento grave, crises de ansiedade ou pânico, uso de remédio para aguentar o trabalho, choro frequente, qualquer menção a se machucar ou a não querer viver."
+      en: "Severe exhaustion, anxiety or panic attacks, medication to cope with work, frequent crying, any mention of self-harm or not wanting to live."
+    signals:
+      pt: "Pode aparecer de forma indireta: 'não lembro a última vez que dormi bem', 'seria mais fácil não acordar'. Menção a não querer viver é sempre crítica."
+      en: "Can be indirect: not remembering the last good night of sleep, saying it would be easier not to wake up. Any mention of not wanting to live is always critical."
+  - code: av
+    label: {pt: "Ameaça ou violência", en: "Threat or violence"}
+    definition:
+      pt: "Agressão física, ameaça, intimidação, briga, arma, risco à integridade física de alguém."
+      en: "Physical aggression, threats, intimidation, fights, weapons, risk to someone's physical safety."
+    signals:
+      pt: "Pode aparecer como medo: 'ele disse que sabe onde eu moro', 'peço carona pra sair'."
+      en: "Can appear as fear: someone saying they know where you live, asking for rides to leave safely."

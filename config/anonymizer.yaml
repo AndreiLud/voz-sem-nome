@@ -1,0 +1,295 @@
+# Word lists for the anonymizer (src/enps/anonymize/). Matching ignores case and accents.
+#
+# allowlist   Terms that the NER model and the name gazetteer never mask. Area labels, area codes,
+#             tenure labels and the company name from settings.yaml are added automatically.
+#             Regex detectors (CPF, phone, plate...) ignore this list. A word that reads as a
+#             name once its accents are dropped ("março" and the name Marco) is matched with its
+#             accents only, and a capitalized surname right after a first name stays part of the
+#             name even when listed here ("Carla Sales").
+# name_cues   Words that turn the next first name into a name even in lowercase ("o joao").
+#             A name that is also a common word (config/name_stoplist.txt) needs a cue AND a
+#             capital letter ("a Clara", never "comunicação clara"). Entries ending in "." also
+#             match when written with a period ("Sr. Antunes").
+# connectors  Particles allowed inside a full name ("Maria das Graças", "joao da silva").
+# nicknames   Short forms missing from the IBGE ranking, treated as first names.
+version: 1
+
+allowlist:
+  # Company and teams
+  - Talvana
+  - Talvana Distribuição
+  - RH
+  - TI
+  - DP
+  - Departamento Pessoal
+  - Recursos Humanos
+  - Logística
+  - Expedição
+  - Almoxarifado
+  - Estoque
+  - Compras
+  - Vendas
+  - Marketing
+  - Contabilidade
+  - Fiscal
+  - Suporte
+  - Infraestrutura
+  - Manutenção
+  - Frota
+  - Ouvidoria
+  - SAC
+  - Call center
+  - Diretoria
+  - Presidência
+  - Gerência
+  - Coordenação
+  - Supervisão
+  - Liderança
+  - Chefia
+  - Matriz
+  - Filial
+  - Sede
+  - Galpão
+  - CD
+  - Centro de Distribuição
+  - Portaria
+  - Refeitório
+  - Recepção
+  - Escritório
+  - Doca
+  - Pátio
+  # Roles
+  - gerente
+  - gestor
+  - gestora
+  - coordenador
+  - coordenadora
+  - supervisor
+  - supervisora
+  - diretor
+  - diretora
+  - líder
+  - chefe
+  - analista
+  - assistente
+  - auxiliar
+  - operador
+  - operadora
+  - conferente
+  - separador
+  - motorista
+  - ajudante
+  - vendedor
+  - vendedora
+  - consultor
+  - consultora
+  - estagiário
+  - estagiária
+  - trainee
+  - jovem aprendiz
+  - presidente
+  - regional
+  - pleno
+  - sênior
+  - CEO
+  - CFO
+  - CTO
+  - COO
+  - VP
+  - head
+  - tech lead
+  # Pay, benefits and labor terms
+  - home office
+  - PLR
+  - PPR
+  - CLT
+  - PJ
+  - VR
+  - VA
+  - VT
+  - INSS
+  - FGTS
+  - LGPD
+  - CNH
+  - CTPS
+  - férias
+  - banco de horas
+  - hora extra
+  - plano de saúde
+  - vale refeição
+  - vale alimentação
+  - vale transporte
+  - Gympass
+  - Wellhub
+  - Totalpass
+  - Alelo
+  - Sodexo
+  - Unimed
+  - Amil
+  # Health and safety
+  - CIPA
+  - SESMT
+  - EPI
+  - NR
+  - ASO
+  - PCD
+  # Systems and tools
+  - SAP
+  - Excel
+  - Teams
+  - Slack
+  - Jira
+  - URA
+  - CRM
+  - ERP
+  - WMS
+  - TMS
+  - BI
+  - Power BI
+  - Outlook
+  - Gmail
+  - Google
+  - Zoom
+  - WhatsApp
+  - Zap
+  - Salesforce
+  - Totvs
+  - Protheus
+  - Oracle
+  - SharePoint
+  - Trello
+  - Notion
+  - Confluence
+  - Zendesk
+  - Windows
+  # Management jargon
+  - KPI
+  - OKR
+  - PDI
+  - SLA
+  - NPS
+  - eNPS
+  - feedback
+  - sprint
+  - squad
+  - Scrum
+  - endomarketing
+  # Weekdays and months
+  - segunda
+  - terça
+  - quarta
+  - quinta
+  - sexta
+  - feira
+  - sábado
+  - domingo
+  - segunda-feira
+  - terça-feira
+  - quarta-feira
+  - quinta-feira
+  - sexta-feira
+  - janeiro
+  - fevereiro
+  - março
+  - abril
+  - maio
+  - junho
+  - julho
+  - agosto
+  - setembro
+  - outubro
+  - novembro
+  - dezembro
+  # Interjections and words the NER model tends to tag at the start of a comment
+  - Deus
+  - Nossa
+  - Parabéns
+  - Obrigado
+  - Obrigada
+  - Valeu
+  - Gratidão
+  - Recomendo
+  - Brasil
+
+name_cues:
+  - o
+  - a
+  - do
+  - da
+  - dos
+  - das
+  - ao
+  - à
+  - pro
+  - pra
+  - pelo
+  - pela
+  - com
+  - para
+  - seu
+  - dona
+  - sr.
+  - sra.
+  - srta.
+  - dr.
+  - dra.
+  - gestor
+  - gestora
+  - chefe
+  - líder
+  - lider
+  - supervisor
+  - supervisora
+  - coordenador
+  - coordenadora
+  - gerente
+  - diretor
+  - diretora
+  - encarregado
+  - encarregada
+  - colega
+
+connectors:
+  - da
+  - de
+  - do
+  - das
+  - dos
+
+nicknames:
+  - bia
+  - gabi
+  - dani
+  - rafa
+  - gui
+  - duda
+  - dudu
+  - nanda
+  - tati
+  - pri
+  - vivi
+  - ju
+  - lu
+  - fer
+  - tião
+  - chico
+  - toninho
+  - tonho
+  - juninho
+  - guto
+  - beto
+  - nando
+  - zeca
+  - kiko
+  - lipe
+  - manu
+  - babi
+  - naty
+  - nati
+  - bel
+  - bebel
+  - didi
+  - fafá
+  - tuca
+  - zezé
+  - zé

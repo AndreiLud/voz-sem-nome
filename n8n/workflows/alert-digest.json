@@ -1,0 +1,212 @@
+{
+  "id": "VsnAlertDigest01",
+  "name": "Alert digest",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "16495a95-e986-5008-aa25-6cd29227614c",
+      "name": "Every 5 minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://api-internal:8002/v1/internal/alerts/pending",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "35a75425-c517-5d6f-a8e4-5d20270d1235",
+      "name": "Pending alerts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "// Alerts the worker could not push, plus the grouped digest when it is due.\nconst data = $input.first().json;\nconst out = [];\nfor (const alert of data.immediate || []) {\n  out.push({ json: { ids: [alert.alert_id], message_html: alert.message_html, channels: data.channels } });\n}\nif (data.digest) {\n  out.push({ json: { ids: data.digest.ids, message_html: data.digest.message_html, channels: data.channels } });\n}\nreturn out;\n"
+      },
+      "id": "c7a4f90a-6aeb-5baf-ad79-a4a786eab248",
+      "name": "Collect messages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://api-internal:8002/v1/internal/alerts/sent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ids: $json.ids }) }}"
+      },
+      "id": "7ee8ea3c-4985-5431-bf8f-3d6e03ce9b2b",
+      "name": "Record delivery",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "// One item per external channel listed by the API (alerts.channels in config/settings.yaml).\n// With no channel configured nothing goes out: the alert is already recorded on the server.\nconst out = [];\nfor (const item of $('Collect messages').all()) {\n  const message = item.json.message_html;\n  for (const channel of item.json.channels || []) {\n    out.push({ json: { channel, message_html: message } });\n  }\n}\nreturn out;\n"
+      },
+      "id": "4edb712b-d3c5-53f2-bbcf-50937739e863",
+      "name": "Fan out to channels",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "VsnDeliverChan01",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "a90e1af7-1761-5e65-8f63-1db9d53785c5",
+      "name": "Deliver to channels",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Every 5 minutes": {
+      "main": [
+        [
+          {
+            "node": "Pending alerts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pending alerts": {
+      "main": [
+        [
+          {
+            "node": "Collect messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect messages": {
+      "main": [
+        [
+          {
+            "node": "Record delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record delivery": {
+      "main": [
+        [
+          {
+            "node": "Fan out to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fan out to channels": {
+      "main": [
+        [
+          {
+            "node": "Deliver to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
+  "description": "Above the hourly limit, alerts wait and leave together in one digest. This also delivers any alert the worker could not push."
+}

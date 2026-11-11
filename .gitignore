@@ -1,0 +1,24 @@
+# Secrets and local environment
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Production and pipeline databases (the synthetic CSVs and gold files are versioned)
+*.db
+*.db-wal
+*.db-shm
+data/raw/
+data/pipeline/
+data/app/
+
+# Docker volumes and local tool state
+volumes/
+.wrangler/
+node_modules/
+
+# Editors
+.DS_Store
+.idea/
+.vscode/

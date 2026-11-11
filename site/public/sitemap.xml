@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/painel/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/painel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/painel/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/en/dashboard/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/painel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/painel/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/enviar/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/enviar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/submit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/enviar/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/en/submit/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/enviar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/submit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/enviar/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/privacidade/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/privacidade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/privacidade/"/>
+  </url>
+  <url>
+    <loc>https://voz-sem-nome.andreiludescher.com/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/privacidade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/privacidade/"/>
+  </url>
+</urlset>

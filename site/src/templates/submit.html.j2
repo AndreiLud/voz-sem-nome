@@ -1,0 +1,166 @@
+{% extends "base.html.j2" %}
+{% import "partials/macros.html.j2" as ui with context %}
+{% set f = s.submit %}
+{% block head %}
+<script src="{{ turnstile_script }}" async defer></script>
+{% endblock %}
+{% block main %}
+<div class="page-head">
+  <div class="wrap">
+    <h1>{{ f.title }}</h1>
+    <p class="lead">{{ f.lead }}</p>
+  </div>
+</div>
+
+<div class="wrap submit-layout" data-slot="layout">
+  <noscript>
+    <div class="alert alert--info">{{ ui.icon('info') }}<p>{{ f.noscript }}</p></div>
+  </noscript>
+
+  <section class="card form-card" aria-labelledby="form-title" data-slot="form-section">
+    <h2 id="form-title">{{ f.form_title }}</h2>
+    <p class="note">{{ f.required_note }}</p>
+
+    {# Shown after a failed submit, with a link to each field to fix; receives focus. #}
+    <div class="alert alert--error error-summary" data-slot="error-summary" tabindex="-1" aria-labelledby="error-summary-title" hidden>
+      {{ ui.icon('error') }}
+      <div>
+        <p class="alert__title" id="error-summary-title">{{ f.errors.summary_title }}</p>
+        <ul data-slot="error-list"></ul>
+      </div>
+    </div>
+
+    {# Errors are linked to their fields by data-error; the script adds them to
+       aria-describedby only while they are shown. #}
+    <form class="form" id="submit-form" method="post" action="{{ site.api_base }}/submissions" aria-labelledby="form-title" novalidate>
+      <input type="hidden" name="lang" value="{{ lang }}">
+
+      <fieldset class="field" data-field="score">
+        <legend class="label">{{ question }} <span class="required" aria-hidden="true">*</span></legend>
+        <div class="score-scale">
+          <div class="score-scale__options">
+            {% for i in range(11) %}
+            <input class="score-scale__input" type="radio" id="score-{{ i }}" name="score" value="{{ i }}" required data-error="score-error">
+            <label class="score-scale__label" for="score-{{ i }}">{{ i }}{% if i == 0 %}<span class="visually-hidden">, {{ f.score_low }}</span>{% elif i == 10 %}<span class="visually-hidden">, {{ f.score_high }}</span>{% endif %}</label>
+            {% endfor %}
+          </div>
+          <div class="score-scale__ends" aria-hidden="true"><span>{{ f.score_low }}</span><span>{{ f.score_high }}</span></div>
+        </div>
+        <p class="field-error" id="score-error" hidden></p>
+      </fieldset>
+
+      <div class="field" data-field="area">
+        <label class="label" for="area">{{ f.area_label }} <span class="required" aria-hidden="true">*</span></label>
+        <span class="select">
+          <select id="area" name="area" required data-error="area-error">
+            <option value="">{{ f.area_placeholder }}</option>
+            {% for area in areas %}
+            <option value="{{ area.code }}">{{ area.label[lang] }}</option>
+            {% endfor %}
+          </select>
+        </span>
+        <p class="field-error" id="area-error" hidden></p>
+      </div>
+
+      <fieldset class="field" data-field="tenure">
+        <legend class="label">{{ f.tenure_legend }} <span class="required" aria-hidden="true">*</span></legend>
+        <div class="choices">
+          {% for band in tenures %}
+          <div class="choice">
+            <input type="radio" id="tenure-{{ band.code }}" name="tenure" value="{{ band.code }}" required data-error="tenure-error">
+            <label for="tenure-{{ band.code }}">{{ band.label[lang] }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="field-error" id="tenure-error" hidden></p>
+      </fieldset>
+
+      <div class="field" data-field="comment">
+        <label class="label" for="comment">{{ f.comment_label }}</label>
+        <p class="hint" id="comment-hint">{{ ui.icon('lock') }}<span>{{ f.comment_hint }}</span></p>
+        <textarea class="textarea" id="comment" name="comment" rows="6" data-max="{{ vars.max }}" data-error="comment-error" aria-describedby="comment-hint comment-counter"></textarea>
+        <p class="counter" id="comment-counter" data-slot="counter">{{ fill(f.counter, count=0) }}</p>
+        <p class="field-error" id="comment-error" hidden></p>
+      </div>
+
+      <div class="field" data-field="consent">
+        <div class="choice choice--consent">
+          <input type="checkbox" id="consent" name="consent" value="true" required data-error="consent-error">
+          <label for="consent">{{ fill(f.consent_label) }} <span class="required" aria-hidden="true">*</span></label>
+        </div>
+        <p class="field-error" id="consent-error" hidden></p>
+      </div>
+
+      <div class="field" data-field="turnstile">
+        <p class="label" id="turnstile-label">{{ f.turnstile_label }}</p>
+        <div class="turnstile cf-turnstile" id="turnstile-widget" tabindex="-1" data-sitekey="{{ turnstile_key }}" data-language="{{ 'pt-br' if lang == 'pt' else 'en' }}" data-theme="auto" data-size="flexible" data-response-field-name="turnstile"></div>
+        <p class="field-error" id="turnstile-error" hidden></p>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn--primary btn--large" type="submit" data-slot="submit-button"><span data-slot="submit-label">{{ f.submit }}</span>{{ ui.icon('arrow') }}</button>
+      </div>
+      {# Server answers (duplicate, rate limit, offline...) are announced from here. #}
+      <div class="submit-feedback" role="alert" data-slot="submit-feedback"></div>
+    </form>
+  </section>
+
+  <section class="card track-card" aria-labelledby="track-title" data-slot="track-section">
+    <h2 id="track-title">{{ f.track.title }}</h2>
+    <p>{{ f.track.lead }}</p>
+    <form class="lookup" method="get" action="{{ url('submit') }}" data-slot="lookup-form" aria-labelledby="track-title" novalidate>
+      <div class="field field--lookup" data-field="code">
+        <label class="label" for="code">{{ f.track.code_label }}</label>
+        <p class="hint" id="code-hint">{{ f.track.code_hint }}</p>
+        <div class="lookup__row">
+          <input class="input input--code" id="code" name="c" type="text" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="code-hint" data-error="code-error">
+          <button class="btn btn--secondary" type="submit">{{ f.track.lookup }}</button>
+        </div>
+        <p class="field-error" id="code-error" hidden></p>
+      </div>
+    </form>
+
+    <div class="alert alert--warning" data-slot="track-error" hidden>{{ ui.icon('info') }}<p data-slot="track-error-text"></p></div>
+
+    <div class="tracking" data-slot="tracking" hidden>
+      <h3 class="tracking__title" id="tracking-title" tabindex="-1">{{ f.track.status_title }}</h3>
+      <div class="code-display">
+        <p class="code-display__label" id="tracking-code-label">{{ f.track.your_code }}</p>
+        <p class="code-display__value" id="tracking-code" data-slot="code-value"></p>
+        <button class="btn btn--ghost btn--small" type="button" data-copy-target="#tracking-code" data-copy-label="{{ f.track.copy_code }}">{{ ui.icon('copy') }}<span>{{ f.track.copy_code }}</span></button>
+      </div>
+      <div class="code-link">
+        <p class="code-display__label">{{ f.track.your_link }}</p>
+        <p class="code-link__value"><a data-slot="code-link" id="tracking-link" href="{{ url('submit') }}"></a></p>
+        <button class="btn btn--ghost btn--small" type="button" data-copy-target="#tracking-link" data-copy-label="{{ f.track.copy_link }}">{{ ui.icon('copy') }}<span>{{ f.track.copy_link }}</span></button>
+      </div>
+
+      <div class="progress-block" data-slot="progress-block">
+        <p class="progress-block__status"><span class="status-dot" aria-hidden="true"></span><span data-slot="status-text"></span></p>
+        <progress class="progress" data-slot="progress" max="3" aria-label="{{ f.track.progress_label }}"></progress>
+        <p class="note" data-slot="queue-info" hidden></p>
+        <p class="note poll-note" data-slot="poll-note" hidden>{{ ui.icon('clock') }}<span data-slot="poll-note-text"></span></p>
+      </div>
+
+      <article class="result-card" data-slot="result" aria-labelledby="result-title" hidden>
+        <h3 id="result-title">{{ f.result.title }}</h3>
+        <div class="result-card__comment" data-slot="result-comment-block">
+          <h4>{{ f.result.anonymized }}</h4>
+          <blockquote class="doc-card__quote" data-slot="result-quote"><p data-slot="result-comment"></p></blockquote>
+          <p class="note result-card__note">{{ ui.icon('lock') }}<span>{{ f.track.anonymized_note }}</span></p>
+        </div>
+        <dl class="result-card__grid">
+          <div data-slot="row-removed"><dt>{{ f.result.removed }}</dt><dd data-slot="result-removed"></dd></div>
+          <div data-slot="row-themes"><dt>{{ f.result.themes }}</dt><dd data-slot="result-themes"></dd></div>
+          <div data-slot="row-sentiment"><dt>{{ f.result.sentiment }}</dt><dd data-slot="result-sentiment"></dd></div>
+          <div data-slot="row-critical"><dt>{{ f.result.critical }}</dt><dd data-slot="result-critical"></dd></div>
+        </dl>
+        <p class="note" data-slot="result-meta" hidden></p>
+        <div class="alert alert--info" data-slot="result-status-note" hidden>{{ ui.icon('info') }}<p data-slot="result-status-text"></p></div>
+        <div class="alert alert--info" data-slot="result-alert-note" hidden>{{ ui.icon('alert') }}<p>{{ f.result.alert_note }}</p></div>
+        <div class="alert alert--support" data-slot="result-cvv" hidden>{{ ui.icon('info') }}<p>{{ md(f.result.cvv) }}</p></div>
+      </article>
+    </div>
+  </section>
+</div>
+{% endblock %}

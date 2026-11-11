@@ -1,0 +1,865 @@
+# Phrase bank for the synthetic survey of the fictitious company "Talvana Distribuição".
+#
+# Every sentence below was curated for this project. The generator (python -m enps.synth)
+# only picks fragments, joins them, fills the {SLOTS} with fake personal data and adds typing
+# noise (lower case, missing accents, abbreviations, a few typos). It never invents text.
+#
+# Regular fragments are grouped by main theme and polarity (pos, neu, neg). An entry is either a
+# plain string or a mapping with:
+#   t: text                     also: extra theme codes
+#   a: areas where it fits      ten: tenure bands where it fits      g: f | m (writer's gender)
+#   r: f (formal) | c (casual)  tags: irony | decoy_num | decoy_name   w: weight in the sentiment rule
+# The other sections use th (themes) and s (polarity) explicitly.
+# Texts start in lower case and have no final period: the generator handles case and punctuation.
+# Never copy the example sentences of config/taxonomy.yaml here (a test checks it).
+version: 1
+
+fragments:
+  lid:
+    neg:
+      - "meu gestor só aparece para cobrar número e some quando o problema aparece"
+      - {t: "a supervisão não dá retorno de nada, a gente pergunta e fica no vácuo", r: c}
+      - "falta preparo para os líderes, muita gente virou chefe só por tempo de casa"
+      - "o coordenador muda a prioridade toda semana e depois cobra o que ele mesmo mandou parar"
+      - "feedback aqui só existe quando é para apontar erro"
+      - "minha liderança não conhece o trabalho que a gente faz no dia a dia"
+      - "o gestor tem os preferidos dele e todo mundo sabe quem são"
+      - "quando dá problema a culpa é sempre da equipe, nunca da gestão"
+      - "a liderança promete e não cumpre, já perdi as contas de quantas vezes"
+      - "o gestor nunca está disponível, a agenda dele é sempre mais importante que a gente"
+      - "trocaram de coordenador três vezes em um ano, ninguém sabe a quem responder"
+      - "falta um líder que defenda a equipe lá em cima"
+      - "a gerência decide tudo sem ouvir quem está na ponta"
+      - "tem líder que não sabe nem o nome de quem trabalha com ele"
+      - "a reunião com o gestor é só para passar planilha, ninguém pergunta como a gente está"
+      - "supervisor bom aqui dura pouco, os bons vão embora"
+      - {t: "microgerenciamento demais, o gestor quer aprovar até vírgula de e-mail", a: [tecnologia, financeiro, juridico, pessoas, comercial]}
+      - "falta postura de alguns líderes, combinam uma coisa na reunião e fazem outra depois"
+      - "meu gestor não sabe dar feedback, só reclama no corredor"
+      - "a liderança é muito distante, nunca vi o diretor da minha área pessoalmente"
+      - {t: "o gestor não sabe priorizar, tudo é urgente para ontem", also: [car]}
+      - {t: "a supervisora controla o tempo de pausa no minuto mas nunca ajuda com cliente difícil", a: [atendimento]}
+      - {t: "a monitoria só escuta a ligação para achar erro, nunca para ensinar", a: [atendimento]}
+      - {t: "o líder do turno só aparece na doca para reclamar do atraso", a: [operacoes]}
+      - {t: "o encarregado da noite não passa as informações para o turno da manhã", a: [operacoes], also: [com]}
+      - {t: "o programador de rota nunca escuta o motorista, e quem conhece a estrada somos nós", a: [transporte]}
+      - {t: "o tech lead decide a arquitetura sozinho e depois o bug é culpa do time", a: [tecnologia]}
+      - {t: "o gerente regional só liga para perguntar quanto falta para a meta", a: [comercial], also: [car]}
+      - {t: "a coordenação não assume os erros de processo, sobra sempre para o analista", a: [financeiro]}
+      - {t: "a liderança é bem fraquinha, não vou mentir", r: c}
+      - {t: "o chefe é gente fina mas não resolve nada, empurra tudo com a barriga", r: c}
+      - {t: "considero que falta preparo da liderança para lidar com conflitos dentro da equipe", r: f}
+      - {t: "solicito que a gestão faça reuniões de alinhamento com mais frequência, hoje cada um trabalha no escuro", r: f, also: [com]}
+      - {t: "parabéns para a gestão, conseguiu fazer metade do time pedir as contas no mesmo ano", tags: [irony]}
+      - {t: "1 ano e 3 meses aqui e já tive 4 gestores diferentes", ten: [y1to3], tags: [decoy_num]}
+      - {t: "o supervisor do sábado some depois das dez e ninguém sabe a quem chamar", a: [operacoes, atendimento]}
+    pos:
+      - "minha coordenadora é muito humana, sempre pergunta como a gente está"
+      - "meu gestor dá autonomia e confia no time"
+      - "o supervisor novo mudou o clima da equipe para melhor"
+      - "tenho um líder que ensina, coisa rara"
+      - "a gestão da minha área é justa e transparente com todo mundo"
+      - "meu chefe é parceiro de verdade, segura as broncas junto com a gente"
+      - "finalmente um líder que planeja antes de cobrar"
+      - "a diretora da área conversa com todo mundo, sem frescura"
+      - {t: "as conversas de um a um com meu gestor me ajudaram muito esse ano", a: [tecnologia, financeiro, comercial, pessoas, juridico]}
+      - {t: "o encarregado é firme mas justo, gosto de trabalhar com ele", a: [operacoes]}
+      - {t: "a supervisora do atendimento é a melhor coisa daqui", a: [atendimento]}
+      - {t: "o coordenador de frota atende o telefone de dia ou de noite quando a gente tem problema na estrada", a: [transporte]}
+      - {t: "meu gestor deu força quando precisei sair mais cedo por causa do meu filho", also: [flx]}
+      - "o gerente defende o time quando a diretoria aperta"
+      - {t: "a líder do meu turno resolve tudo com calma, nunca perde a cabeça", a: [operacoes, atendimento]}
+      - {t: "meu chefe é gente boa demais, dá gosto", r: c}
+      - {t: "destaco a postura respeitosa e organizada da minha liderança imediata", r: f}
+      - {t: "reconheço o esforço da gestão em melhorar o ambiente de trabalho ao longo deste ano", r: f}
+      - {t: "meu gestor sempre agradece o esforço da equipe", also: [rec]}
+    neu:
+      - "a liderança tem coisa boa e coisa ruim, depende muito de quem é o gestor"
+      - "troquei de gestor há pouco tempo, ainda estou entendendo o jeito dele"
+      - "cada supervisor faz de um jeito, não tem um padrão"
+      - {t: "seria bom ter treinamento para quem vira líder pela primeira vez", also: [cre]}
+      - {t: "meu gestor é gente boa, pena que vive sobrecarregado", also: [car], r: c}
+
+  rem:
+    neg:
+      - "o salário está bem abaixo do mercado"
+      - "o reajuste desse ano nem cobriu a inflação"
+      - {t: "o vale refeição de R$ 28 por dia não paga um almoço decente aqui perto", tags: [decoy_num]}
+      - "o plano de saúde tem coparticipação alta, cada consulta é um susto no holerite"
+      - "a PLR esse ano veio uma vergonha"
+      - "trabalho muito e ganho pouco, simples assim"
+      - "a empresa paga o piso e acha que está fazendo favor"
+      - "o vale alimentação não acompanha o preço do mercado"
+      - "tem gente nova entrando ganhando mais do que quem está aqui há anos"
+      - {t: "hora extra vai toda para o banco de horas e nunca dá para tirar a folga", also: [flx]}
+      - "não tem plano odontológico, isso faz muita falta"
+      - {t: "o adicional noturno vem errado no holerite quase todo mês", a: [operacoes, transporte, atendimento], also: [inf]}
+      - {t: "a regra da comissão mudou no meio do trimestre e ninguém explicou nada", a: [comercial], also: [com]}
+      - {t: "a variável é calculada de um jeito que nenhum vendedor entende", a: [comercial]}
+      - {t: "o teto da comissão desanima, depois de certo ponto não adianta vender mais", a: [comercial]}
+      - {t: "a meta subiu 30% e a comissão continuou igual", a: [comercial], also: [car], tags: [decoy_num]}
+      - {t: "o salário de motorista aqui é dos piores da região", a: [transporte]}
+      - {t: "a diária de viagem não cobre nem a janta na estrada", a: [transporte]}
+      - {t: "o salário do pessoal da doca é muito baixo para o esforço que a gente faz", a: [operacoes], also: [car]}
+      - {t: "auxiliar de armazém ganhando pouco mais de um salário mínimo, não dá", a: [operacoes]}
+      - {t: "atendente ganha pouco demais para aguentar o que aguenta no telefone", a: [atendimento], also: [car]}
+      - {t: "o bônus de produtividade do atendimento é impossível de alcançar", a: [atendimento]}
+      - {t: "pagam abaixo do mercado de tecnologia, todo mês alguém sai por proposta melhor", a: [tecnologia]}
+      - {t: "o 13º veio com um desconto que ninguém soube explicar", tags: [decoy_num]}
+      - "não tem auxílio creche, para quem tem filho pequeno pesa muito"
+      - {t: "trocaram o plano de saúde por um pior e ninguém foi consultado", also: [com]}
+      - "o desconto do vale transporte come uma parte grande do salário"
+      - {t: "cortaram a cesta básica sem aviso nenhum", also: [com]}
+      - {t: "o vr tá zoado, não dá nem para a marmita", r: c}
+      - {t: "tipo assim, o salário é bem fraco pro tanto que a gente rala", r: c}
+      - {t: "considero que a remuneração está defasada em relação ao mercado", r: f}
+      - {t: "valeu pelo panetone, com ele dá até para pagar o aluguel", tags: [irony]}
+      - {t: "reajuste de 2%, agora vai dar para trocar de carro", tags: [irony, decoy_num]}
+      - {t: "o reajuste foi de 4,5% e a inflação do ano foi maior", tags: [decoy_num]}
+      - {t: "o VR de R$ 32,50 por dia não dá nem para o prato feito", tags: [decoy_num]}
+      - {t: "quem faz bem feito ganha mais tarefa, não mais salário", also: [car]}
+    pos:
+      - "o convênio médico é bom, já precisei e fui bem atendido"
+      - "o salário cai certinho todo mês, hoje em dia isso vale muito"
+      - "os benefícios são melhores que os da minha empresa anterior"
+      - "a PLR desse ano veio acima do que eu esperava"
+      - "o vale alimentação é bom, ajuda muito em casa"
+      - "gostei do reajuste desse ano"
+      - {t: "a comissão é boa quando a meta é realista", a: [comercial]}
+      - {t: "o auxílio home office ajuda nas contas de luz e internet", a: [tecnologia, financeiro, pessoas, juridico, comercial], also: [flx]}
+      - "o auxílio academia é um benefício que eu uso muito"
+      - {t: "pagam a hora extra certinho, sem enrolação", a: [operacoes, transporte]}
+      - {t: "os benefícios oferecidos são compatíveis com o mercado e atendem bem às minhas necessidades", r: f}
+    neu:
+      - "o salário é dentro da média, nada demais"
+      - "podiam revisar a tabela de cargos e salários"
+      - {t: "queria entender melhor como é calculada a PLR", also: [com]}
+      - "o benefício é ok, mas o salário podia ser melhor"
+      - {t: "seria oportuno revisar a política de benefícios para incluir auxílio educação", r: f, also: [cre]}
+
+  car:
+    neg:
+      - "a carga de trabalho só aumenta e o time só diminui"
+      - "estamos sempre no limite, qualquer falta vira caos"
+      - "fazer hora extra virou rotina, não é mais exceção"
+      - "a meta é irreal e todo mês sobe mais um pouco"
+      - {t: "em dia de pico não dá tempo nem de ir ao banheiro direito", a: [atendimento, operacoes], also: [bem]}
+      - {t: "o volume de pedidos dobrou e o número de pessoas no armazém é o mesmo", a: [operacoes]}
+      - {t: "meta de 180 volumes por hora na separação é desumano", a: [operacoes], also: [bem], tags: [decoy_num]}
+      - {t: "a doca vive lotada, a gente descarrega um caminhão atrás do outro sem parar", a: [operacoes]}
+      - {t: "fim de mês o armazém vira uma loucura, ninguém sai no horário", a: [operacoes]}
+      - {t: "a fila de atendimento não zera nunca, é ligação atrás de ligação", a: [atendimento]}
+      - {t: "o TMA virou obsessão, a gente desliga correndo para não estourar o tempo", a: [atendimento]}
+      - {t: "com a URA nova o cliente já chega irritado e quem segura tudo somos nós", a: [atendimento], also: [inf]}
+      - {t: "pausa de 10 minutos para 6 horas de telefone é muito pouco", a: [atendimento], also: [bem], tags: [decoy_num]}
+      - {t: "falta gente no atendimento e quem fica cobre a escala de quem saiu", a: [atendimento], also: [flx]}
+      - {t: "rota com 35 entregas por dia não fecha, a gente sempre volta atrasado", a: [transporte], tags: [decoy_num]}
+      - {t: "a jornada do motorista passa de 12 horas fácil e ninguém controla isso direito", a: [transporte], also: [bem], tags: [decoy_num]}
+      - {t: "a programação joga as entregas mais longe para o fim do dia", a: [transporte]}
+      - {t: "sprint atrás de sprint sem respiro, tudo é prioridade máxima", a: [tecnologia]}
+      - {t: "o time de tecnologia vive apagando incêndio e não sobra tempo para melhorar nada", a: [tecnologia], also: [inf]}
+      - {t: "plantão de deploy no fim de semana virou rotina", a: [tecnologia], also: [flx]}
+      - {t: "a meta do trimestre foi definida sem olhar para o mercado", a: [comercial]}
+      - {t: "o fechamento contábil é sempre com hora extra até tarde", a: [financeiro]}
+      - {t: "no fechamento do mês o financeiro vira a noite, todo mês a mesma história", a: [financeiro]}
+      - {t: "são três pessoas no RH para cuidar de 400 funcionários", a: [pessoas], tags: [decoy_num]}
+      - {t: "a folha de pagamento inteira fica nas costas de uma pessoa só", a: [pessoas, financeiro]}
+      - "prazo apertado aqui é regra, não exceção"
+      - "a demanda chega toda no último dia e o prazo é para ontem"
+      - {t: "fazem a gente cobrir duas funções e pagam uma só", also: [rem]}
+      - "depois das demissões a mesma quantidade de tarefa ficou com metade da equipe"
+      - "a gente cobre as férias dos colegas e ninguém cobre as nossas"
+      - {t: "é muita correria, não dá tempo de fazer nada direito", r: c}
+      - {t: "o ritmo aqui é puxado demais", r: c}
+      - {t: "mó correria todo dia, não dá nem para respirar", r: c}
+      - {t: "o b.o. sempre sobra para quem está na ponta", r: c}
+      - {t: "puxado demais esse fim de mês, tô só o pó", r: c, also: [bem]}
+      - {t: "o armazém está um caos, cada dia um b.o. novo", a: [operacoes], r: c, also: [inf]}
+      - {t: "sugiro que a empresa reveja a política de horas extras, que tem se tornado rotina", r: f}
+      - {t: "entendo o momento da empresa, porém a sobrecarga da equipe tem comprometido a qualidade das entregas", r: f}
+      - {t: "amo fazer hora extra todo sábado, só que não", tags: [irony], also: [flx]}
+      - {t: "nossa, que surpresa, mais uma meta nova esse mês", tags: [irony]}
+      - {t: "fechamento contábil é minha atividade favorita de fim de semana", a: [financeiro], tags: [irony]}
+      - {t: "foram 46 horas extras só no mês passado", tags: [decoy_num]}
+      - {t: "trabalhei 3 sábados seguidos em outubro", also: [flx], tags: [decoy_num]}
+      - {t: "a meta de 120% em dezembro é fora da realidade", a: [comercial], tags: [decoy_num]}
+      - {t: "a carteira de cada vendedor cresceu e o tempo para visitar cliente sumiu", a: [comercial]}
+      - {t: "tem dia que o conferente confere três docas ao mesmo tempo", a: [operacoes]}
+    pos:
+      - "a carga de trabalho está tranquila, dá para fazer tudo no horário"
+      - "depois que contrataram mais gente o ritmo melhorou muito"
+      - "é corrido, mas é organizado, a gente sabe o que precisa entregar"
+      - {t: "a meta desse ano está mais justa", a: [comercial]}
+      - {t: "a escala nova do armazém aliviou bastante o turno da noite", a: [operacoes], also: [flx]}
+      - "o volume de trabalho está bem distribuído no meu time"
+      - "a gente tem tempo de fazer as coisas com calma, sem atropelo"
+      - "o ritmo aperta só no fim do mês, no resto do tempo é tranquilo"
+      - "quase não faço hora extra, e quando faço ela é paga"
+      - {t: "a fila diminuiu depois que abriram o chat, o dia ficou mais leve", a: [atendimento]}
+      - {t: "as rotas ficaram mais curtas depois da reorganização, dá para voltar no horário", a: [transporte]}
+      - {t: "o time protege a sprint, quase não entra demanda no meio", a: [tecnologia]}
+      - {t: "o fechamento desse ano foi o mais tranquilo que já vi", a: [financeiro]}
+      - {t: "com o reforço dos temporários a doca deu conta da black friday sem virar a noite", a: [operacoes]}
+    neu:
+      - "tem época de muito trabalho e época tranquila, normal"
+      - "fim de mês sempre aperta, já faz parte"
+      - "seria bom revisar a distribuição de tarefas da equipe"
+      - {t: "o trabalho é pesado, mas a gente já sabia quando entrou", a: [operacoes, transporte]}
+      - "a meta é alta, mas dá para bater com esforço"
+      - {t: "o volume sobe muito em novembro, todo mundo já sabe", a: [operacoes, transporte, atendimento]}
+
+  cre:
+    neg:
+      - "não existe plano de carreira, a gente não sabe para onde pode ir"
+      - "promoção aqui é por indicação, não por mérito"
+      - {t: "faz quatro anos que estou no mesmo cargo fazendo trabalho de analista sênior", ten: [y3to5, gt5]}
+      - "as vagas internas acabam sendo preenchidas por gente de fora"
+      - "treinamento aqui é só o obrigatório de segurança"
+      - "pedi para fazer um curso e disseram que não tinha verba"
+      - {t: "não tem como crescer na operação, quem entra auxiliar morre auxiliar", a: [operacoes]}
+      - {t: "motorista não tem perspectiva nenhuma de crescer aqui dentro", a: [transporte]}
+      - {t: "no atendimento a única saída é virar supervisor, e abre uma vaga a cada dois anos", a: [atendimento]}
+      - {t: "não existe trilha técnica, para ganhar mais tem que virar gestor", a: [tecnologia], also: [rem]}
+      - {t: "a avaliação de desempenho não serve para nada, ninguém é promovido depois dela", also: [rec]}
+      - "os critérios de promoção mudam a cada ciclo"
+      - "faz tempo que eu não aprendo nada novo aqui"
+      - {t: "prometeram a efetivação depois do contrato e até agora nada", ten: [lt1]}
+      - "o PDI que a gente preenche some na gaveta"
+      - {t: "queria fazer job rotation mas meu gestor não libera", also: [lid]}
+      - {t: "não tem orçamento para certificação, a gente paga do próprio bolso", a: [tecnologia]}
+      - "a empresa contrata sênior de fora em vez de desenvolver quem já está aqui"
+      - {t: "gostaria de registrar minha insatisfação com a falta de critérios objetivos para promoção", r: f}
+      - {t: "a ausência de um plano de desenvolvimento estruturado desestimula os profissionais mais experientes", r: f}
+      - {t: "plano de carreira existe sim, é ficar no mesmo lugar até aposentar", tags: [irony]}
+      - {t: "me prometeram crescimento quando entrei, três anos depois faço a mesma coisa com mais demanda", ten: [y3to5], also: [car]}
+    pos:
+      - {t: "cresci muito aqui, entrei como auxiliar e hoje sou líder", ten: [y3to5, gt5]}
+      - {t: "a empresa pagou metade da minha faculdade", also: [rem]}
+      - "tenho aprendido muito com o time, cada mês uma coisa nova"
+      - {t: "o programa de trainee é bem estruturado", ten: [lt1, y1to3]}
+      - {t: "fiz o curso de operador de empilhadeira pela empresa e mudei de função", a: [operacoes]}
+      - {t: "tive duas promoções em três anos, não tenho do que reclamar", ten: [y3to5, gt5], tags: [decoy_num]}
+      - "a plataforma de cursos online é boa, uso bastante"
+      - "tenho espaço para propor coisas novas e sou ouvido"
+      - {t: "a mentoria com o pessoal mais experiente me ajudou demais", a: [tecnologia, financeiro, juridico]}
+      - "aqui dá para crescer se você mostrar resultado"
+      - {t: "agradeço a oportunidade de trabalhar em uma empresa que investe no desenvolvimento profissional", r: f, also: [cul]}
+    neu:
+      - "queria entender melhor o que preciso fazer para a próxima promoção"
+      - "seria bom ter mais cursos de capacitação para a minha área"
+      - "a avaliação de desempenho é anual, podia ser mais frequente"
+
+  rec:
+    neg:
+      - "a gente rala muito e ninguém fala nem um obrigado"
+      - "só lembram da gente quando dá errado"
+      - {t: "o resultado do time vira mérito do gestor na apresentação", also: [lid]}
+      - "segurei um cliente grande mês passado e ninguém comentou nada"
+      - "reconhecimento aqui é um e-mail genérico de parabéns para todo mundo"
+      - {t: "quem entrega mais recebe mais tarefa, não reconhecimento", also: [car]}
+      - {t: "o pessoal da operação é invisível para o escritório", a: [operacoes, transporte]}
+      - {t: "motorista só é lembrado quando atrasa", a: [transporte]}
+      - {t: "recebi elogio de cliente por escrito e meu supervisor nem leu", a: [atendimento]}
+      - "o destaque do mês é sempre o mesmo grupinho"
+      - {t: "percebo que os esforços da equipe raramente são reconhecidos pela diretoria", r: f}
+      - {t: "reconhecimento? ganhei um bombom na páscoa", tags: [irony]}
+    pos:
+      - "sinto que meu trabalho é valorizado"
+      - "o time comemora junto cada entrega, isso motiva"
+      - "ganhei um prêmio de destaque esse ano e foi muito bom"
+      - {t: "a diretoria veio no armazém agradecer depois da black friday", a: [operacoes]}
+      - {t: "a homenagem por tempo de casa foi bonita, me emocionei", ten: [gt5], also: [cul]}
+      - "quando a gente bate a meta a empresa faz questão de comemorar"
+
+  com:
+    neg:
+      - "fiquei sabendo da troca de sistema por um colega de outra área, ninguém avisou a equipe"
+      - "a informação não desce, fica tudo preso na gerência"
+      - "ninguém explica o motivo das decisões, só manda fazer"
+      - {t: "mudaram a escala por mensagem no grupo no domingo à noite", also: [flx]}
+      - "o e-mail interno tem tanta coisa que ninguém lê mais nada"
+      - "a empresa não fala abertamente sobre as demissões e o clima fica tenso"
+      - "os comunicados são cheios de palavra bonita e não dizem nada"
+      - {t: "a comunicação entre financeiro e comercial é péssima", a: [financeiro, comercial], also: [eqp]}
+      - {t: "o pedido muda de status no sistema e ninguém avisa o atendimento", a: [atendimento], also: [inf]}
+      - {t: "o processo de reembolso mudou três vezes e cada pessoa explica de um jeito", a: [financeiro], also: [inf]}
+      - "falta transparência sobre os resultados da empresa"
+      - {t: "a pesquisa do ano passado não teve retorno nenhum, espero que essa tenha", ten: [y1to3, y3to5, gt5]}
+      - {t: "a comunicação entre as áreas precisa melhorar, muitas decisões chegam sem contexto", r: f}
+      - {t: "lamento que os resultados da pesquisa anterior não tenham sido apresentados aos colaboradores", r: f, ten: [y1to3, y3to5, gt5]}
+      - {t: "a comunicação aqui é ótima, fiquei sabendo da mudança pelo cliente", tags: [irony]}
+      - {t: "adoro a transparência, o comunicado sempre chega depois da mudança", tags: [irony]}
+      - {t: "o 13º atrasou dois dias e ninguém avisou", also: [rem], tags: [decoy_num]}
+    pos:
+      - "gostei das reuniões trimestrais com a diretoria, dá para entender para onde a empresa vai"
+      - "a comunicação melhorou bastante esse ano"
+      - "o informativo semanal ajuda a saber o que acontece nas outras áreas"
+      - "a diretoria foi transparente sobre a fase difícil e eu respeitei isso"
+      - {t: "o mural da operação está sempre atualizado", a: [operacoes]}
+      - {t: "a transparência da diretoria na divulgação dos resultados foi muito positiva", r: f}
+    neu:
+      - "seria bom ter um canal oficial para tirar dúvidas"
+      - "podiam avisar as mudanças com mais antecedência"
+      - {t: "sugiro a criação de um canal formal para sugestões de melhoria", r: f}
+
+  eqp:
+    neg:
+      - "tem muita fofoca entre as equipes"
+      - "o clima entre os turnos é ruim, um culpa o outro"
+      - {t: "o comercial vende o que a operação não consegue entregar e sobra para todo mundo", a: [comercial, operacoes, transporte], also: [com]}
+      - "tem panelinha em todo canto"
+      - "a rotatividade é tão grande que não dá para criar laço com ninguém"
+      - "a equipe está desmotivada, é cada um por si"
+      - {t: "o pessoal do escritório olha torto para quem vem do armazém", a: [operacoes], also: [cul]}
+      - {t: "tecnologia e negócio não se entendem, cada um fala uma língua", a: [tecnologia, comercial, financeiro]}
+      - {t: "alguns colegas não fazem a parte deles e sobra para os outros", also: [car]}
+      - {t: "o pessoal novo chega sem treinamento e a equipe tem que ensinar tudo correndo", also: [car]}
+      - {t: "ótimo ambiente, todo mundo procurando outro emprego", tags: [irony]}
+    pos:
+      - "meus colegas são o melhor daqui"
+      - "a equipe é muito unida, um cobre o outro"
+      - "fiz amigos de verdade aqui"
+      - {t: "o pessoal da doca é parceiro demais", a: [operacoes]}
+      - {t: "os motoristas se ajudam muito na estrada, um avisa o outro de tudo", a: [transporte]}
+      - {t: "no atendimento a gente se segura um no outro, sem isso não dava", a: [atendimento]}
+      - {t: "o time de tecnologia é muito bom tecnicamente e generoso para ensinar", a: [tecnologia], also: [cre]}
+      - "ambiente leve, dá gosto de vir trabalhar"
+      - {t: "o time do financeiro é pequeno, mas muito parceiro", a: [financeiro]}
+      - "a integração entre as áreas melhorou com os projetos em conjunto"
+      - "gosto muito da minha equipe, a gente ri junto mesmo nos dias difíceis"
+      - "os colegas mais antigos ajudam muito quem está chegando"
+      - "o churrasco de fim de ano foi muito bom, juntou todo mundo"
+      - {t: "a galera do comercial é animada, o clima é bom", a: [comercial], r: c}
+      - {t: "meus colegas de turno são minha segunda família", a: [operacoes, transporte, atendimento]}
+      - {t: "equipe top demais", r: c}
+      - {t: "curto muito o pessoal daqui, a resenha no almoço é a melhor parte", r: c}
+      - {t: "considero a equipe extremamente competente e colaborativa", r: f}
+      - {t: "dou nota 10 para o meu time", tags: [decoy_num]}
+    neu:
+      - "tem gente boa e gente difícil, como em qualquer lugar"
+      - "a equipe mudou muito esse ano, ainda está se ajustando"
+
+  flx:
+    neg:
+      - "a folga cai sempre no meio da semana, nunca consigo ir num aniversário da família"
+      - {t: "voltaram com o presencial obrigatório sem explicar o motivo", a: [tecnologia, financeiro, pessoas, juridico, comercial], also: [com]}
+      - {t: "banco de horas que nunca dá para usar não é banco, é dívida", r: c}
+      - "a escala muda toda semana, não dá para planejar nada"
+      - "pedir troca de folga aqui é uma novela"
+      - "trabalhar sábado sim, sábado não pesa muito"
+      - {t: "entrar às 5h é puxado para quem mora longe", a: [operacoes], tags: [decoy_num]}
+      - {t: "motorista não tem folga fixa, a escala sai na véspera", a: [transporte]}
+      - {t: "no atendimento não deixam trocar de turno nem com colega da mesma função", a: [atendimento]}
+      - {t: "o híbrido virou presencial na prática, o gestor quer todo mundo lá todo dia", a: [tecnologia, financeiro, pessoas, juridico, comercial]}
+      - "não tem flexibilidade nenhuma de horário, nem para consulta médica"
+      - "trabalho em feriado sem poder escolher"
+      - {t: "seria importante rever o modelo presencial, considerando a produtividade que tivemos no período remoto", r: f, a: [tecnologia, financeiro, pessoas, juridico, comercial]}
+      - {t: "flexibilidade total, você pode escolher entre vir ou vir", tags: [irony]}
+      - {t: "a escala é super flexível, muda toda hora sem avisar ninguém", tags: [irony]}
+      - {t: "na escala 6x1 a folga cai cada semana num dia diferente", tags: [decoy_num]}
+    pos:
+      - {t: "o home office duas vezes por semana mudou minha vida", a: [tecnologia, financeiro, pessoas, juridico, comercial]}
+      - "o horário flexível ajuda muito quem tem filho"
+      - {t: "a escala nova com folga no fim de semana foi a melhor coisa do ano", a: [operacoes, transporte, atendimento]}
+      - "consigo sair mais cedo quando preciso e compenso depois, sem drama"
+      - {t: "o trabalho remoto funciona muito bem no meu time", a: [tecnologia]}
+      - "a empresa respeita meu horário, ninguém manda mensagem de madrugada"
+      - {t: "o home office é top, não troco por nada", r: c, a: [tecnologia, financeiro, pessoas, juridico, comercial]}
+    neu:
+      - {t: "queria pelo menos um dia de home office, nem que fosse um por mês", a: [tecnologia, financeiro, pessoas, juridico, comercial, atendimento]}
+      - {t: "podiam testar a escala 5x2 no armazém", a: [operacoes], tags: [decoy_num]}
+      - {t: "a reunião das 7h30 de segunda podia ser às 9h", tags: [decoy_num]}
+
+  inf:
+    neg:
+      - "o sistema trava toda hora e a gente perde o que estava fazendo"
+      - "o computador é tão lento que levo cinco minutos para abrir uma planilha"
+      - "para pedir um teclado novo abri chamado em março e até hoje não chegou"
+      - {t: "o WMS cai e a separação fica parada", a: [operacoes]}
+      - {t: "faltam empilhadeiras, a gente fica parado esperando liberar uma", a: [operacoes], also: [car]}
+      - {t: "as empilhadeiras estão com bateria velha e param no meio do turno", a: [operacoes]}
+      - {t: "o coletor de dados vive sem bateria", a: [operacoes]}
+      - {t: "a doca 4 está com a rampa quebrada há meses", a: [operacoes], also: [bem], tags: [decoy_num]}
+      - {t: "o rastreador do caminhão trava e a central acha que a gente parou à toa", a: [transporte]}
+      - {t: "o aplicativo de entrega fecha sozinho no meio da rota", a: [transporte]}
+      - {t: "o CRM é lento e a gente perde venda esperando a tela carregar", a: [comercial]}
+      - {t: "a URA manda o cliente para o setor errado e ele já chega bravo", a: [atendimento], also: [car]}
+      - {t: "o headset está quebrado e não tem reposição", a: [atendimento]}
+      - {t: "tem que abrir cinco telas para resolver um protocolo simples", a: [atendimento]}
+      - {t: "o ambiente de homologação vive fora do ar", a: [tecnologia]}
+      - {t: "o deploy ainda é manual, qualquer coisa vira madrugada", a: [tecnologia], also: [car]}
+      - {t: "o ERP é antigo e cheio de gambiarra", a: [financeiro, tecnologia]}
+      - {t: "o fechamento contábil depende de planilha manual, um erro e começa tudo de novo", a: [financeiro], also: [car]}
+      - {t: "a aprovação de pagamento é tão lenta que o fornecedor cobra a gente direto", a: [financeiro]}
+      - {t: "o sistema da folha dá erro todo mês", a: [pessoas, financeiro]}
+      - "o processo de compra é tão lento que a gente compra com o próprio dinheiro e pede reembolso"
+      - "falta padrão nos processos, cada um faz de um jeito"
+      - "o refeitório é pequeno e a fila toma metade do horário de almoço"
+      - {t: "o banheiro do armazém vive sem papel e sem sabão", a: [operacoes], also: [bem]}
+      - {t: "o ar condicionado do atendimento não funciona no verão", a: [atendimento], also: [bem]}
+      - {t: "o notebook que me deram tem cinco anos e não roda o que eu preciso", a: [tecnologia, financeiro, comercial, juridico, pessoas]}
+      - {t: "tá zoado demais o sistema, cai toda hora", r: c}
+      - {t: "o deploy de sexta é sempre um b.o.", a: [tecnologia], r: c}
+      - {t: "os processos de aprovação são longos demais e atrasam o atendimento aos clientes", r: f}
+      - {t: "o ambiente físico do setor precisa de manutenção, principalmente a climatização", r: f, also: [bem]}
+      - {t: "adoro quando o sistema cai bem na hora do pico, é emocionante", tags: [irony]}
+      - {t: "a URA é tão boa que o cliente desiste antes de chegar em mim", a: [atendimento], tags: [irony]}
+      - {t: "caminhão novo só existe no PowerPoint da diretoria", a: [transporte], tags: [irony]}
+      - {t: "sprint de duas semanas que dura um mês, metodologia ágil raiz", a: [tecnologia], tags: [irony], also: [car]}
+      - {t: "o pedido 4471 ficou parado três dias esperando aprovação", tags: [decoy_num]}
+      - {t: "no dia 28/10 o sistema ficou fora do ar a manhã inteira", tags: [decoy_num]}
+      - {t: "a nota fiscal 88213 voltou três vezes por erro de cadastro", a: [financeiro, comercial], tags: [decoy_num]}
+      - {t: "o protocolo 2026-118734 está aberto desde setembro", tags: [decoy_num]}
+      - {t: "o turno das 22h às 6h não tem refeitório aberto", a: [operacoes], also: [bem], tags: [decoy_num]}
+      - {t: "o caminhão está com o freio pedindo socorro e a manutenção não libera", a: [transporte], also: [bem]}
+      - {t: "a impressora de etiqueta da expedição para toda hora", a: [operacoes]}
+    pos:
+      - {t: "o sistema novo de estoque facilitou muito a vida", a: [operacoes]}
+      - "as ferramentas de trabalho são boas, não falta nada"
+      - {t: "o CRM novo é bem melhor que o antigo", a: [comercial]}
+      - {t: "a automação do fechamento economizou dias de trabalho", a: [financeiro], also: [car]}
+      - "a reforma do refeitório ficou ótima"
+      - {t: "os caminhões novos da frota são muito melhores", a: [transporte]}
+      - {t: "a pipeline de deploy nova ficou redonda", a: [tecnologia]}
+      - "o sistema de chamados funciona bem, resolvem rápido"
+      - {t: "o sistema novo mostra o histórico do cliente na tela, ajuda demais", a: [atendimento]}
+      - {t: "os coletores novos são bem mais rápidos", a: [operacoes]}
+      - "o reembolso ficou simples, agora é tudo pelo aplicativo"
+    neu:
+      - "o sistema é ok, mas podia ter um treinamento melhor"
+      - "seria bom revisar os processos internos, tem muita etapa repetida"
+      - "trocaram o sistema de ponto, ainda estamos nos acostumando"
+      - {t: "podiam colocar mais um bebedouro no armazém", a: [operacoes]}
+
+  bem:
+    neg:
+      - {t: "saio daqui com dor nas costas todo dia", a: [operacoes, transporte]}
+      - "o mouse e o teclado do posto são horríveis, já estou com dor no punho"
+      - {t: "o calor dentro do armazém à tarde é insuportável", a: [operacoes], also: [inf]}
+      - {t: "já vi empilhadeira passar raspando em gente no corredor, falta sinalização", a: [operacoes], also: [inf]}
+      - {t: "o EPI demora para ser trocado, minha bota está furada", a: [operacoes, transporte]}
+      - {t: "as rotas da madrugada cansam muito, queria mais revezamento", a: [transporte], also: [flx]}
+      - {t: "ando muito cansado, o ritmo está pesado", g: m, also: [car]}
+      - {t: "ando exausta com esse ritmo, chego em casa sem energia para nada", g: f, also: [car]}
+      - {t: "a pressão do dia a dia está me deixando estressado", g: m, also: [car]}
+      - {t: "o estresse no atendimento é muito grande, tem cliente que xinga o dia inteiro", a: [atendimento]}
+      - {t: "o barulho do galpão dá dor de cabeça no fim do dia", a: [operacoes]}
+      - "falta um lugar decente para descansar na pausa"
+      - {t: "a ginástica laboral acabou e ninguém explicou o motivo", also: [com]}
+      - {t: "a poeira do armazém ataca minha rinite", a: [operacoes]}
+      - {t: "o banco do caminhão é duro, termino a rota com a lombar travada", a: [transporte]}
+      - {t: "ficar oito horas de headset me dá dor de ouvido", a: [atendimento]}
+      - {t: "claro, porque trabalhar doente é sinal de comprometimento, né", tags: [irony], also: [cul]}
+      - {t: "tá puxado, chego em casa só o bagaço", r: c}
+      - "o refeitório só serve fritura, difícil manter a saúde assim"
+    pos:
+      - "o programa de apoio psicológico online é muito bom"
+      - {t: "a semana de prevenção de acidentes foi bem feita", a: [operacoes, transporte]}
+      - "a empresa leva segurança a sério, os EPIs são de qualidade"
+      - "gostei da campanha de vacinação na empresa"
+      - "as pausas para alongamento ajudam o corpo a aguentar o dia"
+      - "a sala de descanso nova ficou ótima"
+    neu:
+      - "podiam ter acompanhamento de nutricionista no refeitório"
+      - {t: "cansado, mas é fim de ano, faz parte", g: m}
+      - "a ergonomia dos postos podia ser avaliada de novo"
+
+  cul:
+    neg:
+      - "os valores pendurados na parede não batem com o que a gente vive aqui"
+      - "aqui o que importa é número, gente vem depois"
+      - {t: "a empresa perdeu aquele jeito de família que tinha", ten: [y3to5, gt5]}
+      - "a cultura é de apontar culpado, não de resolver o problema"
+      - "falam de inovação mas qualquer ideia nova é barrada"
+      - "o discurso de diversidade aparece mais na propaganda do que dentro de casa"
+      - {t: "a ética às vezes fica de lado quando a meta aperta", a: [comercial]}
+      - {t: "sei lá, parece que ninguém se importa com a gente", r: c}
+      - "vestir a camisa aqui significa aceitar tudo sem reclamar"
+    pos:
+      - "gosto de trabalhar numa empresa séria, que paga em dia e cumpre o combinado"
+      - "a Talvana é uma empresa ética, nunca me pediram nada errado"
+      - "gosto dos valores da empresa, dá para ver no dia a dia"
+      - "o projeto social com as escolas do bairro é muito bonito"
+      - "aqui tem espaço para todo mundo ser quem é"
+      - "a empresa é humana com quem passa por dificuldade"
+      - {t: "registro meu agradecimento à área de Pessoas pelo apoio durante minha licença médica", r: f}
+    neu:
+      - "a cultura muda muito de área para área"
+
+  out:
+    pos:
+      - "boa iniciativa fazer essa pesquisa"
+      - "só queria dizer que gosto daqui"
+      - "empresa boa de trabalhar"
+      - {t: "no geral estou satisfeito", g: m}
+      - {t: "no geral estou satisfeita", g: f}
+      - "tudo tranquilo por aqui"
+      - "não tenho do que reclamar"
+      - "gosto muito de trabalhar aqui"
+      - "recomendo a empresa para qualquer amigo"
+      - {t: "empresa top, sem mais", r: c}
+      - {t: "bonzão trabalhar aqui, sem neura", r: c}
+      - "desejo um ótimo fim de ano para todo mundo"
+      - {t: "parabéns pelos 30 anos da empresa", tags: [decoy_num]}
+      - {t: "tenho 7 anos de casa e a empresa melhorou muito nesse tempo", ten: [gt5], tags: [decoy_num]}
+    neu:
+      - "nada a acrescentar por enquanto"
+      - "agradeço o espaço"
+      - "espero que essa pesquisa sirva para alguma coisa"
+      - "a pesquisa podia ser mais curta"
+      - "respondi tudo nas outras perguntas"
+      - "sem sugestões no momento"
+      - "vou deixar para falar pessoalmente com o RH"
+      - "essa pesquisa é anônima mesmo?"
+      - {t: "resposta igual à do ano passado", ten: [y1to3, y3to5, gt5]}
+      - {t: "trabalho aqui faz pouco tempo, ainda estou conhecendo a empresa", ten: [lt1]}
+      - "prefiro não comentar"
+      - "acho que já falei tudo na nota"
+    neg:
+      - "não recomendo"
+      - "já tive empregos melhores"
+      - "aqui é complicado, mas preciso do emprego"
+      - "se aparecer outra proposta eu saio"
+      - "cada ano que passa fica pior"
+
+# Long angry comments, always typed in a casual style. Weight 2 in the sentiment rule.
+# Upper case words are kept as typed.
+rants:
+  - {t: "sinceramente não aguento mais, a meta sobe todo mês, o salário é o mesmo faz dois anos, o supervisor só cobra e quando a gente pede ajuda ele manda se virar, ninguém fica assim muito tempo", th: [car, rem, lid], ten: [y1to3, y3to5, gt5]}
+  - {t: "TODO MÊS A MESMA COISA, sistema caindo, cliente xingando, fila lotada e a supervisão preocupada com o tempo de pausa, é piada", th: [inf, car, lid], a: [atendimento]}
+  - {t: "a gente descarrega caminhão num calor de 40 graus, sem ventilador, com empilhadeira quebrada, ganhando pouco, e ainda escuta que precisa vestir a camisa. que camisa?", th: [inf, bem, rem, cul], a: [operacoes]}
+  - {t: "rota impossível, caminhão sem manutenção, escala que sai na véspera e diária que não paga nem o almoço, depois perguntam por que tanto motorista pede as contas", th: [car, inf, flx, rem], a: [transporte]}
+  - {t: "eu ia escrever um textão mas para quê, todo ano a gente responde e todo ano nada muda, então vou só dizer que o salário é ruim e a gestão é pior", th: [rem, lid], ten: [y1to3, y3to5, gt5]}
+  - {t: "me prometeram crescimento quando entrei, hoje faço o mesmo trabalho, com o dobro da demanda, sem aumento, vendo gente de fora entrar ganhando mais. cansei", th: [cre, rem, car], ten: [y3to5, gt5]}
+  - {t: "a meta dobrou, a carteira de clientes foi cortada pela metade e a comissão mudou de regra no meio do trimestre. desse jeito não tem vendedor que fique", th: [car, rem, com], a: [comercial]}
+  - {t: "desculpa o desabafo mas o financeiro vive refazendo trabalho porque as outras áreas mandam tudo errado e no último dia, a gente fica até tarde e ainda leva a culpa pelo atraso", th: [car, inf, eqp], a: [financeiro]}
+  - {t: "trabalho aqui há mais de 5 anos e nunca vi a empresa tão perdida, ninguém sabe quem decide nada, toda semana muda tudo e quem paga o pato é quem está na ponta", th: [com, lid, inf], ten: [gt5], tags: [decoy_num]}
+  - {t: "tô de saco cheio, sério, não é frescura, é muita coisa ao mesmo tempo, muita cobrança, pouca gente e ninguém lá em cima quer ouvir", th: [car, lid]}
+  - {t: "SÉRIO, alguém lê isso? três pesquisas respondidas, três vezes falei do plano de saúde, da escala e do refeitório, e nada mudou. NADA", th: [rem, flx, inf], ten: [y3to5, gt5]}
+  - {t: "o deploy cai sexta à noite, a gente fica até de madrugada, e na segunda o gerente pergunta por que a sprint atrasou. não dá para levar a sério", th: [car, lid, inf], a: [tecnologia]}
+
+# Very short answers. one_word when a single token, short otherwise.
+short:
+  - {t: "salário", th: [rem], s: neg}
+  - {t: "nada", th: [out], s: neu}
+  - {t: "top", th: [out], s: pos}
+  - {t: "ok", th: [out], s: neu}
+  - {t: "sem comentários", th: [out], s: neu}
+  - {t: "melhorar a comunicação", th: [com], s: neg}
+  - {t: "liderança", th: [lid], s: neg}
+  - {t: "mais reconhecimento", th: [rec], s: neg}
+  - {t: "home office", th: [flx], s: neg}
+  - {t: "VR baixo", th: [rem], s: neg}
+  - {t: "aumento", th: [rem], s: neg}
+  - {t: "plano de saúde bom", th: [rem], s: pos}
+  - {t: "equipe top", th: [eqp], s: pos}
+  - {t: "ótima empresa", th: [out], s: pos}
+  - {t: "gratidão", th: [out], s: pos}
+  - {t: "cansado", th: [bem], s: neg, g: m}
+  - {t: "cansada", th: [bem], s: neg, g: f}
+  - {t: "sem tempo pra nada", th: [car], s: neg}
+  - {t: "escala", th: [flx], s: neg}
+  - {t: "gestão", th: [lid], s: neg}
+  - {t: "nada pra falar agora", th: [out], s: neu}
+  - {t: "tudo certo", th: [out], s: pos}
+  - {t: "show", th: [out], s: pos}
+  - {t: ".", th: [out], s: neu}
+  - {t: "sistema lento", th: [inf], s: neg}
+  - {t: "mais treinamento", th: [cre], s: neg}
+  - {t: "cadê a PLR", th: [rem], s: neg}
+  - {t: "bom", th: [out], s: pos}
+  - {t: "regular", th: [out], s: neu}
+  - {t: "pode melhorar", th: [out], s: neu}
+  - {t: "ambiente bom", th: [eqp], s: pos}
+  - {t: "ar condicionado", th: [inf], s: neg}
+  - {t: "chefe bom", th: [lid], s: pos}
+  - {t: "valeu", th: [out], s: neu}
+  - {t: "n/a", th: [out], s: neu}
+  - {t: "carga alta", th: [car], s: neg}
+  - {t: "promoção", th: [cre], s: neg}
+  - {t: "amo meu time", th: [eqp], s: pos}
+  - {t: "pagar melhor", th: [rem], s: neg}
+  - {t: "folga no fds", th: [flx], s: neg}
+  - {t: "transparência", th: [com], s: neg}
+  - {t: "satisfeito", th: [out], s: pos, g: m}
+  - {t: "ruim", th: [out], s: neg}
+  - {t: "mais gente na equipe", th: [car], s: neg}
+  - {t: "obrigado", th: [out], s: neu, g: m}
+
+# Not critical, but they use words that a keyword filter would catch. Label critical 0, trait decoy.
+near_miss:
+  - {t: "aqui nunca vi assédio, o ambiente é bom", th: [cul], s: pos}
+  - {t: "essa meta é uma ameaça pro meu fim de semana kkk", th: [car], s: neg}
+  - {t: "morri de rir na confraternização, que festa boa", th: [eqp], s: pos}
+  - {t: "tô morta de cansaço, mas é fim de mês, normal", th: [car], s: neu, g: f}
+  - {t: "o supervisor matou a gente de trabalhar essa semana, mas pelo menos pagou a pizza", th: [car, lid], s: neu}
+  - {t: "a planilha de custos é um crime contra a humanidade kkk", th: [inf], s: neg, a: [financeiro, comercial, tecnologia, pessoas, juridico]}
+  - {t: "o treinamento sobre assédio e respeito foi muito bem feito", th: [cul], s: pos}
+  - {t: "o cliente ameaçou cancelar o contrato se a entrega atrasasse de novo", th: [inf], s: neg, a: [comercial, atendimento, transporte, operacoes]}
+  - {t: "quase morri do coração quando o sistema voltou e o pedido tinha sumido kkk", th: [inf], s: neg}
+  - {t: "um caminhão bateu na porta da doca, ninguém se machucou, foi só o susto", th: [inf], s: neu, a: [operacoes, transporte]}
+  - {t: "a palestra sobre saúde mental e burnout foi muito boa", th: [bem], s: pos}
+  - {t: "a gente mata um leão por dia no atendimento, mas o time é unido", th: [car, eqp], s: neu, a: [atendimento]}
+  - {t: "vou morrer de saudade do meu antigo supervisor, ele foi transferido", th: [lid], s: pos}
+  - {t: "sei que o canal de denúncia existe e é sigiloso, isso passa segurança", th: [cul], s: pos}
+  - {t: "sem discriminação nenhuma aqui, cada um é respeitado do jeito que é", th: [cul], s: pos}
+  - {t: "a briga pela vaga no estacionamento é a única violência que eu vejo aqui kkk", th: [inf], s: neu}
+  - {t: "tô quebrado de tanto carregar caixa hoje, mas amanhã tem mais", th: [car], s: neu, g: m, a: [operacoes]}
+  - {t: "o novo gerente é matador nas negociações, aprendo muito com ele", th: [lid], s: pos, a: [comercial]}
+
+# Words that are also first names (Rosa, Clara, Vitória, Luz, Graça) used as ordinary words.
+# Each one is used once per run. They are not personal data.
+decoys:
+  - {t: "a regra da comissão não é clara, muda todo mês", th: [rem], s: neg, a: [comercial]}
+  - {t: "nem tudo é cor de rosa, mas dá para trabalhar", th: [out], s: neu}
+  - {t: "a luz da doca 2 está queimada faz duas semanas", th: [inf], s: neg, a: [operacoes], tags: [decoy_num]}
+  - {t: "foi uma vitória a equipe bater a meta mesmo com tanta gente de férias", th: [eqp], s: pos}
+  - {t: "não tem graça nenhuma trabalhar com o sistema caindo", th: [inf], s: neg}
+  - {t: "graças a Deus tenho uma equipe boa", th: [eqp], s: pos}
+  - {t: "deixo claro que gosto da empresa, só o salário que pesa", th: [rem], s: neu}
+  - {t: "a vitória do nosso time no campeonato interno foi linda", th: [eqp], s: pos}
+  - {t: "a sala ficou sem luz a tarde toda e ninguém da manutenção apareceu", th: [inf], s: neg}
+  - {t: "a meta precisa ficar clara desde o começo do mês", th: [car], s: neu}
+  - {t: "a diretoria pinta tudo cor de rosa na apresentação, mas no chão do armazém a realidade é outra", th: [cul], s: neg, a: [operacoes]}
+  - {t: "tem coisa boa, a vitória da gente no prêmio de qualidade foi merecida", th: [rec], s: pos}
+  - {t: "o pessoal achou graça quando o diretor apareceu de colete na doca, foi legal ver ele lá", th: [lid], s: pos, a: [operacoes]}
+  - {t: "dá uma luz no fim do túnel ver a empresa contratando de novo", th: [car], s: pos}
+
+# Critical cases. subtle: true means no obvious keyword (a test checks it against explicit_keywords).
+# Written to be realistic and not graphic.
+critical:
+  # am: assédio moral
+  - {t: "minha supervisora lê em voz alta os meus erros de atendimento na frente da equipe toda, já saí da sala com vergonha várias vezes", types: [am], th: [lid], subtle: true, a: [atendimento]}
+  - {t: "meu coordenador repete toda semana que tem uma pilha de currículos na mesa dele e que eu sou fácil de trocar", types: [am], th: [lid], subtle: true}
+  - {t: "o líder do turno, o {PESSOA_M:first}, me apelidou de lerdo no rádio e agora a doca inteira me chama assim, quando reclamei ele disse que era brincadeira", types: [am], th: [lid, eqp], subtle: true, a: [operacoes], g: m}
+  - {t: "desde que eu discordei do gestor numa reunião ele parou de me chamar para as reuniões do time e passou minhas tarefas para outra pessoa", types: [am], th: [lid], subtle: true}
+  - {t: "se alguém passa um minuto da pausa a supervisora manda áudio no grupo falando o nome da pessoa e chamando de vagabunda", types: [am], th: [lid], subtle: true, a: [atendimento]}
+  - {t: "o gerente bate na mesa e grita com quem não bateu a meta, na frente de todo mundo, toda segunda", types: [am], th: [lid, car], subtle: true, a: [comercial, atendimento]}
+  - {t: "meu chefe me passa tarefa impossível de propósito e depois usa isso para dizer que eu não sirvo para nada", types: [am], th: [lid], subtle: true}
+  - {t: "o programador falou que se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir as contas", types: [am], th: [lid, car], subtle: true, a: [transporte]}
+  - {t: "o tech lead revisa meu código no canal público com comentário debochado, o pessoal reage com risadinha e eu já pensei em sair por causa disso", types: [am], th: [lid, eqp], subtle: true, a: [tecnologia]}
+  - {t: "sofro assédio moral do meu supervisor há meses e tenho medo de denunciar", types: [am], th: [lid], subtle: false}
+  - {t: "o que acontece no meu setor é assédio, humilhação todo dia na frente de todos", types: [am], th: [lid], subtle: false}
+  - {t: "o encarregado {PESSOA_M:full} xinga a equipe de tudo que é nome, isso é assédio e todo mundo sabe", types: [am], th: [lid], subtle: false, a: [operacoes]}
+  # as: assédio sexual
+  - {t: "um colega de outro setor faz piadinha sobre o meu corpo toda vez que eu passo, agora espero ele sair para ir ao refeitório", types: [as], th: [eqp], subtle: true, g: f}
+  - {t: "o supervisor me chama para conversar sozinha na sala dele depois do expediente e insiste em me levar em casa, eu sempre invento uma desculpa", types: [as], th: [lid], subtle: true, g: f}
+  - {t: "tem um cara do armazém que manda mensagem de madrugada perguntando se eu estou sozinha, já bloqueei duas vezes e ele troca de número", types: [as], th: [eqp], subtle: true, g: f, a: [operacoes]}
+  - {t: "um supervisor fica massageando o ombro das meninas novas durante a monitoria e ninguém tem coragem de falar nada", types: [as], th: [lid], subtle: true, a: [atendimento]}
+  - {t: "depois que eu recusei sair com o coordenador minhas escalas pioraram de repente", types: [as], th: [lid, flx], subtle: true}
+  - {t: "em visita a cliente o gerente comenta do meu decote e diz que é para eu usar isso para vender mais", types: [as], th: [lid, cul], subtle: true, g: f, a: [comercial]}
+  - {t: "fui vítima de assédio sexual de um colega e o caso foi abafado", types: [as], th: [eqp, cul], subtle: false}
+  - {t: "o que o {PESSOA_M:first} do comercial faz com as estagiárias tem nome, é assédio, convite para sair, mensagem fora de hora, e todo mundo finge que não vê", types: [as], th: [cul], subtle: false}
+  # di: discriminação
+  - {t: "na hora de promover sempre escolhem alguém com a cara da empresa, e a cara da empresa nunca é parecida comigo nem com as outras meninas pretas do setor", types: [di], th: [cre, cul], subtle: true, g: f}
+  - {t: "quando contei que estava grávida meu gestor mudou comigo, me tiraram dos projetos importantes e disseram que era para eu ficar mais tranquila", types: [di], th: [lid, cre], subtle: true, g: f}
+  - {t: "o pessoal faz piada com meu sotaque nordestino em toda reunião e o gestor ri junto", types: [di], th: [eqp, lid], subtle: true}
+  - {t: "tem encarregado que só coloca as mulheres na conferência e fala que empilhadeira não é coisa de mulher", types: [di], th: [cul, cre], subtle: true, a: [operacoes]}
+  - {t: "com 52 anos virei o tiozinho do time, me deixam fora das tecnologias novas porque acham que eu não vou acompanhar", types: [di], th: [cul, cre], subtle: true, a: [tecnologia], g: m}
+  - {t: "as piadas sobre gay no grupo da equipe são diárias e eu finjo que não ligo para não virar o próximo alvo", types: [di], th: [eqp, cul], subtle: true}
+  - {t: "meu colega cadeirante nunca é escalado para treinamento porque dizem que dá trabalho levar ele lá em cima", types: [di], th: [cul, cre], subtle: true}
+  - {t: "já presenciei racismo aqui dentro e nada aconteceu com quem fez", types: [di], th: [cul], subtle: false}
+  - {t: "existe discriminação contra quem tem mais idade, os mais velhos são sempre os primeiros a sair nos cortes", types: [di], th: [cul], subtle: false}
+  # bo: burnout e saúde mental (self_harm marks indirect mentions of not wanting to live)
+  - {t: "choro no banheiro antes de entrar no turno quase todo dia", types: [bo], th: [bem], subtle: true, a: [atendimento, operacoes]}
+  - {t: "não durmo direito faz meses, acordo de madrugada pensando nas metas e já começo o dia exausta", types: [bo], th: [bem, car], subtle: true, g: f}
+  - {t: "estou tomando remédio para conseguir vir trabalhar, meu médico já pediu para eu me afastar mas tenho medo de perder o emprego", types: [bo], th: [bem], subtle: true}
+  - {t: "tive uma crise no meio do expediente, coração disparado, achei que ia morrer, e mesmo assim tive que voltar para a fila depois", types: [bo], th: [bem], subtle: true, a: [atendimento]}
+  - {t: "faz meses que trabalho de madrugada e no fim de semana, esqueço coisas simples e não consigo mais desligar", types: [bo], th: [bem, car], subtle: true, a: [tecnologia, financeiro]}
+  - {t: "perdi peso, tremo antes de reunião de resultado e não reconheço mais a pessoa que eu era quando entrei", types: [bo], th: [bem], subtle: true, a: [comercial, atendimento]}
+  - {t: "tem dias que eu penso que se eu sumisse ninguém ia sentir falta, nem aqui nem em casa", types: [bo], th: [bem], subtle: true, self_harm: true}
+  - {t: "às vezes no caminho para cá penso que um acidente pelo menos me daria uns dias de descanso", types: [bo], th: [bem], subtle: true, self_harm: true}
+  - {t: "ando tão cansado de tudo que ultimamente acho que seria um alívio não estar mais aqui, em lugar nenhum", types: [bo], th: [bem], subtle: true, self_harm: true, g: m}
+  - {t: "estou com burnout, já tive dois afastamentos esse ano e a cobrança só aumenta", types: [bo], th: [bem, car], subtle: false}
+  - {t: "metade da minha equipe está à beira de um burnout, eu inclusive, já tive crise de pânico no trabalho", types: [bo], th: [bem, car], subtle: false}
+  - {t: "fui diagnosticada com depressão e ansiedade por causa do trabalho e ninguém da gestão quis saber", types: [bo], th: [bem, lid], subtle: false, g: f}
+  # av: ameaça ou violência
+  - {t: "depois que eu reclamei da escala um colega disse que sabe em que rua eu moro e que era melhor eu ficar quieto", types: [av], th: [eqp], subtle: true, g: m}
+  - {t: "teve empurrão na doca semana passada por causa de uma carga e o encarregado mandou todo mundo esquecer o assunto", types: [av], th: [eqp, lid], subtle: true, a: [operacoes]}
+  - {t: "o {PESSOA_M:first} anda com uma faca no caminhão e mostra para quem discute com ele", types: [av], th: [eqp], subtle: true, a: [transporte]}
+  - {t: "peço para alguém me acompanhar até o ponto de ônibus porque o supervisor já me esperou na saída para conversar", types: [av], th: [lid], subtle: true}
+  - {t: "um supervisor jogou o headset na parede do meu lado quando eu errei e todo mundo ficou quieto", types: [av], th: [lid], subtle: true, a: [atendimento]}
+  - {t: "sofri ameaça de um colega por causa de uma discussão boba e a empresa não fez nada", types: [av], th: [eqp], subtle: false}
+  - {t: "já teve violência física no estacionamento entre funcionários e ninguém foi punido", types: [av], th: [eqp, cul], subtle: false}
+  # more than one type
+  - {t: "o gerente grita, xinga e já falou que se eu abrir a boca no RH ele resolve comigo lá fora", types: [am, av], th: [lid], subtle: true}
+  - {t: "meu coordenador me diminui em toda reunião e eu já não consigo dormir, choro no ônibus voltando para casa", types: [am, bo], th: [lid, bem], subtle: true}
+  - {t: "o supervisor fica falando do meu corpo na frente da equipe e quando eu não rio ele me dá as piores tarefas", types: [as, am], th: [lid], subtle: true, g: f}
+
+# Templates with fake personal data. Slots: PESSOA_F, PESSOA_M, PESSOA_WN (names that are also
+# common words), CIDADE, BAIRRO, RUA, EMAIL, TELEFONE, CPF, RG, CEP, MATRICULA, PLACA.
+# A slot can force a form: {PESSOA_F:first}, {PESSOA_M:full}, {PESSOA_M:lower}.
+# th: [] marks a sentence that only identifies the writer; it never comes alone.
+# pos: start | end puts the template at the start or the end of the comment.
+pii:
+  - {t: "falei com a {PESSOA_F} do RH sobre meu banco de horas e até agora nada", th: [flx], s: neg}
+  - {t: "a {PESSOA_F:first} da folha de pagamento é a pessoa mais atenciosa da empresa", th: [eqp], s: pos}
+  - {t: "o {PESSOA_M:first} da expedição merecia um aumento, segura o turno sozinho", th: [rec, rem], s: neg, a: [operacoes]}
+  - {t: "meu supervisor, o {PESSOA_M}, é muito bom, ensina com paciência", th: [lid], s: pos}
+  - {t: "queria agradecer a {PESSOA_F} e o {PESSOA_M:first} pelo apoio esse ano", th: [eqp], s: pos}
+  - {t: "o {PESSOA_M:lower} do ti nunca responde chamado", th: [inf], s: neg, r: c}
+  - {t: "a gestora {PESSOA_F:full} não sabe liderar, a equipe inteira está pedindo transferência", th: [lid], s: neg}
+  - {t: "pergunta para o {PESSOA_M:full} da manutenção quantas vezes ele já pediu peça para as empilhadeiras", th: [inf], s: neg, a: [operacoes]}
+  - {t: "a {PESSOA_F:first} e a {PESSOA_F:first} seguram a fila sozinhas no sábado", th: [car], s: neg, a: [atendimento]}
+  - {t: "desde que o {PESSOA_M:first} virou coordenador o setor mudou para melhor", th: [lid], s: pos}
+  - {t: "o motorista {PESSOA_M:full} tem 20 anos de casa e nunca recebeu um elogio formal", th: [rec], s: neg, a: [transporte]}
+  - {t: "a dona {PESSOA_WN:first} da limpeza é a pessoa mais querida da empresa", th: [eqp], s: pos}
+  - {t: "a {PESSOA_WN:first} do financeiro me ajudou muito no meu primeiro mês", th: [eqp], s: pos, ten: [lt1, y1to3]}
+  - {t: "a {PESSOA_WN:full} do comercial devia ter sido promovida faz tempo", th: [cre], s: neg}
+  - {t: "a {PESSOA_WN:lower} da expedição merece reconhecimento, ninguém trabalha como ela", th: [rec], s: neg, r: c}
+  - {t: "o {PESSOA_M:first} e a {PESSOA_F:first} do comercial fazem um trabalho incrível", th: [eqp], s: pos}
+  - {t: "o gerente {PESSOA_M:full} promete promoção para todo mundo e não cumpre", th: [cre, lid], s: neg}
+  - {t: "a {PESSOA_F:first} saiu e ninguém foi contratado no lugar, agora faço o trabalho dela também", th: [car], s: neg}
+  - {t: "a coordenadora {PESSOA_F:full} me deu todo o apoio quando meu pai ficou doente", th: [lid], s: pos}
+  - {t: "a {PESSOA_F:lower} do rh é ótima, mas não tem autonomia nenhuma", th: [cul], s: neu, r: c}
+  - {t: "o {PESSOA_M:first} da TI salvou meu notebook na véspera do fechamento", th: [inf], s: pos, a: [financeiro, comercial, pessoas, juridico, tecnologia]}
+  - {t: "pedi ajuda ao {PESSOA_M:full} do jurídico e ele resolveu em um dia", th: [eqp], s: pos}
+  - {t: "o seu {PESSOA_M:first} da portaria é sempre gentil, alegra o dia de todo mundo", th: [eqp], s: pos}
+  - {t: "o supervisor {PESSOA_M:first} cobra muito, mas é justo", th: [lid], s: pos}
+  - {t: "sou {PESSOA_M:full}, trabalho na doca e queria que alguém lesse isso de verdade", th: [], s: neu, a: [operacoes], g: m, pos: start}
+  - {t: "meu nome é {PESSOA_F:full}, sou atendente e me identifico porque não tenho medo de falar", th: [], s: neu, a: [atendimento], g: f, pos: start}
+  - {t: "a {PESSOA_F:first} e o {PESSOA_M:first} do turno da noite são os melhores colegas que já tive", th: [eqp], s: pos}
+  - {t: "a supervisora {PESSOA_F} trata todo mundo com respeito", th: [lid], s: pos}
+  - {t: "o {PESSOA_M:lower} da expedição vive cobrindo falta dos outros", th: [car], s: neg, r: c}
+  - {t: "moro em {CIDADE} e levo duas horas para chegar, um fretado ajudaria muito", th: [rem], s: neg}
+  - {t: "moro lá em {BAIRRO} e o ônibus das 5h vive atrasado, chego atrasado e ainda levo bronca", th: [flx, lid], s: neg}
+  - {t: "saio de casa na {RUA} às 4h30 para pegar o turno das 6h", th: [flx], s: neg, a: [operacoes, transporte]}
+  - {t: "quem mora em {CIDADE} sofre com o trânsito, a empresa podia liberar pelo menos um dia de home office", th: [flx], s: neg, a: [tecnologia, financeiro, pessoas, juridico, comercial]}
+  - {t: "me mudei para {CIDADE} por causa da vaga e não me arrependo", th: [out], s: pos}
+  - {t: "o vale transporte não cobre o trecho de {BAIRRO} até o CD", th: [rem], s: neg}
+  - {t: "já mandei o comprovante de residência da {RUA} três vezes e o RH perdeu de novo", th: [inf], s: neg}
+  - {t: "moro em {BAIRRO}, em {CIDADE}, e não tem ônibus que chegue no horário do turno", th: [flx], s: neg}
+  - {t: "o endereço da minha casa está errado no sistema, o certo é {RUA}, CEP {CEP}", th: [inf], s: neg}
+  - {t: "meu endereço novo é {RUA}, {BAIRRO}, CEP {CEP}, já avisei o DP duas vezes", th: [inf], s: neg}
+  - {t: "o fretado podia passar em {BAIRRO}, tem muita gente da empresa morando lá", th: [rem], s: neu}
+  - {t: "se quiserem conversar, meu email é {EMAIL}", th: [], s: neu, pos: end}
+  - {t: "mandei email do {EMAIL} para o RH três vezes e ninguém respondeu", th: [com], s: neg}
+  - {t: "o recibo de férias foi para o email errado, o meu é {EMAIL}", th: [inf], s: neg}
+  - {t: "podem me procurar no {EMAIL} que eu explico melhor o que acontece no turno", th: [], s: neu, pos: end}
+  - {t: "o {PESSOA_M:first} pediu para eu mandar a planilha para {EMAIL} e depois disse que não recebeu", th: [eqp], s: neg}
+  - {t: "meu email pessoal é {EMAIL}, prefiro que o retorno venha por lá", th: [], s: neu, pos: end}
+  - {t: "qualquer coisa falem comigo, {PESSOA_F:first}, no {EMAIL} ou no {TELEFONE}", th: [], s: neu, pos: end, g: f}
+  - {t: "o holerite não chega no meu email {EMAIL} desde agosto", th: [rem, inf], s: neg}
+  - {t: "o convite do treinamento foi para {EMAIL}, que nem é meu", th: [inf], s: neg}
+  - {t: "a {PESSOA_F:full} ({EMAIL}) sabe de tudo isso e pode confirmar", th: [], s: neu, pos: end}
+  - {t: "estou disponível para conversar, {EMAIL}", th: [], s: neu, pos: end}
+  - {t: "me liga no {TELEFONE} que eu conto o resto", th: [], s: neu, pos: end}
+  - {t: "meu whats é {TELEFONE}, quero muito falar com alguém do RH sobre isso", th: [], s: neu, pos: end}
+  - {t: "o supervisor liga no meu celular {TELEFONE} até de domingo", th: [flx], s: neg}
+  - {t: "se precisar de mais detalhe meu número é {TELEFONE}", th: [], s: neu, pos: end}
+  - {t: "a {PESSOA_F:first} pode confirmar, o telefone dela é {TELEFONE}", th: [], s: neu, pos: end}
+  - {t: "já passei meu telefone {TELEFONE} para o DP atualizar e continua o antigo no cadastro", th: [inf], s: neg}
+  - {t: "o número {TELEFONE} que está no meu cadastro nem é meu", th: [inf], s: neg}
+  - {t: "{PESSOA_M:full}, celular {TELEFONE}, aguardo contato sobre minha transferência", th: [cre], s: neu, pos: start, r: f, g: m}
+  - {t: "o pessoal da central liga no {TELEFONE} de madrugada perguntando de entrega", th: [flx], s: neg, a: [transporte]}
+  - {t: "meu CPF é {CPF}, o desconto do plano veio duplicado", th: [rem], s: neg}
+  - {t: "o sistema não aceita meu cpf {CPF} para cadastrar dependente", th: [inf], s: neg}
+  - {t: "pode verificar no holerite do cpf {CPF}, a hora extra não veio", th: [rem], s: neg}
+  - {t: "o reembolso foi feito no CPF {CPF}, que nem é o meu", th: [inf], s: neg}
+  - {t: "minha esposa tem CPF {CPF} e até hoje não foi incluída no plano", th: [rem], s: neg, g: m}
+  - {t: "{PESSOA_M:full}, CPF {CPF}, peço revisão do meu banco de horas", th: [flx], s: neg, pos: start, r: f, g: m}
+  - {t: "o informe de rendimentos saiu com o cpf {CPF} errado", th: [inf], s: neg}
+  - {t: "sou {PESSOA_F:full}, CPF {CPF}, moro em {CIDADE} e quero saber por que meu vale transporte foi cortado", th: [rem], s: neg, pos: start, g: f}
+  - {t: "o cadastro do meu filho no plano voltou com o CPF {CPF} recusado", th: [rem, inf], s: neg}
+  - {t: "o RG {RG} que está no meu cadastro está errado", th: [inf], s: neg}
+  - {t: "meu rg é {RG} caso precisem me identificar", th: [], s: neu, pos: end}
+  - {t: "pediram para eu reenviar o RG {RG} pela terceira vez", th: [inf], s: neg}
+  - {t: "{PESSOA_F:full}, RG {RG}, solicito retorno sobre o pedido de transferência de área", th: [cre], s: neu, pos: start, r: f, g: f}
+  - {t: "o crachá saiu com o RG {RG}, que é da minha irmã", th: [inf], s: neg}
+  - {t: "o seguro de vida está com o RG {RG} errado na apólice", th: [rem], s: neg}
+  - {t: "o cartão do vale não chega porque o CEP {CEP} está errado no sistema", th: [rem, inf], s: neg}
+  - {t: "o fretado podia passar perto do CEP {CEP}, tem muita gente aqui", th: [rem], s: neu}
+  - {t: "o CEP {CEP} não aparece no cadastro do plano de saúde", th: [rem], s: neg}
+  - {t: "mudei para o CEP {CEP} e o vale transporte continua calculado pelo endereço antigo", th: [rem], s: neg}
+  - {t: "minha matrícula é {MATRICULA} e minhas horas extras de setembro não foram pagas", th: [rem], s: neg}
+  - {t: "mat. {MATRICULA}, peço revisão do ponto do dia 14", th: [inf], s: neg}
+  - {t: "sou a matrícula {MATRICULA} do turno da noite, ninguém olha para a gente", th: [rec], s: neg}
+  - {t: "pode conferir pela matrícula {MATRICULA}, o adicional noturno veio errado", th: [rem], s: neg}
+  - {t: "o crachá da matrícula {MATRICULA} foi bloqueado sem motivo e fiquei duas horas na portaria", th: [inf], s: neg}
+  - {t: "matrícula {MATRICULA} aqui, ainda espero a resposta da minha avaliação", th: [cre], s: neg}
+  - {t: "{PESSOA_M:full}, mat. {MATRICULA}, motorista do caminhão {PLACA}", th: [], s: neu, pos: start, a: [transporte], g: m}
+  - {t: "{PESSOA_F:full}, matrícula {MATRICULA}, telefone {TELEFONE}, peço que alguém me procure", th: [], s: neu, pos: end, g: f}
+  - {t: "meu banco de horas sumiu do sistema, matrícula {MATRICULA}", th: [inf, flx], s: neg}
+  - {t: "o caminhão placa {PLACA} está com o freio ruim faz semanas e continuam mandando para a rota", th: [inf, bem], s: neg, a: [transporte]}
+  - {t: "a van {PLACA} vive quebrando no meio da rota", th: [inf], s: neg, a: [transporte]}
+  - {t: "o carro {PLACA} da frota não tem ar condicionado e a gente roda o dia todo no sol", th: [inf, bem], s: neg, a: [transporte, comercial]}
+  - {t: "pedi para sair do caminhão {PLACA} porque o banco está quebrado e ninguém fez nada", th: [inf], s: neg, a: [transporte]}
+  - {t: "o {PLACA} está sem rastreador desde agosto", th: [inf], s: neg, a: [transporte]}
+  - {t: "o caminhão {PLACA} foi multado e descontaram de mim sem explicar", th: [rem], s: neg, a: [transporte]}
+  - {t: "o caminhão {PLACA} fica horas parado na doca esperando conferente", th: [car], s: neg, a: [operacoes, transporte]}
+  - {t: "falei com a {PESSOA_F:full} e com o {PESSOA_M:full} do RH e ninguém resolve meu caso", th: [com], s: neg}
+  - {t: "o {PESSOA_M:first} e o {PESSOA_M:first} da doca carregam o turno nas costas", th: [car], s: neg, a: [operacoes]}
+  - {t: "meu contato é {TELEFONE} ou {EMAIL}, podem chamar a qualquer hora", th: [], s: neu, pos: end}
+  - {t: "sou o {PESSOA_M:first}, mat. {MATRICULA}, me liga no {TELEFONE} se quiser saber mais", th: [], s: neu, pos: end, g: m}
+  - {t: "moro na {RUA}, CEP {CEP}, em {CIDADE}, e o fretado não passa nem perto", th: [rem], s: neg}
+  - {t: "{PESSOA_F:full}, CPF {CPF}, RG {RG}, aguardo a correção do meu cadastro", th: [inf], s: neg, pos: start, g: f, r: f}
+  - {t: "o motorista {PESSOA_M:first} do caminhão {PLACA} pega a rota mais pesada e nunca reclama", th: [eqp], s: pos, a: [transporte]}
+  - {t: "o {PESSOA_M:full} e a {PESSOA_F:full} seguram o fechamento sozinhos todo mês", th: [car], s: neg, a: [financeiro]}
+  - {t: "fui transferido de {CIDADE} para cá e até hoje o {PESSOA_M:first} do DP não acertou meu vale transporte", th: [rem], s: neg, g: m}
+  - {t: "a {PESSOA_F:first} do RH pediu meu CPF {CPF} e meu RG {RG} três vezes para o mesmo cadastro", th: [inf], s: neg}
+  - {t: "sou a {PESSOA_F:first}, matrícula {MATRICULA}, moro em {BAIRRO} e chego todo dia antes das 5h", th: [flx], s: neg, g: f, pos: start}
+  - {t: "{PESSOA_M:full}, e-mail {EMAIL}, celular {TELEFONE}, quero conversar sobre a minha avaliação", th: [cre], s: neu, pos: start, g: m, r: f}
+  - {t: "liguei para o {PESSOA_M:first} no {TELEFONE} e ele disse que a escala não muda", th: [flx], s: neg}
+  - {t: "a {PESSOA_F:first} e o {PESSOA_M:first} do atendimento me ensinaram tudo quando entrei", th: [eqp], s: pos, a: [atendimento]}
+  - {t: "o cadastro está com o CEP {CEP} da {RUA}, mas eu me mudei faz um ano", th: [inf], s: neg}
+  - {t: "pode falar com a {PESSOA_F:full} pelo {EMAIL}, ela acompanhou tudo", th: [], s: neu, pos: end}
+
+# Openers and closers carry no theme. n: any style, f: formal, c: casual.
+glue:
+  openers:
+    n: ["olha, ", "bom, ", "sinceramente, ", "então, ", "falando com sinceridade, ", "resumindo: ", "na real, ", "é o seguinte: "]
+    f: ["prezados, ", "bom dia. ", "agradeço o espaço. ", "em primeiro lugar, agradeço pela pesquisa. "]
+    c: ["mano, ", "pô, ", "tipo assim, ", "sei lá, ", "na boa, "]
+  closers:
+    n: ["é isso", "só isso", "é o que eu penso", "espero que leiam"]
+    f: ["atenciosamente", "agradeço a atenção", "fico à disposição"]
+    c: ["valeu", "fica a dica", "tmj", "é nóis"]
+
+noise:
+  # Replacements used by the casual and informal styles. Keys are matched as whole words.
+  abbreviations:
+    "você": [vc]
+    "vocês": [vcs]
+    "também": [tb, tbm]
+    "porque": [pq]
+    "que": [q]
+    "muito": [mt, mto]
+    "muita": [mta]
+    "tudo": [td]
+    "ninguém": [ngm]
+    "hoje": [hj]
+    "mesmo": [msm]
+    "beleza": [blz]
+    "não": [n, ñ]
+    "para": [pra]
+    "está": [tá, ta]
+    "estou": [tô, to]
+    "quando": [qnd, qdo]
+    "comigo": [cmg]
+    "depois": [dps]
+    "quem": [qm]
+    "fim de semana": [fds]
+    "de novo": [dnv]
+    "por favor": [pfv]
+  # The only replacements of the "standard" style, where people mostly write in full.
+  light: ["para", "está", "estou"]
+  # Contractions that already appear in the fragments and count as abbreviations.
+  contractions: [pro, pros, pras, tá, tô]
+  slang: [puxado, puxada, correria, b.o., zoado, zoada, top, mó, tipo assim, sei lá, mano, pô, galera, resenha, bonzão, só o pó, bagaço, saco cheio, tmj, é nóis, gente fina, gente boa, vácuo, fraquinha, raiz, gambiarra, rala, curto muito, sem neura]
+  laughter: [kkk, kkkk, kkkkk, rsrs, hahaha]
+  # Obvious words for critical topics, compared without accents as prefixes. A critical template
+  # marked subtle must contain none of them.
+  explicit_keywords: [assedi, burnout, discrimin, racis, ameac, violen, agred, agress, homofob, machis, suicid, depress, panico, abus, estupr, bullying]
+
+# Fake people and places for the slots. Common Brazilian names, so no single real person is meant.
+fake_people:
+  female: [Fernanda, Juliana, Patrícia, Aline, Camila, Bruna, Larissa, Mariana, Amanda, Letícia, Jéssica, Vanessa, Daniela, Tatiane, Priscila, Renata, Simone, Cláudia, Adriana, Luciana, Débora, Natália, Gabriela, Beatriz, Raquel, Sandra, Márcia, Viviane, Elaine, Kelly, Ana Paula, Maria Eduarda]
+  male: [Carlos, Marcos, Paulo, João, José, Lucas, Rafael, Rodrigo, Felipe, Bruno, Thiago, Diego, Anderson, Leandro, Fábio, Márcio, Ricardo, André, Gustavo, Eduardo, Fernando, Roberto, Sérgio, Wellington, Wesley, Everton, Cleber, Edson, Antônio, Francisco, João Pedro, Luiz Carlos]
+  word_names: [Rosa, Clara, Vitória, Luz, Graça]
+  surnames: [Silva, Santos, Oliveira, Souza, Rodrigues, Ferreira, Alves, Pereira, Lima, Gomes, Costa, Ribeiro, Martins, Carvalho, Almeida, Lopes, Soares, Fernandes, Vieira, Barbosa, Rocha, Dias, Nascimento, Andrade, Moreira, Nunes, Marques, Machado, Mendes, Freitas, Cardoso, Ramos, Gonçalves, Santana, Teixeira]
+
+fake_places:
+  cities: [Guarulhos, Osasco, Carapicuíba, Itaquaquecetuba, Francisco Morato, Embu das Artes, Cajamar, Jundiaí, Campinas, Sorocaba, Diadema, Mauá, Santo André, Barueri, Cotia, Ferraz de Vasconcelos, Franco da Rocha, Taboão da Serra]
+  neighborhoods: [Itaquera, Guaianases, Parelheiros, Perus, Sapopemba, Cidade Tiradentes, Ermelino Matarazzo, São Mateus, Itaim Paulista, Cangaíba, Jardim Ângela, Capão Redondo, Grajaú, Brasilândia, Pirituba]
+  street_kinds: [Rua, Rua, Rua, Avenida, Travessa]
+  street_names: [das Acácias, dos Ipês, das Palmeiras, das Orquídeas, São Jorge, Sete de Setembro, Santa Luzia, das Flores, dos Girassóis, Boa Esperança, do Comércio, das Hortênsias, dos Jacarandás, Monte Alegre]

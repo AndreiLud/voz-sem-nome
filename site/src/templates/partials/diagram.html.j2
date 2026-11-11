@@ -1,0 +1,55 @@
+{# "How it works" diagram. Vertical so it stays legible on a 320 px screen.
+   Kind is encoded three ways: outline style, a colored swatch and a text tag. #}
+{% set how = s.home.how %}
+{% set radius = {"plain": 8, "rule": 2, "ner": 2, "llm": 12, "n8n": 22} %}
+
+{% macro node(key, kind, x, y, w, h) -%}
+{% set step = how.steps[key] %}
+<g class="dg-step dg-step--{{ kind }}">
+  <rect class="dg-node dg-node--{{ kind }}" x="{{ x }}" y="{{ y }}" width="{{ w }}" height="{{ h }}" rx="{{ radius[kind] }}"></rect>
+  <text class="dg-title" x="{{ x + 14 }}" y="{{ y + 26 }}">{{ step.title }}</text>
+  {% if kind != "plain" %}
+  {% set tag = how.kinds[kind].tag %}
+  {% set tag_w = tag | length * 7.4 + 16 %}
+  <rect class="dg-swatch dg-swatch--{{ kind }}" x="{{ x + w - tag_w - 8 }}" y="{{ y + 13 }}" width="10" height="10" rx="2"></rect>
+  <text class="dg-tag" x="{{ x + w - 10 }}" y="{{ y + 22 }}" text-anchor="end">{{ tag }}</text>
+  {% endif %}
+  {% for line in step.lines %}
+  <text class="dg-line" x="{{ x + 14 }}" y="{{ y + 47 + loop.index0 * 17 }}">{{ fill(line) }}</text>
+  {% endfor %}
+</g>
+{%- endmacro %}
+
+<svg class="diagram" viewBox="0 0 360 772" role="img" aria-labelledby="dg-title dg-desc" focusable="false">
+  <title id="dg-title">{{ how.figure_title }}</title>
+  <desc id="dg-desc">{{ how.figure_caption }}</desc>
+  <defs>
+    <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-arrowhead" d="M0 0L10 5L0 10z"></path>
+    </marker>
+  </defs>
+  <g class="dg-links">
+    <path d="M180 80V101"></path>
+    <path d="M180 176V201"></path>
+    <path d="M180 276V297"></path>
+    <path d="M180 332V353"></path>
+    <path d="M180 428V453"></path>
+    <path d="M180 528V553"></path>
+    <path d="M180 628V652H95V673"></path>
+    <path d="M180 652H265V673"></path>
+  </g>
+  <text class="dg-branch" x="137" y="646" text-anchor="middle">{{ how.branch_all }}</text>
+  <text class="dg-branch" x="223" y="646" text-anchor="middle">{{ how.branch_critical }}</text>
+  {{ node("input", "plain", 16, 8, 328, 72) }}
+  {{ node("rules", "rule", 16, 104, 328, 72) }}
+  {{ node("ner", "ner", 16, 204, 328, 72) }}
+  <g class="dg-divider">
+    <rect class="dg-redact" x="16" y="300" width="328" height="32" rx="2"></rect>
+    <text class="dg-redact-text" x="180" y="321" text-anchor="middle">{{ how.divider }}</text>
+  </g>
+  {{ node("lexicon", "rule", 16, 356, 328, 72) }}
+  {{ node("llm", "llm", 16, 456, 328, 72) }}
+  {{ node("verifier", "llm", 16, 556, 328, 72) }}
+  {{ node("dashboard", "plain", 16, 676, 158, 88) }}
+  {{ node("n8n", "n8n", 186, 676, 158, 88) }}
+</svg>

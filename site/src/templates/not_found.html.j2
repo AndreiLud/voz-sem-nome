@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% import "partials/macros.html.j2" as ui with context %}
+{% set n = s.not_found %}
+{% block main %}
+<div class="wrap not-found">
+  <p class="not-found__code" aria-hidden="true"><span>404</span><span class="redaction"></span></p>
+  <h1>{{ n.title }}</h1>
+  <p class="lead">{{ n.text }}</p>
+  <p class="cluster">
+    <a class="btn btn--primary" href="{{ url('home') }}">{{ n.home }}</a>
+    <a class="btn btn--secondary" href="{{ url('dashboard') }}">{{ n.dashboard }}</a>
+  </p>
+</div>
+{% endblock %}

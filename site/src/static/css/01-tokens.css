@@ -1,0 +1,174 @@
+/* Voz sem nome design tokens.
+   Every css/*.css file is joined in name order into /assets/css/site.css by the build.
+   Colors switch with prefers-color-scheme only (no manual toggle). */
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/assets/fonts/AtkinsonHyperlegibleNext-Italic-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Mono";
+  src: url("/assets/fonts/AtkinsonHyperlegibleMono-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+
+  /* Paper (light) */
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --hairline: #e1e0d9;
+  --line-strong: #c3c2b7;
+  --control-border: #7c7a74;
+  --wash: rgb(11 11 11 / 0.05);
+  --wash-strong: rgb(11 11 11 / 0.09);
+  --on-ink: #f9f9f7;
+  --focus: #0b0b0b;
+  --success-text: #006300;
+
+  /* Status (fixed in both modes; always paired with an icon and a text label) */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --critical-wash: rgb(208 59 59 / 0.08);
+  --warning-wash: rgb(250 178 25 / 0.12);
+
+  /* Data: diverging blue <-> red with a gray midpoint (detractors, passives, promoters;
+     negative, neutral, positive) */
+  --viz-pos: #2a78d6;
+  --viz-neg: #e34948;
+  --viz-mid: #f0efec;
+  --viz-axis: #c3c2b7;
+  --viz-grid: #e1e0d9;
+  --viz-label: #52514e;
+
+  /* Sequential blue ramp for counts and shares (heatmap) */
+  --viz-seq-100: #cde2fb;
+  --viz-seq-150: #b7d3f6;
+  --viz-seq-200: #9ec5f4;
+  --viz-seq-250: #86b6ef;
+  --viz-seq-300: #6da7ec;
+  --viz-seq-350: #5598e7;
+  --viz-seq-400: #3987e5;
+  --viz-seq-450: #2a78d6;
+  --viz-seq-500: #256abf;
+  --viz-seq-550: #1c5cab;
+  --viz-seq-600: #184f95;
+  --viz-seq-650: #104281;
+  --viz-seq-700: #0d366b;
+
+  /* Categorical slots, in the validated order */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #6250d6;
+  --series-8: #e34948;
+
+  /* Kinds of parts in the "how it works" diagram */
+  --kind-rule: var(--series-1);
+  --kind-ner: var(--series-3);
+  --kind-llm: var(--series-7);
+  --kind-n8n: var(--series-2);
+
+  /* Type */
+  --font-sans: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--2: 0.8125rem;
+  --step--1: 0.9rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --step-4: clamp(2.125rem, 1.5rem + 3vw, 3.75rem);
+  --step-hero: clamp(3.5rem, 2.4rem + 5vw, 6rem);
+  --leading: 1.6;
+  --leading-tight: 1.15;
+  --measure: 68ch;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --gutter: 16px;
+  --section-space: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* Shape */
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 12px;
+  --radius-pill: 999px;
+  --border: 1.5px;
+  --focus-ring: 3px solid var(--focus);
+  --tap: 2.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --hairline: #2c2c2a;
+    --line-strong: #383835;
+    --control-border: #898781;
+    --wash: rgb(240 239 236 / 0.06);
+    --wash-strong: rgb(240 239 236 / 0.11);
+    --on-ink: #0d0d0d;
+    --focus: #f0efec;
+    --success-text: #0ca30c;
+    --critical-wash: rgb(208 59 59 / 0.16);
+    --warning-wash: rgb(250 178 25 / 0.12);
+
+    --viz-pos: #3987e5;
+    --viz-neg: #e66767;
+    --viz-mid: #383835;
+    --viz-axis: #383835;
+    --viz-grid: #2c2c2a;
+    --viz-label: #c3c2b7;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #008300;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+  }
+}
+
+@media (min-width: 40rem) {
+  :root { --gutter: 24px; }
+}
+
+@media (min-width: 64rem) {
+  :root { --gutter: 32px; }
+}

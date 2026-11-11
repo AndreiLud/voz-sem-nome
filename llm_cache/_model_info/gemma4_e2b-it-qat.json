@@ -1,0 +1,7 @@
+{
+ "model": "gemma4:e2b-it-qat",
+ "digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+ "quantization": "Q4_0",
+ "parameter_size": "4.6B",
+ "runtime_version": "0.40.16"
+}

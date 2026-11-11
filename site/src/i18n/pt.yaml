@@ -1,0 +1,545 @@
+# Portuguese strings. Keys must match en.yaml exactly (tests check it).
+# Inline markup: [text](page:privacy) or [text](https://...) for links, **bold**, `code`.
+# Placeholders in braces ({k}, {days}) are filled by the build or by the page scripts.
+
+lang_name: "Português"
+
+meta:
+  site_name: "Voz sem nome"
+  og_image_alt: "Voz sem nome: pesquisa de clima e eNPS com IA local"
+  home:
+    title: "Voz sem nome: pesquisa de clima e eNPS com IA local"
+    description: "Comentários de pesquisa de clima anonimizados antes de qualquer modelo ler, classificados por IA local e mostrados num painel que protege grupos pequenos."
+  dashboard:
+    title: "Painel | Voz sem nome"
+    description: "eNPS, temas, sentimento e casos críticos da Talvana Distribuição, empresa fictícia, com grupo mínimo de respostas."
+  submit:
+    title: "Enviar uma resposta fictícia | Voz sem nome"
+    description: "Responda a pesquisa de uma empresa fictícia, veja seu comentário anonimizado e acompanhe a classificação feita por um modelo local."
+  privacy:
+    title: "Privacidade | Voz sem nome"
+    description: "O que a demonstração coleta, o que é anonimizado, o que nunca é gravado e por quanto tempo os envios ficam guardados."
+  not_found:
+    title: "Página não encontrada | Voz sem nome"
+    description: "Esta página não existe."
+
+common:
+  skip_link: "Pular para o conteúdo"
+  wordmark_label: "Voz sem nome, página inicial"
+  nav_label: "Principal"
+  nav:
+    how: "Como funciona"
+    dashboard: "Painel"
+    submit: "Demo"
+    privacy: "Privacidade"
+  lang_switch_label: "Idioma"
+  lang_other_code: "EN"
+  lang_other_name: "English version"
+  sample_badge: "Dados de exemplo"
+  sample_note: "Números de exemplo, só para testar o layout. Ainda não são resultados do projeto."
+  estimate_badge: "Estimativa"
+  measured: "Medido"
+  not_measured: "Ainda não medido"
+  illustrative: "Exemplo ilustrativo"
+  copy: "Copiar"
+  copied: "Copiado"
+  copy_failed: "Não deu para copiar. Selecione o texto e copie à mão."
+  new_tab: "abre em nova aba"
+
+footer:
+  about: "Projeto de portfólio de [Andrei Ludescher](https://andreiludescher.com)."
+  repo: "Código no GitHub"
+  data_notice: "Dados sintéticos e envios fictícios. A Talvana Distribuição não existe."
+  privacy: "Privacidade"
+  nav_label: "Rodapé"
+
+# Labels of the placeholders written by the anonymizer.
+placeholders:
+  PESSOA: "nome de pessoa"
+  LOCAL: "lugar"
+  EMAIL: "e-mail"
+  TELEFONE: "telefone"
+  CPF: "CPF"
+  CNPJ: "CNPJ"
+  RG: "RG"
+  CEP: "CEP"
+  MATRICULA: "matrícula"
+  PLACA: "placa de veículo"
+  DOCUMENTO: "outro documento"
+  ofensivo: "palavrão, nos trechos públicos"
+
+home:
+  hero:
+    eyebrow: "Projeto de portfólio"
+    title: "Pesquisa de clima e eNPS com IA local"
+    lead: "O Voz sem nome tira nomes, documentos e contatos dos comentários antes de qualquer modelo ler o texto. Depois, um modelo de linguagem rodando no próprio servidor separa os temas, mede o sentimento e sinaliza casos que pedem atenção do RH, como assédio e burnout."
+    cta_primary: "Testar a demo"
+    cta_secondary: "Ver o painel"
+    example_title: "Um comentário depois de passar pelo sistema"
+    example_comment: "Desde que [PESSOA] virou coordenador em [LOCAL], ele grita com a equipe na frente de todo mundo. Já pedi ajuda no RH e nada mudou."
+    example_translation: ""
+    example_removed: "Removido: 1 nome de pessoa e 1 lugar"
+    example_theme_label: "Tema"
+    example_theme: "Liderança"
+    example_sentiment_label: "Sentimento"
+    example_sentiment: "Negativo"
+    example_critical_label: "Caso crítico"
+    example_critical: "Assédio moral"
+
+  problem:
+    title: "O problema"
+    lead: "Numa pesquisa de clima, a nota diz pouco. O motivo está nos comentários abertos, e alguém precisa ler um por um."
+    items:
+      - title: "Leitura manual"
+        text: "Ler, separar por tema e contar comentários toma dias do time de RH a cada ciclo. Com centenas de respostas, a análise chega tarde."
+      - title: "Risco de privacidade"
+        text: "Comentários citam colegas, gestores, filiais e às vezes telefone ou e-mail. Quem lê descobre de quem se fala, e um recorte pequeno pode revelar quem respondeu."
+      - title: "Sinais graves se perdem"
+        text: "Um relato de assédio ou de esgotamento pode ficar no meio das outras respostas até o relatório final."
+    nr1_label: "Contexto"
+    nr1: "Desde 26/05/2026, a NR-1 inclui os fatores de risco psicossociais no gerenciamento de riscos ocupacionais das empresas. Uma pesquisa de clima não cumpre essa exigência sozinha, mas os comentários costumam mostrar esses riscos cedo. Isto é contexto, não orientação jurídica."
+
+  solution:
+    title: "A solução"
+    lead: "Um fluxo que trata cada comentário como dado sensível, do envio ao painel."
+    items:
+      - title: "Anonimização antes de tudo"
+        text: "Regras e um modelo pequeno de reconhecimento de nomes trocam dados pessoais por marcadores como PESSOA e CPF. O texto original não é gravado."
+      - title: "IA no próprio servidor"
+        text: "A classificação roda num modelo aberto com Ollama, na CPU do servidor. Nenhum comentário vai para API de terceiros."
+      - title: "Painel com grupo mínimo"
+        text: "Nenhum grupo com menos de {k} respostas aparece. Áreas pequenas são somadas para que ninguém seja identificado por subtração."
+      - title: "Alerta de caso crítico"
+        text: "Quando o modelo ou o léxico de risco aponta assédio, discriminação, burnout ou ameaça, o n8n registra o alerta e pode avisar o responsável pelo Telegram, só com o texto anonimizado."
+
+  how:
+    title: "Como funciona"
+    lead: "Cada resposta passa por peças de quatro tipos. A legenda mostra o que é regra fixa, o que é modelo pequeno de reconhecimento de nomes, o que é modelo de linguagem e o que é automação."
+    figure_title: "Caminho de uma resposta, do envio ao painel e ao alerta"
+    figure_caption: "As cores e as etiquetas indicam o tipo de cada peça. A mesma informação aparece em texto na lista numerada."
+    text_title: "O diagrama em texto"
+    legend_title: "Legenda"
+    kinds:
+      rule: {tag: "REGRA", name: "Regra fixa", text: "padrões, listas e dígitos verificadores. Sempre dá o mesmo resultado."}
+      ner: {tag: "NER", name: "Modelo pequeno", text: "reconhecimento de nomes de pessoas e lugares com spaCy."}
+      llm: {tag: "LLM", name: "Modelo de linguagem", text: "lê o texto anonimizado e devolve rótulos num formato fixo."}
+      n8n: {tag: "N8N", name: "Automação", text: "fluxos do n8n que avisam, resumem e limpam."}
+    branch_all: "todas"
+    branch_critical: "se crítico"
+    divider: "Daqui em diante, só texto anonimizado"
+    steps:
+      input:
+        title: "Resposta"
+        lines: ["Nota de 0 a 10, área, tempo de casa", "e um comentário opcional"]
+        text: "A resposta chega com nota de 0 a 10, área, tempo de casa e um comentário opcional."
+      rules:
+        title: "Regras de dados pessoais"
+        lines: ["CPF, CNPJ, RG, CEP, e-mail, telefone,", "placa e matrícula; lista de nomes do IBGE"]
+        text: "Padrões e dígitos verificadores acham CPF, CNPJ, RG, CEP, e-mail, telefone, placa e matrícula. Uma lista de nomes do IBGE ajuda a achar nomes próprios."
+      ner:
+        title: "Reconhecimento de nomes"
+        lines: ["Modelo pequeno do spaCy acha pessoas", "e lugares que as regras não cobrem"]
+        text: "Um modelo pequeno do spaCy acha nomes de pessoas e lugares que as regras não cobrem. Cada achado vira um marcador como PESSOA. O texto original é descartado aqui."
+      lexicon:
+        title: "Léxico de risco"
+        lines: ["Frases explícitas de assédio, violência", "ou autolesão marcam o caso na hora"]
+        text: "Frases explícitas de assédio, violência ou autolesão marcam o caso como crítico, mesmo que o modelo falhe."
+      llm:
+        title: "Modelo de linguagem local"
+        lines: ["{model} no Ollama devolve temas,", "sentimento e um primeiro sinal crítico"]
+        text: "O modelo {model}, rodando no Ollama, devolve temas, sentimento e um primeiro sinal de caso crítico."
+      verifier:
+        title: "Segunda leitura"
+        lines: ["Quando há sinal de risco, o modelo relê.", "Na dúvida, o caso fica marcado."]
+        text: "Quando há qualquer sinal de risco, o modelo relê o comentário com foco em casos críticos. Na dúvida, o caso fica marcado."
+      dashboard:
+        title: "Painel"
+        lines: ["Grupos com {k} ou", "mais respostas"]
+        text: "O painel mostra só grupos com {k} ou mais respostas."
+      n8n:
+        title: "n8n"
+        lines: ["Alertas, resumo", "e limpeza"]
+        text: "O n8n apaga envios públicos depois de {days} dias e monitora a fila. Com o Telegram ligado, ele também manda os alertas e um resumo diário."
+
+  results:
+    title: "Resultados"
+    lead: "Números medidos na base sintética. Cada um mostra quantos casos entraram na conta e como foi medido."
+    sample_note: "Estes números são de exemplo. Os resultados medidos aparecem aqui depois da avaliação."
+    items:
+      pii_recall:
+        label: "Dados pessoais encontrados"
+        method: "Parcela dos dados pessoais plantados na base sintética que o anonimizador trocou por marcadores."
+        n: "{n} dados pessoais"
+      pii_leaks:
+        label: "Comentários com vazamento"
+        method: "Comentários em que sobrou pelo menos um dado pessoal plantado, entre os que tinham algum."
+        n: "{n} comentários"
+      critical_recall:
+        label: "Casos críticos encontrados"
+        method: "Casos críticos do conjunto de teste que o sistema marcou. É o número que mais importa: um caso perdido custa mais que um alarme falso."
+        n: "{n} casos críticos"
+      critical_precision:
+        label: "Alertas corretos"
+        method: "Entre os comentários marcados como críticos, a parcela que de fato era crítica."
+        n: "{n} alertas"
+      sentiment:
+        label: "Sentimento correto"
+        method: "Comentários do conjunto de teste em que o sentimento bateu com a referência."
+        n: "{n} comentários"
+        extra: "Kappa de Cohen: {value}"
+      themes:
+        label: "Temas, F1 macro"
+        method: "Média do F1 de cada tema. Temas raros pesam o mesmo que temas comuns."
+        n: "{n} comentários"
+      latency:
+        label: "Tempo por comentário"
+        method: "Mediana do tempo de classificação na CPU do servidor, sem GPU, depois do modelo carregado."
+        n: "{n} comentários"
+        extra: "p95: {value}"
+    ci: "IC 95%: {lo} a {hi}"
+    reference:
+      intended: "Referência: rótulos definidos na geração da base sintética."
+      human: "Referência: rótulos de uma pessoa que leu os comentários sem ver a resposta do modelo."
+    hardware: "Servidor com {cpus} vCPUs e {mem} GiB de RAM."
+    pipeline: "Modelo {model}, prompt {prompt}, anonimizador {anonymizer}."
+
+  estimate:
+    title: "Horas economizadas"
+    lead: "Uma conta simples para a sua realidade. Mude os valores da tabela e o resultado muda na hora."
+    note: "Os valores padrão são suposições de exemplo, não medições. O tempo de máquina vem da medição acima, quando existe."
+    table_caption: "Suposições da estimativa"
+    col_assumption: "Suposição"
+    col_value: "Valor"
+    rows:
+      responses_per_cycle: {label: "Respostas por ciclo", unit: "respostas"}
+      comment_share: {label: "Parcela com comentário", unit: "%"}
+      minutes_read_classify: {label: "Minutos para ler e classificar um comentário", unit: "min"}
+      minutes_anonymize: {label: "Minutos para anonimizar um comentário à mão", unit: "min"}
+      cycles_per_year: {label: "Ciclos de pesquisa por ano", unit: "ciclos"}
+      review_share: {label: "Parcela que ainda precisa de revisão humana", unit: "%"}
+      minutes_per_review: {label: "Minutos por revisão", unit: "min"}
+    outputs_title: "Resultado da estimativa"
+    outputs:
+      comments: "Comentários por ano"
+      manual: "Horas de trabalho manual por ano"
+      review: "Horas de revisão com o sistema"
+      saved: "Horas economizadas por ano"
+      machine: "Tempo de máquina por ano"
+    machine_not_measured: "Ainda não medido"
+    hours: "{value} h"
+    formula_title: "Como a conta é feita"
+    formula:
+      - "Comentários por ano = respostas × parcela com comentário × ciclos."
+      - "Trabalho manual = comentários × (minutos de leitura + minutos de anonimização) ÷ 60."
+      - "Revisão com o sistema = comentários × parcela revisada × minutos por revisão ÷ 60."
+      - "Horas economizadas = trabalho manual menos revisão. O tempo de máquina usa a média medida por comentário e não conta como trabalho de pessoas."
+    reset: "Voltar aos valores padrão"
+    invalid: "Use um número entre {min} e {max}."
+
+  preview:
+    title: "O painel"
+    lead: "O painel mostra eNPS, temas, sentimento e casos críticos sem expor grupos pequenos."
+    enps_label: "eNPS da base sintética"
+    responses: "{n} respostas"
+    promoters: "Promotores"
+    passives: "Neutros"
+    detractors: "Detratores"
+    bar_label: "Distribuição das respostas"
+    explainer: "eNPS é a porcentagem de promotores (notas 9 e 10) menos a de detratores (0 a 6). Vai de −100 a +100."
+    empty: "A base sintética ainda não tem respostas suficientes para mostrar números."
+    link: "Ver o painel completo"
+
+  privacy_summary:
+    title: "Privacidade"
+    lead: "A demonstração foi desenhada para guardar o mínimo."
+    items:
+      - "O texto original do comentário não é gravado. Só a versão anonimizada."
+      - "O endereço IP não é gravado. Ele só serve, em memória, para limitar envios em excesso."
+      - "Envios públicos são apagados depois de {days} dias."
+      - "Grupos com menos de {k} respostas não aparecem no painel."
+    link: "Ler a página de privacidade"
+
+  demo:
+    title: "Teste com uma resposta fictícia"
+    text: "Escreva como se trabalhasse na Talvana Distribuição, uma empresa inventada. Você recebe um código para acompanhar o resultado enquanto ele passa pela fila."
+    cta: "Enviar uma resposta"
+
+dashboard:
+  title: "Painel"
+  lead: "Resultados da pesquisa de clima da Talvana Distribuição, empresa fictícia. A base sintética tem respostas criadas para o projeto. Os envios públicos vêm da demo."
+  controls_label: "Escolha da base"
+  datasets:
+    synthetic: "Base sintética"
+    public: "Envios públicos"
+  loading: "Carregando o painel."
+  error: "Não foi possível carregar o painel. Tente de novo em alguns minutos."
+  retry: "Tentar de novo"
+  refresh_failed: "A última atualização falhou. Os números abaixo são de {datetime}."
+  snapshot_banner: "Análise ao vivo fora do ar. Mostrando o retrato de {datetime}."
+  static_banner: "A análise ao vivo não respondeu. Mostrando o arquivo publicado junto com o site."
+  freshness_live: "Dados ao vivo, gerados em {datetime}."
+  freshness_static: "Dados gerados em {datetime}."
+  showing: "Mostrando: {dataset}."
+  min_group_note: "Grupos com menos de {k} respostas não aparecem. Áreas e tempos de casa pequenos entram juntos num grupo sem nome."
+  small_public: "Os envios públicos ainda não chegaram a {k} respostas. Os números aparecem quando houver respostas suficientes para ninguém ser identificado."
+  small_synthetic: "A base sintética ainda não tem respostas suficientes para mostrar números."
+  small_cta: "Enviar uma resposta fictícia"
+  show_table: "Ver tabela"
+  keys_hint: "Use as setas do teclado para passar pelos valores do gráfico. Os mesmos números estão na tabela logo abaixo."
+  other_areas: "Outras áreas (agrupadas)"
+  other_tenures: "Outros tempos de casa (agrupados)"
+  merged_note:
+    areas: "{other} junta as áreas com menos de {k} respostas. Se esse grupo ainda ficar pequeno, a menor área visível entra nele também."
+    tenures: "{other} junta os tempos de casa com menos de {k} respostas. Se esse grupo ainda ficar pequeno, o menor grupo visível entra nele também."
+  enps_explainer: "eNPS é a porcentagem de promotores (notas 9 e 10) menos a de detratores (0 a 6). Vai de −100 a +100."
+  groups_none: "Nenhum grupo tem respostas suficientes para aparecer."
+  themes_none: "Ainda não há comentários classificados nesta base."
+  themes_zero: "Sem menções nesta base: {themes}."
+  heat_empty: "Sem comentários classificados: {areas}."
+  overview_legend: "Grupos de nota"
+  sentiment_legend: "Sentimento"
+  heat_legend:
+    title: "Parcela dos comentários da área"
+    zero: "Nenhum"
+    first: "até {hi}"
+    range: "{lo} a {hi}"
+  sections:
+    overview: "eNPS geral"
+    by_area: "eNPS por área"
+    by_tenure: "eNPS por tempo de casa"
+    themes: "Temas"
+    heatmap: "Temas por área"
+    critical: "Casos críticos"
+    production: "Fila e produção"
+  section_notes:
+    themes: "Quantos comentários citam cada tema e o sentimento desses comentários. Um comentário pode ter mais de um tema."
+    heatmap: "Parcela dos comentários de cada área que cita o tema. Na tabela, o número entre parênteses é a contagem de comentários."
+    critical: "Trechos anonimizados. A área aparece só quando o grupo tem {k} ou mais respostas. O tempo de casa nunca aparece."
+    production: "Como a demo pública está funcionando agora."
+  charts:
+    overview: "Divisão das respostas entre promotores, neutros e detratores"
+    by_area: "Gráfico de eNPS por área"
+    by_tenure: "Gráfico de eNPS por tempo de casa"
+    themes: "Gráfico de temas com o sentimento dos comentários"
+    heatmap: "Mapa de calor de temas por área"
+  summaries:
+    groups: "Maior eNPS: {top}, {top_value}. Menor: {bottom}, {bottom_value}."
+    themes: "Tema mais citado: {theme}, em {count}."
+    heatmap: "Maior parcela: {theme} em {area}, citado em {share} dos comentários da área."
+  units:
+    answers_one: "{n} resposta"
+    answers_other: "{n} respostas"
+    comments_one: "{n} comentário"
+    comments_other: "{n} comentários"
+  marks:
+    group: "{name}: eNPS {value}, {answers}."
+    part: "{name}: {count}, {share} das respostas."
+    theme: "{name}: {count}. {split}."
+    heat: "{theme} em {area}: {share}, {n} de {total} comentários."
+  tips:
+    split: "{promoters} promotores, {passives} neutros, {detractors} detratores"
+    heat: "{n} de {total} comentários da área"
+    of_answers: "das respostas"
+  critical_types: "Casos por tipo"
+  critical_recent: "Trechos mais recentes"
+  critical_show_all: "Mostrar todos os {n} casos"
+  critical_show_less: "Mostrar menos"
+  critical_area_hidden: "Área oculta"
+  critical_themes: "Temas: {themes}"
+  critical_empty: "Nenhum caso crítico nesta base."
+  labels:
+    promoters: "Promotores"
+    passives: "Neutros"
+    detractors: "Detratores"
+    responses: "Respostas"
+    with_comment: "Com comentário"
+    critical: "Casos críticos"
+    enps: "eNPS"
+    count: "Comentários"
+    share: "Parcela"
+    group: "Grupo"
+    area: "Área"
+    tenure: "Tempo de casa"
+    theme: "Tema"
+  queue:
+    title: "Fila agora"
+    pending: "Na fila"
+    processing: "Em análise"
+    eta: "Espera estimada"
+    eta_none: "Sem estimativa"
+    worker: "Analisador"
+    worker_online: "Ligado"
+    worker_offline: "Desligado"
+    worker_unknown: "Sem sinal"
+    went_online: "O analisador voltou a funcionar."
+    went_offline: "O analisador parou de responder."
+    full: "A fila está cheia. Novos envios voltam a entrar quando ela andar."
+    error: "Não foi possível ler o estado da fila agora."
+  production:
+    title: "Desde o início da demo"
+    since: "Desde {date}"
+    none: "Sem dados"
+    submissions: "Envios"
+    distinct: "Pessoas diferentes"
+    median: "Tempo até o resultado, mediana"
+    p95: "Tempo até o resultado, p95"
+    alerts: "Alertas enviados"
+  noscript: "O painel usa JavaScript para desenhar os gráficos. Os dados da base sintética estão em [dashboard-synthetic.json](/data/dashboard-synthetic.json)."
+
+submit:
+  title: "Enviar uma resposta fictícia"
+  lead: "Responda como se trabalhasse na Talvana Distribuição, uma empresa inventada. O comentário é anonimizado antes de ser gravado e classificado por um modelo local. No fim, você recebe um código para acompanhar o resultado."
+  form_title: "Sua resposta"
+  required_note: "Campos marcados com * são obrigatórios."
+  score_low: "Nada provável"
+  score_high: "Muito provável"
+  area_label: "Área"
+  area_placeholder: "Escolha uma área"
+  tenure_legend: "Tempo de casa"
+  comment_label: "Comentário (opcional)"
+  comment_hint: "Não escreva dados reais seus ou de outras pessoas. Se escrever, eles serão substituídos por marcadores."
+  counter: "{count} de {max} caracteres"
+  counter_over: "{count} caracteres além do limite"
+  consent_label: "Entendo que esta é uma demonstração com empresa fictícia e que meu comentário será anonimizado e apagado em {days} dias."
+  turnstile_label: "Verificação contra robôs"
+  submit: "Enviar resposta"
+  sending: "Enviando"
+  sent: "Resposta recebida. Seu código é {code}."
+  errors:
+    summary_title: "Confira os campos abaixo antes de enviar."
+    score: "Escolha uma nota de 0 a 10."
+    area: "Escolha uma área."
+    tenure: "Escolha o tempo de casa."
+    comment_long: "O comentário passou de {max} caracteres."
+    consent: "Marque a confirmação para enviar."
+    turnstile: "Conclua a verificação contra robôs."
+    code: "Digite o código no formato XXXX-XXXX, com 8 letras e números."
+  api_errors:
+    duplicate: "Esse comentário já foi enviado nas últimas 24 horas. Escreva outro ou acompanhe o envio anterior pelo código."
+    rate_limited: "Muitos envios seguidos. Tente de novo em {minutes} min."
+    queue_full: "A fila está cheia agora. Tente de novo em alguns minutos."
+    offline: "A análise está fora do ar agora. Tente de novo mais tarde."
+    network: "Sem conexão com o servidor. Confira sua internet e tente de novo."
+    turnstile: "A verificação contra robôs falhou. Recarregue a página e tente de novo."
+    validation: "Alguns campos não foram aceitos. Confira e envie de novo."
+    unknown: "Algo deu errado. Tente de novo em alguns minutos."
+    too_large: "O envio ficou grande demais. Encurte o comentário e tente de novo."
+    turnstile_unavailable: "A verificação contra robôs não respondeu. Tente de novo em instantes."
+  track:
+    title: "Acompanhe sua resposta"
+    lead: "Cole o código que você recebeu ao enviar."
+    code_label: "Código de acompanhamento"
+    code_hint: "Formato XXXX-XXXX. Guarde o código: só com ele dá para ver o resultado."
+    lookup: "Ver resultado"
+    your_code: "Seu código"
+    your_link: "Link deste resultado"
+    copy_code: "Copiar código"
+    copy_link: "Copiar link"
+    position: "Posição na fila: {position}"
+    eta: "Espera estimada: {time}"
+    progress_label: "Andamento da análise"
+    paused: "Atualização pausada enquanto a aba está em segundo plano."
+    not_found: "Não encontramos esse código. Confira se digitou certo. Envios são apagados depois de {days} dias."
+    status_title: "Situação da resposta"
+    checking: "Consultando a fila"
+    anonymized_note: "O comentário foi anonimizado assim que chegou, antes de entrar na fila."
+    reconnecting: "Sem conexão com o servidor. Tentando de novo em {seconds} s."
+    offline: "A análise está fora do ar agora. Tentando de novo em {seconds} s."
+    result_ready: "O resultado está logo abaixo."
+    status:
+      queued: "Na fila"
+      processing: "Em análise"
+      done: "Pronto"
+      review: "Pronto, com revisão manual"
+      skipped: "Sem comentário para analisar"
+      failed: "Não foi possível analisar"
+  result:
+    title: "Resultado"
+    anonymized: "Comentário anonimizado"
+    removed: "O que foi removido"
+    removed_none: "Nada foi removido."
+    removed_item: "{label}: {count}"
+    pending: "Aguardando análise"
+    themes_none: "Nenhum tema"
+    sentiment_none: "Sem sentimento definido"
+    no_comment: "Você não escreveu comentário. A nota conta no painel, mas não há texto para analisar."
+    review: "O modelo respondeu fora do formato esperado. O comentário ficou para revisão manual, e a busca por palavras de risco continua valendo."
+    failed: "O modelo não conseguiu analisar este comentário. A nota conta no painel normalmente."
+    themes: "Temas"
+    sentiment: "Sentimento"
+    critical: "Caso crítico"
+    critical_yes: "Sim"
+    critical_no: "Não"
+    processing_time: "Analisado em {seconds} s pelo modelo {model}."
+    cvv: "Se você estiver passando por algo parecido, o CVV atende de graça pelo 188 ou [cvv.org.br](https://cvv.org.br), 24 horas."
+    alert_note: "Numa empresa real, este caso geraria um alerta para o RH. Aqui, o alerta vai para o responsável pelo projeto, só com o texto anonimizado."
+  noscript: "O envio precisa de JavaScript, por causa da verificação contra robôs e do acompanhamento da fila."
+
+privacy:
+  title: "Privacidade"
+  toc_title: "Nesta página"
+  lead: "Esta página explica o que a demonstração pública coleta e como trata cada dado. O projeto é de portfólio e usa uma empresa fictícia."
+  updated: "Vale para a versão atual da demonstração."
+  sections:
+    collect:
+      title: "O que a demonstração coleta"
+      items:
+        - "A nota de 0 a 10, a área e o tempo de casa que você escolhe."
+        - "O comentário, se você escrever um. Ele é anonimizado antes de ser gravado."
+        - "O idioma da página e a data e hora do envio."
+        - "O resultado da verificação contra robôs (Cloudflare Turnstile). O token é conferido e descartado."
+    anonymize:
+      title: "O que é anonimizado e como"
+      text: "Antes de gravar, o sistema procura dados pessoais no comentário e troca cada um por um marcador. Regras fixas acham documentos e contatos pelos padrões e dígitos verificadores. Uma lista de nomes do IBGE e um modelo pequeno de reconhecimento de nomes acham pessoas e lugares. Só o texto com marcadores segue para o modelo de linguagem."
+      table_caption: "Marcadores usados no lugar de dados pessoais"
+      col_marker: "Marcador"
+      col_meaning: "O que substitui"
+      limits: "Nenhum método acerta sempre. Por isso pedimos que você não escreva dados reais. Nos trechos públicos do painel, palavrões também viram marcador."
+    never:
+      title: "O que nunca é gravado"
+      items:
+        - "O texto original do comentário."
+        - "O endereço IP. Ele fica só em memória, para limitar envios em excesso e contar pessoas diferentes por dia com um código que muda todo dia."
+        - "Cookies de rastreamento ou ferramentas de análise de audiência. O site não usa nenhum."
+    retention:
+      title: "Por quanto tempo"
+      items:
+        - "Envios públicos: apagados depois de {days} dias."
+        - "Registro de alertas: só identificador, tipos de caso e horários, apagados depois de {alert_days} dias."
+        - "Contadores diários sem texto, como número de envios e tempo de análise: mantidos para as estatísticas de produção."
+    min_group:
+      title: "Grupo mínimo"
+      text: "Nenhum grupo, cruzamento ou recorte com menos de {k} respostas aparece no painel. Áreas pequenas entram juntas num grupo sem nome. Quando esse grupo também fica pequeno, a menor área visível entra nele, para que ninguém descubra um grupo escondido subtraindo os outros do total."
+    who:
+      title: "Quem vê o quê"
+      table_caption: "Acesso aos dados da demonstração"
+      col_who: "Quem"
+      col_what: "O que vê"
+      rows:
+        - who: "Qualquer pessoa no site"
+          what: "Números agregados com grupo mínimo e trechos anonimizados de casos críticos, sem tempo de casa e com área só quando o grupo é grande o bastante."
+        - who: "Quem enviou a resposta"
+          what: "O próprio resultado, com o código de acompanhamento."
+        - who: "Responsável pelo projeto"
+          what: "Os alertas, com o texto anonimizado, que podem ir para o Telegram, e o banco, que guarda só texto anonimizado."
+        - who: "Cloudflare"
+          what: "Dados de conexão para entregar o site, rodar a verificação contra robôs e bloquear abuso, conforme a política da própria Cloudflare."
+    legal:
+      title: "Base legal sugerida para uma empresa real"
+      text: "Nesta demonstração, a base é o seu consentimento, dado na caixa de confirmação do formulário. Numa empresa real, a base mais comum para pesquisa de clima é o legítimo interesse (art. 7º, IX, da LGPD), com teste de balanceamento documentado e direito de não responder. Comentários podem trazer dados sensíveis, como saúde ou orientação sexual, que pedem uma base do art. 11. Quando a pesquisa apoia a gestão de riscos psicossociais da NR-1, o cumprimento de obrigação legal pode ser considerado."
+      disclaimer: "Este é um projeto de portfólio e não é orientação jurídica. Uma empresa real deve validar a base legal com o encarregado de dados e o jurídico."
+    rights:
+      title: "Dúvidas"
+      text: "Os envios são anônimos, então não há como achar o seu sem o código de acompanhamento. Para dúvidas sobre o projeto, use o contato em [andreiludescher.com](https://andreiludescher.com)."
+
+not_found:
+  title: "Página não encontrada"
+  text: "O endereço pode estar errado ou a página mudou de lugar."
+  home: "Voltar para o início"
+  dashboard: "Ver o painel"
+
+# Strings read by the page scripts (embedded as JSON in each page).
+js:
+  copy: "Copiar"
+  copied: "Copiado"
+  copy_failed: "Não deu para copiar. Selecione o texto e copie à mão."

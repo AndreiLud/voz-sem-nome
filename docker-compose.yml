@@ -1,0 +1,157 @@
+name: voz-sem-nome
+
+# Everything runs on one machine with `docker compose up -d`.
+# Two networks keep the exposure small:
+#   backend  Ollama, both APIs, the worker and n8n. Nothing here is published beyond 127.0.0.1.
+#   edge     cloudflared and the public API only. The tunnel cannot reach n8n, Ollama or the internal API.
+# cloudflared starts only with the "tunnel" profile (set COMPOSE_PROFILES=tunnel in .env once the token exists).
+
+x-app: &app
+  build: .
+  image: voz-sem-nome-app:local
+  user: "${UID:-1000}:${GID:-1000}"
+  restart: unless-stopped
+  # Only the variables each service needs; compose reads their values from .env.
+  environment: &app-env
+    ENPS_ENV: "${ENPS_ENV:-prod}"
+    ENPS_LLM_BASE_URL: "http://ollama:11434"
+    ORIGIN_SHARED_SECRET: "${ORIGIN_SHARED_SECRET:-}"
+    INTERNAL_API_TOKEN: "${INTERNAL_API_TOKEN:-}"
+    N8N_ALERT_WEBHOOK_URL: "${N8N_ALERT_WEBHOOK_URL:-}"
+    ENPS_PATHS_DATABASE: "/app/data/app/voz-sem-nome.db"
+    TZ: "America/Sao_Paulo"
+  volumes:
+    - ./data/app:/app/data/app
+
+services:
+  ollama:
+    image: ollama/ollama:0.40.16@sha256:910d0d8107b538fb0894e63163eb195de0cc7aefcbc666dc62d3b18f71124592
+    restart: unless-stopped
+    environment:
+      OLLAMA_NUM_PARALLEL: "1"        # one request at a time: best latency on a small CPU
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_KEEP_ALIVE: "-1"         # keep the model in RAM between requests
+      OLLAMA_CONTEXT_LENGTH: "4096"
+      OLLAMA_MAX_QUEUE: "16"          # the API owns the real queue
+      OLLAMA_NO_CLOUD: "1"            # local inference only
+    volumes:
+      - ollama-models:/root/.ollama
+    networks: [backend]
+    ports:
+      - "127.0.0.1:11434:11434"       # local debugging only
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  # One-shot: downloads the model on a fresh machine, then exits.
+  ollama-pull:
+    image: ollama/ollama:0.40.16@sha256:910d0d8107b538fb0894e63163eb195de0cc7aefcbc666dc62d3b18f71124592
+    environment:
+      OLLAMA_HOST: "http://ollama:11434"
+    command: ["pull", "${ENPS_LLM_MODEL:-gemma4:e2b-it-qat}"]
+    depends_on:
+      ollama: {condition: service_healthy}
+    networks: [backend]
+    restart: "no"
+
+  api:
+    <<: *app
+    command: ["uvicorn", "enps.api.public:app", "--host", "0.0.0.0", "--port", "8001",
+              "--workers", "1", "--no-access-log", "--proxy-headers", "--forwarded-allow-ips", "*"]
+    networks: [backend, edge]
+    ports:
+      - "127.0.0.1:8001:8001"
+    depends_on:
+      ollama: {condition: service_healthy}
+
+  api-internal:
+    <<: *app
+    command: ["uvicorn", "enps.api.internal:app", "--host", "0.0.0.0", "--port", "8002",
+              "--workers", "1", "--no-access-log"]
+    networks: [backend]
+    ports:
+      - "127.0.0.1:8002:8002"
+
+  worker:
+    <<: *app
+    command: ["python", "-m", "enps.queue.worker"]
+    networks: [backend]
+    depends_on:
+      ollama: {condition: service_healthy}
+      ollama-pull: {condition: service_completed_successfully}
+
+  n8n:
+    image: n8nio/n8n:2.47.3@sha256:6723b440354bb8e1395a1ecee12685fe03923f897bf6e4d5bb2c6c2bd2051697
+    restart: unless-stopped
+    environment:
+      N8N_ENCRYPTION_KEY: "${N8N_ENCRYPTION_KEY:?set N8N_ENCRYPTION_KEY in .env}"
+      N8N_HOST: "localhost"
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: "http"
+      N8N_EDITOR_BASE_URL: "http://localhost:5678"
+      N8N_PROXY_HOPS: "0"
+      GENERIC_TIMEZONE: "America/Sao_Paulo"
+      TZ: "America/Sao_Paulo"
+      DB_TYPE: "sqlite"
+      # Raw form answers pass through n8n before anonymization: never keep execution data.
+      EXECUTIONS_DATA_SAVE_ON_SUCCESS: "none"
+      EXECUTIONS_DATA_SAVE_ON_ERROR: "none"
+      EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: "false"
+      EXECUTIONS_DATA_PRUNE: "true"
+      EXECUTIONS_DATA_MAX_AGE: "24"
+      # Hardening: no telemetry, no public API, no env access from expressions, no shell nodes.
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_VERSION_NOTIFICATIONS_ENABLED: "false"
+      N8N_TEMPLATES_ENABLED: "false"
+      N8N_PERSONALIZATION_ENABLED: "false"
+      N8N_HIRING_BANNER_ENABLED: "false"
+      N8N_PUBLIC_API_DISABLED: "true"
+      N8N_BLOCK_ENV_ACCESS_IN_NODE: "true"
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      N8N_RESTRICT_FILE_ACCESS_TO: "/home/node/.n8n-files"
+      NODES_EXCLUDE: '["n8n-nodes-base.executeCommand","n8n-nodes-base.localFileTrigger","n8n-nodes-base.ssh","n8n-nodes-base.git","n8n-nodes-base.readWriteFile","n8n-nodes-base.form","n8n-nodes-base.formTrigger"]'
+      N8N_METRICS: "false"
+    volumes:
+      - n8n-data:/home/node/.n8n
+      - ./n8n/workflows:/workflows:ro
+    networks: [backend]
+    ports:
+      - "127.0.0.1:5678:5678"         # editor through an SSH tunnel only
+
+  cloudflared:
+    image: cloudflare/cloudflared:2026.10.7@sha256:4955524aeaa379e154023d5a027c250f7b35041a2e7e950cf13f144bc9b9c5ba
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    command: ["tunnel", "--config", "/etc/cloudflared/config.yml", "--metrics", "127.0.0.1:20241", "run"]
+    volumes:
+      - ./cloudflared/config.yml:/etc/cloudflared/config.yml:ro
+      # Created by `cloudflared tunnel create`, kept outside the repository (docs/deploy.md).
+      - ${CLOUDFLARED_CREDENTIALS:-~/.config/voz-sem-nome/cloudflared/credentials.json}:/etc/cloudflared/credentials.json:ro
+    networks: [edge]
+    depends_on: [api]
+
+  # Batch pipeline on the synthetic data: docker compose run --rm pipeline
+  pipeline:
+    <<: *app
+    profiles: ["pipeline"]
+    restart: "no"
+    command: ["python", "-m", "enps.pipeline", "all"]
+    environment:
+      <<: *app-env
+      ENPS_PATHS_PIPELINE_DATABASE: "/app/data/pipeline/synthetic.db"
+    volumes:
+      - ./data:/app/data
+      - ./llm_cache:/app/llm_cache
+      - ./metrics:/app/metrics
+      - ./site:/app/site
+    networks: [backend]
+
+volumes:
+  ollama-models:
+  n8n-data:
+
+networks:
+  backend:
+  edge:

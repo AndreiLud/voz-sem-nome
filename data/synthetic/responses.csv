@@ -1,0 +1,401 @@
+id,submitted_at,score,area,tenure,comment
+S0001,2026-10-19T08:16:14-03:00,9,comercial,y3to5,Show
+S0002,2026-10-19T08:43:54-03:00,7,transporte,lt1,"queria entendr melhor como e calculada a plr, a pressao do dia a dia ta me deixando estressdo, seria bom revisar os processos internos, tem mta etapa repetida kkkk"
+S0003,2026-10-19T09:07:01-03:00,8,comercial,gt5,"a regra da comissao ñ é clara, muda todo mês treinamento aqui é so o obrigatorio de seguranca"
+S0004,2026-10-19T09:10:44-03:00,9,pessoas,y1to3,Só lembram da gente quando dá errado. Agradeço a atenção.
+S0005,2026-10-19T09:10:47-03:00,10,juridico,y1to3,"o home office é top, nao troco por nada."
+S0006,2026-10-19T09:14:21-03:00,9,financeiro,y1to3,"É corrido, mas é organizado, a gente sabe o que precisa entregar. A equipe mudou muito esse ano, ainda está se ajustando."
+S0007,2026-10-19T09:16:06-03:00,8,comercial,y3to5,"entao, tecnologia e negoico ñ se entendem, cada um fala uma lingua e sou o Sérgio, mat. 85830, me liga no (31) 90628-9074 se quiser saber mais so issoooo kkk"
+S0008,2026-10-19T09:31:02-03:00,5,transporte,gt5,"O programador falou que se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir as contas. As rotas da madrugada cansam muito, queria mais revezamento."
+S0009,2026-10-19T09:46:04-03:00,7,operacoes,lt1,"O José e o Thiago da doca carregam o turno nas costas mas o sistema novo de estoque facilitou mt a vida, e a liderança tem coisa boa e coisa ruim, depende muito de quem e o gestor."
+S0010,2026-10-19T09:48:04-03:00,10,comercial,y1to3,
+S0011,2026-10-19T09:58:15-03:00,9,operacoes,gt5,"meu gestor e gente boa, pena q vive sobrecarregado a Márcia Ferreira Martins (marcia_ferreira@example.org) sabe de tudo isso e pode confirmar"
+S0012,2026-10-19T10:37:36-03:00,9,transporte,y1to3,"A empresa leva segurança a sério, os EPIs são de qualidade. Os benefícios oferecidos são compatíveis com o mercado e atendem bem às minhas necessidades."
+S0013,2026-10-19T10:38:30-03:00,8,transporte,lt1,"Luiz Carlos Moreira, mat. 17919, motorista do caminhao SAM-9512... a cultura muda muito de area para area..."
+S0014,2026-10-19T10:40:42-03:00,6,atendimento,y1to3,"A fila diminuiu depois que abriram o chat, o dia ficou mais leve. Mas os critérios de promocao mudam a cada ciclo. Tem que abrir cinco telas para resolvr um protocolo simples."
+S0015,2026-10-19T11:07:15-03:00,6,atendimento,y3to5,Mais treinamentooo
+S0016,2026-10-19T11:16:26-03:00,7,atendimento,lt1,otima empresa kkk
+S0017,2026-10-19T11:33:52-03:00,8,comercial,y1to3,
+S0018,2026-10-19T11:38:31-03:00,7,atendimento,gt5,"Na real, o programa de apoio psicológico online é muito bom. A Letícia e o Diego do atendimento me ensinaram tudo quando entrei."
+S0019,2026-10-19T11:42:41-03:00,9,atendimento,y1to3,"cada supervisor faz de um jeito, não tem um padrão. é o que eu penso"
+S0020,2026-10-19T11:57:09-03:00,4,atendimento,y1to3,"o que acontece no meu setor e assedio, humilhação todo dia na frente de todos o headset ta quebrado e n tem reposicao."
+S0021,2026-10-19T12:11:00-03:00,7,atendimento,lt1,O refeitório é pequeno e a fila toma metade do horario de almoço...
+S0022,2026-10-19T12:14:32-03:00,6,operacoes,y3to5,A luz da doca 2 está queimada faz duas semanas. Seria bom revisar a distribuição de tarefas da equipe.
+S0023,2026-10-19T12:38:41-03:00,10,operacoes,y3to5,"e o seguinte: o pessoal achou graca qdo o diretor apareceu de colete na doa, foi legal ver eleeee la"
+S0024,2026-10-19T12:42:16-03:00,6,operacoes,y3to5,"ando tao cansado de tudo q ultimamente acho q seria um alívio não estar mais aqui, em lugar nenhum, o reajuste foi de 4,5% e a inflacao do ano foi maior a meta é alta, mas dá para bater com esforço..."
+S0025,2026-10-19T12:57:03-03:00,3,atendimento,y1to3,"Tive uma crise no meio do expediente, coração disparado, achei que ia morrer, e mesmo assim tive que voltar pra fila depois"
+S0026,2026-10-19T13:49:09-03:00,7,operacoes,y1to3,Tem encarregado q só coloca as mulheres na conferencia e fala que empilhadeira ñ e coisa de mulher.
+S0027,2026-10-19T14:03:50-03:00,2,transporte,gt5,
+S0028,2026-10-19T14:25:54-03:00,8,operacoes,y1to3,Falei com a Daniela Fernandes e com o Felipe Silva do RH e ninguém resolve meu caso.
+S0029,2026-10-19T14:33:41-03:00,6,operacoes,y1to3,"o armazem tá um caos, cada dia um b.o. novo para pedir um teclado novo abri chamado em marco e ate hj ñ chegou"
+S0030,2026-10-19T14:34:25-03:00,9,transporte,lt1,"A gente tem tempo de fazer as coisas com calma, sem atropelo a reforma do refeitório ficou ótima. so isso..."
+S0031,2026-10-19T14:59:47-03:00,10,operacoes,y1to3,"as pausas para alongamento ajudam o corpo a aguentar o dia é corrido, mas é organizado, a gente sabe o que precisa entregar kkk"
+S0032,2026-10-19T15:27:33-03:00,9,atendimento,lt1,"meu supervisor, o Paulo Ribeiro, e muito bom, ensina com paciencia... depois q contrataram mais gente o ritmo melhorou muito"
+S0033,2026-10-19T15:30:17-03:00,6,financeiro,y1to3,O sistema não aceita meu cpf 88189156036 para cadastrar dependente. Seria bom ter um canal oficial para tirar dúvidas. Fico à disposição.
+S0034,2026-10-19T15:31:09-03:00,3,financeiro,gt5,Sem tempo pra nada
+S0035,2026-10-19T15:42:46-03:00,8,tecnologia,y1to3,
+S0036,2026-10-19T15:50:04-03:00,6,pessoas,y1to3,
+S0037,2026-10-19T16:00:59-03:00,7,comercial,gt5,
+S0038,2026-10-19T16:03:08-03:00,6,atendimento,lt1,"Mariana Almeida Lima, CPF 47416659345, RG 16858723-0, aguardo a correção do meu cadastro."
+S0039,2026-10-19T16:19:21-03:00,9,operacoes,y3to5,
+S0040,2026-10-19T16:38:06-03:00,5,transporte,y3to5,"olha, a cultura muda mto de area pra area... cansado, mas e fim de ano, faz parte, caminhao novo so eiste no powerpoint da diretoria. ngm explica o motivo das decisoes, so manda fazer."
+S0041,2026-10-19T16:38:46-03:00,4,operacoes,y1to3,"qdo da problema a culpa é sempre da equipe, nunca da gestao. metade da minha equipe ta a beira de um burnout, eu inclusive, ja tive crise de panico no trabalho"
+S0042,2026-10-19T16:49:06-03:00,4,comercial,y1to3,"Quem mora em Mauá sofre com o trânsito, a empresa podia liberar pelo menos um dia de home office!"
+S0043,2026-10-19T16:49:33-03:00,10,tecnologia,lt1,O home office duas vezes por semana mudou minha vida. A mentoria com o pessoal mais experiente me ajudou demais. Fiz amigos de verdade aqui. Aqui tem espaço para todo mundo ser quem é.
+S0044,2026-10-19T16:51:11-03:00,9,pessoas,gt5,Meu gestor sempre agradece o esforço da equipe; o João Pedro da TI salvou meu notebook na véspera do fechamento; o home office duas vezes por semana mudou minha vida!
+S0045,2026-10-19T17:09:01-03:00,5,atendimento,y1to3,"Olha, a fila de atendimento não zera nunca, e ligação atrás de ligação, e faz tempo q eu nao aprendo nada novo aqui, o pedido muda de status no sistema e ninguém avisa o atendimento"
+S0046,2026-10-19T17:12:20-03:00,8,tecnologia,y3to5,a empresa pagou metade da minha faculdade.
+S0047,2026-10-19T17:12:28-03:00,7,pessoas,y3to5,"A meta precisa ficar clara desde o começo do mês; a liderança é muito distante, nunca vi o diretor da minha área pessoalmente. A equipe está desmotivada, é cada um por si. É o que eu penso."
+S0048,2026-10-19T17:14:55-03:00,10,tecnologia,lt1,A vitória do nosso time no campeonato interno foi linda.
+S0049,2026-10-19T17:19:04-03:00,8,operacoes,lt1,
+S0050,2026-10-19T17:23:52-03:00,10,operacoes,gt5,
+S0051,2026-10-19T17:26:14-03:00,3,transporte,y1to3,
+S0052,2026-10-19T17:37:37-03:00,8,financeiro,y1to3,"Resumindo: o horário flexível ajuda muito quem tem filho, podiam revisar a tabela de cargos e salários."
+S0053,2026-10-19T18:09:11-03:00,3,transporte,y3to5,saio daqui com dor nas costas todo dia
+S0054,2026-10-19T18:13:38-03:00,6,atendimento,y3to5,Escala
+S0055,2026-10-19T18:27:15-03:00,7,financeiro,gt5,"Prezados, pediram para eu reenviar o RG 45.243.413-0 pela terceira vez. Sugiro a criação de um canal formal para sugestões de melhoria. Fico à disposição."
+S0056,2026-10-19T18:27:31-03:00,4,transporte,y3to5,"fui vítima de assédio sexual de um colega e o caso foi abafado. fazer hora extra virou rotina, ñ é mais exceção."
+S0057,2026-10-19T18:27:48-03:00,8,operacoes,lt1,meu gestor da autonomia e confia no time. meu rg e RJ-26.513.687 caso precisem me identificar...
+S0058,2026-10-19T18:52:04-03:00,8,financeiro,y1to3,"E o seguinte: vou morrer de saudade do meu antigo supervisor, ele foi transferido."
+S0059,2026-10-20T08:02:40-03:00,5,financeiro,y1to3,"minha lideranca n conhece o trabalho q a gente faz no dia a dia... a Gabriela pode confirmar, o telefone dela e (21) 90751-5238 hahaha"
+S0060,2026-10-20T08:05:46-03:00,6,financeiro,y3to5,"É o seguinte: o sistema da folha dá erro todo mês; a escala é super flexível, muda toda hora sem avisar ninguém hahaha"
+S0061,2026-10-20T09:04:22-03:00,8,atendimento,gt5,Sem comentários
+S0062,2026-10-20T09:16:55-03:00,6,operacoes,y3to5,"Ja presenciei racismo aqui dentro e nada aconteceu com quem fez, mas os bneeficios são melhores que os da minha empresa anterior, mas o volume de pedidos dobrou e o número de pessoas no armazem é o mesmo."
+S0063,2026-10-20T09:22:40-03:00,6,comercial,y3to5,"Bom dia. A avaliação de desempenho não serve para nada, ninguém é promovido depois dela. Liguei para o João no 81 90644-7507 e ele disse que a escala não muda. Seria bom revisar a distribuição de tarefas da equipe."
+S0064,2026-10-20T09:32:46-03:00,7,operacoes,y1to3,"O pdi que a gente preenche some na gaveta e o comercial vende o q a operação ñ consegue entregar e sobra pra todo mundo, só q a carga de trabalho ta tranquila, da para fazer td no horário..."
+S0065,2026-10-20T09:37:59-03:00,3,transporte,y1to3,o Lucas anda com uma faca no caminhao e mostra pra quem discute com ele. a gente cobre as ferias dos colegas e ninguem cobre as nossas
+S0066,2026-10-20T09:38:34-03:00,4,atendimento,y3to5,"a monitoria só escuta a ligação pra achar erro, nunca paar ensinar e e muita correria, ñ dá tempo de fazer nada direito, tem panelinha em todo canto, falta padrao nos processos, cada um faz de um jeito..."
+S0067,2026-10-20T09:44:26-03:00,8,atendimento,y3to5,"gostei da campanha de vacinação na empresa, só que a folga cai sempre no meio da semana, nunca consigo ir num aniversário da família"
+S0068,2026-10-20T09:47:09-03:00,0,operacoes,y3to5,"O supervisor me chama pra conversar sozinha na sala dele dps do expediente e insiste em me levar em casa, eu sempre invento uma desculpa... tem mta fofoca entre as equipes"
+S0069,2026-10-20T09:48:52-03:00,10,operacoes,lt1,"o sistema de chamados funciiona bem, resolvem rapido ambiente leve, da gosto de vir trabalhar. a meta e alta, mas da pra bater com esforcooo kkk"
+S0070,2026-10-20T09:56:35-03:00,8,transporte,y3to5,
+S0071,2026-10-20T10:01:24-03:00,6,atendimento,y1to3,"sou a matrícula 16502 do turno da noite, ninguem olha pra gente."
+S0072,2026-10-20T10:17:45-03:00,5,transporte,y3to5,
+S0073,2026-10-20T10:20:14-03:00,8,transporte,gt5,"As rotas ficaram mais curtas depois da reorganização, dá para voltar no horário. Tem gente boa e gente difícil, como em qualquer lugar. Falta postura de alguns líderes, combinam uma coisa na reunião e fazem outra depois, o benefício é ok, mas o saláro podia ser melhor."
+S0074,2026-10-20T10:26:55-03:00,8,financeiro,y3to5,"tenho aprendido mto com o time, cada mês uma coisa novaaaa."
+S0075,2026-10-20T10:32:04-03:00,0,operacoes,y1to3,"a gente descarrega caminhao num calor de 40 graus, sem ventilador, com empilhadeira quebrada, ganhando pouco, e ainda escuta q precisa vestir a camisa. q camisa? o pessoal novo chega sem treinamento e a equipe tem q ensinar td correndo"
+S0076,2026-10-20T10:42:38-03:00,8,pessoas,lt1,"Bom, fim de mês sempre aperta, já faz parte, o clima entre os turnos é ruim, um culpa o outro, meu contato é 51 90564-2898 ou diego982@example.com, podem chamar a qualquer hora. Só isso."
+S0077,2026-10-20T10:51:29-03:00,5,comercial,y1to3,"A carteira de cada vendedor cresceu e o tempo pra visitar cliente sumiu. Quando contei que estava grávida meu gestor mudou comigo, me tiraram dos projetos importantes e disseram que era para eu ficar mais tranquila"
+S0078,2026-10-20T10:55:11-03:00,9,transporte,y3to5,
+S0079,2026-10-20T11:02:40-03:00,9,operacoes,lt1,
+S0080,2026-10-20T11:08:54-03:00,8,juridico,y3to5,"O ritmo aperta só no fim do mês, no resto do tempo é tranquilo."
+S0081,2026-10-20T11:09:43-03:00,5,atendimento,gt5,"Meu banco de horas sumiu do sistema, matrícula 57630. O supervisor do sábado some depois das dez e ninguem sabe a quem chamar."
+S0082,2026-10-20T11:10:12-03:00,9,atendimento,gt5,
+S0083,2026-10-20T11:14:46-03:00,6,atendimento,gt5,
+S0084,2026-10-20T11:37:20-03:00,6,pessoas,y3to5,
+S0085,2026-10-20T11:42:42-03:00,0,operacoes,y3to5,"Sinceramente n aguento mais, a meta sobe todo mês, o salario e o msm faz dois anos, o supervisor so cobra e quando a gente pede ajuda ele manda se virar, ngm fica assim muito tempo. proocao aqui e por indicacao, nao por merito"
+S0086,2026-10-20T11:42:56-03:00,3,comercial,y1to3,Depois das demissões a mesma quantidade de tarefa ficou com metade da equipe. Às vezes no caminho para cá penso que um acidente pelo menos me daria uns dias de descanso. A variável é calculada de um jeito que nenhum vendedor entende
+S0087,2026-10-20T12:31:38-03:00,8,atendimento,y3to5,Empresa boa de trabalhar
+S0088,2026-10-20T12:47:38-03:00,2,operacoes,lt1,"fazem a gente cobrir duas funções e pagam uma so o calor dentro do armazem a tarde e insuportável. meu gestor não sabe dar feedback, so reclama no corredor, os comunicados são cheios de palavra bonita e ñ dizem nada"
+S0089,2026-10-20T13:28:37-03:00,6,operacoes,y1to3,"entao, o destaque do mes e sempre o msm grupinho, cortaram a cesta basica sem aviso nenhum... saio daqui com dor nas costas todo dia kkk"
+S0090,2026-10-20T13:36:57-03:00,5,atendimento,gt5,"tipo assim, o gerente grita, xinga e já falou que se eu abrir a boca no rh ele resolve cmg lá fora."
+S0091,2026-10-20T13:48:22-03:00,10,tecnologia,lt1,"falando com sinceridade, tenho espaco para propor coisas novas e sou ouvido... sinto que meu trabalho é valorizado o churrasco de fim de ano foi muito bom, juntou todo mundo"
+S0092,2026-10-20T13:58:13-03:00,6,operacoes,y1to3,"trocaram o sistema de ponto, ainda estamos nos acostumando"
+S0093,2026-10-20T14:28:46-03:00,6,atendimento,lt1,"A avaliacao de desempenho ñ serve pra nada, ninguém é promovido dpeois dela, e em dia de pico não da tempo nem de ir ao banheiro direito. ta puxado, chego em casa so o bagaco."
+S0094,2026-10-20T15:17:05-03:00,9,tecnologia,y3to5,"na real, o time de tecnologia é muito bom tecnicamente e generoso para ensinar, o time protege a sprint, quase ñ entra demanda no meio."
+S0095,2026-10-20T15:30:29-03:00,9,operacoes,lt1,"O Carlos e a Débora do comercial fazem um trabalho incrível. Tenho um líder que ensina, coisa rara"
+S0096,2026-10-20T15:36:24-03:00,6,transporte,gt5,"Existe discriminação contra quem tem mais idade, os mais velhos sao sempre os primeiros a sair nos cortes"
+S0097,2026-10-20T15:39:46-03:00,9,tecnologia,y3to5,O time de tecnologia é muito bom tecnicamente e generoso para ensinar.
+S0098,2026-10-20T15:47:42-03:00,5,atendimento,y3to5,"troquei de gestor ha pouco tempo, ainda tô entendendo o jeito dele e treinamento aqui e só o obrigatorio de segurança. tmj..."
+S0099,2026-10-20T15:57:48-03:00,9,transporte,y1to3,
+S0100,2026-10-20T16:04:24-03:00,2,operacoes,y3to5,"plno de carreira existe sim, é ficar no mesmo lugar ate aposentar, e se quiserem conversar, meu email e m.barbosa@example.org"
+S0101,2026-10-20T16:10:01-03:00,10,operacoes,y3to5,"a diretora da area conversa com todo mundo, sem frescura kkkk"
+S0102,2026-10-20T16:28:23-03:00,8,atendimento,lt1,o projeto social com as escolas do bairro é muito bonito é isso...
+S0103,2026-10-20T16:46:18-03:00,5,atendimento,lt1,fui diagnosticada com depressão e ansiedade por causa do trabalho e ninguem da gestao quis saber!
+S0104,2026-10-20T16:54:28-03:00,9,atendimento,gt5,"A meta é alta, mas dá para bater com esforço. A sala de descanso nova ficou ótima. As ferramentas de trabalho são boas, não falta nada. Finalmente um líder que planeja antes de cobrar."
+S0105,2026-10-20T17:16:13-03:00,9,tecnologia,y1to3,chefe bom
+S0106,2026-10-20T17:18:12-03:00,10,financeiro,lt1,Finalmente um líder que planeja antes de cobrar. A reforma do refeitório ficou ótima.
+S0107,2026-10-20T17:29:30-03:00,4,atendimento,lt1,"Amo fazer hora extra todo sábado, só que não, só que o salário cai certinho todo mês, hoje em dia isso vale muito, só que pedi para fazer um curso e disseram que não tinha verba, falam de inovação mas qualquer ideia nova é barrada."
+S0108,2026-10-20T17:29:52-03:00,6,transporte,gt5,"eu ia escrever um textão mas para que, todo ano a gente responde e todo ano nada muda, entao vou só dizer que o salário é ruim e a gestao é pior!!"
+S0109,2026-10-20T17:30:32-03:00,2,comercial,gt5,"me prometeram crescimento qdo entrei, hj faço o mesmo trabalho, com o dobro da demanda, sem aumento, vendo gente de fora entrar ganhando mais. cansie"
+S0110,2026-10-20T17:38:06-03:00,9,operacoes,y1to3,"Pagam a hora extra certinho, sem enrolação."
+S0111,2026-10-20T17:47:45-03:00,4,atendimento,y1to3,"sou Jéssica Soares, CPF 67052436728, moro em embu das artes e quero saber por q meu vale transporte foi cortado e no atendimento a única saida é virar supervisor, e abre uma vaga a cada dois anos."
+S0112,2026-10-20T18:01:26-03:00,9,comercial,y3to5,O informativo semanal ajuda a saber o que acontece nas outras áreas. Podiam revisar a tabela de cargos e salários.
+S0113,2026-10-21T08:02:07-03:00,8,transporte,gt5,cade a plr
+S0114,2026-10-21T09:02:31-03:00,0,operacoes,y1to3,o cliente ameacou cancelar o contrato se a entrega atrasasse dnvvv
+S0115,2026-10-21T09:22:36-03:00,10,comercial,y1to3,"O programa de trainee é bem estruturado. Fim de mês sempre aperta, já faz parte. O auxílio academia é um benefício que eu uso muito, dou nota 10 para o meu time."
+S0116,2026-10-21T09:30:28-03:00,7,transporte,gt5,"na boa, prefiro nao comentar"
+S0117,2026-10-21T09:43:05-03:00,8,operacoes,y3to5,
+S0118,2026-10-21T09:54:34-03:00,0,transporte,y1to3,Já tive empregos melhores. Atenciosamente.
+S0119,2026-10-21T10:04:08-03:00,7,comercial,lt1,transparencia
+S0120,2026-10-21T10:12:51-03:00,7,tecnologia,y1to3,a gente rala muito e ninguém fala nem um obrigado hahaha
+S0121,2026-10-21T10:41:10-03:00,0,atendimento,y1to3,"to de saco cheio, serio, não e frescura, é muita coisa ao mesmo tempo, mta cobranca, pouca gente e ngm lá em cima quer ouvir"
+S0122,2026-10-21T10:49:34-03:00,8,transporte,y3to5,"a ergonomia dos postos podia ser avaliada de novo... nossa, q surpresa, mais uma meta nova esse mês."
+S0123,2026-10-21T10:50:41-03:00,9,transporte,lt1,Nada pra falar agora
+S0124,2026-10-21T10:54:13-03:00,10,operacoes,lt1,"A semana de prevenção de acidentes foi bem feita, os coletores novos são bem mais rápidos; gostei do reajuste desse ano. Só isso!"
+S0125,2026-10-21T11:05:07-03:00,2,operacoes,y1to3,VR baixo
+S0126,2026-10-21T11:13:19-03:00,2,atendimento,y1to3,"ando exausta com esse ritmo, chego em casa sem energia para nada, e o ritmo aqui e puxado demais"
+S0127,2026-10-21T11:17:24-03:00,9,pessoas,gt5,"a gente tem tempo de fazer as coisas com calma, sem atropelo"
+S0128,2026-10-21T11:22:54-03:00,10,transporte,lt1,Gosto muito de trabalhar aqui
+S0129,2026-10-21T12:40:58-03:00,7,transporte,y1to3,"O chefe e gente fina mas n resolve nda, empurra tudo com a barriga e a cultura muda muito de área para área o volume sobe mto em novembro, todo mundo já sabe."
+S0130,2026-10-21T12:46:55-03:00,7,comercial,gt5,a gestão da minha area é justa e transparente com todo mundo
+S0131,2026-10-21T13:14:32-03:00,7,atendimento,y1to3,"a equipe mudou mt esse ano, ainda esta se ajustando e o reembolso fciou simples, agora e tudo plo aplicativo. mas ficar oito horas de headset me dá dor de ouvido."
+S0132,2026-10-21T13:24:24-03:00,9,operacoes,lt1,"o sistema novo de estoque facilitou mto a vida e tem época de mto trabalho e epoca tranquila, normal, e meu gestor sempre agraedce o esforço da equipe e podiam revisar a tabela de cargos e salários..."
+S0133,2026-10-21T13:36:57-03:00,8,operacoes,gt5,É o seguinte: depois das demissoes a mesma quantidade de tarefa ficou com metade da equipe.
+S0134,2026-10-21T13:51:39-03:00,8,operacoes,lt1,o Ricardo pediu pra eu mandar a planilha pra ricardo_ramos@example.com e dps disse q n recebeu kkkk
+S0135,2026-10-21T13:55:32-03:00,7,comercial,y3to5,Queria agradecer a Raquel Nascimento e o Marcos pelo apoio esse ano. Mas o gerente regional só liga para perguntar quanto falta para a meta; seria bom revisar a distribuicao de tarefas da equipe.
+S0136,2026-10-21T13:57:18-03:00,5,transporte,gt5,carga alta
+S0137,2026-10-21T14:38:55-03:00,9,operacoes,gt5,"Com o reforco dos temporarios a doca deu conta da black friday sem virar a notie, o salário é dentro da média, nada demais"
+S0138,2026-10-21T14:41:34-03:00,2,atendimento,y1to3,"Pausa de 10 minutos pra 6 horas de telfeone e mt pouco... ando mt cansado, o ritmo tá pesado, o coordenador muda a prioridade toda semana e dps cobra o que ele msm mandou pararrrr."
+S0139,2026-10-21T15:03:52-03:00,10,tecnologia,lt1,
+S0140,2026-10-21T15:04:00-03:00,9,pessoas,y3to5,Sinto que meu trabalho é valorizado. Mas mudaram a escala por mensagem no grupo no domingo à noite kkk
+S0141,2026-10-21T15:46:43-03:00,3,tecnologia,lt1,
+S0142,2026-10-21T16:13:21-03:00,9,atendimento,y3to5,Graças a Deus tenho uma equipe boa!
+S0143,2026-10-21T16:26:31-03:00,9,comercial,y3to5,Reconhecimento aqui é um e-mail genérico de parabéns para todo mundo hahaha
+S0144,2026-10-21T16:40:02-03:00,7,comercial,lt1,Obrigado
+S0145,2026-10-21T16:55:05-03:00,2,tecnologia,y1to3,"o deploy cai sexta à noite, a gente fica ate de madrugada, e na segunda o gerente pergunta por que a sprint atrasou. não dá para levar a serio"
+S0146,2026-10-21T17:24:25-03:00,9,atendimento,gt5,"consigo sair mais cedo quando preciso e compenso depois, sem drama. o ritmo aperta so no fim do mês, no resto do tempo é tranquilo"
+S0147,2026-10-21T17:26:40-03:00,8,juridico,gt5,amo meu time
+S0148,2026-10-21T17:46:04-03:00,8,operacoes,y1to3,"A líder do meu turno resolve tudo com calma, nunca perde a cabeça. mas em dia de pico ñ dá tempo nem de ir ao banheiro direitooooo"
+S0149,2026-10-21T17:54:48-03:00,2,operacoes,y1to3,"Promoção aqui é por indicacao, n por mérito, e ñ tem plano odontologico, isso faz mta falta e o mouse e o teclado do posto são horriveis, ja tô com dor no punho e adoro a transparencia, o comunicado sempre chega dps da mudança..."
+S0150,2026-10-21T18:08:32-03:00,0,atendimento,y1to3,Não recomendo
+S0151,2026-10-21T18:33:14-03:00,7,operacoes,gt5,Resumindo: agradeco o espaco!
+S0152,2026-10-21T18:35:49-03:00,5,operacoes,lt1,
+S0153,2026-10-22T08:06:40-03:00,8,comercial,gt5,
+S0154,2026-10-22T08:10:25-03:00,9,financeiro,gt5,A comunicação melhorou bastante esse ano mas alguns colegas não fazem a parte deles e sobra para os outros
+S0155,2026-10-22T08:50:06-03:00,4,transporte,y1to3,"tem panelinha em todo canto, e a cultura muda muito de area para área. valeu"
+S0156,2026-10-22T09:34:51-03:00,9,atendimento,lt1,"As ferramentas de trabalho são boas, não falta nada. Atenciosamente."
+S0157,2026-10-22T10:00:27-03:00,9,financeiro,gt5,"Ana Paula Mendes, RG 37.611.550-6, solicito retorno sobre o pedido de transferência de área."
+S0158,2026-10-22T10:10:09-03:00,10,atendimento,lt1,As pausas pra alongamento ajudam o corpo a aguentar o dia!!
+S0159,2026-10-22T11:06:14-03:00,8,comercial,y3to5,a meta do trimestre foi definida sem olhar para o mercado em visita a cliente o gerente comenta do meu decote e diz que é para eu usar isso pra vender mais!
+S0160,2026-10-22T11:21:29-03:00,7,tecnologia,y3to5,
+S0161,2026-10-22T11:44:03-03:00,7,operacoes,y1to3,"O EPI demora para ser trocado, minha bota está furada"
+S0162,2026-10-22T11:53:39-03:00,10,comercial,y3to5,"olha, a empresa é humana com quem passa por dificuldade... tenho aprendido muito com o time, cada mês uma coisa nova"
+S0163,2026-10-22T12:05:34-03:00,7,operacoes,lt1,"Essa meta é uma ameaça pro meu fim de semana kkk. Mas o reembolso ficou simples, agora é tudo pelo aplicativo. Só isso."
+S0164,2026-10-22T12:36:52-03:00,8,transporte,gt5,"A diretoria foi transparente sobre a fase dificl e eu respeitei isso a empresa respeita meu horario, ninguém manda mensagem de madrugada podiam ter acompanhamento de nutricionista no refeitório"
+S0165,2026-10-22T13:02:10-03:00,7,transporte,y1to3,
+S0166,2026-10-22T13:02:32-03:00,5,atendimento,y1to3,"Estamos sempre no limite, qualquer falta vira caos e o q eu penso."
+S0167,2026-10-22T13:18:03-03:00,2,operacoes,gt5,
+S0168,2026-10-22T13:18:36-03:00,7,transporte,gt5,"Falando com sinceridade, depois que contrataram mais gente o ritmo melhorou muito."
+S0169,2026-10-22T13:33:35-03:00,4,atendimento,y1to3,"a gerência decide td sem ouvir quem está na ponta. a fila de atendimento n zera nunca, e ligacao atras de ligacao, e o ar condicionado do atendimento n funciona no verão"
+S0170,2026-10-22T13:41:36-03:00,10,comercial,lt1,"Minha coordenadora é muito humana, sempre pergunta como a gente está, mas o resultado do time vira mérito do gestor na apresentação, só que a PLR desse ano veio acima do que eu esperava; tenho espaço para propor coisas novas e sou ouvido. Espero que leiam."
+S0171,2026-10-22T14:09:07-03:00,8,transporte,y1to3,"Trabalhei 3 sabados seguidos em outubro, só q o salario cai certinho todo mês, hj em dia isso vale mto."
+S0172,2026-10-22T14:24:32-03:00,2,tecnologia,y3to5,"nao existe trilha tecnica, para ganhar mais tem que virar gestor e Bruna Carvalho, matricula 072890, telefone (81) 90623-0606, peco q alguem me procure!!"
+S0173,2026-10-22T14:24:40-03:00,9,atendimento,lt1,show hahaha
+S0174,2026-10-22T14:40:02-03:00,5,operacoes,y1to3,"As empilhadeiras estao com bateria velha e param no meio do turno. o barulho do galpao da dor de cabeça no fim do dia meta de 180 volumes por hora na separacao e desumano. a cultura e de apontar culpado, nao de resolver o problema kkkk"
+S0175,2026-10-22T14:45:00-03:00,7,operacoes,gt5,o caminhao WFK1R79 fica horas parado na doca esperando conferente. e isso hahaha
+S0176,2026-10-22T15:09:43-03:00,4,financeiro,gt5,"Em primeiro lugar, agradeço pela pesquisa. Mudaram a escala por mensagem no grupo no domingo à noite. Não tem auxílio creche, para quem tem filho pequeno pesa muito. A demanda chega toda no último dia e o prazo é para ontem."
+S0177,2026-10-22T15:12:12-03:00,8,financeiro,y1to3,Podiam avisar as mudanças com mais antecedência. Depois que contrataram mais gente o ritmo melhorou muito
+S0178,2026-10-22T15:24:38-03:00,9,transporte,y1to3,o volume de trabalho ta bem distrbuido no meu timeeee kkkkk
+S0179,2026-10-22T15:36:51-03:00,7,operacoes,y1to3,N/a
+S0180,2026-10-22T15:38:08-03:00,10,operacoes,lt1,"Seria bom revisar os processos internos, tem muita etapa repetida."
+S0181,2026-10-22T15:43:56-03:00,7,transporte,gt5,"O VR de R$ 32,50 por dia não dá nem para o prato feito, porém, o informativo semanal ajuda a saber o que acontece nas outras áreas. No entanto, o computador é tão lento que levo cinco minutos para abrir uma planilha."
+S0182,2026-10-22T15:45:06-03:00,5,atendimento,y1to3,"Em primeiro lugar, agradeço pela pesquisa. Trabalhei 3 sábados seguidos em outubro. Quem faz bem feito ganha mais tarefa, não mais salário. Supervisor bom aqui dura pouco, os bons vão embora. Agradeço a atenção."
+S0183,2026-10-22T15:47:34-03:00,10,comercial,y3to5,"Márcio Machado, celular 91 90380-5148, aguardo contato sobre minha transferência. Atenciosamente."
+S0184,2026-10-22T16:08:49-03:00,10,tecnologia,y3to5,"As ferramentas de trabalho são boas, não falta nada, a gente tem tempo de fazer as coisas com calma, sem atropelo mas o mouse e o teclado do posto são horriveis, já tô com dor no punho."
+S0185,2026-10-22T16:15:28-03:00,10,tecnologia,y3to5,"Com 52 anos virei o tiozinho do time, me deixam fora das tecnologias novas porque acham que eu n vou acompanhar..."
+S0186,2026-10-22T16:17:32-03:00,7,operacoes,y3to5,"trocaram o sistema de ponto, ainda estamos nos acostumando foram 46 horas extras so no mês passado. ando mt cansado, o ritmo tá pesado, mas a plataforma de cursos online é boa, uso bastante..."
+S0187,2026-10-22T16:42:03-03:00,3,operacoes,y1to3,o ritmo aqui é puxado demais e pergunta pro Wellington Gomes da manutenção quantas vezes ele ja pediu peça para as empilhadeiras
+S0188,2026-10-22T17:02:56-03:00,4,operacoes,gt5,"tô com burnout, já tive dois afastamentos esse ano e a cobranca so aumenta, e so lembram da gente qnd da errado."
+S0189,2026-10-22T17:27:44-03:00,6,tecnologia,y3to5,"O tech lead revisa meu código no canal publico com comentário debochado, o pessoal reage com risadinha e eu já pensei em sair por causa disso, e o e-mail interno tem tanta coisa q ninguem lê mais nada!"
+S0190,2026-10-22T17:45:59-03:00,2,operacoes,gt5,"SERIO, alguem le isso? três peqsuisas respondidas, tres vezes falei do plano de saude, da escala e do refeitorio, e nada mudou. NADA."
+S0191,2026-10-23T08:53:27-03:00,9,atendimento,y3to5,"Tenoh um líder que ensina, coisa rara. Tenho aprendido muito com o time, cada mês uma coisa nova. Pode falar com a Vanessa Teixeira pelo vanessa331@talvana.example, ela acompanhou tudo."
+S0192,2026-10-23T09:02:21-03:00,6,transporte,y3to5,"a natalia do rh e otima, mas ñ tem autonomia nenhuma"
+S0193,2026-10-23T09:10:41-03:00,7,atendimento,lt1,"a Fernanda do rh pediu meu cpf 19020091368 e meu rg 55.148.377-3 três vezes pro msm cadastro, fim de mês sempre aperta, ja faz parteeeee"
+S0194,2026-10-23T09:19:27-03:00,7,operacoes,gt5,Gostei da campanha de vacinação na empresa.
+S0195,2026-10-23T09:47:32-03:00,7,pessoas,y1to3,"Bom dia. A planilha de custos é um crime contra a humanidade kkk. Entendo o momento da empresa, porém a sobrecarga da equipe tem comprometido a qualidade das entregas."
+S0196,2026-10-23T09:48:48-03:00,6,atendimento,y1to3,"falando com sinceridade, um colega de outro setor faz piadinha sobre o meu corpo toda vez q eu passo, agora espero ele sair pra ir ao refeitorio"
+S0197,2026-10-23T10:03:52-03:00,8,operacoes,gt5,a sala ficou sem luz a tarde toda e ngm da manutenção apareceuuu
+S0198,2026-10-23T10:03:56-03:00,9,tecnologia,gt5,"Seria importante rever o modelo presencial, considerando a produtividade que tivemos no período remoto, porém, a transparência da diretoria na divulgação dos resultados foi muito positiva. Agradeço a atenção."
+S0199,2026-10-23T10:26:03-03:00,5,operacoes,y3to5,
+S0200,2026-10-23T11:33:12-03:00,9,transporte,y1to3,
+S0201,2026-10-23T13:07:52-03:00,3,transporte,lt1,o caminhao GYJ7Y84 foi multado e descontaram de mim sem explicar hahaha
+S0202,2026-10-23T13:12:41-03:00,8,atendimento,y1to3,"Olha, falta gente no atendimento e quem fica cobre a escala de quem saiu. Sofro assédio moral do meu supervisor há meses e tenho medo de denunciar"
+S0203,2026-10-23T13:17:49-03:00,3,operacoes,y3to5,A poeira do armazém ataca minha rinite. Trocaram o plano de saúde por um pior e ninguém foi consultado
+S0204,2026-10-23T13:53:08-03:00,3,operacoes,y3to5,
+S0205,2026-10-23T14:12:33-03:00,7,operacoes,lt1,Falta um lugar decente para descansar na pausa.
+S0206,2026-10-23T14:42:01-03:00,8,atendimento,lt1,
+S0207,2026-10-23T14:48:26-03:00,10,comercial,lt1,"A diretora da área conversa com todo mundo, sem frescura!"
+S0208,2026-10-23T14:52:26-03:00,9,atendimento,lt1,com a ura nova o cliente já chega irritado e qm segura tudo somos nos!
+S0209,2026-10-23T14:57:37-03:00,5,comercial,gt5,"A carga de trabalho está tranquila, dá para fazer tudo no horário."
+S0210,2026-10-23T15:04:03-03:00,2,atendimento,y1to3,"TODO MÊS A MESMA COISA, sistema caindo, cliente xingando, fila lotada e a supervisão preocupada com o tempo de pausa, é piada, o estresse no atendimento e mt grande, tem cliente que xinga o dia inteiro"
+S0211,2026-10-23T15:07:42-03:00,9,tecnologia,lt1,
+S0212,2026-10-23T15:14:02-03:00,10,transporte,y3to5,"O auxílio academia é um beneficio que eu uso mt e consigo sair mais cedo quando preciso e cmpenso depois, sem drama. quase não faco hora extra, e quando faco ela é paga so isso kkk"
+S0213,2026-10-23T15:19:42-03:00,3,operacoes,y1to3,
+S0214,2026-10-23T15:33:14-03:00,9,tecnologia,lt1,"na boa, gosto de trabalhar numa empresa séria, q paga em dia e cumpre o combinado!"
+S0215,2026-10-23T16:00:24-03:00,9,financeiro,lt1,Só queria dizer que gosto daqui. Agradeço a atenção.
+S0216,2026-10-23T16:21:56-03:00,2,operacoes,gt5,"Feedback aqui só existe quando é para apontar erro, reajuste de 2%, agora vai dar para trocar de carro!"
+S0217,2026-10-23T16:27:08-03:00,10,financeiro,y3to5,"Agradeço o espaço. Seria bom revisar os processos internos, tem muita etapa repetida. A mentoria com o pessoal mais experiente me ajudou demais. As conversas de um a um com meu gestor me ajudaram muito esse ano. O fechamento desse ano foi o mais tranquilo que já vi."
+S0218,2026-10-23T16:30:51-03:00,8,pessoas,y3to5,"Ambiente leve, dá gosto de vir trabalhar. Por outro lado, a ausência de um plano de desenvolvimento estruturado desestimula os profissionais mais experientes. Agradeço a atenção."
+S0219,2026-10-23T16:33:28-03:00,9,financeiro,y3to5,Bom dia. A transparência da diretoria na divulgação dos resultados foi muito positiva. Reconheço o esforço da gestão em melhorar o ambiente de trabalho ao longo deste ano. Atenciosamente.
+S0220,2026-10-23T16:42:57-03:00,5,atendimento,gt5,Pagar melhor
+S0221,2026-10-23T17:01:44-03:00,8,tecnologia,y1to3,"gostei do reajuste desse ano, minha coordenadora é mt humana, sempre pergunta como a gente tá. é nóis."
+S0222,2026-10-23T17:20:25-03:00,5,transporte,lt1,"o pedido 4471 ficou parado tres dias esperando aprovacao. minha lideranca n conhece o trabalho q a gente faz no dia a dia, qualquer coisa falem cmg, Priscila, no priscila582@talvana.example ou no (61) 90437-6019"
+S0223,2026-10-26T08:21:44-03:00,9,pessoas,lt1,Chefe bom
+S0224,2026-10-26T08:22:24-03:00,9,financeiro,gt5,"O time do financeiro é pequeno, mas muito parceiro. Por outro lado, o fechamento contábil é sempre com hora extra até tarde. No entanto, o sistema de chamados funciona bem, resolvem rápido."
+S0225,2026-10-26T08:24:41-03:00,9,operacoes,y1to3,"o time comemora junto cada entrega, isso motiva. depois que contrataram mais gente o ritmo melhorou mt..."
+S0226,2026-10-26T08:35:24-03:00,4,atendimento,y1to3,"Podiam avisar as mudanças com mais antecedência, se alguém passa um minuto da pausa a supervisora manda áudio no grupo falando o nome da pessoa e chamando de vagabunda; queria entender melhor o que preciso fazer para a próxima promoção"
+S0227,2026-10-26T08:55:07-03:00,8,financeiro,lt1,"Faz meses que trabalho de madrugada e no fim de semana, esqueço coisas simples e não consigo mais desligar."
+S0228,2026-10-26T09:17:04-03:00,7,transporte,y3to5,Equipe top
+S0229,2026-10-26T09:28:38-03:00,6,financeiro,y3to5,se aparecer outra proposta eu saio
+S0230,2026-10-26T09:40:29-03:00,9,tecnologia,y1to3,"parabens para a gestao, conseguiu fazre metade do time pedir as contas no msm ano kkkk"
+S0231,2026-10-26T10:03:15-03:00,5,atendimento,y3to5,"o vr de r$ 32,50 por dia nao da nem pro prato feito..."
+S0232,2026-10-26T10:18:32-03:00,6,transporte,y3to5,A ergonomia dos postos podia ser avaliada de novo; a programação joga as entregas mais longe pro fim do dia. O adicional noturno vem errado no holerite quase todo mês. É isso.
+S0233,2026-10-26T10:23:39-03:00,8,tecnologia,y1to3,
+S0234,2026-10-26T10:37:29-03:00,4,atendimento,y1to3,
+S0235,2026-10-26T10:48:46-03:00,9,atendimento,y1to3,
+S0236,2026-10-26T11:14:41-03:00,9,comercial,y1to3,
+S0237,2026-10-26T11:28:35-03:00,6,operacoes,y1to3,"Falando com sinceridade, o refeitório só serve fritura, difícil manter a saúde assim mas a carga de trabalho está tranquila, dá para fazer tudo no horario."
+S0238,2026-10-26T11:41:25-03:00,4,atendimento,y1to3,"a Aline e a Maria Eduarda seguram a fila sozinhas no sabado... falta preparo pros lideres, mta gente virou chefe só por tempo de casaaaa"
+S0239,2026-10-26T12:04:12-03:00,6,atendimento,lt1,"o gestor tem os preferidos dele e todo mundo sabe quem são prometeram a efetivacao dps do contrato e ate agora nada e no atendimento nao deixam trocar de turno nem com colega da mesma funcao... n tem plano odontologico, isso faz mta falta"
+S0240,2026-10-26T12:08:55-03:00,0,operacoes,y1to3,Teve empurrão na doca semana passada por causa de uma carga e o encarregado mandou todo mundo esquecer o assunto
+S0241,2026-10-26T13:03:57-03:00,7,tecnologia,y3to5,"foi uma vitoria a equipe bater a meta msm com tanta gente de férias, só que a empresa contrata senior de fora em vez de desenvolver quem já ta aqui, espero q leiam"
+S0242,2026-10-26T13:33:14-03:00,6,atendimento,lt1,"claro, porque trabalhar doente e sinal de comprometimento, ne tem época de muito trabalho e época tranquila, normal. ganhei um prêmio de destaque esse ano e foi muito bom."
+S0243,2026-10-26T13:42:42-03:00,9,tecnologia,y1to3,A PLR desse ano veio acima do que eu espervaa.
+S0244,2026-10-26T13:52:21-03:00,0,transporte,gt5,"Trabalho aqui ha mais de 5 anos e nunca vi a empresa tao perdida, ngm sabe qm decide nada, toda semana muda td e quem paga o pato é qm ta na pontaaa"
+S0245,2026-10-26T14:04:48-03:00,8,financeiro,y3to5,"Tô morta de cansaço, mas é fim de mês, normal. Só lembram da gente quando da errado, mas a mentoria com o pessoal mais experiente me ajudou demais. Espero que leiam."
+S0246,2026-10-26T14:17:55-03:00,0,atendimento,lt1,no dia 28/10 o sistema ficou fora do ar a manha inteiraaa
+S0247,2026-10-26T14:24:41-03:00,9,comercial,y3to5,"o ritmo aperta só no fim do mes, no resto do tempo é tranquilo é nóis..."
+S0248,2026-10-26T15:01:07-03:00,9,financeiro,y1to3,a comunicação entre financeiro e comercial é péssima mas o programa de trainee é bem estruturado e a automação do fechamento economizou dias de trabalho
+S0249,2026-10-26T15:23:25-03:00,8,operacoes,y1to3,
+S0250,2026-10-26T15:42:30-03:00,8,atendimento,lt1,cansado
+S0251,2026-10-26T16:03:55-03:00,7,transporte,y1to3,"Falando com sinceridade, prazo apertado aqui é regra, não exceção. Fiquei sabendo da troca de sistema por um colega de outra área, ninguém avisou a equipe. O vale refeição de R$ 28 por dia não paga um almoço decente aqui perto."
+S0252,2026-10-26T16:14:07-03:00,0,operacoes,y1to3,O pessoal faz piada com meu sotaque nordestino em toda reunião e o gestor ri junto.
+S0253,2026-10-26T16:17:37-03:00,2,operacoes,y1to3,
+S0254,2026-10-26T16:38:45-03:00,9,tecnologia,y1to3,"A pipeline de deploy nova ficou redonda, só que a escala muda toda semana, não dá para planejar nada, só que aqui dá para crescer se você mostrar resultado"
+S0255,2026-10-26T16:38:48-03:00,8,comercial,y1to3,"Falta preparo pros líderes, muita gente virou chefe só por tempo de casa. Quem entrega mais recebe mais tarefa, não reconhecimento. Fazem a gente cobrir duas funções e pagam uma só."
+S0256,2026-10-26T16:55:57-03:00,10,comercial,gt5,"O vale alimentação é bom, ajuda muito em casa. Desde que o Leandro virou coordenador o setor mudou pra melhor. Gostei das reuniões trimestrais com a diretoria, dá para entender para onde a empresa vai."
+S0257,2026-10-26T17:16:16-03:00,5,transporte,y3to5,"pedir troca de folga aqui é uma novela a liderança promete e ñ cumpre, já perdi as contas de quantas vezes o caminhao está com o freio pedindo socorro e a manutenção ñ libera. mas as rotas ficaram mais curtas depois da reorganização, dá pra voltar no horario."
+S0258,2026-10-26T17:40:40-03:00,6,comercial,gt5,"o convenio medico é bom, já precisei e fui bem atendido, mas a gente rala muito e ninguem fala nem um obrigado fazem a gente cobrir duas funções e pagam uma só"
+S0259,2026-10-26T17:43:16-03:00,5,operacoes,y1to3,"sou a Amanda, matricula 053700, moro em Perus e chego todo dia antes das 5h!!"
+S0260,2026-10-26T17:44:50-03:00,10,tecnologia,y1to3,"Gosto muito da minha equipe, a gente ri junto mesmo nos dias difíceis, a pipeline de deploy nova ficou redonda. Só isso!"
+S0261,2026-10-26T18:38:36-03:00,5,operacoes,y3to5,"Rodrigo Marques, CPF 391.364.872-97, peço revisão do meu banco de horas. Agradeço a atenção."
+S0262,2026-10-26T18:42:25-03:00,7,atendimento,gt5,"o gestor não sabe priorizar, tudo e urgente pra ontem... tem época de muito trabalho e época tranquila, normal..."
+S0263,2026-10-27T08:28:38-03:00,10,pessoas,gt5,"Cada supervisor faz de um jeito, não tem um padrão. É isso."
+S0264,2026-10-27T09:15:58-03:00,9,tecnologia,gt5,
+S0265,2026-10-27T09:37:24-03:00,9,transporte,y1to3,"Tem coisa boa, a vitória da gente no premio de qualidade foi merecida, os benefícios são melhores q os da minha empresa anterior."
+S0266,2026-10-27T09:41:21-03:00,8,tecnologia,y1to3,
+S0267,2026-10-27T09:48:27-03:00,7,tecnologia,gt5,"Moro la em Parelheiros e o ônibus das 5h vive atrasado, chego atrasado e ainda levo bronca. queria entender melhor o q preciso fazer pra próxima promoção e o time de tecnologia vive apagando incêndio e n sobra tempo pra melhorar nada. é isso."
+S0268,2026-10-27T09:52:44-03:00,0,transporte,y1to3,"pode conferir pela matricula 061957, o adicional noturno veio errado."
+S0269,2026-10-27T09:53:00-03:00,7,comercial,gt5,
+S0270,2026-10-27T09:57:05-03:00,8,financeiro,y1to3,"Trabalho mto e ganho pouco, simples assimmmmm"
+S0271,2026-10-27T10:15:29-03:00,8,transporte,y3to5,"O sistema de chamados funciona bem, resolvem rapido mas o gerente Anderson Nunes promete promocao para todo mundo e n cumpre"
+S0272,2026-10-27T10:18:24-03:00,10,financeiro,lt1,mais gente na equipe kkkk
+S0273,2026-10-27T10:27:38-03:00,9,atendimento,lt1,"o convenio médico e bom, ja precisei e fui bem atendido, o seu Antônio da portaria e sempre gentil, alegra o dia de todo mundo hahaha"
+S0274,2026-10-27T10:44:03-03:00,10,operacoes,lt1,A escala nova do armazém aliviou bastante o turno da noiteeeee.
+S0275,2026-10-27T11:04:23-03:00,6,operacoes,y3to5,
+S0276,2026-10-27T11:34:58-03:00,0,atendimento,y1to3,Não tem graça nenhuma trabalhar com o sistema caindo
+S0277,2026-10-27T12:07:16-03:00,9,transporte,gt5,o gerente defende o time quando a diretoria aperta.
+S0278,2026-10-27T12:20:03-03:00,9,comercial,y1to3,Tenho espaço para propor coisas novas e sou ouvido. O auxílio home office ajuda nas contas de luz e internet; os colegas mais antigos ajudam muito quem está chegando.
+S0279,2026-10-27T12:20:32-03:00,8,atendimento,lt1,escala
+S0280,2026-10-27T12:28:23-03:00,10,comercial,y1to3,Nada
+S0281,2026-10-27T12:34:31-03:00,7,operacoes,lt1,"o encarregado e firme mas justo, gosto de trabalhar com ele!"
+S0282,2026-10-27T12:40:40-03:00,7,atendimento,lt1,
+S0283,2026-10-27T12:53:36-03:00,6,tecnologia,y1to3,"o destaque do mes e sempre o msm grupinho... a equipe mudou mt esse ano, ainda ta se ajustando rsrs"
+S0284,2026-10-27T13:12:16-03:00,9,operacoes,lt1,"Morri de rir na confraternização, que festa boa. Agradeço a atenção."
+S0285,2026-10-27T13:26:41-03:00,3,operacoes,y3to5,Choro no banheiro antes de entrar no turno quase todo dia
+S0286,2026-10-27T13:43:17-03:00,4,comercial,gt5,"o cleber da expedição vive cobrindo falta dos outros. o vr ta zoado, n dá nem para a marmita"
+S0287,2026-10-27T13:56:37-03:00,6,operacoes,gt5,
+S0288,2026-10-27T14:03:58-03:00,9,operacoes,y3to5,
+S0289,2026-10-27T14:06:28-03:00,6,transporte,lt1,"O b.o. sempre sobra pra quem esta na ponta... o salario de motorista aqui e dos piores da região e o mouse e o teclado do posto sao horríveis, ja estou com dor no punho. tá zoado demais o siistema, cai toda hora"
+S0290,2026-10-27T14:30:42-03:00,8,atendimento,y3to5,"Falando com sinceridade, deixo claro que gosto da empresa, só o salário que pesa."
+S0291,2026-10-27T14:50:39-03:00,10,operacoes,lt1,
+S0292,2026-10-27T14:58:56-03:00,0,operacoes,y1to3,"A direoria pinta tudo cor de rosa na apresentacao, mas no chão do armazém a realidade e outra"
+S0293,2026-10-27T15:14:51-03:00,8,tecnologia,y1to3,"na boa, o endereço da minha casa tá errado no sistema, o certo é Avenida Santa Luzia, 1182, cep 64364276 mas o home office duas vezes por semana mudou minha vida e o gerente defende o time quando a diretoria aperta"
+S0294,2026-10-27T16:27:48-03:00,6,operacoes,y3to5,"tipo assim, queria entender melhor como é calculada a plr, em dia de pico n dá tempo nem de ir ao banheiro direito, é nois..."
+S0295,2026-10-27T16:56:31-03:00,5,operacoes,y3to5,"o adicional noturno vem errado no holerite quase todo mes, mas a empresa respeita meu horario, ngm manda mensagem de madrugada"
+S0296,2026-10-27T17:24:50-03:00,9,operacoes,y1to3,Podiam colocar mais um bebedouro no armazém.
+S0297,2026-10-27T17:33:34-03:00,9,pessoas,y1to3,
+S0298,2026-10-27T18:11:56-03:00,10,comercial,lt1,meu gestor deu força quando precisei sair mais cedo por causa do meu filho...
+S0299,2026-10-27T18:42:52-03:00,1,transporte,y3to5,
+S0300,2026-10-27T18:43:35-03:00,4,atendimento,y1to3,
+S0301,2026-10-27T18:54:20-03:00,10,operacoes,lt1,
+S0302,2026-10-28T08:03:43-03:00,6,operacoes,y1to3,"claro, porque trabalhar doente é sinal de comprometimento, né, e fim de mês o armazém vira uma loucura, ngm sai no horário. mas a integração entre as áreas melhorou com os projetos em conjunto, mas o vale refeicao de r$ 28 por dia ñ paga um almoco decente aqui perto."
+S0303,2026-10-28T08:04:16-03:00,7,operacoes,gt5,"A meta é irreal e todo mês sobe mais um pouco, não tem auxílio creche, pra quem tem filho pequeno pesa muito mas fiz o curso de operador de empilhadeira pela empresa e mudei de função mas o coletor de dados vive sem bateria"
+S0304,2026-10-28T10:14:46-03:00,8,operacoes,y3to5,"Olha, os coletores novos são bem mais rapidos... a avaliação de desempenho é anual, podia ser mais frequente"
+S0305,2026-10-28T10:17:51-03:00,4,comercial,y1to3,"A meta dobrou, a carteira de clientes foi cortada pela metade e a comissão mudou de regra no meio do trimestre. desse jeito não tem vendedor que fique."
+S0306,2026-10-28T10:31:28-03:00,2,atendimento,lt1,"O supervisor matou a gente de trabalhar essa semana, mas pelo menos pagou a pizza queria fazer job rotation mas meu gestor não liberaaa!"
+S0307,2026-10-28T10:40:33-03:00,10,transporte,gt5,O motorista Edson do caminhão LNR3B54 pega a rota mais pesada e nunca reclama.
+S0308,2026-10-28T10:48:08-03:00,7,transporte,y1to3,A carga de trabalho so aumenta e o time so diminui e o holerite nao chega no meu email renata502@example.org desde agosto
+S0309,2026-10-28T11:52:17-03:00,6,juridico,gt5,"Bom dia. Tem gente nova entrando ganhando mais do que quem está aqui há anos. O que o Roberto do comercial faz com as estagiárias tem nome, é assédio, convite para sair, mensagem fora de hora, e todo mundo finge que não vê."
+S0310,2026-10-28T12:33:27-03:00,2,operacoes,y1to3,salario
+S0311,2026-10-28T12:44:54-03:00,10,comercial,y3to5,"cansado, mas é fim de ano, faz parte"
+S0312,2026-10-28T13:19:53-03:00,3,comercial,y1to3,"tipo assim, mó correria todo dia, ñ dá nem para respirar. o sistema trava toda hora e a gente perde o que estava fazendo."
+S0313,2026-10-28T14:09:40-03:00,8,operacoes,gt5,"Um caminhão bateu na porta da doca, ninguém se machucou, foi só o susto!"
+S0314,2026-10-28T14:23:32-03:00,10,comercial,lt1,"Agradeço o espaço. Meu gestor dá autonomia e confia no time. O auxílio home office ajuda nas contas de luz e internet. A Talvana é uma empresa ética, nunca me pediram nada errado. Dou nota 10 para o meu time. Atenciosamente."
+S0315,2026-10-28T14:57:07-03:00,7,atendimento,y1to3,a ergonomia dos postos podia ser avaliada de novo
+S0316,2026-10-28T16:06:14-03:00,8,transporte,gt5,"O coordneador de frota atende o telefone de dia ou de noite quando a gente tem problema na estrada. O volume sobe muito em novembro, todo mundo já sabe."
+S0317,2026-10-28T17:38:14-03:00,10,tecnologia,lt1,"A pipeline de deploy nova ficou redonda. A equipe é muito unida, um cobre o outro, o projeto social com as escolas do bairro é muito bonito"
+S0318,2026-10-28T17:44:26-03:00,5,operacoes,y1to3,Ar condicionado
+S0319,2026-10-28T17:45:36-03:00,3,operacoes,y1to3,"A supervisao ñ dá retorno de nada, a gente pergunta e fica no vacuo, moro em pirituba, em cajamar, e n tem ônibus q chegue no horario do turno"
+S0320,2026-10-28T18:16:23-03:00,2,transporte,y1to3,"rota impossivel, caminhão sem manutenção, escala q sai na vespera e diária q n paga nem o almoco, dps perguntam por q tanto motorista pee as contas!!"
+S0321,2026-10-28T18:20:20-03:00,3,operacoes,y1to3,"Ando muito cansado, o ritmo está pesado, trocaram de coordenador tres vezes em um ano, ninguém sabe a quem responder; o salário do pessoal da doca é muito baixo para o esforço que a gente faz."
+S0322,2026-10-29T08:14:07-03:00,0,comercial,y1to3,"pô, a nota fiscal 88213 voltou tres vezes por erro de cadastro. plano de carreira existe sim, é ficar no msm lugar até aposentar. mas a comissão é boa qnd a meta e realista, mas o gerente regional só liga pra perguntar quanto falta para a meta"
+S0323,2026-10-29T08:42:54-03:00,6,operacoes,y1to3,Sistema lento
+S0324,2026-10-29T09:04:20-03:00,4,pessoas,y1to3,Sofri ameaça de um colega por causa de uma discussão boba e a empresa não fez nada.
+S0325,2026-10-29T09:32:49-03:00,4,transporte,y1to3,o cracha da matricula 68664 foi bloqueado sem motivo e fiquei duas horas na portaria kkk
+S0326,2026-10-29T09:59:30-03:00,10,financeiro,gt5,A comunicacao melhorou bastante esse ano
+S0327,2026-10-29T10:37:21-03:00,7,operacoes,gt5,"O salário cai certinho todo mês, hoje em dia isso vale muito. A Luciana e o André do turno da noite são os melhores colegas que já tive."
+S0328,2026-10-29T10:46:40-03:00,3,tecnologia,y3to5,
+S0329,2026-10-29T11:02:21-03:00,10,tecnologia,y1to3,fui transferido de Sorocaba para ca e ate hoje o Bruno do DP ñ acertou meu vale transporte!
+S0330,2026-10-29T11:25:58-03:00,7,atendimento,y1to3,"fim de mês sempre aperta, ja faz parte."
+S0331,2026-10-29T11:30:51-03:00,10,comercial,y3to5,A palestra sobre saude mental e burnout foi mt boa
+S0332,2026-10-29T12:01:09-03:00,4,atendimento,y3to5,"O sistema novo mostra o histórico do cliente na tela, ajuda demais, mas falta preparo pros líderes, muita gente virou chefe só por tempo de casa."
+S0333,2026-10-29T12:02:52-03:00,5,operacoes,y1to3,falta um lider q defenda a equipe la em cima kkkkk
+S0334,2026-10-29T12:07:11-03:00,9,atendimento,y1to3,
+S0335,2026-10-29T12:15:26-03:00,1,financeiro,y3to5,"desculpa o desabafo mas o financeiro vive refazendo trabalho porque as outras áreas mandam tudo errado e no último dia, a gente fica até tarde e ainda leva a culpa pelo atraso"
+S0336,2026-10-29T12:29:38-03:00,9,operacoes,y1to3,"a plr desse ano veio acima do q eu esperava mas ta puxdo, chego em casa só o bagaço"
+S0337,2026-10-29T13:24:04-03:00,9,operacoes,lt1,"O sitema é ok, mas poda ter um treinamento melhor!"
+S0338,2026-10-29T13:33:59-03:00,4,operacoes,y1to3,
+S0339,2026-10-29T13:42:30-03:00,6,pessoas,gt5,"Os valores pendurados na parede não batem com o que a gente vive aqui, só que o volume de trabalho está bem distribuído no meu time, só que falta preparo pros líderes, muita gente virou chefe só por tempo de casa, mas cresci muito aqui, entrei como auxiliar e hoje sou líder."
+S0340,2026-10-29T14:03:51-03:00,4,atendimento,y1to3,"Podiam ter acompanhamento de nutricionista no refeitório, e depois q eu recusei sair com o coordenador minhas escalas pioraram de repente... prazo apertado aqui e regra, nao exceção"
+S0341,2026-10-29T14:16:09-03:00,8,atendimento,y1to3,
+S0342,2026-10-29T14:57:52-03:00,7,tecnologia,lt1,"nao tem orcamento pra certificacao, a gente paga do proprio bolso e o notebook q me deram tem cinco anos e ñ rda o que eu preciso"
+S0343,2026-10-29T15:00:58-03:00,4,atendimento,y1to3,"aqui é complicado, mas preciso do emprego."
+S0344,2026-10-29T15:02:54-03:00,5,operacoes,gt5,"O comercial vende o que a operacao n consegue entregar e sobra pra todo mundo e podiam colocar mais um bebedouro no armazem e valeu pelo panetone, com ele dá ate pra pagar o aluguel rsrs"
+S0345,2026-10-29T15:10:15-03:00,8,transporte,gt5,"Não tem auxílio creche, pra quem tem filho pequeno pesa muito, mas a empresa leva segurança a sério, os EPIs são de qualidade, a empresa é humana com quem passa por dificuldade."
+S0346,2026-10-29T15:19:36-03:00,6,financeiro,gt5,O Fábio Rodrigues e a Patrícia Rocha seguram o fechamento sozinhos todo mês.
+S0347,2026-10-29T15:22:03-03:00,7,operacoes,y3to5,Ruim
+S0348,2026-10-29T15:26:40-03:00,7,atendimento,y3to5,A empresa contrata senior de fora em vez de desenvolver quem já tá aqui
+S0349,2026-10-29T15:43:43-03:00,7,comercial,lt1,A rotatividade é tão grande que não dá para criar laço com ninguém. Seria oportuno revisar a política de benefícios para incluir auxílio educação. A meta desse ano está mais justa. Fico à disposição.
+S0350,2026-10-29T15:44:35-03:00,9,operacoes,gt5,o treinamento sobre assédio e respeito foi muito bem feito aqui dá pra crescer se vc mostrar resultado. e isso!
+S0351,2026-10-29T15:44:53-03:00,3,transporte,y1to3,o b.o. sempre sobra pra quem tá na ponta o rastreador do caminhão trava e a central acha q a gente parou à toa faz tempo q eu não aprendo nada novo aqui. o salario está bem abaixo do mercado!
+S0352,2026-10-29T16:19:12-03:00,10,tecnologia,gt5,"o time protege a sprint, quase ñ entra demanda no meio"
+S0353,2026-10-29T16:27:06-03:00,8,financeiro,y3to5,A automação do fechamento economizou dias de trabalho.
+S0354,2026-10-29T16:40:24-03:00,8,operacoes,lt1,"O vale alimentação é bom, ajuda muito em casa; a sala de descanso nova ficou ótima. O trabalho é pesado, mas a gente já sabia quando entrou."
+S0355,2026-10-29T16:58:43-03:00,5,operacoes,y3to5,"Na real, moro na Rua dos Girassóis, 1706, CEP 13088-376, em Guarulhos, e o fretado não passa nem perto."
+S0356,2026-10-29T17:03:34-03:00,7,operacoes,gt5,O programa de apoio psicloogico online é miuto bom.
+S0357,2026-10-29T17:15:52-03:00,8,comercial,y1to3,"os benefícios sao melhores que os da minha empresa anterior. mas banco de horas que nunca dá para usar não e banco, é dívida."
+S0358,2026-10-29T17:40:46-03:00,1,operacoes,y1to3,"o adicional noturno vem errado no holerite quase todo mês... o cadastro está com o cep 92598-742 da avenida monte alegre 1139, mas eu me mudei faz um ano e a ginástica laboral acabou e ngm explicou o motivo!"
+S0359,2026-10-29T18:12:01-03:00,10,comercial,y1to3,Quando a gente bate a meta a empresa faz questão de comemorar.
+S0360,2026-10-29T18:30:16-03:00,7,operacoes,y1to3,"Faltam empilhadeiras, a gente fica parado esperando liberar uma, só q a plataforma de cursos online é boa, uso bastante. mas tem gnte nova entrando ganhando mais do q quem está aqui ha anos..."
+S0361,2026-10-29T18:46:05-03:00,7,financeiro,gt5,"No fechamento do mês o financeiro vira a noite, todo mês a mesma história"
+S0362,2026-10-29T18:48:37-03:00,9,comercial,lt1,"A comissao é boa qando a meta é realista. Tenho aprendido muito com o time, cada mês uma coisa nova."
+S0363,2026-10-30T08:07:04-03:00,4,operacoes,y1to3,"nao existe plano de carreira, a gente não sabe pra onde pode ir. o encarregado Everton Ramos Barbosa xinga a equipe de tudo q é nome, isso é assédio e todo mundo sabe"
+S0364,2026-10-30T08:39:47-03:00,9,transporte,y3to5,"olha, equipe top demais..."
+S0365,2026-10-30T09:31:20-03:00,7,operacoes,gt5,
+S0366,2026-10-30T09:36:49-03:00,4,comercial,y3to5,"o salario e dentro da media, nada demais"
+S0367,2026-10-30T10:03:35-03:00,8,tecnologia,gt5,Os benefícios são melhores que os da minha empresa anterior hahaha
+S0368,2026-10-30T10:25:54-03:00,3,comercial,y1to3,
+S0369,2026-10-30T10:26:26-03:00,0,atendimento,y1to3,Ruim
+S0370,2026-10-30T10:27:26-03:00,10,tecnologia,lt1,bom
+S0371,2026-10-30T10:30:42-03:00,8,tecnologia,y1to3,"Gostei do reajuste desse ano. Mas sprint atrás de sprint sem respiro, tudo é prioridade máxima. Só isso."
+S0372,2026-10-30T10:33:08-03:00,9,tecnologia,y1to3,Plano de saúde bom
+S0373,2026-10-30T10:50:05-03:00,9,tecnologia,lt1,"Em primeiro lugar, agradeço pela pesquisa. Wesley Pereira, e-mail wesley_pereira@example.com, celular (47) 90171-2723, quero conversar sobre a minha avaliação. As conversas de um a um com meu gestor me ajudaram muito esse ano. No entanto, segurei um cliente grande mês passado e ninguém comentou nada."
+S0374,2026-10-30T11:06:08-03:00,8,financeiro,gt5,"Sei que o canal de denúncia existe e é sigiloso, isso passa segurança. A automação do fechamento economizou dias de trabalho. A diretoria foi transparente sobre a fase difícil e eu respeitei isso."
+S0375,2026-10-30T11:13:42-03:00,6,atendimento,y3to5,Podiam ter acompanhamento de nutricionista no refeitório. A PLR esse ano veio uma vergonha.
+S0376,2026-10-30T11:13:56-03:00,8,comercial,gt5,"Tive duas promoções em três anos, não tenho do que reclamar."
+S0377,2026-10-30T11:14:19-03:00,8,pessoas,lt1,O home office duas vezes por semana mudou minha vida.
+S0378,2026-10-30T11:16:43-03:00,8,comercial,y1to3,Reconhecimento? Ganhei um bombom na páscoa. 1 ano e 3 meses aqui e já tive 4 gestores diferentes
+S0379,2026-10-30T11:43:32-03:00,8,comercial,lt1,"Falando com sinceridade, a empresa pagou metade da minha faculdade."
+S0380,2026-10-30T12:58:39-03:00,4,operacoes,y3to5,Folga no fds
+S0381,2026-10-30T13:15:08-03:00,10,transporte,gt5,"aqui nunca vi assedio, o ambiente e bom. mas as rotas da madrugada cansam mto, queria mais revezamento rsrs"
+S0382,2026-10-30T13:24:40-03:00,3,comercial,y1to3,A cultura muda muito de área pra área
+S0383,2026-10-30T13:26:01-03:00,9,comercial,y3to5,"e corrido, mas e organizado, a gente sabe o q precisa entregar... gosto dos valores da empresa, da pra ver no dia a dia, ganhei um prêmio de destaque esse ano e foi muito bom. mas a empresa ñ fala abertamente sobre as demissoes e o clima fica tenso..."
+S0384,2026-10-30T13:36:30-03:00,10,atendimento,lt1,"meu chefe e gente boa demais, da gosto sinto q meu trabalho e valorizado"
+S0385,2026-10-30T13:49:38-03:00,7,operacoes,lt1,
+S0386,2026-10-30T14:01:08-03:00,8,operacoes,y1to3,
+S0387,2026-10-30T14:35:53-03:00,0,atendimento,y1to3,
+S0388,2026-10-30T14:58:56-03:00,8,transporte,gt5,gratidão kkkk
+S0389,2026-10-30T15:32:41-03:00,10,comercial,y1to3,"Bom, a Graça do financeiro me ajudou muito no meu primeiro mês."
+S0390,2026-10-30T15:42:37-03:00,7,comercial,lt1,"sei la, nem td e cor de rosa, mas da pra trabalhar kkkkk"
+S0391,2026-10-30T15:55:47-03:00,4,tecnologia,y1to3,
+S0392,2026-10-30T15:55:57-03:00,4,comercial,lt1,o informe de rendimentos saiu com o cpf 827.125.776-45 errado
+S0393,2026-10-30T15:57:01-03:00,0,operacoes,y1to3,Sem sugestões no momento.
+S0394,2026-10-30T17:03:40-03:00,10,transporte,lt1,a semana de prevencao de acidentes foi bem feita. mas ja passei meu telefone 43904778681 para o DP atualizar e continua o antigo no cadastro mas a escala nova com folga no fim de semana foi a melhor coisa do ano
+S0395,2026-10-30T17:11:41-03:00,8,operacoes,lt1,"Meu endereço novo é Rua Sete de Setembro, 1235, Itaquera, CEP 93297-696, já avisei o DP duas vezes. O 13º veio com um desconto que ninguém soube explicar."
+S0396,2026-10-30T17:14:42-03:00,6,atendimento,lt1,"O reajuste desse ano nem cobriu a inflacao, meu coordenador repete toda semana que tem uma pilha de curriculos na mesa dele e q eu sou fácil de trocar."
+S0397,2026-10-30T17:20:14-03:00,9,operacoes,lt1,O supervisor novo mudou o clima da equipe pra melhor... o mural da operacao ta sempre atualizado... o sistema novo de estoque facilitou mto a vida...
+S0398,2026-10-30T17:24:19-03:00,9,tecnologia,gt5,"dá uma luz no fim do túnel ver a empresa contratando dnv, a homenagem por tempo de casa foi bonita, me emocionei, mas o 13º atrasou dois dias e ninguém avisou."
+S0399,2026-10-30T17:50:52-03:00,4,atendimento,y3to5,"Minha supervisora lê em voz alta os meus erros de atendimento na frente da equipe toda, ja saí da sala com vergonha várias vezes!"
+S0400,2026-10-30T18:53:19-03:00,10,tecnologia,y1to3,depois q contrataram mais gente o ritmo melhorou mt

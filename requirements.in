@@ -1,0 +1,9 @@
+# Top-level runtime dependencies. `make lock` compiles them into requirements.txt.
+fastapi==0.162.4
+uvicorn==0.54.0
+pydantic==2.14.3
+httpx
+PyYAML
+Jinja2
+spacy==3.8.18
+pt_core_news_md @ https://github.com/explosion/spacy-models/releases/download/pt_core_news_md-3.8.0/pt_core_news_md-3.8.0-py3-none-any.whl

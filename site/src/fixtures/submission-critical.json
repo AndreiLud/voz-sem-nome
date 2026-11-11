@@ -1,0 +1,16 @@
+{
+  "sample": true,
+  "status": "done",
+  "lang": "pt",
+  "submitted_at": "2026-11-10T14:58:40.000+00:00",
+  "comment_anon": "Meu gestor [PESSOA] grita comigo na frente do time e diz que qualquer um faz meu trabalho. Não durmo direito faz meses e tomo remédio pra conseguir vir. Meu celular é [TELEFONE] se o RH quiser falar.",
+  "pii_counts": {"PESSOA": 1, "TELEFONE": 1},
+  "result": {
+    "themes": ["lid", "bem"],
+    "sentiment": "neg",
+    "critical": true,
+    "critical_types": ["am", "bo"],
+    "processing_seconds": 16.9,
+    "model": "qwen3.5:2b-q4_K_M"
+  }
+}

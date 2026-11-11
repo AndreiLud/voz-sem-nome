@@ -1,0 +1,114 @@
+{
+  "api_base": "/api/v1/public",
+  "languages": [
+    "pt",
+    "en"
+  ],
+  "default_language": "pt",
+  "min_group_size": 5,
+  "max_comment_chars": 1000,
+  "public_retention_days": 30,
+  "duplicate_window_hours": 24,
+  "poll_interval_ms": 4000,
+  "turnstile_site_key": "1x00000000000000000000AA",
+  "routes": {
+    "home": {
+      "pt": "/",
+      "en": "/en/"
+    },
+    "dashboard": {
+      "pt": "/painel/",
+      "en": "/en/dashboard/"
+    },
+    "submit": {
+      "pt": "/enviar/",
+      "en": "/en/submit/"
+    },
+    "privacy": {
+      "pt": "/privacidade/",
+      "en": "/en/privacy/"
+    },
+    "not_found": {
+      "pt": "/404.html",
+      "en": "/en/404.html"
+    }
+  },
+  "anchors": {
+    "problem": {
+      "pt": "problema",
+      "en": "problem"
+    },
+    "solution": {
+      "pt": "solucao",
+      "en": "solution"
+    },
+    "how": {
+      "pt": "como-funciona",
+      "en": "how-it-works"
+    },
+    "results": {
+      "pt": "resultados",
+      "en": "results"
+    },
+    "estimate": {
+      "pt": "estimativa",
+      "en": "estimate"
+    },
+    "dashboard_preview": {
+      "pt": "painel-resumo",
+      "en": "dashboard-preview"
+    },
+    "privacy_summary": {
+      "pt": "privacidade-resumo",
+      "en": "privacy-summary"
+    },
+    "demo": {
+      "pt": "demo",
+      "en": "demo"
+    }
+  },
+  "query": {
+    "dataset": {
+      "param": {
+        "pt": "base",
+        "en": "dataset"
+      },
+      "values": {
+        "synthetic": {
+          "pt": "sintetica",
+          "en": "synthetic"
+        },
+        "public": {
+          "pt": "publica",
+          "en": "public"
+        }
+      }
+    },
+    "code": {
+      "param": {
+        "pt": "c",
+        "en": "c"
+      }
+    }
+  },
+  "data": {
+    "dashboard_synthetic": "/data/dashboard-synthetic.json",
+    "taxonomy": "/data/taxonomy.json"
+  },
+  "estimator": {
+    "defaults": {
+      "responses_per_cycle": 1000,
+      "comment_share": 0.45,
+      "minutes_read_classify": 1.5,
+      "minutes_anonymize": 1.0,
+      "cycles_per_year": 2,
+      "review_share": 0.15,
+      "minutes_per_review": 2.0
+    },
+    "machine_seconds_per_comment": null
+  },
+  "sample": {
+    "metrics": false,
+    "dashboard_synthetic": true
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "sample": true,
+  "dataset": "public",
+  "generated_at": "2026-11-10T15:00:00.000+00:00",
+  "min_group_size": 5,
+  "totals": {
+    "responses": 41,
+    "with_comment": 21,
+    "enps": 12,
+    "promoters": 17,
+    "passives": 12,
+    "detractors": 12,
+    "pct_promoters": 41.5,
+    "pct_passives": 29.3,
+    "pct_detractors": 29.3,
+    "critical": 3
+  },
+  "by_area": [
+    {
+      "code": "operacoes",
+      "n": 17,
+      "enps": 6,
+      "promoters": 6,
+      "passives": 6,
+      "detractors": 5,
+      "themes": {
+        "lid": 3,
+        "rem": 1,
+        "car": 0,
+        "cre": 2,
+        "rec": 1,
+        "com": 0,
+        "eqp": 0,
+        "flx": 1,
+        "inf": 0,
+        "bem": 1,
+        "cul": 0,
+        "out": 1
+      },
+      "sentiment": {
+        "pos": 3,
+        "neu": 2,
+        "neg": 3
+      },
+      "critical": 3
+    },
+    {
+      "code": "transporte",
+      "n": 9,
+      "enps": 11,
+      "promoters": 4,
+      "passives": 2,
+      "detractors": 3,
+      "themes": {
+        "lid": 0,
+        "rem": 0,
+        "car": 0,
+        "cre": 0,
+        "rec": 0,
+        "com": 1,
+        "eqp": 1,
+        "flx": 0,
+        "inf": 0,
+        "bem": 0,
+        "cul": 2,
+        "out": 0
+      },
+      "sentiment": {
+        "pos": 2,
+        "neu": 0,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "atendimento",
+      "n": 5,
+      "enps": -20,
+      "promoters": 1,
+      "passives": 2,
+      "detractors": 2,
+      "themes": {
+        "lid": 0,
+        "rem": 0,
+        "car": 0,
+        "cre": 1,
+        "rec": 0,
+        "com": 0,
+        "eqp": 0,
+        "flx": 0,
+        "inf": 0,
+        "bem": 1,
+        "cul": 0,
+        "out": 1
+      },
+      "sentiment": {
+        "pos": 0,
+        "neu": 2,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "comercial",
+      "n": 5,
+      "enps": 20,
+      "promoters": 3,
+      "passives": 0,
+      "detractors": 2,
+      "themes": {
+        "lid": 0,
+        "rem": 0,
+        "car": 0,
+        "cre": 1,
+        "rec": 1,
+        "com": 0,
+        "eqp": 2,
+        "flx": 0,
+        "inf": 1,
+        "bem": 1,
+        "cul": 0,
+        "out": 0
+      },
+      "sentiment": {
+        "pos": 2,
+        "neu": 0,
+        "neg": 1
+      },
+      "critical": 0
+    }
+  ],
+  "other_areas": {
+    "codes": null,
+    "n": 5,
+    "enps": 60,
+    "promoters": 3,
+    "passives": 2,
+    "detractors": 0,
+    "themes": {
+      "lid": 0,
+      "rem": 0,
+      "car": 0,
+      "cre": 2,
+      "rec": 0,
+      "com": 0,
+      "eqp": 0,
+      "flx": 1,
+      "inf": 1,
+      "bem": 1,
+      "cul": 0,
+      "out": 0
+    },
+    "sentiment": {
+      "pos": 2,
+      "neu": 2,
+      "neg": 0
+    },
+    "critical": 0
+  },
+  "by_tenure": [
+    {
+      "code": "lt1",
+      "n": 9,
+      "enps": -11,
+      "promoters": 3,
+      "passives": 2,
+      "detractors": 4,
+      "themes": {
+        "lid": 1,
+        "rem": 0,
+        "car": 0,
+        "cre": 1,
+        "rec": 1,
+        "com": 0,
+        "eqp": 1,
+        "flx": 2,
+        "inf": 0,
+        "bem": 0,
+        "cul": 0,
+        "out": 0
+      },
+      "sentiment": {
+        "pos": 2,
+        "neu": 2,
+        "neg": 1
+      },
+      "critical": 1
+    },
+    {
+      "code": "y1to3",
+      "n": 18,
+      "enps": 6,
+      "promoters": 6,
+      "passives": 7,
+      "detractors": 5,
+      "themes": {
+        "lid": 2,
+        "rem": 0,
+        "car": 0,
+        "cre": 1,
+        "rec": 1,
+        "com": 0,
+        "eqp": 1,
+        "flx": 0,
+        "inf": 1,
+        "bem": 2,
+        "cul": 0,
+        "out": 2
+      },
+      "sentiment": {
+        "pos": 3,
+        "neu": 3,
+        "neg": 2
+      },
+      "critical": 2
+    },
+    {
+      "code": "y3to5",
+      "n": 9,
+      "enps": 33,
+      "promoters": 5,
+      "passives": 2,
+      "detractors": 2,
+      "themes": {
+        "lid": 0,
+        "rem": 1,
+        "car": 0,
+        "cre": 3,
+        "rec": 0,
+        "com": 1,
+        "eqp": 0,
+        "flx": 0,
+        "inf": 1,
+        "bem": 1,
+        "cul": 0,
+        "out": 0
+      },
+      "sentiment": {
+        "pos": 2,
+        "neu": 0,
+        "neg": 2
+      },
+      "critical": 0
+    },
+    {
+      "code": "gt5",
+      "n": 5,
+      "enps": 40,
+      "promoters": 3,
+      "passives": 1,
+      "detractors": 1,
+      "themes": {
+        "lid": 0,
+        "rem": 0,
+        "car": 0,
+        "cre": 1,
+        "rec": 0,
+        "com": 0,
+        "eqp": 1,
+        "flx": 0,
+        "inf": 0,
+        "bem": 1,
+        "cul": 2,
+        "out": 0
+      },
+      "sentiment": {
+        "pos": 2,
+        "neu": 1,
+        "neg": 1
+      },
+      "critical": 0
+    }
+  ],
+  "other_tenures": null,
+  "area_tenure": [
+    {
+      "area": "operacoes",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y1to3",
+      "n": 9,
+      "enps": -33
+    },
+    {
+      "area": "operacoes",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "operacoes",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "transporte",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "atendimento",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "comercial",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "tecnologia",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "financeiro",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "pessoas",
+      "tenure": "gt5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "lt1",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y1to3",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "y3to5",
+      "suppressed": true
+    },
+    {
+      "area": "juridico",
+      "tenure": "gt5",
+      "suppressed": true
+    }
+  ],
+  "themes": [
+    {
+      "code": "lid",
+      "n": 3,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 3
+      },
+      "critical": 3
+    },
+    {
+      "code": "rem",
+      "n": 1,
+      "sentiment": {
+        "pos": 1,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "car",
+      "n": 0,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "cre",
+      "n": 6,
+      "sentiment": {
+        "pos": 3,
+        "neu": 2,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "rec",
+      "n": 2,
+      "sentiment": {
+        "pos": 2,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "com",
+      "n": 1,
+      "sentiment": {
+        "pos": 0,
+        "neu": 0,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "eqp",
+      "n": 3,
+      "sentiment": {
+        "pos": 3,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "flx",
+      "n": 2,
+      "sentiment": {
+        "pos": 0,
+        "neu": 2,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "inf",
+      "n": 2,
+      "sentiment": {
+        "pos": 0,
+        "neu": 1,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "bem",
+      "n": 4,
+      "sentiment": {
+        "pos": 3,
+        "neu": 0,
+        "neg": 1
+      },
+      "critical": 0
+    },
+    {
+      "code": "cul",
+      "n": 2,
+      "sentiment": {
+        "pos": 2,
+        "neu": 0,
+        "neg": 0
+      },
+      "critical": 0
+    },
+    {
+      "code": "out",
+      "n": 2,
+      "sentiment": {
+        "pos": 0,
+        "neu": 2,
+        "neg": 0
+      },
+      "critical": 0
+    }
+  ],
+  "critical": {
+    "total": 3,
+    "by_type": {
+      "am": 1,
+      "as": 2,
+      "di": 0,
+      "bo": 0,
+      "av": 0
+    },
+    "cases": [
+      {
+        "id": "sample0037",
+        "types": [
+          "as"
+        ],
+        "themes": [
+          "lid"
+        ],
+        "area": "operacoes",
+        "excerpt": "O supervisor da base de [LOCAL] fica comentando da minha roupa e insiste pra sair com ele depois do turno.",
+        "date": "2026-11-05"
+      },
+      {
+        "id": "sample0012",
+        "types": [
+          "as"
+        ],
+        "themes": [
+          "lid"
+        ],
+        "area": "operacoes",
+        "excerpt": "O supervisor da base de [LOCAL] fica comentando da minha roupa e insiste pra sair com ele depois do turno.",
+        "date": "2026-11-04"
+      },
+      {
+        "id": "sample0004",
+        "types": [
+          "am"
+        ],
+        "themes": [
+          "lid"
+        ],
+        "area": "operacoes",
+        "excerpt": "Meu coordenador [PESSOA] grita comigo na frente de todo mundo e vive dizendo que qualquer um faz meu trabalho.",
+        "date": "2026-11-04"
+      }
+    ]
+  },
+  "pipeline": {
+    "model": "qwen3.5:2b-q4_K_M",
+    "quantization": "Q4_K_M",
+    "prompt_version": "classify.v1",
+    "anonymizer_version": "1.0.0"
+  }
+}

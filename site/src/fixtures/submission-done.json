@@ -1,0 +1,16 @@
+{
+  "sample": true,
+  "status": "done",
+  "lang": "pt",
+  "submitted_at": "2026-11-10T14:58:10.000+00:00",
+  "comment_anon": "Desde que [PESSOA] saiu da equipe de [LOCAL], faço o trabalho de duas pessoas e ninguém fala em contratar. Pelo menos meus colegas se ajudam.",
+  "pii_counts": {"PESSOA": 1, "LOCAL": 1},
+  "result": {
+    "themes": ["car", "eqp"],
+    "sentiment": "neg",
+    "critical": false,
+    "critical_types": [],
+    "processing_seconds": 7.4,
+    "model": "qwen3.5:2b-q4_K_M"
+  }
+}

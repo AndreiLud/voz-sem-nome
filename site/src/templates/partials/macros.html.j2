@@ -1,0 +1,28 @@
+{# Shared markup. Import with: {% import "partials/macros.html.j2" as ui with context %} #}
+
+{% macro icon(name, cls="") -%}
+<svg class="icon{% if cls %} {{ cls }}{% endif %}" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#{{ name }}"></use></svg>
+{%- endmacro %}
+
+{% macro sample_badge() -%}
+<p class="badge badge--sample">{{ icon('sample') }}<span>{{ s.common.sample_badge }}</span></p>
+{%- endmacro %}
+
+{% macro status_badge(measured) -%}
+{% if measured %}
+<p class="badge badge--measured">{{ icon('check') }}<span>{{ s.common.measured }}</span></p>
+{% else %}
+<p class="badge badge--pending">{{ icon('pending') }}<span>{{ s.common.not_measured }}</span></p>
+{% endif %}
+{%- endmacro %}
+
+{% macro critical_badge(label) -%}
+<span class="badge badge--critical">{{ icon('alert') }}<span>{{ label }}</span></span>
+{%- endmacro %}
+
+{% macro section_head(id, title, lead=none, level=2) -%}
+<header class="section-head">
+  <h{{ level }} id="{{ id }}-title">{{ title }}</h{{ level }}>
+  {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+</header>
+{%- endmacro %}

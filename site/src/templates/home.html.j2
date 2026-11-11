@@ -1,0 +1,245 @@
+{% extends "base.html.j2" %}
+{% import "partials/macros.html.j2" as ui with context %}
+{% set h = s.home %}
+{% block main %}
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ h.hero.eyebrow }}</p>
+      <h1>{{ h.hero.title }}</h1>
+      <p class="lead lead--hero">{{ h.hero.lead }}</p>
+      <p class="cluster hero__actions">
+        <a class="btn btn--primary" href="{{ url('submit') }}">{{ h.hero.cta_primary }}{{ ui.icon('arrow') }}</a>
+        <a class="btn btn--secondary" href="{{ url('dashboard') }}">{{ h.hero.cta_secondary }}</a>
+      </p>
+    </div>
+    <figure class="doc-card hero__example">
+      <figcaption class="doc-card__head">
+        <span class="doc-card__title">{{ h.hero.example_title }}</span>
+        <span class="badge badge--quiet">{{ s.common.illustrative }}</span>
+      </figcaption>
+      <blockquote class="doc-card__quote" lang="pt-BR">
+        <p>{{ chips(h.hero.example_comment) }}</p>
+      </blockquote>
+      {% if h.hero.example_translation %}
+      <p class="doc-card__translation">{{ chips(h.hero.example_translation) }}</p>
+      {% endif %}
+      <p class="doc-card__removed">{{ ui.icon('lock') }}{{ h.hero.example_removed }}</p>
+      <dl class="doc-card__labels">
+        <div><dt>{{ h.hero.example_theme_label }}</dt><dd>{{ h.hero.example_theme }}</dd></div>
+        <div><dt>{{ h.hero.example_sentiment_label }}</dt><dd>{{ h.hero.example_sentiment }}</dd></div>
+        <div><dt>{{ h.hero.example_critical_label }}</dt><dd>{{ ui.critical_badge(h.hero.example_critical) }}</dd></div>
+      </dl>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="{{ anchor('problem') }}">
+  <div class="wrap">
+    {{ ui.section_head('problem', h.problem.title, h.problem.lead) }}
+    <ol class="grid grid--3 numbered">
+      {% for item in h.problem["items"] %}
+      <li class="card">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="callout">
+      {{ ui.icon('info') }}
+      <p><strong>{{ h.problem.nr1_label }}.</strong> {{ h.problem.nr1 }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="{{ anchor('solution') }}">
+  <div class="wrap">
+    {{ ui.section_head('solution', h.solution.title, h.solution.lead) }}
+    <ul class="grid grid--2 features">
+      {% for item in h.solution["items"] %}
+      <li class="feature">
+        <h3>{{ item.title }}</h3>
+        <p>{{ md(item.text) }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="{{ anchor('how') }}">
+  <div class="wrap">
+    {{ ui.section_head('how', h.how.title, h.how.lead) }}
+    <div class="how">
+      <figure class="how__figure">
+        {% include "partials/diagram.html.j2" %}
+        <figcaption class="note">{{ h.how.figure_caption }}</figcaption>
+      </figure>
+      <div class="how__text">
+        <h3>{{ h.how.legend_title }}</h3>
+        <ul class="kind-legend">
+          {% for kind in ["rule", "ner", "llm", "n8n"] %}
+          {% set k = h.how.kinds[kind] %}
+          <li>
+            <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--{{ kind }}" x="2" y="2" width="40" height="24" rx="{{ {'rule': 2, 'ner': 2, 'llm': 8, 'n8n': 12}[kind] }}"></rect><rect class="dg-swatch dg-swatch--{{ kind }}" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
+            <span><span class="kind-tag">{{ k.tag }}</span> <strong>{{ k.name }}:</strong> {{ k.text }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <h3>{{ h.how.text_title }}</h3>
+        <ol class="steps">
+          {% for key, kind in [("input", none), ("rules", "rule"), ("ner", "ner"), ("lexicon", "rule"), ("llm", "llm"), ("verifier", "llm"), ("dashboard", none), ("n8n", "n8n")] %}
+          {% set step = h.how.steps[key] %}
+          <li>
+            <strong>{{ step.title }}</strong>{% if kind %} <span class="kind-tag">{{ h.how.kinds[kind].tag }}</span>{% endif %}
+            <span class="steps__text">{{ md(step.text) }}</span>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="{{ anchor('results') }}">
+  <div class="wrap">
+    <header class="section-head">
+      <h2 id="results-title">{{ h.results.title }}</h2>
+      <p class="lead">{{ h.results.lead }}</p>
+      {% if samples.metrics %}
+      <div class="cluster">{{ ui.sample_badge() }}<p class="note">{{ h.results.sample_note }}</p></div>
+      {% endif %}
+    </header>
+    <ul class="results-grid">
+      {% for r in results %}
+      {% set item = h.results["items"][r.key] %}
+      <li class="stat{% if not r.measured %} stat--missing{% endif %}">
+        <p class="stat__label">{{ item.label }}</p>
+        {% if r.measured %}
+        <p class="stat__value">{{ r.value }}</p>
+        {% else %}
+        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">{{ s.common.not_measured }}</span></p>
+        {% endif %}
+        {% if r.n or r.ci or (r.extra and item.extra) %}
+        <ul class="stat__meta">
+          {% if r.n %}<li>n = {{ fill(item.n, n=r.n) }}</li>{% endif %}
+          {% if r.ci %}<li>{{ fill(h.results.ci, lo=r.ci.lo, hi=r.ci.hi) }}</li>{% endif %}
+          {% if r.extra and item.extra %}<li>{{ fill(item.extra, value=r.extra) }}</li>{% endif %}
+        </ul>
+        {% endif %}
+        <p class="stat__method">{{ item.method }}</p>
+        {{ ui.status_badge(r.measured) }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% if result_notes.reference or result_notes.hardware or result_notes.pipeline %}
+    <p class="note results-notes">
+      {%- for note in [result_notes.reference, result_notes.hardware, result_notes.pipeline] if note %}{{ note }}{% if not loop.last %} {% endif %}{% endfor -%}
+    </p>
+    {% endif %}
+
+    <div class="estimate" id="{{ anchor('estimate') }}">
+      <header class="section-head section-head--sub">
+        <h3 id="estimate-title">{{ h.estimate.title }}</h3>
+        <p class="badge badge--estimate">{{ ui.icon('estimate') }}<span>{{ s.common.estimate_badge }}</span></p>
+        <p class="lead">{{ h.estimate.lead }}</p>
+        <p class="note">{{ h.estimate.note }}</p>
+      </header>
+      <form class="estimate__grid" id="estimator" novalidate aria-labelledby="estimate-title">
+        <div class="table-wrap">
+          <table class="table table--inputs">
+            <caption>{{ h.estimate.table_caption }}</caption>
+            <thead>
+              <tr><th scope="col">{{ h.estimate.col_assumption }}</th><th scope="col">{{ h.estimate.col_value }}</th></tr>
+            </thead>
+            <tbody>
+              {% for row in est.rows %}
+              {% set label = h.estimate.rows[row.key] %}
+              <tr>
+                <th scope="row"><label for="est-{{ row.key }}">{{ label.label }}</label></th>
+                <td>
+                  <span class="input-unit">
+                    <input class="input input--number" id="est-{{ row.key }}" name="{{ row.key }}" type="text" inputmode="decimal" autocomplete="off" value="{{ row.value }}" data-kind="{{ row.kind }}" data-min="{{ row.min }}" data-max="{{ row.max }}" aria-describedby="est-{{ row.key }}-unit est-{{ row.key }}-error">
+                    <span class="input-unit__unit" id="est-{{ row.key }}-unit">{{ label.unit }}</span>
+                  </span>
+                  <span class="field-error" id="est-{{ row.key }}-error" hidden></span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="estimate__out">
+          <h4>{{ h.estimate.outputs_title }}</h4>
+          <dl class="estimate__list">
+            <div><dt>{{ h.estimate.outputs.comments }}</dt><dd><span data-out="comments">{{ est.comments }}</span></dd></div>
+            <div><dt>{{ h.estimate.outputs.manual }}</dt><dd>{{ fill(h.estimate.hours, value='<span data-out="manual">' ~ est.manual ~ '</span>') | safe }}</dd></div>
+            <div><dt>{{ h.estimate.outputs.review }}</dt><dd>{{ fill(h.estimate.hours, value='<span data-out="review">' ~ est.review ~ '</span>') | safe }}</dd></div>
+            <div class="estimate__main"><dt>{{ h.estimate.outputs.saved }}</dt><dd><output data-out="saved" aria-live="polite">{{ fill(h.estimate.hours, value=est.saved) }}</output></dd></div>
+            <div><dt>{{ h.estimate.outputs.machine }}</dt><dd>
+              {%- if est.machine is not none %}{{ fill(h.estimate.hours, value='<span data-out="machine">' ~ est.machine ~ '</span>') | safe }}
+              {%- else %}<span class="muted">{{ h.estimate.machine_not_measured }}</span>{% endif -%}
+            </dd></div>
+          </dl>
+          <p><button class="btn btn--ghost btn--small" type="reset">{{ h.estimate.reset }}</button></p>
+          <details class="details">
+            <summary>{{ h.estimate.formula_title }}</summary>
+            <ul class="formula">
+              {% for line in h.estimate.formula %}<li>{{ line }}</li>{% endfor %}
+            </ul>
+          </details>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="{{ anchor('dashboard_preview') }}">
+  <div class="wrap preview">
+    <div class="preview__copy">
+      {{ ui.section_head('preview', h.preview.title, h.preview.lead) }}
+      <p><a class="btn btn--secondary" href="{{ url('dashboard') }}">{{ h.preview.link }}{{ ui.icon('arrow') }}</a></p>
+    </div>
+    <div class="card preview__card">
+      {% if samples.dashboard %}{{ ui.sample_badge() }}{% endif %}
+      {% if preview.empty %}
+      <p>{{ h.preview.empty }}</p>
+      {% else %}
+      <p class="preview__label">{{ h.preview.enps_label }}</p>
+      <p class="hero-number">{{ preview.enps }}</p>
+      <p class="muted">{{ fill(h.preview.responses, n=preview.responses) }}</p>
+      <svg class="seg-bar" width="100%" height="20" aria-hidden="true" focusable="false">
+        {% for seg in preview.segments %}
+        <rect class="seg seg--{{ seg.key }}" x="{{ preview.offsets[loop.index0] }}%" y="0" width="{{ seg.width }}%" height="20"></rect>
+        {% endfor %}
+      </svg>
+      <ul class="seg-legend" aria-label="{{ h.preview.bar_label }}">
+        {% for seg in preview.segments %}
+        <li><span class="swatch swatch--{{ seg.key }}" aria-hidden="true"></span><span class="seg-legend__name">{{ h.preview[seg.key] }}</span> <strong>{{ seg.share_text }}</strong> <span class="muted">({{ seg.count_text }})</span></li>
+        {% endfor %}
+      </ul>
+      <p class="note">{{ h.preview.explainer }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="{{ anchor('privacy_summary') }}">
+  <div class="wrap">
+    {{ ui.section_head('privacy-summary', h.privacy_summary.title, h.privacy_summary.lead) }}
+    <ul class="checklist">
+      {% for item in h.privacy_summary["items"] %}
+      <li>{{ ui.icon('check') }}<span>{{ fill(item) }}</span></li>
+      {% endfor %}
+    </ul>
+    <p class="more-link"><a href="{{ url('privacy') }}">{{ h.privacy_summary.link }}</a></p>
+  </div>
+</section>
+
+<section class="section section--cta" id="{{ anchor('demo') }}">
+  <div class="wrap cta">
+    <h2 id="demo-title">{{ h.demo.title }}</h2>
+    <p class="lead">{{ h.demo.text }}</p>
+    <p><a class="btn btn--primary btn--large" href="{{ url('submit') }}">{{ h.demo.cta }}{{ ui.icon('arrow') }}</a></p>
+  </div>
+</section>
+{% endblock %}

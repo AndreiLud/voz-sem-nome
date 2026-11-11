@@ -1,0 +1,77 @@
+# Runtime settings. Any value can be overridden by an environment variable named
+# ENPS_<SECTION>_<KEY> in upper case, e.g. ENPS_PRIVACY_MIN_GROUP_SIZE=8.
+# Secrets never live here: they come from .env (see .env.example).
+
+survey:
+  # Fictitious company used by the synthetic data and by the demo form.
+  company: "Talvana Distribuição"
+  question:
+    pt: "Numa escala de 0 a 10, quanto você recomendaria a empresa como lugar para trabalhar?"
+    en: "On a scale from 0 to 10, how likely are you to recommend the company as a place to work?"
+  areas:
+    - {code: operacoes, label: {pt: "Operações", en: "Operations"}}
+    - {code: transporte, label: {pt: "Transporte", en: "Transport"}}
+    - {code: atendimento, label: {pt: "Atendimento", en: "Customer service"}}
+    - {code: comercial, label: {pt: "Comercial", en: "Sales"}}
+    - {code: tecnologia, label: {pt: "Tecnologia", en: "Technology"}}
+    - {code: financeiro, label: {pt: "Financeiro", en: "Finance"}}
+    - {code: pessoas, label: {pt: "Pessoas e Cultura", en: "People and Culture"}}
+    - {code: juridico, label: {pt: "Jurídico", en: "Legal"}}
+  tenure_bands:
+    - {code: lt1, label: {pt: "Menos de 1 ano", en: "Less than 1 year"}}
+    - {code: y1to3, label: {pt: "De 1 a 3 anos", en: "1 to 3 years"}}
+    - {code: y3to5, label: {pt: "De 3 a 5 anos", en: "3 to 5 years"}}
+    - {code: gt5, label: {pt: "Mais de 5 anos", en: "More than 5 years"}}
+
+privacy:
+  min_group_size: 5            # no group, cell or combination with fewer answers is shown
+  public_retention_days: 30    # public submissions are deleted after this many days
+  alert_log_retention_days: 90 # alert rows keep only ids, types and timestamps
+  max_comment_chars: 1000
+  display_excerpt_chars: 280   # comment excerpts shown in public lists
+
+llm:
+  base_url: "http://ollama:11434"
+  model: "gemma4:e2b-it-qat"     # chosen on dev_quick: see metrics/model_comparison.json
+  temperature: 0
+  seed: 42
+  num_ctx: 4096
+  num_predict: 160              # measured: pretty-printed JSON with an excerpt reaches ~100 tokens
+  num_batch: 64               # measured: keeps the prompt cache 64 tokens from the end (6 s per comment instead of 28 s)
+  timeout_s: 600
+  keep_alive: -1
+  classify_prompt: "classify.v3"
+  verify_prompt: "verify_critical.v1"
+  verifier_enabled: true
+  cache_dir: "llm_cache"
+  mode: "live"                 # live | cache_first | offline
+
+queue:
+  max_pending: 100             # public submissions beyond this get "queue full"
+  eta_window: 20               # moving average over the last N jobs
+  live_priority: 0             # submissions from people jump ahead of batch jobs
+  batch_priority: 10
+  max_attempts: 2
+
+limits:
+  per_ip_window_s: 600
+  per_ip_window_max: 3
+  per_ip_day_max: 10
+  global_hour_max: 60
+  duplicate_window_hours: 24
+
+alerts:
+  datasets: ["public"]         # the synthetic batch never sends alerts
+  # Every alert is always recorded locally (dashboard and internal API). External channels are
+  # optional n8n workflows that stay off until their credentials exist: "telegram", "email".
+  channels: []
+  immediate_per_hour: 3        # beyond this, alerts wait for the digest
+  digest_every_minutes: 30
+
+site:
+  base_url: "https://voz-sem-nome.andreiludescher.com"
+  dashboard_path: {pt: "/painel/", en: "/en/dashboard/"}
+
+paths:
+  database: "data/app/voz-sem-nome.db"
+  pipeline_database: "data/pipeline/synthetic.db"

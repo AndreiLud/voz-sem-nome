@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Dashboard | Voz sem nome</title>
+<meta name="description" content="eNPS, themes, sentiment and critical cases for Talvana Distribuição, a fictitious company, with a minimum group size.">
+<link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/en/dashboard/">
+<link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/painel/">
+<link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/dashboard/">
+<link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/painel/">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voz sem nome">
+<meta property="og:title" content="Dashboard | Voz sem nome">
+<meta property="og:description" content="eNPS, themes, sentiment and critical cases for Talvana Distribuição, a fictitious company, with a minimum group size.">
+<meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/en/dashboard/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dashboard | Voz sem nome">
+<meta name="twitter:description" content="eNPS, themes, sentiment and critical cases for Talvana Distribuição, a fictitious company, with a minimum group size.">
+<meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta name="twitter:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="dashboard">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="/en/" aria-label="Voz sem nome, home page">
+      <span class="wordmark__text" aria-hidden="true">Voz sem</span>
+      <span class="wordmark__bar" aria-hidden="true"></span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a class="lang-switch__item" id="lang-toggle" href="/painel/" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT<span class="visually-hidden"> versão em português</span></a>
+      <span class="lang-switch__item is-current" aria-hidden="true">EN</span>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="/en/#how-it-works">How it works</a></li>
+        <li><a href="/en/dashboard/" aria-current="page">Dashboard</a></li>
+        <li><a href="/en/submit/">Demo</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <h1>Dashboard</h1>
+    <p class="lead">Climate survey results of Talvana Distribuição, a fictitious company. The synthetic dataset has answers created for the project. Public submissions come from the demo.</p>
+  </div>
+</div>
+
+<div class="wrap dashboard" data-dashboard>
+  <div class="dash-controls">
+    <div class="segmented" role="group" aria-label="Dataset" data-slot="dataset-toggle">
+      <button class="segmented__btn" type="button" aria-pressed="true" data-dataset="synthetic">Synthetic dataset</button>
+      <button class="segmented__btn" type="button" aria-pressed="false" data-dataset="public">Public submissions</button>
+    </div>
+    <p class="dash-freshness note" data-slot="freshness"></p>
+  </div>
+
+  <div class="dash-banners" data-slot="banners">
+    <p class="badge badge--sample" data-slot="sample-badge" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#sample"></use></svg><span>Sample data</span></p>
+    <div class="alert alert--warning" data-slot="snapshot-banner" role="status" hidden>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#clock"></use></svg><p data-slot="snapshot-text"></p>
+    </div>
+    <div class="alert alert--info" data-slot="static-banner" hidden>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>Live analysis did not respond. Showing the file published with the site.</p>
+    </div>
+  </div>
+
+  <p class="note dash-k"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Groups with fewer than 5 answers are not shown. Small areas and tenure bands are merged into one unnamed group.</span></p>
+
+  <noscript>
+    <div class="alert alert--info"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>The dashboard uses JavaScript to draw the charts. The synthetic dataset is available at <a href="/data/dashboard-synthetic.json">dashboard-synthetic.json</a>.</p></div>
+  </noscript>
+
+  <div class="dash-status" data-slot="status" role="status"></div>
+
+  <div class="empty-state" data-slot="small-state" hidden>
+    <p data-slot="small-text">Public submissions have not reached 5 answers yet. Numbers appear once there are enough answers that nobody can be identified.</p>
+    <p data-slot="small-cta"><a class="btn btn--primary" href="/en/submit/">Submit a fictitious answer<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></a></p>
+  </div>
+
+  <p id="viz-keys-hint" class="visually-hidden">Use the arrow keys to move through the values of the chart. The same numbers are in the table right below it.</p>
+
+  <div class="dash-grid" data-slot="content" hidden>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-overview">
+      <h2 id="dash-overview">Overall eNPS</h2>
+      <p class="note">eNPS is the percentage of promoters (scores 9 and 10) minus the percentage of detractors (0 to 6). It ranges from −100 to +100.</p>
+      <div class="dash-panel__body" data-slot="overview"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-area">
+      <h2 id="dash-by-area">eNPS by area</h2>
+      <div class="dash-panel__body" data-slot="by-area"></div>
+    </section>
+    <section class="dash-panel" aria-labelledby="dash-by-tenure">
+      <h2 id="dash-by-tenure">eNPS by tenure</h2>
+      <div class="dash-panel__body" data-slot="by-tenure"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-themes">
+      <h2 id="dash-themes">Themes</h2>
+      <p class="note">How many comments mention each theme and the sentiment of those comments. A comment can have more than one theme.</p>
+      <div class="dash-panel__body" data-slot="themes"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-heatmap">
+      <h2 id="dash-heatmap">Themes by area</h2>
+      <p class="note">Share of each area&#39;s comments that mention the theme. In the table, the number in parentheses is the comment count.</p>
+      <div class="dash-panel__body" data-slot="heatmap"></div>
+    </section>
+    <section class="dash-panel dash-panel--wide" aria-labelledby="dash-critical">
+      <h2 id="dash-critical">Critical cases</h2>
+      <p class="note">Anonymized excerpts. The area is shown only when the group has 5 or more answers. Tenure is never shown.</p>
+      <div class="dash-panel__body" data-slot="critical"></div>
+    </section>
+  </div>
+
+  <section class="dash-panel" aria-labelledby="dash-production" data-slot="production-section" hidden>
+    <h2 id="dash-production">Queue and production</h2>
+    <p class="note">How the public demo is doing right now.</p>
+    <div class="dash-panel__body" data-slot="production"></div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="wordmark wordmark--static" aria-hidden="true"><span class="wordmark__text">Voz sem</span> <span class="wordmark__bar"></span></p>
+    <div class="site-footer__text">
+      <p>Portfolio project by <a href="https://andreiludescher.com">Andrei Ludescher</a>.</p>
+      <p>Synthetic data and fictitious submissions. Talvana Distribuição does not exist.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul>
+        <li><a href="https://github.com/AndreiLud/voz-sem-nome"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#github"></use></svg>Code on GitHub</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script type="application/json" id="page-data">{"lang":"en","page":"dashboard","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand.","dashboard":{"title":"Dashboard","lead":"Climate survey results of Talvana Distribuição, a fictitious company. The synthetic dataset has answers created for the project. Public submissions come from the demo.","controls_label":"Dataset","datasets":{"synthetic":"Synthetic dataset","public":"Public submissions"},"loading":"Loading the dashboard.","error":"Could not load the dashboard. Try again in a few minutes.","retry":"Try again","refresh_failed":"The last update failed. The numbers below are from {datetime}.","snapshot_banner":"Live analysis is offline. Showing the snapshot from {datetime}.","static_banner":"Live analysis did not respond. Showing the file published with the site.","freshness_live":"Live data, generated on {datetime}.","freshness_static":"Data generated on {datetime}.","showing":"Showing: {dataset}.","min_group_note":"Groups with fewer than {k} answers are not shown. Small areas and tenure bands are merged into one unnamed group.","small_public":"Public submissions have not reached {k} answers yet. Numbers appear once there are enough answers that nobody can be identified.","small_synthetic":"The synthetic dataset does not have enough answers to show numbers yet.","small_cta":"Submit a fictitious answer","show_table":"Show table","keys_hint":"Use the arrow keys to move through the values of the chart. The same numbers are in the table right below it.","other_areas":"Other areas (merged)","other_tenures":"Other tenure bands (merged)","merged_note":{"areas":"{other} merges the areas with fewer than {k} answers. If that group is still too small, the smallest visible area joins it too.","tenures":"{other} merges the tenure bands with fewer than {k} answers. If that group is still too small, the smallest visible band joins it too."},"enps_explainer":"eNPS is the percentage of promoters (scores 9 and 10) minus the percentage of detractors (0 to 6). It ranges from −100 to +100.","groups_none":"No group has enough answers to be shown.","themes_none":"There are no classified comments in this dataset yet.","themes_zero":"Not mentioned in this dataset: {themes}.","heat_empty":"No classified comments: {areas}.","overview_legend":"Score groups","sentiment_legend":"Sentiment","heat_legend":{"title":"Share of the area's comments","zero":"None","first":"up to {hi}","range":"{lo} to {hi}"},"sections":{"overview":"Overall eNPS","by_area":"eNPS by area","by_tenure":"eNPS by tenure","themes":"Themes","heatmap":"Themes by area","critical":"Critical cases","production":"Queue and production"},"section_notes":{"themes":"How many comments mention each theme and the sentiment of those comments. A comment can have more than one theme.","heatmap":"Share of each area's comments that mention the theme. In the table, the number in parentheses is the comment count.","critical":"Anonymized excerpts. The area is shown only when the group has {k} or more answers. Tenure is never shown.","production":"How the public demo is doing right now."},"charts":{"overview":"Split of answers into promoters, passives and detractors","by_area":"Chart of eNPS by area","by_tenure":"Chart of eNPS by tenure","themes":"Chart of themes with the sentiment of the comments","heatmap":"Heatmap of themes by area"},"summaries":{"groups":"Highest eNPS: {top}, {top_value}. Lowest: {bottom}, {bottom_value}.","themes":"Most mentioned theme: {theme}, in {count}.","heatmap":"Highest share: {theme} in {area}, mentioned in {share} of the area's comments."},"units":{"answers_one":"{n} answer","answers_other":"{n} answers","comments_one":"{n} comment","comments_other":"{n} comments"},"marks":{"group":"{name}: eNPS {value}, {answers}.","part":"{name}: {count}, {share} of answers.","theme":"{name}: {count}. {split}.","heat":"{theme} in {area}: {share}, {n} of {total} comments."},"tips":{"split":"{promoters} promoters, {passives} passives, {detractors} detractors","heat":"{n} of {total} comments in the area","of_answers":"of answers"},"critical_types":"Cases by type","critical_recent":"Most recent excerpts","critical_show_all":"Show all {n} cases","critical_show_less":"Show fewer","critical_area_hidden":"Area hidden","critical_themes":"Themes: {themes}","critical_empty":"No critical cases in this dataset.","labels":{"promoters":"Promoters","passives":"Passives","detractors":"Detractors","responses":"Answers","with_comment":"With a comment","critical":"Critical cases","enps":"eNPS","count":"Comments","share":"Share","group":"Group","area":"Area","tenure":"Tenure","theme":"Theme"},"queue":{"title":"Queue now","pending":"In queue","processing":"Being analyzed","eta":"Estimated wait","eta_none":"No estimate","worker":"Analyzer","worker_online":"Online","worker_offline":"Offline","worker_unknown":"No signal","went_online":"The analyzer is working again.","went_offline":"The analyzer stopped responding.","full":"The queue is full. New submissions are accepted again once it moves.","error":"Could not read the queue status right now."},"production":{"title":"Since the demo started","since":"Since {date}","none":"No data","submissions":"Submissions","distinct":"Distinct people","median":"Time to result, median","p95":"Time to result, p95","alerts":"Alerts sent"},"noscript":"The dashboard uses JavaScript to draw the charts. The synthetic dataset is available at [dashboard-synthetic.json](/data/dashboard-synthetic.json)."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"}}</script>
+</body>
+</html>

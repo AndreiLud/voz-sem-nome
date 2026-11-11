@@ -1,0 +1,189 @@
+{
+  "documents": 340,
+  "documents_with_gold": 60,
+  "overall": {
+    "gold": 104,
+    "caught": 101,
+    "caught_same_type": 101,
+    "recall": 0.9712,
+    "recall_typed": 0.9712,
+    "leaked": 3,
+    "leak_rate": 0.0288,
+    "predicted": 101,
+    "false_positives": 0,
+    "precision": 1.0
+  },
+  "by_gold_type": {
+    "CEP": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "CPF": {
+      "gold": 6,
+      "caught": 6,
+      "caught_same_type": 6,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "EMAIL": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "LOCAL": {
+      "gold": 13,
+      "caught": 10,
+      "caught_same_type": 10,
+      "recall": 0.7692,
+      "recall_typed": 0.7692,
+      "leaked": 3,
+      "leak_rate": 0.2308
+    },
+    "MATRICULA": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "PESSOA": {
+      "gold": 47,
+      "caught": 47,
+      "caught_same_type": 47,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "PLACA": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "RG": {
+      "gold": 5,
+      "caught": 5,
+      "caught_same_type": 5,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    },
+    "TELEFONE": {
+      "gold": 9,
+      "caught": 9,
+      "caught_same_type": 9,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
+    }
+  },
+  "by_predicted_type": {
+    "CEP": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "CPF": {
+      "predicted": 6,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "EMAIL": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "LOCAL": {
+      "predicted": 10,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "MATRICULA": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "PESSOA": {
+      "predicted": 47,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "PLACA": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "RG": {
+      "predicted": 5,
+      "false_positives": 0,
+      "precision": 1.0
+    },
+    "TELEFONE": {
+      "predicted": 9,
+      "false_positives": 0,
+      "precision": 1.0
+    }
+  },
+  "misses": [
+    {
+      "id": "S0111",
+      "type": "LOCAL",
+      "text": "embu das artes"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "pirituba"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "cajamar"
+    }
+  ],
+  "type_mismatches": [],
+  "leaks": [
+    {
+      "id": "S0111",
+      "type": "LOCAL",
+      "text": "embu das artes"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "pirituba"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "cajamar"
+    }
+  ],
+  "false_positives": [],
+  "anonymizer_version": "1.0.0",
+  "gold_offset_problems": [],
+  "runtime": {
+    "model_load_s": 1.89,
+    "anonymize_s": 2.7,
+    "ms_per_comment": 7.94
+  }
+}

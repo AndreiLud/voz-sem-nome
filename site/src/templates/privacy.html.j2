@@ -1,0 +1,95 @@
+{% extends "base.html.j2" %}
+{% import "partials/macros.html.j2" as ui with context %}
+{% set p = s.privacy %}
+{% set sec = p.sections %}
+{% block main %}
+<div class="page-head">
+  <div class="wrap">
+    <h1>{{ p.title }}</h1>
+    <p class="lead">{{ p.lead }}</p>
+    <p class="note">{{ p.updated }}</p>
+  </div>
+</div>
+
+<div class="wrap prose-layout">
+  <nav class="toc" aria-labelledby="toc-title">
+    <p class="toc__title" id="toc-title">{{ p.toc_title }}</p>
+    <ol>
+      {% for key in ["collect", "anonymize", "never", "retention", "min_group", "who", "legal", "rights"] %}
+      <li><a href="#{{ key | replace('_', '-') }}">{{ sec[key].title }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  <div class="prose">
+    <section id="collect">
+      <h2>{{ sec.collect.title }}</h2>
+      <ul>
+        {% for item in sec.collect["items"] %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+    </section>
+
+    <section id="anonymize">
+      <h2>{{ sec.anonymize.title }}</h2>
+      <p>{{ sec.anonymize.text }}</p>
+      <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
+        <table class="table">
+          <caption id="placeholders-caption">{{ sec.anonymize.table_caption }}</caption>
+          <thead><tr><th scope="col">{{ sec.anonymize.col_marker }}</th><th scope="col">{{ sec.anonymize.col_meaning }}</th></tr></thead>
+          <tbody>
+            {% for code in placeholder_codes %}
+            <tr><th scope="row">{{ chips('[' ~ code ~ ']') }}</th><td data-label="{{ sec.anonymize.col_meaning }}">{{ s.placeholders[code] }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p>{{ sec.anonymize.limits }}</p>
+    </section>
+
+    <section id="never">
+      <h2>{{ sec.never.title }}</h2>
+      <ul class="checklist">
+        {% for item in sec.never["items"] %}<li>{{ ui.icon('lock') }}<span>{{ item }}</span></li>{% endfor %}
+      </ul>
+    </section>
+
+    <section id="retention">
+      <h2>{{ sec.retention.title }}</h2>
+      <ul>
+        {% for item in sec.retention["items"] %}<li>{{ fill(item) }}</li>{% endfor %}
+      </ul>
+    </section>
+
+    <section id="min-group">
+      <h2>{{ sec.min_group.title }}</h2>
+      <p>{{ fill(sec.min_group.text) }}</p>
+    </section>
+
+    <section id="who">
+      <h2>{{ sec.who.title }}</h2>
+      <div class="table-wrap" role="region" aria-labelledby="who-caption" tabindex="0">
+        <table class="table table--stack">
+          <caption id="who-caption">{{ sec.who.table_caption }}</caption>
+          <thead><tr><th scope="col">{{ sec.who.col_who }}</th><th scope="col">{{ sec.who.col_what }}</th></tr></thead>
+          <tbody>
+            {% for row in sec.who.rows %}
+            <tr><th scope="row">{{ row.who }}</th><td data-label="{{ sec.who.col_what }}">{{ row.what }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="legal">
+      <h2>{{ sec.legal.title }}</h2>
+      <p>{{ sec.legal.text }}</p>
+      <div class="callout">{{ ui.icon('info') }}<p>{{ sec.legal.disclaimer }}</p></div>
+    </section>
+
+    <section id="rights">
+      <h2>{{ sec.rights.title }}</h2>
+      <p>{{ md(sec.rights.text) }}</p>
+    </section>
+  </div>
+</div>
+{% endblock %}

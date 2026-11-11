@@ -1,0 +1,185 @@
+{
+  "id": "VsnMaintenance01",
+  "name": "Daily maintenance",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "17 3 * * *"
+            }
+          ]
+        }
+      },
+      "id": "227dcb79-da5c-5d07-ae8a-610cee8a89c2",
+      "name": "Every day at 03:17",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://api-internal:8002/v1/internal/maintenance/purge",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "5ad850ea-34bb-59ec-84e2-2a4ed9aaef7e",
+      "name": "Purge old public submissions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://api-internal:8002/v1/internal/summary/daily",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "80820fd0-1138-5a77-a6fc-5f9e1740f6cf",
+      "name": "Daily summary",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "// One item per external channel listed by the API (alerts.channels in config/settings.yaml).\n// With no channel configured nothing goes out: the alert is already recorded on the server.\nconst out = [];\nfor (const item of $input.all()) {\n  const message = item.json.message_html;\n  for (const channel of item.json.channels || []) {\n    out.push({ json: { channel, message_html: message } });\n  }\n}\nreturn out;\n"
+      },
+      "id": "e5dfc260-6209-5eae-ad1a-4d52963ea8e4",
+      "name": "Fan out to channels",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "VsnDeliverChan01",
+          "mode": "id"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "823735e3-52f0-5e39-a252-f91d64e50883",
+      "name": "Deliver to channels",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Every day at 03:17": {
+      "main": [
+        [
+          {
+            "node": "Purge old public submissions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Purge old public submissions": {
+      "main": [
+        [
+          {
+            "node": "Daily summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily summary": {
+      "main": [
+        [
+          {
+            "node": "Fan out to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fan out to channels": {
+      "main": [
+        [
+          {
+            "node": "Deliver to channels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
+  "description": "Deletes public submissions older than the retention period and builds the daily summary."
+}

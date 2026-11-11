@@ -1,0 +1,221 @@
+{
+ "generated_at": "2026-11-11T10:06:47+00:00",
+ "pipeline": {
+  "model": "gemma4:e2b-it-qat",
+  "anonymizer_version": "1.0.0"
+ },
+ "anonymization": {
+  "status": "measured",
+  "n_comments": 340,
+  "n_comments_with_pii": 60,
+  "n_spans": 104,
+  "caught": 101,
+  "recall": 0.9712,
+  "recall_ci95": [
+   0.9186,
+   0.9901
+  ],
+  "precision": 1.0,
+  "false_positives": 0,
+  "leak_rate": 0.0288,
+  "comments_with_leak": 2,
+  "by_type": {
+   "CEP": {
+    "gold": 4,
+    "caught": 4,
+    "caught_same_type": 4,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "CPF": {
+    "gold": 6,
+    "caught": 6,
+    "caught_same_type": 6,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "EMAIL": {
+    "gold": 8,
+    "caught": 8,
+    "caught_same_type": 8,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "LOCAL": {
+    "gold": 13,
+    "caught": 10,
+    "caught_same_type": 10,
+    "recall": 0.7692,
+    "recall_typed": 0.7692,
+    "leaked": 3,
+    "leak_rate": 0.2308
+   },
+   "MATRICULA": {
+    "gold": 8,
+    "caught": 8,
+    "caught_same_type": 8,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "PESSOA": {
+    "gold": 47,
+    "caught": 47,
+    "caught_same_type": 47,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "PLACA": {
+    "gold": 4,
+    "caught": 4,
+    "caught_same_type": 4,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "RG": {
+    "gold": 5,
+    "caught": 5,
+    "caught_same_type": 5,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   },
+   "TELEFONE": {
+    "gold": 9,
+    "caught": 9,
+    "caught_same_type": 9,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0
+   }
+  },
+  "ms_per_comment": 7.94
+ },
+ "classification": null,
+ "performance": {
+  "status": "not_measured"
+ },
+ "development": [
+  {
+   "file": "metrics/model_comparison.json",
+   "split": "dev_quick",
+   "n": 40,
+   "model": "qwen3.5:2b-q4_K_M",
+   "prompt_version": "classify.v1",
+   "sentiment_accuracy": 0.6,
+   "sentiment_kappa": 0.41818181818181815,
+   "themes_micro_f1": 0.523489932885906,
+   "themes_macro_f1": 0.44523809523809527,
+   "critical_by_variant": {
+    "llm_only": {
+     "recall": 0.375,
+     "precision": 0.75,
+     "tp": 3,
+     "fp": 1,
+     "fn": 5
+    },
+    "llm_lexicon": {
+     "recall": 0.5,
+     "precision": 0.6666666666666666,
+     "tp": 4,
+     "fp": 2,
+     "fn": 4
+    },
+    "full": {
+     "recall": 1.0,
+     "precision": 0.4444444444444444,
+     "tp": 8,
+     "fp": 10,
+     "fn": 0
+    }
+   },
+   "mean_s": 16.022897435897438,
+   "verifier_share": 0.525
+  },
+  {
+   "file": "metrics/model_comparison.json",
+   "split": "dev_quick",
+   "n": 40,
+   "model": "gemma4:e2b-it-qat",
+   "prompt_version": "classify.v1",
+   "sentiment_accuracy": 0.75,
+   "sentiment_kappa": 0.6525714285714285,
+   "themes_micro_f1": 0.6951219512195123,
+   "themes_macro_f1": 0.619141604010025,
+   "critical_by_variant": {
+    "llm_only": {
+     "recall": 1.0,
+     "precision": 0.8,
+     "tp": 8,
+     "fp": 2,
+     "fn": 0
+    },
+    "llm_lexicon": {
+     "recall": 1.0,
+     "precision": 0.7272727272727273,
+     "tp": 8,
+     "fp": 3,
+     "fn": 0
+    },
+    "full": {
+     "recall": 1.0,
+     "precision": 0.7272727272727273,
+     "tp": 8,
+     "fp": 3,
+     "fn": 0
+    }
+   },
+   "mean_s": 16.906410256410258,
+   "verifier_share": 0.825
+  },
+  {
+   "file": "metrics/dev_round_v2.json",
+   "split": "dev",
+   "n": 240,
+   "model": "gemma4:e2b-it-qat",
+   "prompt_version": "classify.v2",
+   "sentiment_accuracy": 0.7708333333333334,
+   "sentiment_kappa": 0.6469455440248209,
+   "themes_micro_f1": 0.7487487487487487,
+   "themes_macro_f1": 0.7234188015711421,
+   "critical_by_variant": {
+    "llm_only": {
+     "recall": 0.9166666666666666,
+     "precision": 0.39285714285714285,
+     "tp": 11,
+     "fp": 17,
+     "fn": 1
+    },
+    "llm_lexicon": {
+     "recall": 0.9166666666666666,
+     "precision": 0.3793103448275862,
+     "tp": 11,
+     "fp": 18,
+     "fn": 1
+    },
+    "full": {
+     "recall": 1.0,
+     "precision": 0.3870967741935484,
+     "tp": 12,
+     "fp": 19,
+     "fn": 0
+    }
+   },
+   "mean_s": 9.711230125523013,
+   "verifier_share": 0.3416666666666667
+  }
+ ]
+}

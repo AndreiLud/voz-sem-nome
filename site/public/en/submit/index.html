@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Submit a fictitious answer | Voz sem nome</title>
+<meta name="description" content="Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by a local model.">
+<link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/en/submit/">
+<link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/enviar/">
+<link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/submit/">
+<link rel="alternate" hreflang="x-default" href="https://voz-sem-nome.andreiludescher.com/enviar/">
+<meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Voz sem nome">
+<meta property="og:title" content="Submit a fictitious answer | Voz sem nome">
+<meta property="og:description" content="Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by a local model.">
+<meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/en/submit/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Submit a fictitious answer | Voz sem nome">
+<meta name="twitter:description" content="Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by a local model.">
+<meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
+<meta name="twitter:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<script type="module" src="/assets/js/main.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body data-page="submit">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="/en/" aria-label="Voz sem nome, home page">
+      <span class="wordmark__text" aria-hidden="true">Voz sem</span>
+      <span class="wordmark__bar" aria-hidden="true"></span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a class="lang-switch__item" id="lang-toggle" href="/enviar/" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT<span class="visually-hidden"> versão em português</span></a>
+      <span class="lang-switch__item is-current" aria-hidden="true">EN</span>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a href="/en/#how-it-works">How it works</a></li>
+        <li><a href="/en/dashboard/">Dashboard</a></li>
+        <li><a href="/en/submit/" aria-current="page">Demo</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <h1>Submit a fictitious answer</h1>
+    <p class="lead">Answer as if you worked at Talvana Distribuição, a made up company. Your comment is anonymized before it is stored and classified by a local model. At the end you get a code to follow the result.</p>
+  </div>
+</div>
+
+<div class="wrap submit-layout" data-slot="layout">
+  <noscript>
+    <div class="alert alert--info"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>Submitting needs JavaScript, for the bot check and to follow the queue.</p></div>
+  </noscript>
+
+  <section class="card form-card" aria-labelledby="form-title" data-slot="form-section">
+    <h2 id="form-title">Your answer</h2>
+    <p class="note">Fields marked with * are required.</p>
+
+    <div class="alert alert--error error-summary" data-slot="error-summary" tabindex="-1" aria-labelledby="error-summary-title" hidden>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#error"></use></svg>
+      <div>
+        <p class="alert__title" id="error-summary-title">Check the fields below before submitting.</p>
+        <ul data-slot="error-list"></ul>
+      </div>
+    </div>
+
+    <form class="form" id="submit-form" method="post" action="/api/v1/public/submissions" aria-labelledby="form-title" novalidate>
+      <input type="hidden" name="lang" value="en">
+
+      <fieldset class="field" data-field="score">
+        <legend class="label">On a scale from 0 to 10, how likely are you to recommend the company as a place to work? <span class="required" aria-hidden="true">*</span></legend>
+        <div class="score-scale">
+          <div class="score-scale__options">
+            <input class="score-scale__input" type="radio" id="score-0" name="score" value="0" required data-error="score-error">
+            <label class="score-scale__label" for="score-0">0<span class="visually-hidden">, Not at all likely</span></label>
+            <input class="score-scale__input" type="radio" id="score-1" name="score" value="1" required data-error="score-error">
+            <label class="score-scale__label" for="score-1">1</label>
+            <input class="score-scale__input" type="radio" id="score-2" name="score" value="2" required data-error="score-error">
+            <label class="score-scale__label" for="score-2">2</label>
+            <input class="score-scale__input" type="radio" id="score-3" name="score" value="3" required data-error="score-error">
+            <label class="score-scale__label" for="score-3">3</label>
+            <input class="score-scale__input" type="radio" id="score-4" name="score" value="4" required data-error="score-error">
+            <label class="score-scale__label" for="score-4">4</label>
+            <input class="score-scale__input" type="radio" id="score-5" name="score" value="5" required data-error="score-error">
+            <label class="score-scale__label" for="score-5">5</label>
+            <input class="score-scale__input" type="radio" id="score-6" name="score" value="6" required data-error="score-error">
+            <label class="score-scale__label" for="score-6">6</label>
+            <input class="score-scale__input" type="radio" id="score-7" name="score" value="7" required data-error="score-error">
+            <label class="score-scale__label" for="score-7">7</label>
+            <input class="score-scale__input" type="radio" id="score-8" name="score" value="8" required data-error="score-error">
+            <label class="score-scale__label" for="score-8">8</label>
+            <input class="score-scale__input" type="radio" id="score-9" name="score" value="9" required data-error="score-error">
+            <label class="score-scale__label" for="score-9">9</label>
+            <input class="score-scale__input" type="radio" id="score-10" name="score" value="10" required data-error="score-error">
+            <label class="score-scale__label" for="score-10">10<span class="visually-hidden">, Extremely likely</span></label>
+          </div>
+          <div class="score-scale__ends" aria-hidden="true"><span>Not at all likely</span><span>Extremely likely</span></div>
+        </div>
+        <p class="field-error" id="score-error" hidden></p>
+      </fieldset>
+
+      <div class="field" data-field="area">
+        <label class="label" for="area">Area <span class="required" aria-hidden="true">*</span></label>
+        <span class="select">
+          <select id="area" name="area" required data-error="area-error">
+            <option value="">Choose an area</option>
+            <option value="operacoes">Operations</option>
+            <option value="transporte">Transport</option>
+            <option value="atendimento">Customer service</option>
+            <option value="comercial">Sales</option>
+            <option value="tecnologia">Technology</option>
+            <option value="financeiro">Finance</option>
+            <option value="pessoas">People and Culture</option>
+            <option value="juridico">Legal</option>
+          </select>
+        </span>
+        <p class="field-error" id="area-error" hidden></p>
+      </div>
+
+      <fieldset class="field" data-field="tenure">
+        <legend class="label">Tenure <span class="required" aria-hidden="true">*</span></legend>
+        <div class="choices">
+          <div class="choice">
+            <input type="radio" id="tenure-lt1" name="tenure" value="lt1" required data-error="tenure-error">
+            <label for="tenure-lt1">Less than 1 year</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="tenure-y1to3" name="tenure" value="y1to3" required data-error="tenure-error">
+            <label for="tenure-y1to3">1 to 3 years</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="tenure-y3to5" name="tenure" value="y3to5" required data-error="tenure-error">
+            <label for="tenure-y3to5">3 to 5 years</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="tenure-gt5" name="tenure" value="gt5" required data-error="tenure-error">
+            <label for="tenure-gt5">More than 5 years</label>
+          </div>
+        </div>
+        <p class="field-error" id="tenure-error" hidden></p>
+      </fieldset>
+
+      <div class="field" data-field="comment">
+        <label class="label" for="comment">Comment (optional)</label>
+        <p class="hint" id="comment-hint"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Do not write real data about yourself or other people. If you do, it will be replaced with placeholders.</span></p>
+        <textarea class="textarea" id="comment" name="comment" rows="6" data-max="1000" data-error="comment-error" aria-describedby="comment-hint comment-counter"></textarea>
+        <p class="counter" id="comment-counter" data-slot="counter">0 of 1000 characters</p>
+        <p class="field-error" id="comment-error" hidden></p>
+      </div>
+
+      <div class="field" data-field="consent">
+        <div class="choice choice--consent">
+          <input type="checkbox" id="consent" name="consent" value="true" required data-error="consent-error">
+          <label for="consent">I understand this is a demo with a fictitious company and that my comment will be anonymized and deleted after 30 days. <span class="required" aria-hidden="true">*</span></label>
+        </div>
+        <p class="field-error" id="consent-error" hidden></p>
+      </div>
+
+      <div class="field" data-field="turnstile">
+        <p class="label" id="turnstile-label">Bot check</p>
+        <div class="turnstile cf-turnstile" id="turnstile-widget" tabindex="-1" data-sitekey="1x00000000000000000000AA" data-language="en" data-theme="auto" data-size="flexible" data-response-field-name="turnstile"></div>
+        <p class="field-error" id="turnstile-error" hidden></p>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn--primary btn--large" type="submit" data-slot="submit-button"><span data-slot="submit-label">Submit answer</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#arrow"></use></svg></button>
+      </div>
+      <div class="submit-feedback" role="alert" data-slot="submit-feedback"></div>
+    </form>
+  </section>
+
+  <section class="card track-card" aria-labelledby="track-title" data-slot="track-section">
+    <h2 id="track-title">Follow your answer</h2>
+    <p>Paste the code you got when you submitted.</p>
+    <form class="lookup" method="get" action="/en/submit/" data-slot="lookup-form" aria-labelledby="track-title" novalidate>
+      <div class="field field--lookup" data-field="code">
+        <label class="label" for="code">Tracking code</label>
+        <p class="hint" id="code-hint">Format XXXX-XXXX. Keep the code: it is the only way to see the result.</p>
+        <div class="lookup__row">
+          <input class="input input--code" id="code" name="c" type="text" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="code-hint" data-error="code-error">
+          <button class="btn btn--secondary" type="submit">See result</button>
+        </div>
+        <p class="field-error" id="code-error" hidden></p>
+      </div>
+    </form>
+
+    <div class="alert alert--warning" data-slot="track-error" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p data-slot="track-error-text"></p></div>
+
+    <div class="tracking" data-slot="tracking" hidden>
+      <h3 class="tracking__title" id="tracking-title" tabindex="-1">Answer status</h3>
+      <div class="code-display">
+        <p class="code-display__label" id="tracking-code-label">Your code</p>
+        <p class="code-display__value" id="tracking-code" data-slot="code-value"></p>
+        <button class="btn btn--ghost btn--small" type="button" data-copy-target="#tracking-code" data-copy-label="Copy code"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#copy"></use></svg><span>Copy code</span></button>
+      </div>
+      <div class="code-link">
+        <p class="code-display__label">Link to this result</p>
+        <p class="code-link__value"><a data-slot="code-link" id="tracking-link" href="/en/submit/"></a></p>
+        <button class="btn btn--ghost btn--small" type="button" data-copy-target="#tracking-link" data-copy-label="Copy link"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#copy"></use></svg><span>Copy link</span></button>
+      </div>
+
+      <div class="progress-block" data-slot="progress-block">
+        <p class="progress-block__status"><span class="status-dot" aria-hidden="true"></span><span data-slot="status-text"></span></p>
+        <progress class="progress" data-slot="progress" max="3" aria-label="Analysis progress"></progress>
+        <p class="note" data-slot="queue-info" hidden></p>
+        <p class="note poll-note" data-slot="poll-note" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#clock"></use></svg><span data-slot="poll-note-text"></span></p>
+      </div>
+
+      <article class="result-card" data-slot="result" aria-labelledby="result-title" hidden>
+        <h3 id="result-title">Result</h3>
+        <div class="result-card__comment" data-slot="result-comment-block">
+          <h4>Anonymized comment</h4>
+          <blockquote class="doc-card__quote" data-slot="result-quote"><p data-slot="result-comment"></p></blockquote>
+          <p class="note result-card__note"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The comment was anonymized as soon as it arrived, before it entered the queue.</span></p>
+        </div>
+        <dl class="result-card__grid">
+          <div data-slot="row-removed"><dt>What was removed</dt><dd data-slot="result-removed"></dd></div>
+          <div data-slot="row-themes"><dt>Themes</dt><dd data-slot="result-themes"></dd></div>
+          <div data-slot="row-sentiment"><dt>Sentiment</dt><dd data-slot="result-sentiment"></dd></div>
+          <div data-slot="row-critical"><dt>Critical case</dt><dd data-slot="result-critical"></dd></div>
+        </dl>
+        <p class="note" data-slot="result-meta" hidden></p>
+        <div class="alert alert--info" data-slot="result-status-note" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p data-slot="result-status-text"></p></div>
+        <div class="alert alert--info" data-slot="result-alert-note" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#alert"></use></svg><p>In a real company, this case would trigger an alert to HR. Here, the alert goes to the person in charge of the project, with the anonymized text only.</p></div>
+        <div class="alert alert--support" data-slot="result-cvv" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>If you are going through something similar, CVV, a free Brazilian emotional support line, answers 24 hours a day at 188 or <a href="https://cvv.org.br">cvv.org.br</a>. Outside Brazil, look for a local crisis line.</p></div>
+      </article>
+    </div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="wordmark wordmark--static" aria-hidden="true"><span class="wordmark__text">Voz sem</span> <span class="wordmark__bar"></span></p>
+    <div class="site-footer__text">
+      <p>Portfolio project by <a href="https://andreiludescher.com">Andrei Ludescher</a>.</p>
+      <p>Synthetic data and fictitious submissions. Talvana Distribuição does not exist.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul>
+        <li><a href="https://github.com/AndreiLud/voz-sem-nome"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#github"></use></svg>Code on GitHub</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script type="application/json" id="page-data">{"lang":"en","page":"submit","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand.","submit":{"title":"Submit a fictitious answer","lead":"Answer as if you worked at Talvana Distribuição, a made up company. Your comment is anonymized before it is stored and classified by a local model. At the end you get a code to follow the result.","form_title":"Your answer","required_note":"Fields marked with * are required.","score_low":"Not at all likely","score_high":"Extremely likely","area_label":"Area","area_placeholder":"Choose an area","tenure_legend":"Tenure","comment_label":"Comment (optional)","comment_hint":"Do not write real data about yourself or other people. If you do, it will be replaced with placeholders.","counter":"{count} of {max} characters","counter_over":"{count} characters over the limit","consent_label":"I understand this is a demo with a fictitious company and that my comment will be anonymized and deleted after {days} days.","turnstile_label":"Bot check","submit":"Submit answer","sending":"Sending","sent":"Answer received. Your code is {code}.","errors":{"summary_title":"Check the fields below before submitting.","score":"Choose a score from 0 to 10.","area":"Choose an area.","tenure":"Choose your tenure.","comment_long":"The comment is longer than {max} characters.","consent":"Check the confirmation box to submit.","turnstile":"Complete the bot check.","code":"Type the code in the format XXXX-XXXX, with 8 letters and numbers."},"api_errors":{"duplicate":"This comment was already submitted in the last 24 hours. Write a different one or follow the earlier submission with its code.","rate_limited":"Too many submissions in a row. Try again in {minutes} min.","queue_full":"The queue is full right now. Try again in a few minutes.","offline":"The analysis is offline right now. Try again later.","network":"No connection to the server. Check your internet and try again.","turnstile":"The bot check failed. Reload the page and try again.","validation":"Some fields were not accepted. Check them and submit again.","unknown":"Something went wrong. Try again in a few minutes.","too_large":"The submission is too large. Shorten the comment and try again.","turnstile_unavailable":"The bot check did not answer. Try again in a moment."},"track":{"title":"Follow your answer","lead":"Paste the code you got when you submitted.","code_label":"Tracking code","code_hint":"Format XXXX-XXXX. Keep the code: it is the only way to see the result.","lookup":"See result","your_code":"Your code","your_link":"Link to this result","copy_code":"Copy code","copy_link":"Copy link","position":"Position in queue: {position}","eta":"Estimated wait: {time}","progress_label":"Analysis progress","paused":"Updates paused while the tab is in the background.","not_found":"We could not find this code. Check that you typed it correctly. Submissions are deleted after {days} days.","status_title":"Answer status","checking":"Checking the queue","anonymized_note":"The comment was anonymized as soon as it arrived, before it entered the queue.","reconnecting":"No connection to the server. Trying again in {seconds} s.","offline":"The analysis is offline right now. Trying again in {seconds} s.","result_ready":"The result is right below.","status":{"queued":"In queue","processing":"Being analyzed","done":"Done","review":"Done, with manual review","skipped":"No comment to analyze","failed":"Could not be analyzed"}},"result":{"title":"Result","anonymized":"Anonymized comment","removed":"What was removed","removed_none":"Nothing was removed.","removed_item":"{label}: {count}","pending":"Waiting for analysis","themes_none":"No theme","sentiment_none":"No clear sentiment","no_comment":"You did not write a comment. The score counts on the dashboard, but there is no text to analyze.","review":"The model answered outside the expected format. The comment was set aside for manual review, and the search for risk words still applies.","failed":"The model could not analyze this comment. The score still counts on the dashboard.","themes":"Themes","sentiment":"Sentiment","critical":"Critical case","critical_yes":"Yes","critical_no":"No","processing_time":"Analyzed in {seconds} s by the {model} model.","cvv":"If you are going through something similar, CVV, a free Brazilian emotional support line, answers 24 hours a day at 188 or [cvv.org.br](https://cvv.org.br). Outside Brazil, look for a local crisis line.","alert_note":"In a real company, this case would trigger an alert to HR. Here, the alert goes to the person in charge of the project, with the anonymized text only."},"noscript":"Submitting needs JavaScript, for the bot check and to follow the queue."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"}}</script>
+</body>
+</html>

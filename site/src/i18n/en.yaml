@@ -1,0 +1,543 @@
+# English strings. Keys must match pt.yaml exactly (tests check it).
+# Inline markup: [text](page:privacy) or [text](https://...) for links, **bold**, `code`.
+# Placeholders in braces ({k}, {days}) are filled by the build or by the page scripts.
+
+lang_name: "English"
+
+meta:
+  site_name: "Voz sem nome"
+  og_image_alt: "Voz sem nome: climate survey and eNPS analysis with local AI"
+  home:
+    title: "Voz sem nome: climate survey and eNPS analysis with local AI"
+    description: "Climate survey comments anonymized before any model reads them, classified by a local AI model and shown on a dashboard that protects small groups."
+  dashboard:
+    title: "Dashboard | Voz sem nome"
+    description: "eNPS, themes, sentiment and critical cases for Talvana Distribuição, a fictitious company, with a minimum group size."
+  submit:
+    title: "Submit a fictitious answer | Voz sem nome"
+    description: "Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by a local model."
+  privacy:
+    title: "Privacy | Voz sem nome"
+    description: "What the demo collects, what is anonymized, what is never stored and how long submissions are kept."
+  not_found:
+    title: "Page not found | Voz sem nome"
+    description: "This page does not exist."
+
+common:
+  skip_link: "Skip to content"
+  wordmark_label: "Voz sem nome, home page"
+  nav_label: "Main"
+  nav:
+    how: "How it works"
+    dashboard: "Dashboard"
+    submit: "Demo"
+    privacy: "Privacy"
+  lang_switch_label: "Language"
+  lang_other_code: "PT"
+  lang_other_name: "versão em português"
+  sample_badge: "Sample data"
+  sample_note: "Sample numbers, only to test the layout. They are not project results yet."
+  estimate_badge: "Estimate"
+  measured: "Measured"
+  not_measured: "Not measured yet"
+  illustrative: "Illustrative example"
+  copy: "Copy"
+  copied: "Copied"
+  copy_failed: "Could not copy. Select the text and copy it by hand."
+  new_tab: "opens in a new tab"
+
+footer:
+  about: "Portfolio project by [Andrei Ludescher](https://andreiludescher.com)."
+  repo: "Code on GitHub"
+  data_notice: "Synthetic data and fictitious submissions. Talvana Distribuição does not exist."
+  privacy: "Privacy"
+  nav_label: "Footer"
+
+placeholders:
+  PESSOA: "person's name"
+  LOCAL: "place"
+  EMAIL: "email address"
+  TELEFONE: "phone number"
+  CPF: "CPF, Brazilian taxpayer number"
+  CNPJ: "CNPJ, Brazilian company number"
+  RG: "RG, Brazilian ID card"
+  CEP: "CEP, Brazilian postal code"
+  MATRICULA: "employee ID"
+  PLACA: "license plate"
+  DOCUMENTO: "other document"
+  ofensivo: "swear word, in public excerpts"
+
+home:
+  hero:
+    eyebrow: "Portfolio project"
+    title: "Climate survey and eNPS analysis with local AI"
+    lead: "Voz sem nome removes names, documents and contact details from survey comments before any model reads the text. Then a language model running on the server itself groups the comments by theme, measures sentiment and flags cases that need HR attention, such as harassment and burnout."
+    cta_primary: "Try the demo"
+    cta_secondary: "See the dashboard"
+    example_title: "A comment after it goes through the system"
+    example_comment: "Desde que [PESSOA] virou coordenador em [LOCAL], ele grita com a equipe na frente de todo mundo. Já pedi ajuda no RH e nada mudou."
+    example_translation: "Since [PESSOA] became supervisor in [LOCAL], he yells at the team in front of everyone. I asked HR for help and nothing changed."
+    example_removed: "Removed: 1 person's name and 1 place"
+    example_theme_label: "Theme"
+    example_theme: "Leadership"
+    example_sentiment_label: "Sentiment"
+    example_sentiment: "Negative"
+    example_critical_label: "Critical case"
+    example_critical: "Workplace bullying"
+
+  problem:
+    title: "The problem"
+    lead: "In a climate survey, the score says little. The reasons are in the open comments, and someone has to read them one by one."
+    items:
+      - title: "Manual reading"
+        text: "Reading, sorting by theme and counting comments takes HR days in every cycle. With hundreds of answers, the analysis arrives late."
+      - title: "Privacy risk"
+        text: "Comments mention coworkers, managers, branches and sometimes a phone number or email. Whoever reads them learns who is being discussed, and a small slice of data can reveal who answered."
+      - title: "Serious signals get lost"
+        text: "A report of harassment or exhaustion can sit among the other answers until the final report."
+    nr1_label: "Context"
+    nr1: "Since 26 May 2026, Brazil's NR-1 regulation includes psychosocial risk factors in the occupational risk management that companies must run. A climate survey does not meet that requirement on its own, but open comments often show these risks early. This is context, not legal advice."
+
+  solution:
+    title: "The solution"
+    lead: "A flow that treats every comment as sensitive data, from submission to dashboard."
+    items:
+      - title: "Anonymization first"
+        text: "Rules and a small name recognition model replace personal data with placeholders such as PESSOA and CPF. The original text is never stored."
+      - title: "AI on the server itself"
+        text: "Classification runs on an open model with Ollama, on the server's CPU. No comment goes to a third party API."
+      - title: "Dashboard with a minimum group"
+        text: "No group with fewer than {k} answers is shown. Small areas are merged so nobody can be identified by subtraction."
+      - title: "Critical case alerts"
+        text: "When the model or the risk lexicon points to harassment, discrimination, burnout or threats, n8n records the alert and can notify the person in charge on Telegram, with the anonymized text only."
+
+  how:
+    title: "How it works"
+    lead: "Every answer goes through four kinds of parts. The legend shows what is a fixed rule, what is a small name recognition model, what is a language model and what is automation."
+    figure_title: "Path of one answer, from submission to dashboard and alert"
+    figure_caption: "Colors and tags show the kind of each part. The same information appears as text in the numbered list."
+    text_title: "The diagram as text"
+    legend_title: "Legend"
+    kinds:
+      rule: {tag: "RULE", name: "Fixed rule", text: "patterns, word lists and check digits. Always gives the same result."}
+      ner: {tag: "NER", name: "Small model", text: "recognizes names of people and places with spaCy."}
+      llm: {tag: "LLM", name: "Language model", text: "reads the anonymized text and returns labels in a fixed format."}
+      n8n: {tag: "N8N", name: "Automation", text: "n8n workflows that notify, summarize and clean up."}
+    branch_all: "all"
+    branch_critical: "if critical"
+    divider: "From here on, anonymized text only"
+    steps:
+      input:
+        title: "Answer"
+        lines: ["Score from 0 to 10, area, tenure", "and an optional comment"]
+        text: "The answer arrives with a score from 0 to 10, area, tenure and an optional comment."
+      rules:
+        title: "Personal data rules"
+        lines: ["CPF, CNPJ, RG, CEP, email, phone,", "plate, employee ID; IBGE name list"]
+        text: "Patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates and employee IDs. A list of names from IBGE, the Brazilian statistics office, helps find personal names."
+      ner:
+        title: "Name recognition"
+        lines: ["A small spaCy model finds people", "and places the rules miss"]
+        text: "A small spaCy model finds names of people and places the rules miss. Each finding becomes a placeholder such as PESSOA. The original text is dropped here."
+      lexicon:
+        title: "Risk lexicon"
+        lines: ["Explicit phrases about harassment,", "violence or self-harm flag the case"]
+        text: "Explicit phrases about harassment, violence or self-harm flag the case as critical, even if the model fails."
+      llm:
+        title: "Local language model"
+        lines: ["{model} on Ollama returns themes,", "sentiment and a first critical flag"]
+        text: "The {model} model, running on Ollama, returns themes, sentiment and a first critical flag."
+      verifier:
+        title: "Second reading"
+        lines: ["With any sign of risk, the model rereads.", "When in doubt, the case stays flagged."]
+        text: "With any sign of risk, the model reads the comment again, focused on critical cases. When in doubt, the case stays flagged."
+      dashboard:
+        title: "Dashboard"
+        lines: ["Groups with {k} or", "more answers"]
+        text: "The dashboard shows only groups with {k} or more answers."
+      n8n:
+        title: "n8n"
+        lines: ["Alerts, summary", "and cleanup"]
+        text: "n8n deletes public submissions after {days} days and monitors the queue. With Telegram turned on, it also sends the alerts and a daily summary."
+
+  results:
+    title: "Results"
+    lead: "Numbers measured on the synthetic dataset. Each one shows how many cases were counted and how it was measured."
+    sample_note: "These numbers are samples. Measured results appear here after the evaluation."
+    items:
+      pii_recall:
+        label: "Personal data found"
+        method: "Share of the personal data planted in the synthetic dataset that the anonymizer replaced with placeholders."
+        n: "{n} personal data items"
+      pii_leaks:
+        label: "Comments with a leak"
+        method: "Comments where at least one planted personal data item was left, among those that had any."
+        n: "{n} comments"
+      critical_recall:
+        label: "Critical cases found"
+        method: "Critical cases in the test set that the system flagged. This is the number that matters most: a missed case costs more than a false alarm."
+        n: "{n} critical cases"
+      critical_precision:
+        label: "Correct alerts"
+        method: "Among comments flagged as critical, the share that really was critical."
+        n: "{n} alerts"
+      sentiment:
+        label: "Correct sentiment"
+        method: "Test set comments where the sentiment matched the reference."
+        n: "{n} comments"
+        extra: "Cohen's kappa: {value}"
+      themes:
+        label: "Themes, macro F1"
+        method: "Mean F1 over the themes. Rare themes weigh the same as common ones."
+        n: "{n} comments"
+      latency:
+        label: "Time per comment"
+        method: "Median classification time on the server's CPU, without a GPU, after the model is loaded."
+        n: "{n} comments"
+        extra: "p95: {value}"
+    ci: "95% CI: {lo} to {hi}"
+    reference:
+      intended: "Reference: labels set when the synthetic dataset was generated."
+      human: "Reference: labels from a person who read the comments without seeing the model's answer."
+    hardware: "Server with {cpus} vCPUs and {mem} GiB of RAM."
+    pipeline: "Model {model}, prompt {prompt}, anonymizer {anonymizer}."
+
+  estimate:
+    title: "Hours saved"
+    lead: "A simple calculation for your own case. Change the values in the table and the result updates right away."
+    note: "The default values are example assumptions, not measurements. Machine time comes from the measurement above, when it exists."
+    table_caption: "Assumptions of the estimate"
+    col_assumption: "Assumption"
+    col_value: "Value"
+    rows:
+      responses_per_cycle: {label: "Answers per cycle", unit: "answers"}
+      comment_share: {label: "Share with a comment", unit: "%"}
+      minutes_read_classify: {label: "Minutes to read and classify one comment", unit: "min"}
+      minutes_anonymize: {label: "Minutes to anonymize one comment by hand", unit: "min"}
+      cycles_per_year: {label: "Survey cycles per year", unit: "cycles"}
+      review_share: {label: "Share that still needs human review", unit: "%"}
+      minutes_per_review: {label: "Minutes per review", unit: "min"}
+    outputs_title: "Result of the estimate"
+    outputs:
+      comments: "Comments per year"
+      manual: "Hours of manual work per year"
+      review: "Hours of review with the system"
+      saved: "Hours saved per year"
+      machine: "Machine time per year"
+    machine_not_measured: "Not measured yet"
+    hours: "{value} h"
+    formula_title: "How the calculation works"
+    formula:
+      - "Comments per year = answers × share with a comment × cycles."
+      - "Manual work = comments × (reading minutes + anonymization minutes) ÷ 60."
+      - "Review with the system = comments × reviewed share × minutes per review ÷ 60."
+      - "Hours saved = manual work minus review. Machine time uses the measured mean per comment and does not count as people's work."
+    reset: "Reset to default values"
+    invalid: "Use a number between {min} and {max}."
+
+  preview:
+    title: "The dashboard"
+    lead: "The dashboard shows eNPS, themes, sentiment and critical cases without exposing small groups."
+    enps_label: "eNPS of the synthetic dataset"
+    responses: "{n} answers"
+    promoters: "Promoters"
+    passives: "Passives"
+    detractors: "Detractors"
+    bar_label: "Distribution of answers"
+    explainer: "eNPS is the percentage of promoters (scores 9 and 10) minus the percentage of detractors (0 to 6). It ranges from −100 to +100."
+    empty: "The synthetic dataset does not have enough answers to show numbers yet."
+    link: "See the full dashboard"
+
+  privacy_summary:
+    title: "Privacy"
+    lead: "The demo was designed to keep as little as possible."
+    items:
+      - "The original comment text is never stored. Only the anonymized version is."
+      - "IP addresses are never stored. They are used only in memory, to limit excessive submissions."
+      - "Public submissions are deleted after {days} days."
+      - "Groups with fewer than {k} answers are not shown on the dashboard."
+    link: "Read the privacy page"
+
+  demo:
+    title: "Try it with a fictitious answer"
+    text: "Write as if you worked at Talvana Distribuição, a made up company. You get a code to follow the result while it moves through the queue."
+    cta: "Submit an answer"
+
+dashboard:
+  title: "Dashboard"
+  lead: "Climate survey results of Talvana Distribuição, a fictitious company. The synthetic dataset has answers created for the project. Public submissions come from the demo."
+  controls_label: "Dataset"
+  datasets:
+    synthetic: "Synthetic dataset"
+    public: "Public submissions"
+  loading: "Loading the dashboard."
+  error: "Could not load the dashboard. Try again in a few minutes."
+  retry: "Try again"
+  refresh_failed: "The last update failed. The numbers below are from {datetime}."
+  snapshot_banner: "Live analysis is offline. Showing the snapshot from {datetime}."
+  static_banner: "Live analysis did not respond. Showing the file published with the site."
+  freshness_live: "Live data, generated on {datetime}."
+  freshness_static: "Data generated on {datetime}."
+  showing: "Showing: {dataset}."
+  min_group_note: "Groups with fewer than {k} answers are not shown. Small areas and tenure bands are merged into one unnamed group."
+  small_public: "Public submissions have not reached {k} answers yet. Numbers appear once there are enough answers that nobody can be identified."
+  small_synthetic: "The synthetic dataset does not have enough answers to show numbers yet."
+  small_cta: "Submit a fictitious answer"
+  show_table: "Show table"
+  keys_hint: "Use the arrow keys to move through the values of the chart. The same numbers are in the table right below it."
+  other_areas: "Other areas (merged)"
+  other_tenures: "Other tenure bands (merged)"
+  merged_note:
+    areas: "{other} merges the areas with fewer than {k} answers. If that group is still too small, the smallest visible area joins it too."
+    tenures: "{other} merges the tenure bands with fewer than {k} answers. If that group is still too small, the smallest visible band joins it too."
+  enps_explainer: "eNPS is the percentage of promoters (scores 9 and 10) minus the percentage of detractors (0 to 6). It ranges from −100 to +100."
+  groups_none: "No group has enough answers to be shown."
+  themes_none: "There are no classified comments in this dataset yet."
+  themes_zero: "Not mentioned in this dataset: {themes}."
+  heat_empty: "No classified comments: {areas}."
+  overview_legend: "Score groups"
+  sentiment_legend: "Sentiment"
+  heat_legend:
+    title: "Share of the area's comments"
+    zero: "None"
+    first: "up to {hi}"
+    range: "{lo} to {hi}"
+  sections:
+    overview: "Overall eNPS"
+    by_area: "eNPS by area"
+    by_tenure: "eNPS by tenure"
+    themes: "Themes"
+    heatmap: "Themes by area"
+    critical: "Critical cases"
+    production: "Queue and production"
+  section_notes:
+    themes: "How many comments mention each theme and the sentiment of those comments. A comment can have more than one theme."
+    heatmap: "Share of each area's comments that mention the theme. In the table, the number in parentheses is the comment count."
+    critical: "Anonymized excerpts. The area is shown only when the group has {k} or more answers. Tenure is never shown."
+    production: "How the public demo is doing right now."
+  charts:
+    overview: "Split of answers into promoters, passives and detractors"
+    by_area: "Chart of eNPS by area"
+    by_tenure: "Chart of eNPS by tenure"
+    themes: "Chart of themes with the sentiment of the comments"
+    heatmap: "Heatmap of themes by area"
+  summaries:
+    groups: "Highest eNPS: {top}, {top_value}. Lowest: {bottom}, {bottom_value}."
+    themes: "Most mentioned theme: {theme}, in {count}."
+    heatmap: "Highest share: {theme} in {area}, mentioned in {share} of the area's comments."
+  units:
+    answers_one: "{n} answer"
+    answers_other: "{n} answers"
+    comments_one: "{n} comment"
+    comments_other: "{n} comments"
+  marks:
+    group: "{name}: eNPS {value}, {answers}."
+    part: "{name}: {count}, {share} of answers."
+    theme: "{name}: {count}. {split}."
+    heat: "{theme} in {area}: {share}, {n} of {total} comments."
+  tips:
+    split: "{promoters} promoters, {passives} passives, {detractors} detractors"
+    heat: "{n} of {total} comments in the area"
+    of_answers: "of answers"
+  critical_types: "Cases by type"
+  critical_recent: "Most recent excerpts"
+  critical_show_all: "Show all {n} cases"
+  critical_show_less: "Show fewer"
+  critical_area_hidden: "Area hidden"
+  critical_themes: "Themes: {themes}"
+  critical_empty: "No critical cases in this dataset."
+  labels:
+    promoters: "Promoters"
+    passives: "Passives"
+    detractors: "Detractors"
+    responses: "Answers"
+    with_comment: "With a comment"
+    critical: "Critical cases"
+    enps: "eNPS"
+    count: "Comments"
+    share: "Share"
+    group: "Group"
+    area: "Area"
+    tenure: "Tenure"
+    theme: "Theme"
+  queue:
+    title: "Queue now"
+    pending: "In queue"
+    processing: "Being analyzed"
+    eta: "Estimated wait"
+    eta_none: "No estimate"
+    worker: "Analyzer"
+    worker_online: "Online"
+    worker_offline: "Offline"
+    worker_unknown: "No signal"
+    went_online: "The analyzer is working again."
+    went_offline: "The analyzer stopped responding."
+    full: "The queue is full. New submissions are accepted again once it moves."
+    error: "Could not read the queue status right now."
+  production:
+    title: "Since the demo started"
+    since: "Since {date}"
+    none: "No data"
+    submissions: "Submissions"
+    distinct: "Distinct people"
+    median: "Time to result, median"
+    p95: "Time to result, p95"
+    alerts: "Alerts sent"
+  noscript: "The dashboard uses JavaScript to draw the charts. The synthetic dataset is available at [dashboard-synthetic.json](/data/dashboard-synthetic.json)."
+
+submit:
+  title: "Submit a fictitious answer"
+  lead: "Answer as if you worked at Talvana Distribuição, a made up company. Your comment is anonymized before it is stored and classified by a local model. At the end you get a code to follow the result."
+  form_title: "Your answer"
+  required_note: "Fields marked with * are required."
+  score_low: "Not at all likely"
+  score_high: "Extremely likely"
+  area_label: "Area"
+  area_placeholder: "Choose an area"
+  tenure_legend: "Tenure"
+  comment_label: "Comment (optional)"
+  comment_hint: "Do not write real data about yourself or other people. If you do, it will be replaced with placeholders."
+  counter: "{count} of {max} characters"
+  counter_over: "{count} characters over the limit"
+  consent_label: "I understand this is a demo with a fictitious company and that my comment will be anonymized and deleted after {days} days."
+  turnstile_label: "Bot check"
+  submit: "Submit answer"
+  sending: "Sending"
+  sent: "Answer received. Your code is {code}."
+  errors:
+    summary_title: "Check the fields below before submitting."
+    score: "Choose a score from 0 to 10."
+    area: "Choose an area."
+    tenure: "Choose your tenure."
+    comment_long: "The comment is longer than {max} characters."
+    consent: "Check the confirmation box to submit."
+    turnstile: "Complete the bot check."
+    code: "Type the code in the format XXXX-XXXX, with 8 letters and numbers."
+  api_errors:
+    duplicate: "This comment was already submitted in the last 24 hours. Write a different one or follow the earlier submission with its code."
+    rate_limited: "Too many submissions in a row. Try again in {minutes} min."
+    queue_full: "The queue is full right now. Try again in a few minutes."
+    offline: "The analysis is offline right now. Try again later."
+    network: "No connection to the server. Check your internet and try again."
+    turnstile: "The bot check failed. Reload the page and try again."
+    validation: "Some fields were not accepted. Check them and submit again."
+    unknown: "Something went wrong. Try again in a few minutes."
+    too_large: "The submission is too large. Shorten the comment and try again."
+    turnstile_unavailable: "The bot check did not answer. Try again in a moment."
+  track:
+    title: "Follow your answer"
+    lead: "Paste the code you got when you submitted."
+    code_label: "Tracking code"
+    code_hint: "Format XXXX-XXXX. Keep the code: it is the only way to see the result."
+    lookup: "See result"
+    your_code: "Your code"
+    your_link: "Link to this result"
+    copy_code: "Copy code"
+    copy_link: "Copy link"
+    position: "Position in queue: {position}"
+    eta: "Estimated wait: {time}"
+    progress_label: "Analysis progress"
+    paused: "Updates paused while the tab is in the background."
+    not_found: "We could not find this code. Check that you typed it correctly. Submissions are deleted after {days} days."
+    status_title: "Answer status"
+    checking: "Checking the queue"
+    anonymized_note: "The comment was anonymized as soon as it arrived, before it entered the queue."
+    reconnecting: "No connection to the server. Trying again in {seconds} s."
+    offline: "The analysis is offline right now. Trying again in {seconds} s."
+    result_ready: "The result is right below."
+    status:
+      queued: "In queue"
+      processing: "Being analyzed"
+      done: "Done"
+      review: "Done, with manual review"
+      skipped: "No comment to analyze"
+      failed: "Could not be analyzed"
+  result:
+    title: "Result"
+    anonymized: "Anonymized comment"
+    removed: "What was removed"
+    removed_none: "Nothing was removed."
+    removed_item: "{label}: {count}"
+    pending: "Waiting for analysis"
+    themes_none: "No theme"
+    sentiment_none: "No clear sentiment"
+    no_comment: "You did not write a comment. The score counts on the dashboard, but there is no text to analyze."
+    review: "The model answered outside the expected format. The comment was set aside for manual review, and the search for risk words still applies."
+    failed: "The model could not analyze this comment. The score still counts on the dashboard."
+    themes: "Themes"
+    sentiment: "Sentiment"
+    critical: "Critical case"
+    critical_yes: "Yes"
+    critical_no: "No"
+    processing_time: "Analyzed in {seconds} s by the {model} model."
+    cvv: "If you are going through something similar, CVV, a free Brazilian emotional support line, answers 24 hours a day at 188 or [cvv.org.br](https://cvv.org.br). Outside Brazil, look for a local crisis line."
+    alert_note: "In a real company, this case would trigger an alert to HR. Here, the alert goes to the person in charge of the project, with the anonymized text only."
+  noscript: "Submitting needs JavaScript, for the bot check and to follow the queue."
+
+privacy:
+  title: "Privacy"
+  toc_title: "On this page"
+  lead: "This page explains what the public demo collects and how each item is handled. It is a portfolio project and uses a fictitious company."
+  updated: "Applies to the current version of the demo."
+  sections:
+    collect:
+      title: "What the demo collects"
+      items:
+        - "The score from 0 to 10, the area and the tenure you pick."
+        - "The comment, if you write one. It is anonymized before it is stored."
+        - "The page language and the date and time of the submission."
+        - "The result of the bot check (Cloudflare Turnstile). The token is verified and dropped."
+    anonymize:
+      title: "What is anonymized and how"
+      text: "Before storing anything, the system looks for personal data in the comment and replaces each item with a placeholder. Fixed rules find documents and contact details by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, and a small name recognition model find people and places. Only the text with placeholders goes on to the language model."
+      table_caption: "Placeholders used instead of personal data"
+      col_marker: "Placeholder"
+      col_meaning: "What it replaces"
+      limits: "No method is always right. That is why we ask you not to write real data. In public excerpts on the dashboard, swear words also become a placeholder."
+    never:
+      title: "What is never stored"
+      items:
+        - "The original comment text."
+        - "Your IP address. It stays in memory only, to limit excessive submissions and to count distinct people per day with a code that changes every day."
+        - "Tracking cookies or audience analytics. The site uses none."
+    retention:
+      title: "How long data is kept"
+      items:
+        - "Public submissions: deleted after {days} days."
+        - "Alert log: only an identifier, the case types and timestamps, deleted after {alert_days} days."
+        - "Daily counters without any text, such as number of submissions and analysis time: kept for the production statistics."
+    min_group:
+      title: "Minimum group"
+      text: "No group, cross tab or slice with fewer than {k} answers is shown on the dashboard. Small areas are merged into one unnamed group. When that group is small too, the smallest visible area joins it, so nobody can find a hidden group by subtracting the others from the total."
+    who:
+      title: "Who sees what"
+      table_caption: "Access to the demo data"
+      col_who: "Who"
+      col_what: "What they see"
+      rows:
+        - who: "Anyone on the site"
+          what: "Aggregated numbers with a minimum group and anonymized excerpts of critical cases, without tenure and with the area only when the group is large enough."
+        - who: "The person who submitted"
+          what: "Their own result, with the tracking code."
+        - who: "Person in charge of the project"
+          what: "The alerts, with the anonymized text, which can go to Telegram, and the database, which keeps anonymized text only."
+        - who: "Cloudflare"
+          what: "Connection data to deliver the site, run the bot check and block abuse, under Cloudflare's own policy."
+    legal:
+      title: "Suggested legal basis for a real company"
+      text: "In this demo, the basis is your consent, given with the confirmation box on the form. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered."
+      disclaimer: "This is a portfolio project and not legal advice. A real company should confirm the legal basis with its data protection officer and legal team."
+    rights:
+      title: "Questions"
+      text: "Submissions are anonymous, so there is no way to find yours without the tracking code. For questions about the project, use the contact at [andreiludescher.com](https://andreiludescher.com)."
+
+not_found:
+  title: "Page not found"
+  text: "The address may be wrong or the page has moved."
+  home: "Back to the home page"
+  dashboard: "See the dashboard"
+
+js:
+  copy: "Copy"
+  copied: "Copied"
+  copy_failed: "Could not copy. Select the text and copy it by hand."

@@ -1,0 +1,121 @@
+{
+  "id": "VsnIntakeForms01",
+  "name": "Intake: Google Forms (optional)",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "documentId": {
+          "__rl": true,
+          "value": "SET_RESPONSES_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list"
+        },
+        "event": "rowAdded",
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "686adfcb-e2fb-58e0-acc3-a1727e07a9f2",
+      "name": "New form answer",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Google Forms writes one row per answer: the timestamp, then the questions in form order.\n// Columns are read by position, so renaming a question does not break the flow.\nreturn $input.all().map((item) => {\n  const values = Object.values(item.json);\n  return { json: { submitted_at: values[0], score: values[1], area: values[2], tenure: values[3],\n                   comment: values[4] || '' } };\n});\n"
+      },
+      "id": "2ab04b53-f9f8-5e05-96ea-a3e6c1355810",
+      "name": "Read columns by position",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://api-internal:8002/v1/internal/responses",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}"
+      },
+      "id": "064d7b2b-3635-586f-811d-8fbcb2d33a8a",
+      "name": "Send to the API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "internalApiCredential",
+          "name": "Internal API"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    }
+  ],
+  "connections": {
+    "New form answer": {
+      "main": [
+        [
+          {
+            "node": "Read columns by position",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read columns by position": {
+      "main": [
+        [
+          {
+            "node": "Send to the API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
+  "description": "Optional. Link the form to a sheet, share it with a Google service account, add that credential to the trigger and set the spreadsheet id. The API anonymizes on arrival."
+}

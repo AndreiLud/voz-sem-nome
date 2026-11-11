@@ -1,0 +1,202 @@
+/* Base: reset, typography, links, focus, utilities. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  accent-color: var(--ink);
+  scrollbar-color: var(--muted) transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Reduced motion means none at all: no transitions anywhere. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: var(--leading);
+  font-kerning: normal;
+  overflow-wrap: break-word;
+  min-block-size: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#main:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  line-height: var(--leading-tight);
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--step-4); letter-spacing: -0.025em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); letter-spacing: -0.01em; }
+h4 { font-size: var(--step-0); letter-spacing: 0; }
+
+p, ul, ol, dl, figure, blockquote, table {
+  margin-block: 0;
+}
+
+p { text-wrap: pretty; }
+
+ul, ol { padding-inline-start: 1.25rem; }
+
+li + li { margin-block-start: var(--space-2); }
+
+img, svg, video { max-inline-size: 100%; }
+
+strong, b { font-weight: 700; }
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness 0.12s;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button { cursor: pointer; }
+
+[hidden] { display: none !important; }
+
+.visually-hidden {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--gutter);
+  inset-block-start: -10rem;
+  z-index: 10;
+  padding: var(--space-3) var(--space-4);
+  background: var(--ink);
+  color: var(--on-ink);
+  font-weight: 700;
+  border-radius: var(--radius-m);
+}
+
+.skip-link:focus {
+  inset-block-start: var(--space-3);
+}
+
+.icon {
+  inline-size: 1.15em;
+  block-size: 1.15em;
+  flex: none;
+  vertical-align: -0.2em;
+  fill: currentColor;
+}
+
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-inline-size: 60ch;
+}
+
+.note {
+  font-size: var(--step--1);
+  color: var(--ink-2);
+  max-inline-size: var(--measure);
+}
+
+.muted { color: var(--ink-2); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+
+.eyebrow::before {
+  content: "";
+  inline-size: 1.6em;
+  block-size: 0.7em;
+  background: var(--ink);
+  border-radius: 1px;
+}
+
+/* A solid bar where a value or a word would be: the project's redaction motif. */
+.redaction {
+  display: inline-block;
+  inline-size: 5.5ch;
+  block-size: 0.72em;
+  background: var(--line-strong);
+  border-radius: 2px;
+  vertical-align: baseline;
+}
+
+@media (forced-colors: active) {
+  .redaction,
+  .wordmark__bar,
+  .eyebrow::before {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+}
