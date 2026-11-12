@@ -1,10 +1,9 @@
 name: voz-sem-nome
 
-# Everything runs on one machine with `docker compose up -d`.
-# Two networks keep the exposure small:
-#   backend  Ollama, both APIs, the worker and n8n. Nothing here is published beyond 127.0.0.1.
-#   edge     cloudflared and the public API only. The tunnel cannot reach n8n, Ollama or the internal API.
-# cloudflared starts only with the "tunnel" profile (set COMPOSE_PROFILES=tunnel in .env once the token exists).
+# Local mode: the whole analysis runs on one machine with `docker compose up -d`, for organizations
+# that need nothing to leave their own server. The public demo does not use this stack: it runs on
+# Cloudflare (worker/, wrangler.jsonc, docs/deploy.md).
+# Nothing here is published beyond 127.0.0.1.
 
 x-app: &app
   build: .
@@ -60,7 +59,7 @@ services:
     <<: *app
     command: ["uvicorn", "enps.api.public:app", "--host", "0.0.0.0", "--port", "8001",
               "--workers", "1", "--no-access-log", "--proxy-headers", "--forwarded-allow-ips", "*"]
-    networks: [backend, edge]
+    networks: [backend]
     ports:
       - "127.0.0.1:8001:8001"
     depends_on:
@@ -120,18 +119,6 @@ services:
     ports:
       - "127.0.0.1:5678:5678"         # editor through an SSH tunnel only
 
-  cloudflared:
-    image: cloudflare/cloudflared:2026.10.7@sha256:4955524aeaa379e154023d5a027c250f7b35041a2e7e950cf13f144bc9b9c5ba
-    profiles: ["tunnel"]
-    restart: unless-stopped
-    command: ["tunnel", "--config", "/etc/cloudflared/config.yml", "--metrics", "127.0.0.1:20241", "run"]
-    volumes:
-      - ./cloudflared/config.yml:/etc/cloudflared/config.yml:ro
-      # Created by `cloudflared tunnel create`, kept outside the repository (docs/deploy.md).
-      - ${CLOUDFLARED_CREDENTIALS:-~/.config/voz-sem-nome/cloudflared/credentials.json}:/etc/cloudflared/credentials.json:ro
-    networks: [edge]
-    depends_on: [api]
-
   # Batch pipeline on the synthetic data: docker compose run --rm pipeline
   pipeline:
     <<: *app
@@ -154,4 +141,3 @@ volumes:
 
 networks:
   backend:
-  edge:

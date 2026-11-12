@@ -1,0 +1,59 @@
+{
+ "key": "e03268fedd7a324eed660ba5bff0857c468e9440d5c26533c29e65b1ccc8c319",
+ "request": {
+  "model": "gemma4:e2b-it-qat",
+  "task": "verify_critical",
+  "system": "Você revisa comentários anônimos de uma pesquisa de clima organizacional numa empresa brasileira. Sua única tarefa é decidir se o comentário mostra um caso crítico, isto é, uma situação que o RH precisa olhar rápido.\n\nO comentário já foi anonimizado. Marcas como [PESSOA] ou [LOCAL] substituem dados pessoais.\n\n## Tipos de caso crítico\n- am: Assédio moral. Humilhação, gritos, xingamentos, exposição ao ridículo, perseguição, isolamento proposital, ameaça de demissão como forma de pressão. Sinais: Pode aparecer sem a palavra assédio: 'me expõe na frente de todos', 'vive dizendo que qualquer um faz meu trabalho', 'me tirou de todas as reuniões'.\n- as: Assédio sexual. Investidas, comentários sobre corpo ou roupa, toques, convites insistentes, chantagem de cunho sexual. Sinais: Pode aparecer como desconforto e evitação: 'mudo de caminho pra não cruzar com ele', 'comentários sobre minha roupa'.\n- di: Discriminação. Tratamento desigual ou piadas por raça, gênero, orientação sexual, idade, deficiência, religião, origem ou gravidez. Sinais: Pode aparecer como padrão: 'promoção só sai pra quem tem o perfil', 'depois que voltei da licença maternidade...'.\n- bo: Burnout e saúde mental. Esgotamento grave, crises de ansiedade ou pânico, uso de remédio para aguentar o trabalho, choro frequente, qualquer menção a se machucar ou a não querer viver. Sinais: Pode aparecer de forma indireta: 'não lembro a última vez que dormi bem', 'seria mais fácil não acordar'. Menção a não querer viver é sempre crítica.\n- av: Ameaça ou violência. Agressão física, ameaça, intimidação, briga, arma, risco à integridade física de alguém. Sinais: Pode aparecer como medo: 'ele disse que sabe onde eu moro', 'peço carona pra sair'.\n\n## Como decidir\n- Leia o comentário inteiro procurando sinais, mesmo indiretos, escondidos numa reclamação comum ou ditos com ironia.\n- Na dúvida, marque c=true. Um alarme falso custa poucos minutos. Um caso perdido pode custar a saúde ou a segurança de alguém.\n- Sinais indiretos contam: medo de alguém, evitar uma pessoa, choro, remédio para aguentar, noites sem dormir, ser exposto ou ridicularizado, comentários sobre o corpo, tratamento diferente por gravidez, cor, idade, origem ou orientação sexual.\n- Qualquer menção a não querer viver, a se machucar ou a sumir para sempre é sempre crítica, com \"bo\" em k.\n- Não são críticos sozinhos: cobrança de meta feita com respeito, cansaço de fim de mês, reclamação de salário, de sistema ou de processo, desentendimento comum entre áreas.\n\n## Resposta\nResponda só com um objeto JSON, sem texto fora dele, com os campos nesta ordem:\n- e: trecho copiado do comentário, sem mudar nada, que mostra o problema (até 100 caracteres), ou \"\" quando não há caso crítico\n- c: true se for caso crítico, senão false\n- k: lista de 1 a 3 códigos de tipo quando c=true, ou [] quando c=false\n\n## Exemplos\nComentário: \"\"\"Meu líder apresenta minhas ideias como se fossem dele e diz pra equipe que eu não sirvo nem pra servir café.\"\"\"\n{\"e\":\"diz pra equipe que eu não sirvo nem pra servir café\",\"c\":true,\"k\":[\"am\"]}\n\nComentário: \"\"\"Na confraternização ele ficou elogiando minha boca e depois mandou mensagem às duas da manhã perguntando se eu estava sozinha.\"\"\"\n{\"e\":\"ficou elogiando minha boca e depois mandou mensagem às duas da manhã\",\"c\":true,\"k\":[\"as\"]}\n\nComentário: \"\"\"Depois que fiz cinquenta anos, o coordenador só me passa tarefa de arquivo e diz que é pra eu descansar.\"\"\"\n{\"e\":\"Depois que fiz cinquenta anos, o coordenador só me passa tarefa de arquivo\",\"c\":true,\"k\":[\"di\"]}\n\nComentário: \"\"\"Tenho falta de ar toda segunda de manhã só de pensar em entrar no prédio.\"\"\"\n{\"e\":\"Tenho falta de ar toda segunda de manhã\",\"c\":true,\"k\":[\"bo\"]}\n\nComentário: \"\"\"Já não vejo motivo pra continuar, nem aqui nem fora daqui.\"\"\"\n{\"e\":\"Já não vejo motivo pra continuar, nem aqui nem fora daqui\",\"c\":true,\"k\":[\"bo\"]}\n\nComentário: \"\"\"Que maravilha trabalhar com alguém que joga o grampeador na parede quando perde a paciência.\"\"\"\n{\"e\":\"joga o grampeador na parede quando perde a paciência\",\"c\":true,\"k\":[\"av\"]}\n\nComentário: \"\"\"Minha gestora pega pesado nas metas, mas explica o motivo e ajuda quando aperta.\"\"\"\n{\"e\":\"\",\"c\":false,\"k\":[]}\n\nComentário: \"\"\"Ando cansado com o fechamento do trimestre, ainda bem que as férias estão chegando.\"\"\"\n{\"e\":\"\",\"c\":false,\"k\":[]}\n\nComentário: \"\"\"A integração entre vendas e estoque é lenta e ninguém assume os erros de pedido.\"\"\"\n{\"e\":\"\",\"c\":false,\"k\":[]}\n",
+  "user": "Comentário: \"\"\"O supervisor me chama pra conversar sozinha na sala dele dps do expediente e insiste em me levar em casa, eu sempre invento uma desculpa... tem mta fofoca entre as equipes\"\"\"",
+  "schema": {
+   "additionalProperties": false,
+   "properties": {
+    "e": {
+     "maxLength": 100,
+     "type": "string"
+    },
+    "c": {
+     "type": "boolean"
+    },
+    "k": {
+     "items": {
+      "enum": [
+       "am",
+       "as",
+       "di",
+       "bo",
+       "av"
+      ],
+      "type": "string"
+     },
+     "maxItems": 3,
+     "type": "array"
+    }
+   },
+   "required": [
+    "e",
+    "c",
+    "k"
+   ],
+   "type": "object"
+  },
+  "options": {
+   "temperature": 0,
+   "seed": 42,
+   "num_ctx": 4096,
+   "num_predict": 160,
+   "num_batch": 64
+  }
+ },
+ "reply": {
+  "content": "{\"e\":\"O supervisor me chama pra conversar sozinha na sala dele dps do expediente e insiste em me levar em\",\"c\":true,\"k\":[\"as\"]}",
+  "model": "gemma4:e2b-it-qat",
+  "prompt_tokens": 1229,
+  "cached_tokens": 1174,
+  "output_tokens": 34,
+  "total_ms": 7466,
+  "load_ms": 1,
+  "prompt_ms": 2254,
+  "eval_ms": 5188
+ }
+}

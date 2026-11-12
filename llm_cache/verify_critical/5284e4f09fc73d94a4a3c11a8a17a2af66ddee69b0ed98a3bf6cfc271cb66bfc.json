@@ -46,14 +46,14 @@
   }
  },
  "reply": {
-  "content": "{\"e\":\"Ando muito cansado, o ritmo está pesado, trocaram de coordenador tres vezes em um ano, ninguém sabe\", \"c\":false,\"k\":[]}",
+  "content": "{\"e\":\"Ando muito cansado, o ritmo está pesado, trocaram de coordenador tres vezes em um ano, ninguém sabe\", \"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1235,
-  "cached_tokens": 1175,
-  "output_tokens": 37,
-  "total_ms": 10202,
-  "load_ms": 5,
-  "prompt_ms": 2791,
-  "eval_ms": 7383
+  "cached_tokens": 1180,
+  "output_tokens": 38,
+  "total_ms": 8157,
+  "load_ms": 1,
+  "prompt_ms": 2257,
+  "eval_ms": 5878
  }
 }

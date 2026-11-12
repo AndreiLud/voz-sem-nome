@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a monitoria só escuta a ligação pra achar erro, nunca paar ensinar e e muita correria\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1238,
-  "cached_tokens": 1176,
+  "cached_tokens": 1175,
   "output_tokens": 32,
-  "total_ms": 7938,
+  "total_ms": 7464,
   "load_ms": 1,
-  "prompt_ms": 2744,
-  "eval_ms": 5170
+  "prompt_ms": 2536,
+  "eval_ms": 4903
  }
 }

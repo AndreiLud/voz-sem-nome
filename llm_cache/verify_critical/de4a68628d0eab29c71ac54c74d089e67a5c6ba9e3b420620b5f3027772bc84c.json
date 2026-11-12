@@ -49,11 +49,11 @@
   "content": "{\"e\":\"depois das demissoes a mesma quantidade de tarefa ficou com metade da equipe\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1208,
-  "cached_tokens": 1175,
+  "cached_tokens": 1165,
   "output_tokens": 28,
-  "total_ms": 5817,
+  "total_ms": 6319,
   "load_ms": 1,
-  "prompt_ms": 1391,
-  "eval_ms": 4402
+  "prompt_ms": 1751,
+  "eval_ms": 4545
  }
 }

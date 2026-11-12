@@ -51,9 +51,9 @@
   "prompt_tokens": 1218,
   "cached_tokens": 1182,
   "output_tokens": 28,
-  "total_ms": 6266,
-  "load_ms": 4,
-  "prompt_ms": 1517,
-  "eval_ms": 4716
+  "total_ms": 5868,
+  "load_ms": 1,
+  "prompt_ms": 1547,
+  "eval_ms": 4297
  }
 }

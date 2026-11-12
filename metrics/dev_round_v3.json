@@ -1,0 +1,9915 @@
+{
+ "split": "dev",
+ "n": 240,
+ "reference": "generator intended labels",
+ "hardware": {
+  "model_name": "QEMU Virtual CPU version 2.5+",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "flags": {
+   "sse4_2": true,
+   "avx": false,
+   "avx2": false,
+   "fma": false
+  },
+  "mem_total_gib": 13.6,
+  "os_cpu_count": 6,
+  "machine": "x86_64"
+ },
+ "models": {
+  "gemma4:e2b-it-qat": {
+   "model_info": {
+    "model": "gemma4:e2b-it-qat",
+    "digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+    "quantization": "Q4_0",
+    "parameter_size": "4.6B",
+    "runtime_version": "0.40.16"
+   },
+   "performance": {
+    "cold_start": {
+     "total_s": 52.809,
+     "load_s": 0.001,
+     "prompt_tokens": 2399,
+     "cached_tokens": 0,
+     "prompt_tps": 49.95106919024715
+    },
+    "steady": {
+     "n": 239,
+     "total_s": 2467.175,
+     "mean_s": 10.322907949790796,
+     "p50_s": 7.869,
+     "p95_s": 20.737299999999998,
+     "max_s": 33.963,
+     "generation_tps": 4.858199459607566,
+     "prompt_tps": 17.767382607592893,
+     "prompt_tokens": 676882,
+     "cached_tokens": 664553,
+     "cache_ratio": 0.9817855992625008,
+     "output_tokens": 8564
+    }
+   },
+   "sentiment": {
+    "n": 240,
+    "accuracy": 0.7625,
+    "kappa": 0.6364409482300414,
+    "labels": [
+     "pos",
+     "neu",
+     "neg"
+    ],
+    "confusion": [
+     [
+      60,
+      23,
+      3
+     ],
+     [
+      3,
+      31,
+      6
+     ],
+     [
+      0,
+      22,
+      92
+     ]
+    ],
+    "missing_prediction": 0
+   },
+   "themes": {
+    "micro_f1": 0.772,
+    "macro_f1": 0.7436107392955842
+   },
+   "themes_detail": {
+    "per_theme": {
+     "lid": {
+      "precision": 0.8153846153846154,
+      "recall": 0.9137931034482759,
+      "f1": 0.8617886178861788,
+      "support": 58,
+      "tp": 53,
+      "fp": 12,
+      "fn": 5
+     },
+     "rem": {
+      "precision": 0.9152542372881356,
+      "recall": 0.8307692307692308,
+      "f1": 0.870967741935484,
+      "support": 65,
+      "tp": 54,
+      "fp": 5,
+      "fn": 11
+     },
+     "car": {
+      "precision": 0.8795180722891566,
+      "recall": 0.8021978021978022,
+      "f1": 0.8390804597701149,
+      "support": 91,
+      "tp": 73,
+      "fp": 10,
+      "fn": 18
+     },
+     "cre": {
+      "precision": 0.9354838709677419,
+      "recall": 0.6444444444444445,
+      "f1": 0.763157894736842,
+      "support": 45,
+      "tp": 29,
+      "fp": 2,
+      "fn": 16
+     },
+     "rec": {
+      "precision": 0.9,
+      "recall": 0.5,
+      "f1": 0.6428571428571429,
+      "support": 18,
+      "tp": 9,
+      "fp": 1,
+      "fn": 9
+     },
+     "com": {
+      "precision": 0.4318181818181818,
+      "recall": 0.76,
+      "f1": 0.5507246376811594,
+      "support": 25,
+      "tp": 19,
+      "fp": 25,
+      "fn": 6
+     },
+     "eqp": {
+      "precision": 0.6744186046511628,
+      "recall": 0.725,
+      "f1": 0.6987951807228916,
+      "support": 40,
+      "tp": 29,
+      "fp": 14,
+      "fn": 11
+     },
+     "flx": {
+      "precision": 1.0,
+      "recall": 0.6774193548387096,
+      "f1": 0.8076923076923077,
+      "support": 31,
+      "tp": 21,
+      "fp": 0,
+      "fn": 10
+     },
+     "inf": {
+      "precision": 0.8387096774193549,
+      "recall": 0.7428571428571429,
+      "f1": 0.787878787878788,
+      "support": 70,
+      "tp": 52,
+      "fp": 10,
+      "fn": 18
+     },
+     "bem": {
+      "precision": 0.8275862068965517,
+      "recall": 0.5333333333333333,
+      "f1": 0.6486486486486487,
+      "support": 45,
+      "tp": 24,
+      "fp": 5,
+      "fn": 21
+     },
+     "cul": {
+      "precision": 0.7857142857142857,
+      "recall": 0.4782608695652174,
+      "f1": 0.5945945945945946,
+      "support": 23,
+      "tp": 11,
+      "fp": 3,
+      "fn": 12
+     },
+     "out": {
+      "precision": 0.8,
+      "recall": 0.9230769230769231,
+      "f1": 0.8571428571428571,
+      "support": 13,
+      "tp": 12,
+      "fp": 3,
+      "fn": 1
+     }
+    },
+    "macro_f1": 0.7436107392955842,
+    "micro_f1": 0.772,
+    "exact_match": 0.425
+   },
+   "critical": {
+    "tp": 12,
+    "fp": 9,
+    "fn": 0,
+    "tn": 219,
+    "precision": 0.5714285714285714,
+    "recall": 1.0,
+    "f1": 0.7272727272727273,
+    "recall_ci95": [
+     0.7575059933447592,
+     1.0
+    ],
+    "precision_ci95": [
+     0.3654655436930671,
+     0.7553003107462404
+    ],
+    "by_type": {
+     "am": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "as": {
+      "support": 2,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.34238022750665303,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.34238022750665303,
+       1.0
+      ]
+     },
+     "di": {
+      "support": 1,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.20654931437723745,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.20654931437723745,
+       1.0
+      ]
+     },
+     "bo": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "av": {
+      "support": 1,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.20654931437723745,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.20654931437723745,
+       1.0
+      ]
+     }
+    }
+   },
+   "critical_by_variant": {
+    "llm_only": {
+     "tp": 11,
+     "fp": 7,
+     "fn": 1,
+     "tn": 221,
+     "precision": 0.6111111111111112,
+     "recall": 0.9166666666666666,
+     "f1": 0.7333333333333334,
+     "recall_ci95": [
+      0.646120088858883,
+      0.9851349055950829
+     ],
+     "precision_ci95": [
+      0.3861904160223791,
+      0.7969475342783638
+     ],
+     "by_type": {
+      "am": {
+       "support": 4,
+       "recall_flag": 0.75,
+       "recall_flag_ci95": [
+        0.30064184258240184,
+        0.9544127391902995
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "as": {
+       "support": 2,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.34238022750665303,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.34238022750665303,
+        1.0
+       ]
+      },
+      "di": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      },
+      "bo": {
+       "support": 4,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.5101091635454027,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "av": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      }
+     }
+    },
+    "llm_lexicon": {
+     "tp": 11,
+     "fp": 8,
+     "fn": 1,
+     "tn": 220,
+     "precision": 0.5789473684210527,
+     "recall": 0.9166666666666666,
+     "f1": 0.7096774193548387,
+     "recall_ci95": [
+      0.646120088858883,
+      0.9851349055950829
+     ],
+     "precision_ci95": [
+      0.3627590353425504,
+      0.7685810871754576
+     ],
+     "by_type": {
+      "am": {
+       "support": 4,
+       "recall_flag": 0.75,
+       "recall_flag_ci95": [
+        0.30064184258240184,
+        0.9544127391902995
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "as": {
+       "support": 2,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.34238022750665303,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.34238022750665303,
+        1.0
+       ]
+      },
+      "di": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      },
+      "bo": {
+       "support": 4,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.5101091635454027,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "av": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      }
+     }
+    },
+    "full": {
+     "tp": 12,
+     "fp": 9,
+     "fn": 0,
+     "tn": 219,
+     "precision": 0.5714285714285714,
+     "recall": 1.0,
+     "f1": 0.7272727272727273,
+     "recall_ci95": [
+      0.7575059933447592,
+      1.0
+     ],
+     "precision_ci95": [
+      0.3654655436930671,
+      0.7553003107462404
+     ],
+     "by_type": {
+      "am": {
+       "support": 4,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.5101091635454027,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "as": {
+       "support": 2,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.34238022750665303,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.34238022750665303,
+        1.0
+       ]
+      },
+      "di": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      },
+      "bo": {
+       "support": 4,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.5101091635454027,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.5101091635454027,
+        1.0
+       ]
+      },
+      "av": {
+       "support": 1,
+       "recall_flag": 1.0,
+       "recall_flag_ci95": [
+        0.20654931437723745,
+        1.0
+       ],
+       "recall_type": 1.0,
+       "recall_type_ci95": [
+        0.20654931437723745,
+        1.0
+       ]
+      }
+     }
+    }
+   },
+   "status_counts": {
+    "done": 240,
+    "review": 0,
+    "skipped": 0
+   },
+   "verifier_share": 0.32916666666666666,
+   "errors": [
+    {
+     "id": "S0029",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations"
+    },
+    {
+     "id": "S0081",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "as"
+      ]
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0111",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii"
+    },
+    {
+     "id": "S0114",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "av"
+      ]
+     },
+     "subtle": "0",
+     "traits": "repeated_letters|decoy"
+    },
+    {
+     "id": "S0126",
+     "kinds": [
+      "critical_fp"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": "slang"
+    },
+    {
+     "id": "S0203",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am",
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0239",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "flx",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "di"
+      ]
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0320",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "flx",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": "rant|abbreviations|typos"
+    },
+    {
+     "id": "S0335",
+     "kinds": [
+      "critical_fp",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am"
+      ]
+     },
+     "subtle": "0",
+     "traits": "rant"
+    },
+    {
+     "id": "S0007",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos|repeated_letters|laughter|pii"
+    },
+    {
+     "id": "S0014",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|typos"
+    },
+    {
+     "id": "S0031",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter"
+    },
+    {
+     "id": "S0038",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii"
+    },
+    {
+     "id": "S0046",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0052",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0054",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0067",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0069",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos|repeated_letters|laughter"
+    },
+    {
+     "id": "S0080",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0098",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations"
+    },
+    {
+     "id": "S0100",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|typos|pii"
+    },
+    {
+     "id": "S0101",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter"
+    },
+    {
+     "id": "S0107",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "cul",
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|mixed"
+    },
+    {
+     "id": "S0110",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0115",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "cre",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii_decoy"
+    },
+    {
+     "id": "S0134",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|laughter|pii"
+    },
+    {
+     "id": "S0144",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0146",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "flx"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0151",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0154",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0177",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0184",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations"
+    },
+    {
+     "id": "S0224",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|mixed"
+    },
+    {
+     "id": "S0242",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "cul",
+       "rec"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "rec",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|mixed"
+    },
+    {
+     "id": "S0247",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang"
+    },
+    {
+     "id": "S0248",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "cre",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0254",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "flx",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0261",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii"
+    },
+    {
+     "id": "S0268",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0271",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii"
+    },
+    {
+     "id": "S0272",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "short|laughter"
+    },
+    {
+     "id": "S0279",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0283",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp",
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|laughter"
+    },
+    {
+     "id": "S0290",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii_decoy"
+    },
+    {
+     "id": "S0293",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "flx",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii"
+    },
+    {
+     "id": "S0295",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations"
+    },
+    {
+     "id": "S0302",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "cul",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|mixed|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0304",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0307",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0310",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0316",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "typos"
+    },
+    {
+     "id": "S0318",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "short"
+    },
+    {
+     "id": "S0330",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0344",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "com",
+       "eqp",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|abbreviations|laughter"
+    },
+    {
+     "id": "S0345",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "cul",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "cul",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations"
+    },
+    {
+     "id": "S0346",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0347",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0354",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0355",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0369",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0370",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0379",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0380",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "short|abbreviations"
+    },
+    {
+     "id": "S0383",
+     "kinds": [
+      "sentiment"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "cul",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com",
+       "cul",
+       "rec"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations"
+    },
+    {
+     "id": "S0394",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "flx",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|pii"
+    },
+    {
+     "id": "S0398",
+     "kinds": [
+      "sentiment",
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "cul",
+       "rec",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rec",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0003",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0008",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "flx",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "flx",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am",
+       "bo"
+      ]
+     },
+     "subtle": "1",
+     "traits": ""
+    },
+    {
+     "id": "S0009",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii"
+    },
+    {
+     "id": "S0012",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal"
+    },
+    {
+     "id": "S0013",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cul"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cul"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0018",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "cre"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0019",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0021",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0023",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos|repeated_letters|pii_decoy"
+    },
+    {
+     "id": "S0032",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii"
+    },
+    {
+     "id": "S0040",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "com",
+       "cul",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cul"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|abbreviations|typos"
+    },
+    {
+     "id": "S0043",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "cul",
+       "eqp",
+       "flx"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "eqp",
+       "flx"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal"
+    },
+    {
+     "id": "S0044",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "inf",
+       "lid",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0045",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0063",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "flx",
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "cre",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii"
+    },
+    {
+     "id": "S0066",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations|typos"
+    },
+    {
+     "id": "S0073",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|slang|typos"
+    },
+    {
+     "id": "S0074",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|repeated_letters"
+    },
+    {
+     "id": "S0075",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "cul",
+       "eqp",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "rant|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0076",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii"
+    },
+    {
+     "id": "S0086",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "1",
+     "traits": "self_harm"
+    },
+    {
+     "id": "S0088",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "com",
+       "inf",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0091",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "eqp",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "lid",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0092",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0093",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "cre",
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "cre"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations|typos"
+    },
+    {
+     "id": "S0104",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0124",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0129",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cul",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations|typos"
+    },
+    {
+     "id": "S0133",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0135",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "eqp",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|pii"
+    },
+    {
+     "id": "S0138",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos|repeated_letters|pii_decoy"
+    },
+    {
+     "id": "S0143",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter"
+    },
+    {
+     "id": "S0145",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "com",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "rant"
+    },
+    {
+     "id": "S0148",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|repeated_letters"
+    },
+    {
+     "id": "S0149",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "com",
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cre",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|abbreviations"
+    },
+    {
+     "id": "S0157",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii"
+    },
+    {
+     "id": "S0159",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cul",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "as"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am",
+       "as"
+      ]
+     },
+     "subtle": "1",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0162",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "cul"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cul",
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0166",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0170",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "lid",
+       "rec",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0171",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0172",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii"
+    },
+    {
+     "id": "S0175",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter|pii"
+    },
+    {
+     "id": "S0181",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "com",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|mixed|pii_decoy"
+    },
+    {
+     "id": "S0182",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "flx",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii_decoy"
+    },
+    {
+     "id": "S0183",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii"
+    },
+    {
+     "id": "S0186",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0188",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "rec"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "bo"
+      ]
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0190",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "flx",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "rant|typos"
+    },
+    {
+     "id": "S0194",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cul"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0196",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "as"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "am",
+       "as"
+      ]
+     },
+     "subtle": "1",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0201",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter|pii"
+    },
+    {
+     "id": "S0207",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0212",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "flx",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos|laughter"
+    },
+    {
+     "id": "S0214",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cul"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0217",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal"
+    },
+    {
+     "id": "S0218",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cre"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|mixed"
+    },
+    {
+     "id": "S0219",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "com",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal"
+    },
+    {
+     "id": "S0222",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii|pii_decoy"
+    },
+    {
+     "id": "S0225",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "rec"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0229",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0237",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0244",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "com",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "cul"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "rant|abbreviations|repeated_letters|pii_decoy"
+    },
+    {
+     "id": "S0250",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "one_word"
+    },
+    {
+     "id": "S0251",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii_decoy"
+    },
+    {
+     "id": "S0257",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "flx",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "flx",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations"
+    },
+    {
+     "id": "S0258",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "rec",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|slang"
+    },
+    {
+     "id": "S0260",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0267",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "flx",
+       "inf",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "cre",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii|pii_decoy"
+    },
+    {
+     "id": "S0270",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|repeated_letters"
+    },
+    {
+     "id": "S0278",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "eqp",
+       "flx",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "flx",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii_decoy"
+    },
+    {
+     "id": "S0281",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0284",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "out"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|decoy"
+    },
+    {
+     "id": "S0289",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations|typos"
+    },
+    {
+     "id": "S0294",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "slang|abbreviations"
+    },
+    {
+     "id": "S0305",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "rant"
+    },
+    {
+     "id": "S0311",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0313",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "decoy"
+    },
+    {
+     "id": "S0314",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cul",
+       "eqp",
+       "flx",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cul",
+       "eqp",
+       "flx",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|pii_decoy"
+    },
+    {
+     "id": "S0315",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0321",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "car",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0322",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "inf",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "lid",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "irony|mixed|slang|abbreviations|pii_decoy"
+    },
+    {
+     "id": "S0324",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "av"
+      ]
+     },
+     "pred": {
+      "themes": [
+       "eqp",
+       "lid"
+      ],
+      "sentiment": "neg",
+      "critical": true,
+      "critical_types": [
+       "av"
+      ]
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0325",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "laughter|pii"
+    },
+    {
+     "id": "S0336",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|slang|abbreviations|typos"
+    },
+    {
+     "id": "S0337",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "typos"
+    },
+    {
+     "id": "S0342",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "inf"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|typos"
+    },
+    {
+     "id": "S0348",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "cul"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0349",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|mixed"
+    },
+    {
+     "id": "S0350",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "cul"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "cre",
+       "lid"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|decoy"
+    },
+    {
+     "id": "S0352",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "eqp"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations"
+    },
+    {
+     "id": "S0353",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0358",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "com",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "abbreviations|pii"
+    },
+    {
+     "id": "S0360",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "cre",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|typos"
+    },
+    {
+     "id": "S0361",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "bem",
+       "car"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": ""
+    },
+    {
+     "id": "S0371",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "rem"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed"
+    },
+    {
+     "id": "S0373",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "cre",
+       "lid",
+       "rec"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "lid"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|mixed|pii"
+    },
+    {
+     "id": "S0374",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "car",
+       "com",
+       "cul",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "inf"
+      ],
+      "sentiment": "pos",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "formal|decoy"
+    },
+    {
+     "id": "S0381",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "bem",
+       "cul",
+       "flx"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "car",
+       "eqp"
+      ],
+      "sentiment": "neu",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "mixed|abbreviations|laughter|decoy"
+    },
+    {
+     "id": "S0395",
+     "kinds": [
+      "themes"
+     ],
+     "ref": {
+      "themes": [
+       "inf",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "pred": {
+      "themes": [
+       "com",
+       "rem"
+      ],
+      "sentiment": "neg",
+      "critical": false,
+      "critical_types": []
+     },
+     "subtle": "0",
+     "traits": "pii|pii_decoy"
+    }
+   ],
+   "items": [
+    {
+     "id": "S0001",
+     "wall_ms": 52858,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 52809,
+     "load_ms": 1,
+     "prompt_tokens": 2399,
+     "cached_tokens": 0,
+     "output_tokens": 21,
+     "prompt_ms": 48027,
+     "eval_ms": 4757
+    },
+    {
+     "id": "S0003",
+     "wall_ms": 9821,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9818,
+     "load_ms": 1,
+     "prompt_tokens": 2423,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 1973,
+     "eval_ms": 7816
+    },
+    {
+     "id": "S0005",
+     "wall_ms": 5549,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5546,
+     "load_ms": 1,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 1093,
+     "eval_ms": 4428
+    },
+    {
+     "id": "S0007",
+     "wall_ms": 7234,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7231,
+     "load_ms": 1,
+     "prompt_tokens": 2446,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 3028,
+     "eval_ms": 4171
+    },
+    {
+     "id": "S0008",
+     "wall_ms": 12742,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 21268,
+     "load_ms": 2,
+     "prompt_tokens": 3669,
+     "cached_tokens": 3564,
+     "output_tokens": 87,
+     "prompt_ms": 5239,
+     "eval_ms": 15970
+    },
+    {
+     "id": "S0009",
+     "wall_ms": 10075,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 10072,
+     "load_ms": 1,
+     "prompt_tokens": 2449,
+     "cached_tokens": 2393,
+     "output_tokens": 26,
+     "prompt_ms": 3203,
+     "eval_ms": 6838
+    },
+    {
+     "id": "S0012",
+     "wall_ms": 7069,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7062,
+     "load_ms": 3,
+     "prompt_tokens": 2430,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2327,
+     "eval_ms": 4703
+    },
+    {
+     "id": "S0013",
+     "wall_ms": 6785,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6782,
+     "load_ms": 1,
+     "prompt_tokens": 2429,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2113,
+     "eval_ms": 4633
+    },
+    {
+     "id": "S0014",
+     "wall_ms": 8519,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8516,
+     "load_ms": 2,
+     "prompt_tokens": 2438,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2697,
+     "eval_ms": 5789
+    },
+    {
+     "id": "S0018",
+     "wall_ms": 7033,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7030,
+     "load_ms": 1,
+     "prompt_tokens": 2432,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2389,
+     "eval_ms": 4607
+    },
+    {
+     "id": "S0019",
+     "wall_ms": 7302,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7299,
+     "load_ms": 2,
+     "prompt_tokens": 2415,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1434,
+     "eval_ms": 5831
+    },
+    {
+     "id": "S0021",
+     "wall_ms": 6337,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11722,
+     "load_ms": 3,
+     "prompt_tokens": 3621,
+     "cached_tokens": 3566,
+     "output_tokens": 52,
+     "prompt_ms": 2800,
+     "eval_ms": 8870
+    },
+    {
+     "id": "S0023",
+     "wall_ms": 6108,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6106,
+     "load_ms": 3,
+     "prompt_tokens": 2426,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1940,
+     "eval_ms": 4121
+    },
+    {
+     "id": "S0025",
+     "wall_ms": 12127,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 18480,
+     "load_ms": 2,
+     "prompt_tokens": 3643,
+     "cached_tokens": 3565,
+     "output_tokens": 70,
+     "prompt_ms": 3776,
+     "eval_ms": 14651
+    },
+    {
+     "id": "S0029",
+     "wall_ms": 25718,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 33963,
+     "load_ms": 4,
+     "prompt_tokens": 3647,
+     "cached_tokens": 3564,
+     "output_tokens": 94,
+     "prompt_ms": 4350,
+     "eval_ms": 29527
+    },
+    {
+     "id": "S0030",
+     "wall_ms": 16228,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16222,
+     "load_ms": 4,
+     "prompt_tokens": 2424,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 3234,
+     "eval_ms": 12923
+    },
+    {
+     "id": "S0031",
+     "wall_ms": 16593,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16588,
+     "load_ms": 5,
+     "prompt_tokens": 2431,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 6830,
+     "eval_ms": 9691
+    },
+    {
+     "id": "S0032",
+     "wall_ms": 11895,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11891,
+     "load_ms": 6,
+     "prompt_tokens": 2428,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2588,
+     "eval_ms": 9267
+    },
+    {
+     "id": "S0034",
+     "wall_ms": 5030,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8309,
+     "load_ms": 2,
+     "prompt_tokens": 3595,
+     "cached_tokens": 3563,
+     "output_tokens": 37,
+     "prompt_ms": 1736,
+     "eval_ms": 6518
+    },
+    {
+     "id": "S0038",
+     "wall_ms": 5779,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5773,
+     "load_ms": 1,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1466,
+     "eval_ms": 4274
+    },
+    {
+     "id": "S0040",
+     "wall_ms": 7854,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14598,
+     "load_ms": 2,
+     "prompt_tokens": 3689,
+     "cached_tokens": 3562,
+     "output_tokens": 48,
+     "prompt_ms": 6014,
+     "eval_ms": 8525
+    },
+    {
+     "id": "S0043",
+     "wall_ms": 8329,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8326,
+     "load_ms": 2,
+     "prompt_tokens": 2439,
+     "cached_tokens": 2392,
+     "output_tokens": 27,
+     "prompt_ms": 2671,
+     "eval_ms": 5623
+    },
+    {
+     "id": "S0044",
+     "wall_ms": 9721,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9718,
+     "load_ms": 1,
+     "prompt_tokens": 2440,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 3242,
+     "eval_ms": 6438
+    },
+    {
+     "id": "S0045",
+     "wall_ms": 9657,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17532,
+     "load_ms": 5,
+     "prompt_tokens": 3673,
+     "cached_tokens": 3563,
+     "output_tokens": 61,
+     "prompt_ms": 5699,
+     "eval_ms": 11748
+    },
+    {
+     "id": "S0046",
+     "wall_ms": 6259,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6257,
+     "load_ms": 6,
+     "prompt_tokens": 2407,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1136,
+     "eval_ms": 5064
+    },
+    {
+     "id": "S0047",
+     "wall_ms": 9637,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17089,
+     "load_ms": 3,
+     "prompt_tokens": 3679,
+     "cached_tokens": 3567,
+     "output_tokens": 60,
+     "prompt_ms": 5670,
+     "eval_ms": 11357
+    },
+    {
+     "id": "S0048",
+     "wall_ms": 6903,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6901,
+     "load_ms": 4,
+     "prompt_tokens": 2408,
+     "cached_tokens": 2393,
+     "output_tokens": 22,
+     "prompt_ms": 1182,
+     "eval_ms": 5674
+    },
+    {
+     "id": "S0052",
+     "wall_ms": 7046,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7038,
+     "load_ms": 4,
+     "prompt_tokens": 2422,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1906,
+     "eval_ms": 5093
+    },
+    {
+     "id": "S0053",
+     "wall_ms": 5784,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9992,
+     "load_ms": 3,
+     "prompt_tokens": 3605,
+     "cached_tokens": 3566,
+     "output_tokens": 42,
+     "prompt_ms": 2102,
+     "eval_ms": 7832
+    },
+    {
+     "id": "S0054",
+     "wall_ms": 4989,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4986,
+     "load_ms": 2,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 654,
+     "eval_ms": 4300
+    },
+    {
+     "id": "S0055",
+     "wall_ms": 7257,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7254,
+     "load_ms": 1,
+     "prompt_tokens": 2436,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2555,
+     "eval_ms": 4662
+    },
+    {
+     "id": "S0060",
+     "wall_ms": 11482,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11479,
+     "load_ms": 1,
+     "prompt_tokens": 2427,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2025,
+     "eval_ms": 9417
+    },
+    {
+     "id": "S0063",
+     "wall_ms": 11959,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 19047,
+     "load_ms": 2,
+     "prompt_tokens": 3691,
+     "cached_tokens": 3565,
+     "output_tokens": 52,
+     "prompt_ms": 6682,
+     "eval_ms": 12296
+    },
+    {
+     "id": "S0066",
+     "wall_ms": 11882,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 19815,
+     "load_ms": 4,
+     "prompt_tokens": 3685,
+     "cached_tokens": 3568,
+     "output_tokens": 58,
+     "prompt_ms": 6895,
+     "eval_ms": 12836
+    },
+    {
+     "id": "S0067",
+     "wall_ms": 11825,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11822,
+     "load_ms": 2,
+     "prompt_tokens": 2428,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 3517,
+     "eval_ms": 8269
+    },
+    {
+     "id": "S0069",
+     "wall_ms": 13547,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 13540,
+     "load_ms": 5,
+     "prompt_tokens": 2436,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 4008,
+     "eval_ms": 9474
+    },
+    {
+     "id": "S0073",
+     "wall_ms": 11737,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11726,
+     "load_ms": 1,
+     "prompt_tokens": 2460,
+     "cached_tokens": 2392,
+     "output_tokens": 26,
+     "prompt_ms": 5234,
+     "eval_ms": 6441
+    },
+    {
+     "id": "S0074",
+     "wall_ms": 7802,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7800,
+     "load_ms": 1,
+     "prompt_tokens": 2413,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1951,
+     "eval_ms": 5811
+    },
+    {
+     "id": "S0075",
+     "wall_ms": 10281,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 20453,
+     "load_ms": 3,
+     "prompt_tokens": 3705,
+     "cached_tokens": 3567,
+     "output_tokens": 69,
+     "prompt_ms": 6861,
+     "eval_ms": 13530
+    },
+    {
+     "id": "S0076",
+     "wall_ms": 10255,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18065,
+     "load_ms": 2,
+     "prompt_tokens": 3679,
+     "cached_tokens": 3561,
+     "output_tokens": 59,
+     "prompt_ms": 5906,
+     "eval_ms": 12097
+    },
+    {
+     "id": "S0080",
+     "wall_ms": 9495,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9488,
+     "load_ms": 1,
+     "prompt_tokens": 2413,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1886,
+     "eval_ms": 7536
+    },
+    {
+     "id": "S0081",
+     "wall_ms": 15445,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 23573,
+     "load_ms": 4,
+     "prompt_tokens": 3649,
+     "cached_tokens": 3575,
+     "output_tokens": 76,
+     "prompt_ms": 4266,
+     "eval_ms": 19219
+    },
+    {
+     "id": "S0085",
+     "wall_ms": 13626,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 23205,
+     "load_ms": 3,
+     "prompt_tokens": 3707,
+     "cached_tokens": 3562,
+     "output_tokens": 65,
+     "prompt_ms": 8006,
+     "eval_ms": 15139
+    },
+    {
+     "id": "S0086",
+     "wall_ms": 12551,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 20696,
+     "load_ms": 7,
+     "prompt_tokens": 3687,
+     "cached_tokens": 3562,
+     "output_tokens": 74,
+     "prompt_ms": 6825,
+     "eval_ms": 13775
+    },
+    {
+     "id": "S0088",
+     "wall_ms": 9446,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18352,
+     "load_ms": 5,
+     "prompt_tokens": 3695,
+     "cached_tokens": 3574,
+     "output_tokens": 64,
+     "prompt_ms": 5820,
+     "eval_ms": 12471
+    },
+    {
+     "id": "S0091",
+     "wall_ms": 10698,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 10672,
+     "load_ms": 10,
+     "prompt_tokens": 2439,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 3625,
+     "eval_ms": 6978
+    },
+    {
+     "id": "S0092",
+     "wall_ms": 9567,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9562,
+     "load_ms": 3,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1633,
+     "eval_ms": 7876
+    },
+    {
+     "id": "S0093",
+     "wall_ms": 12485,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 21109,
+     "load_ms": 2,
+     "prompt_tokens": 3681,
+     "cached_tokens": 3573,
+     "output_tokens": 62,
+     "prompt_ms": 7116,
+     "eval_ms": 13937
+    },
+    {
+     "id": "S0095",
+     "wall_ms": 12113,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 12111,
+     "load_ms": 4,
+     "prompt_tokens": 2426,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 3831,
+     "eval_ms": 8217
+    },
+    {
+     "id": "S0096",
+     "wall_ms": 15073,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 22112,
+     "load_ms": 3,
+     "prompt_tokens": 3629,
+     "cached_tokens": 3565,
+     "output_tokens": 79,
+     "prompt_ms": 3826,
+     "eval_ms": 18204
+    },
+    {
+     "id": "S0097",
+     "wall_ms": 6883,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6879,
+     "load_ms": 1,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1351,
+     "eval_ms": 5484
+    },
+    {
+     "id": "S0098",
+     "wall_ms": 8338,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8335,
+     "load_ms": 1,
+     "prompt_tokens": 2430,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2392,
+     "eval_ms": 5911
+    },
+    {
+     "id": "S0100",
+     "wall_ms": 7853,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7848,
+     "load_ms": 2,
+     "prompt_tokens": 2426,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 2355,
+     "eval_ms": 5460
+    },
+    {
+     "id": "S0101",
+     "wall_ms": 7591,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7587,
+     "load_ms": 1,
+     "prompt_tokens": 2414,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1712,
+     "eval_ms": 5841
+    },
+    {
+     "id": "S0102",
+     "wall_ms": 6649,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6646,
+     "load_ms": 1,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1509,
+     "eval_ms": 5101
+    },
+    {
+     "id": "S0103",
+     "wall_ms": 13683,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 24111,
+     "load_ms": 2,
+     "prompt_tokens": 3635,
+     "cached_tokens": 3564,
+     "output_tokens": 84,
+     "prompt_ms": 4424,
+     "eval_ms": 19610
+    },
+    {
+     "id": "S0104",
+     "wall_ms": 11367,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11364,
+     "load_ms": 1,
+     "prompt_tokens": 2439,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2861,
+     "eval_ms": 8473
+    },
+    {
+     "id": "S0106",
+     "wall_ms": 8810,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8800,
+     "load_ms": 1,
+     "prompt_tokens": 2416,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1857,
+     "eval_ms": 6884
+    },
+    {
+     "id": "S0107",
+     "wall_ms": 13890,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 13885,
+     "load_ms": 4,
+     "prompt_tokens": 2455,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 4350,
+     "eval_ms": 9469
+    },
+    {
+     "id": "S0108",
+     "wall_ms": 12880,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 21273,
+     "load_ms": 3,
+     "prompt_tokens": 3663,
+     "cached_tokens": 3572,
+     "output_tokens": 62,
+     "prompt_ms": 6015,
+     "eval_ms": 15174
+    },
+    {
+     "id": "S0110",
+     "wall_ms": 9245,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9242,
+     "load_ms": 3,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1912,
+     "eval_ms": 7262
+    },
+    {
+     "id": "S0111",
+     "wall_ms": 16623,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 24411,
+     "load_ms": 2,
+     "prompt_tokens": 3681,
+     "cached_tokens": 3573,
+     "output_tokens": 77,
+     "prompt_ms": 6508,
+     "eval_ms": 17845
+    },
+    {
+     "id": "S0114",
+     "wall_ms": 13873,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 19500,
+     "load_ms": 4,
+     "prompt_tokens": 3619,
+     "cached_tokens": 3571,
+     "output_tokens": 68,
+     "prompt_ms": 3357,
+     "eval_ms": 16065
+    },
+    {
+     "id": "S0115",
+     "wall_ms": 9517,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9514,
+     "load_ms": 2,
+     "prompt_tokens": 2440,
+     "cached_tokens": 2392,
+     "output_tokens": 28,
+     "prompt_ms": 2896,
+     "eval_ms": 6587
+    },
+    {
+     "id": "S0116",
+     "wall_ms": 5734,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5731,
+     "load_ms": 1,
+     "prompt_tokens": 2405,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1098,
+     "eval_ms": 4600
+    },
+    {
+     "id": "S0121",
+     "wall_ms": 8153,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17151,
+     "load_ms": 3,
+     "prompt_tokens": 3659,
+     "cached_tokens": 3570,
+     "output_tokens": 66,
+     "prompt_ms": 4659,
+     "eval_ms": 12431
+    },
+    {
+     "id": "S0122",
+     "wall_ms": 10140,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17658,
+     "load_ms": 2,
+     "prompt_tokens": 3637,
+     "cached_tokens": 3569,
+     "output_tokens": 60,
+     "prompt_ms": 3682,
+     "eval_ms": 13898
+    },
+    {
+     "id": "S0124",
+     "wall_ms": 7970,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7966,
+     "load_ms": 5,
+     "prompt_tokens": 2431,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2746,
+     "eval_ms": 5168
+    },
+    {
+     "id": "S0126",
+     "wall_ms": 7619,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": true
+     },
+     "total_ms": 15241,
+     "load_ms": 4,
+     "prompt_tokens": 3637,
+     "cached_tokens": 3568,
+     "output_tokens": 61,
+     "prompt_ms": 3666,
+     "eval_ms": 11505
+    },
+    {
+     "id": "S0128",
+     "wall_ms": 5713,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5711,
+     "load_ms": 1,
+     "prompt_tokens": 2404,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 890,
+     "eval_ms": 4756
+    },
+    {
+     "id": "S0129",
+     "wall_ms": 8644,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16335,
+     "load_ms": 2,
+     "prompt_tokens": 3667,
+     "cached_tokens": 3572,
+     "output_tokens": 62,
+     "prompt_ms": 4905,
+     "eval_ms": 11382
+    },
+    {
+     "id": "S0131",
+     "wall_ms": 8402,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8399,
+     "load_ms": 1,
+     "prompt_tokens": 2436,
+     "cached_tokens": 2392,
+     "output_tokens": 26,
+     "prompt_ms": 2677,
+     "eval_ms": 5690
+    },
+    {
+     "id": "S0133",
+     "wall_ms": 6337,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 12151,
+     "load_ms": 2,
+     "prompt_tokens": 3625,
+     "cached_tokens": 3567,
+     "output_tokens": 52,
+     "prompt_ms": 2975,
+     "eval_ms": 9121
+    },
+    {
+     "id": "S0134",
+     "wall_ms": 7043,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7040,
+     "load_ms": 1,
+     "prompt_tokens": 2423,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1870,
+     "eval_ms": 5137
+    },
+    {
+     "id": "S0135",
+     "wall_ms": 10515,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 10512,
+     "load_ms": 1,
+     "prompt_tokens": 2442,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2918,
+     "eval_ms": 7564
+    },
+    {
+     "id": "S0136",
+     "wall_ms": 4905,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7637,
+     "load_ms": 3,
+     "prompt_tokens": 3591,
+     "cached_tokens": 3566,
+     "output_tokens": 35,
+     "prompt_ms": 1538,
+     "eval_ms": 6037
+    },
+    {
+     "id": "S0138",
+     "wall_ms": 7744,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17412,
+     "load_ms": 2,
+     "prompt_tokens": 3695,
+     "cached_tokens": 3565,
+     "output_tokens": 68,
+     "prompt_ms": 6234,
+     "eval_ms": 11124
+    },
+    {
+     "id": "S0142",
+     "wall_ms": 5487,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5485,
+     "load_ms": 1,
+     "prompt_tokens": 2407,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 960,
+     "eval_ms": 4491
+    },
+    {
+     "id": "S0143",
+     "wall_ms": 6144,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6139,
+     "load_ms": 1,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1504,
+     "eval_ms": 4596
+    },
+    {
+     "id": "S0144",
+     "wall_ms": 4781,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4778,
+     "load_ms": 1,
+     "prompt_tokens": 2401,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 663,
+     "eval_ms": 4085
+    },
+    {
+     "id": "S0145",
+     "wall_ms": 7612,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14838,
+     "load_ms": 2,
+     "prompt_tokens": 3653,
+     "cached_tokens": 3570,
+     "output_tokens": 60,
+     "prompt_ms": 4127,
+     "eval_ms": 10654
+    },
+    {
+     "id": "S0146",
+     "wall_ms": 6943,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6940,
+     "load_ms": 1,
+     "prompt_tokens": 2428,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2115,
+     "eval_ms": 4793
+    },
+    {
+     "id": "S0147",
+     "wall_ms": 5067,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5064,
+     "load_ms": 1,
+     "prompt_tokens": 2401,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 674,
+     "eval_ms": 4359
+    },
+    {
+     "id": "S0148",
+     "wall_ms": 6879,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6876,
+     "load_ms": 1,
+     "prompt_tokens": 2428,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2083,
+     "eval_ms": 4763
+    },
+    {
+     "id": "S0149",
+     "wall_ms": 9232,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9228,
+     "load_ms": 1,
+     "prompt_tokens": 2458,
+     "cached_tokens": 2392,
+     "output_tokens": 27,
+     "prompt_ms": 3783,
+     "eval_ms": 5416
+    },
+    {
+     "id": "S0151",
+     "wall_ms": 5243,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5241,
+     "load_ms": 1,
+     "prompt_tokens": 2408,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1016,
+     "eval_ms": 4196
+    },
+    {
+     "id": "S0154",
+     "wall_ms": 5980,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11279,
+     "load_ms": 2,
+     "prompt_tokens": 3627,
+     "cached_tokens": 3569,
+     "output_tokens": 49,
+     "prompt_ms": 2927,
+     "eval_ms": 8291
+    },
+    {
+     "id": "S0155",
+     "wall_ms": 5966,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11628,
+     "load_ms": 2,
+     "prompt_tokens": 3625,
+     "cached_tokens": 3568,
+     "output_tokens": 52,
+     "prompt_ms": 2845,
+     "eval_ms": 8731
+    },
+    {
+     "id": "S0156",
+     "wall_ms": 5095,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5092,
+     "load_ms": 1,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1248,
+     "eval_ms": 3816
+    },
+    {
+     "id": "S0157",
+     "wall_ms": 5342,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5340,
+     "load_ms": 1,
+     "prompt_tokens": 2416,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1418,
+     "eval_ms": 3894
+    },
+    {
+     "id": "S0158",
+     "wall_ms": 5276,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5273,
+     "load_ms": 1,
+     "prompt_tokens": 2415,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1457,
+     "eval_ms": 3781
+    },
+    {
+     "id": "S0159",
+     "wall_ms": 10137,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 17144,
+     "load_ms": 5,
+     "prompt_tokens": 3655,
+     "cached_tokens": 3571,
+     "output_tokens": 74,
+     "prompt_ms": 4036,
+     "eval_ms": 13051
+    },
+    {
+     "id": "S0162",
+     "wall_ms": 8223,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8217,
+     "load_ms": 1,
+     "prompt_tokens": 2423,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 3465,
+     "eval_ms": 4698
+    },
+    {
+     "id": "S0166",
+     "wall_ms": 5779,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11377,
+     "load_ms": 4,
+     "prompt_tokens": 3617,
+     "cached_tokens": 3567,
+     "output_tokens": 51,
+     "prompt_ms": 2518,
+     "eval_ms": 8808
+    },
+    {
+     "id": "S0170",
+     "wall_ms": 8718,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8714,
+     "load_ms": 1,
+     "prompt_tokens": 2457,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 3682,
+     "eval_ms": 5000
+    },
+    {
+     "id": "S0171",
+     "wall_ms": 6550,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6547,
+     "load_ms": 2,
+     "prompt_tokens": 2427,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1986,
+     "eval_ms": 4526
+    },
+    {
+     "id": "S0172",
+     "wall_ms": 7930,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 15657,
+     "load_ms": 2,
+     "prompt_tokens": 3671,
+     "cached_tokens": 3566,
+     "output_tokens": 56,
+     "prompt_ms": 5088,
+     "eval_ms": 10508
+    },
+    {
+     "id": "S0174",
+     "wall_ms": 9538,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 21959,
+     "load_ms": 2,
+     "prompt_tokens": 3719,
+     "cached_tokens": 3565,
+     "output_tokens": 75,
+     "prompt_ms": 7287,
+     "eval_ms": 14616
+    },
+    {
+     "id": "S0175",
+     "wall_ms": 5842,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5839,
+     "load_ms": 2,
+     "prompt_tokens": 2419,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1627,
+     "eval_ms": 4184
+    },
+    {
+     "id": "S0177",
+     "wall_ms": 6360,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6357,
+     "load_ms": 1,
+     "prompt_tokens": 2420,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1679,
+     "eval_ms": 4646
+    },
+    {
+     "id": "S0178",
+     "wall_ms": 5824,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5821,
+     "load_ms": 1,
+     "prompt_tokens": 2414,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1500,
+     "eval_ms": 4270
+    },
+    {
+     "id": "S0180",
+     "wall_ms": 5522,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5520,
+     "load_ms": 1,
+     "prompt_tokens": 2411,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1164,
+     "eval_ms": 4324
+    },
+    {
+     "id": "S0181",
+     "wall_ms": 7978,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7974,
+     "load_ms": 1,
+     "prompt_tokens": 2452,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 3368,
+     "eval_ms": 4574
+    },
+    {
+     "id": "S0182",
+     "wall_ms": 8002,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17789,
+     "load_ms": 2,
+     "prompt_tokens": 3685,
+     "cached_tokens": 3565,
+     "output_tokens": 62,
+     "prompt_ms": 6213,
+     "eval_ms": 11519
+    },
+    {
+     "id": "S0183",
+     "wall_ms": 5657,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5655,
+     "load_ms": 1,
+     "prompt_tokens": 2418,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1531,
+     "eval_ms": 4093
+    },
+    {
+     "id": "S0184",
+     "wall_ms": 7252,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14642,
+     "load_ms": 2,
+     "prompt_tokens": 3677,
+     "cached_tokens": 3565,
+     "output_tokens": 54,
+     "prompt_ms": 5381,
+     "eval_ms": 9206
+    },
+    {
+     "id": "S0186",
+     "wall_ms": 7709,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16397,
+     "load_ms": 2,
+     "prompt_tokens": 3683,
+     "cached_tokens": 3564,
+     "output_tokens": 62,
+     "prompt_ms": 5831,
+     "eval_ms": 10516
+    },
+    {
+     "id": "S0187",
+     "wall_ms": 6270,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 13296,
+     "load_ms": 2,
+     "prompt_tokens": 3643,
+     "cached_tokens": 3570,
+     "output_tokens": 57,
+     "prompt_ms": 3704,
+     "eval_ms": 9535
+    },
+    {
+     "id": "S0188",
+     "wall_ms": 13352,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 20105,
+     "load_ms": 2,
+     "prompt_tokens": 3647,
+     "cached_tokens": 3569,
+     "output_tokens": 85,
+     "prompt_ms": 4044,
+     "eval_ms": 16003
+    },
+    {
+     "id": "S0189",
+     "wall_ms": 8464,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": true
+     },
+     "total_ms": 17964,
+     "load_ms": 2,
+     "prompt_tokens": 3693,
+     "cached_tokens": 3564,
+     "output_tokens": 64,
+     "prompt_ms": 6545,
+     "eval_ms": 11357
+    },
+    {
+     "id": "S0190",
+     "wall_ms": 7379,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7375,
+     "load_ms": 1,
+     "prompt_tokens": 2437,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2541,
+     "eval_ms": 4802
+    },
+    {
+     "id": "S0191",
+     "wall_ms": 7258,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7254,
+     "load_ms": 1,
+     "prompt_tokens": 2439,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2676,
+     "eval_ms": 4543
+    },
+    {
+     "id": "S0193",
+     "wall_ms": 6984,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16682,
+     "load_ms": 2,
+     "prompt_tokens": 3659,
+     "cached_tokens": 3569,
+     "output_tokens": 69,
+     "prompt_ms": 4342,
+     "eval_ms": 12287
+    },
+    {
+     "id": "S0194",
+     "wall_ms": 5150,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5147,
+     "load_ms": 1,
+     "prompt_tokens": 2408,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1041,
+     "eval_ms": 4070
+    },
+    {
+     "id": "S0195",
+     "wall_ms": 7128,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 13067,
+     "load_ms": 2,
+     "prompt_tokens": 3663,
+     "cached_tokens": 3568,
+     "output_tokens": 48,
+     "prompt_ms": 4610,
+     "eval_ms": 8397
+    },
+    {
+     "id": "S0196",
+     "wall_ms": 11006,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 18390,
+     "load_ms": 2,
+     "prompt_tokens": 3657,
+     "cached_tokens": 3567,
+     "output_tokens": 75,
+     "prompt_ms": 4554,
+     "eval_ms": 13783
+    },
+    {
+     "id": "S0201",
+     "wall_ms": 5704,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5701,
+     "load_ms": 1,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1470,
+     "eval_ms": 4201
+    },
+    {
+     "id": "S0203",
+     "wall_ms": 9622,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 16132,
+     "load_ms": 3,
+     "prompt_tokens": 3645,
+     "cached_tokens": 3566,
+     "output_tokens": 66,
+     "prompt_ms": 3828,
+     "eval_ms": 12252
+    },
+    {
+     "id": "S0207",
+     "wall_ms": 5722,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5720,
+     "load_ms": 1,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2393,
+     "output_tokens": 23,
+     "prompt_ms": 1159,
+     "eval_ms": 4532
+    },
+    {
+     "id": "S0209",
+     "wall_ms": 5214,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5212,
+     "load_ms": 1,
+     "prompt_tokens": 2411,
+     "cached_tokens": 2393,
+     "output_tokens": 21,
+     "prompt_ms": 1117,
+     "eval_ms": 4066
+    },
+    {
+     "id": "S0212",
+     "wall_ms": 7569,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7566,
+     "load_ms": 1,
+     "prompt_tokens": 2442,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2832,
+     "eval_ms": 4705
+    },
+    {
+     "id": "S0214",
+     "wall_ms": 6176,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6173,
+     "load_ms": 1,
+     "prompt_tokens": 2419,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1644,
+     "eval_ms": 4496
+    },
+    {
+     "id": "S0215",
+     "wall_ms": 5229,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5226,
+     "load_ms": 1,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1116,
+     "eval_ms": 4082
+    },
+    {
+     "id": "S0216",
+     "wall_ms": 6458,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17840,
+     "load_ms": 4,
+     "prompt_tokens": 3639,
+     "cached_tokens": 3565,
+     "output_tokens": 60,
+     "prompt_ms": 3585,
+     "eval_ms": 14195
+    },
+    {
+     "id": "S0217",
+     "wall_ms": 8856,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8852,
+     "load_ms": 1,
+     "prompt_tokens": 2462,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 3908,
+     "eval_ms": 4915
+    },
+    {
+     "id": "S0218",
+     "wall_ms": 7171,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7168,
+     "load_ms": 1,
+     "prompt_tokens": 2436,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2542,
+     "eval_ms": 4592
+    },
+    {
+     "id": "S0219",
+     "wall_ms": 7080,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7075,
+     "load_ms": 2,
+     "prompt_tokens": 2437,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2532,
+     "eval_ms": 4510
+    },
+    {
+     "id": "S0220",
+     "wall_ms": 4760,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4758,
+     "load_ms": 1,
+     "prompt_tokens": 2401,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 670,
+     "eval_ms": 4058
+    },
+    {
+     "id": "S0222",
+     "wall_ms": 7866,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17033,
+     "load_ms": 2,
+     "prompt_tokens": 3693,
+     "cached_tokens": 3564,
+     "output_tokens": 60,
+     "prompt_ms": 6175,
+     "eval_ms": 10800
+    },
+    {
+     "id": "S0223",
+     "wall_ms": 4765,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4763,
+     "load_ms": 1,
+     "prompt_tokens": 2401,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 670,
+     "eval_ms": 4059
+    },
+    {
+     "id": "S0224",
+     "wall_ms": 8125,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8122,
+     "load_ms": 1,
+     "prompt_tokens": 2443,
+     "cached_tokens": 2392,
+     "output_tokens": 26,
+     "prompt_ms": 2891,
+     "eval_ms": 5198
+    },
+    {
+     "id": "S0225",
+     "wall_ms": 6548,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6546,
+     "load_ms": 1,
+     "prompt_tokens": 2422,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1770,
+     "eval_ms": 4745
+    },
+    {
+     "id": "S0226",
+     "wall_ms": 13947,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 22248,
+     "load_ms": 2,
+     "prompt_tokens": 3687,
+     "cached_tokens": 3569,
+     "output_tokens": 87,
+     "prompt_ms": 5653,
+     "eval_ms": 16535
+    },
+    {
+     "id": "S0229",
+     "wall_ms": 4828,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4826,
+     "load_ms": 1,
+     "prompt_tokens": 2405,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 857,
+     "eval_ms": 3937
+    },
+    {
+     "id": "S0231",
+     "wall_ms": 5474,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5468,
+     "load_ms": 3,
+     "prompt_tokens": 2419,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1612,
+     "eval_ms": 3789
+    },
+    {
+     "id": "S0237",
+     "wall_ms": 7247,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7244,
+     "load_ms": 1,
+     "prompt_tokens": 2432,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2337,
+     "eval_ms": 4874
+    },
+    {
+     "id": "S0239",
+     "wall_ms": 8588,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": true
+     },
+     "total_ms": 17906,
+     "load_ms": 2,
+     "prompt_tokens": 3701,
+     "cached_tokens": 3568,
+     "output_tokens": 65,
+     "prompt_ms": 6413,
+     "eval_ms": 11436
+    },
+    {
+     "id": "S0242",
+     "wall_ms": 7397,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7394,
+     "load_ms": 1,
+     "prompt_tokens": 2436,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2499,
+     "eval_ms": 4870
+    },
+    {
+     "id": "S0243",
+     "wall_ms": 5337,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5335,
+     "load_ms": 1,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1109,
+     "eval_ms": 4199
+    },
+    {
+     "id": "S0244",
+     "wall_ms": 7316,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14218,
+     "load_ms": 2,
+     "prompt_tokens": 3673,
+     "cached_tokens": 3568,
+     "output_tokens": 53,
+     "prompt_ms": 5056,
+     "eval_ms": 9105
+    },
+    {
+     "id": "S0246",
+     "wall_ms": 5760,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5758,
+     "load_ms": 1,
+     "prompt_tokens": 2418,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1548,
+     "eval_ms": 4175
+    },
+    {
+     "id": "S0247",
+     "wall_ms": 5675,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5672,
+     "load_ms": 1,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1502,
+     "eval_ms": 4138
+    },
+    {
+     "id": "S0248",
+     "wall_ms": 7141,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7138,
+     "load_ms": 1,
+     "prompt_tokens": 2430,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2165,
+     "eval_ms": 4944
+    },
+    {
+     "id": "S0250",
+     "wall_ms": 5353,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8020,
+     "load_ms": 2,
+     "prompt_tokens": 3591,
+     "cached_tokens": 3573,
+     "output_tokens": 37,
+     "prompt_ms": 1120,
+     "eval_ms": 6845
+    },
+    {
+     "id": "S0251",
+     "wall_ms": 8753,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18246,
+     "load_ms": 3,
+     "prompt_tokens": 3709,
+     "cached_tokens": 3572,
+     "output_tokens": 65,
+     "prompt_ms": 6604,
+     "eval_ms": 11577
+    },
+    {
+     "id": "S0254",
+     "wall_ms": 6939,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6936,
+     "load_ms": 1,
+     "prompt_tokens": 2433,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2373,
+     "eval_ms": 4526
+    },
+    {
+     "id": "S0255",
+     "wall_ms": 8086,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17114,
+     "load_ms": 4,
+     "prompt_tokens": 3669,
+     "cached_tokens": 3572,
+     "output_tokens": 61,
+     "prompt_ms": 4995,
+     "eval_ms": 12038
+    },
+    {
+     "id": "S0256",
+     "wall_ms": 8174,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8171,
+     "load_ms": 1,
+     "prompt_tokens": 2448,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 3194,
+     "eval_ms": 4948
+    },
+    {
+     "id": "S0257",
+     "wall_ms": 9097,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18010,
+     "load_ms": 3,
+     "prompt_tokens": 3715,
+     "cached_tokens": 3571,
+     "output_tokens": 56,
+     "prompt_ms": 7246,
+     "eval_ms": 10701
+    },
+    {
+     "id": "S0258",
+     "wall_ms": 8070,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16699,
+     "load_ms": 2,
+     "prompt_tokens": 3669,
+     "cached_tokens": 3571,
+     "output_tokens": 63,
+     "prompt_ms": 5215,
+     "eval_ms": 11427
+    },
+    {
+     "id": "S0260",
+     "wall_ms": 6494,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6491,
+     "load_ms": 1,
+     "prompt_tokens": 2428,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2067,
+     "eval_ms": 4398
+    },
+    {
+     "id": "S0261",
+     "wall_ms": 6089,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6087,
+     "load_ms": 1,
+     "prompt_tokens": 2420,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1701,
+     "eval_ms": 4360
+    },
+    {
+     "id": "S0262",
+     "wall_ms": 6074,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 12524,
+     "load_ms": 2,
+     "prompt_tokens": 3637,
+     "cached_tokens": 3570,
+     "output_tokens": 48,
+     "prompt_ms": 3638,
+     "eval_ms": 8832
+    },
+    {
+     "id": "S0265",
+     "wall_ms": 6120,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6117,
+     "load_ms": 1,
+     "prompt_tokens": 2424,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1818,
+     "eval_ms": 4274
+    },
+    {
+     "id": "S0267",
+     "wall_ms": 8225,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 19939,
+     "load_ms": 2,
+     "prompt_tokens": 3705,
+     "cached_tokens": 3569,
+     "output_tokens": 69,
+     "prompt_ms": 6728,
+     "eval_ms": 13144
+    },
+    {
+     "id": "S0268",
+     "wall_ms": 6153,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6151,
+     "load_ms": 1,
+     "prompt_tokens": 2416,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1490,
+     "eval_ms": 4633
+    },
+    {
+     "id": "S0270",
+     "wall_ms": 5743,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 10917,
+     "load_ms": 2,
+     "prompt_tokens": 3613,
+     "cached_tokens": 3575,
+     "output_tokens": 48,
+     "prompt_ms": 2107,
+     "eval_ms": 8754
+    },
+    {
+     "id": "S0271",
+     "wall_ms": 6557,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 12819,
+     "load_ms": 6,
+     "prompt_tokens": 3645,
+     "cached_tokens": 3574,
+     "output_tokens": 51,
+     "prompt_ms": 3504,
+     "eval_ms": 9255
+    },
+    {
+     "id": "S0272",
+     "wall_ms": 5071,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5069,
+     "load_ms": 1,
+     "prompt_tokens": 2405,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 861,
+     "eval_ms": 4177
+    },
+    {
+     "id": "S0276",
+     "wall_ms": 5254,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5251,
+     "load_ms": 1,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1105,
+     "eval_ms": 4114
+    },
+    {
+     "id": "S0278",
+     "wall_ms": 7805,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7802,
+     "load_ms": 1,
+     "prompt_tokens": 2432,
+     "cached_tokens": 2392,
+     "output_tokens": 27,
+     "prompt_ms": 2350,
+     "eval_ms": 5422
+    },
+    {
+     "id": "S0279",
+     "wall_ms": 4936,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4934,
+     "load_ms": 2,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 568,
+     "eval_ms": 4336
+    },
+    {
+     "id": "S0280",
+     "wall_ms": 4703,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4700,
+     "load_ms": 1,
+     "prompt_tokens": 2399,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 555,
+     "eval_ms": 4111
+    },
+    {
+     "id": "S0281",
+     "wall_ms": 6150,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6147,
+     "load_ms": 1,
+     "prompt_tokens": 2413,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1295,
+     "eval_ms": 4823
+    },
+    {
+     "id": "S0283",
+     "wall_ms": 6472,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6469,
+     "load_ms": 1,
+     "prompt_tokens": 2426,
+     "cached_tokens": 2393,
+     "output_tokens": 22,
+     "prompt_ms": 1932,
+     "eval_ms": 4504
+    },
+    {
+     "id": "S0284",
+     "wall_ms": 5707,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5705,
+     "load_ms": 2,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1535,
+     "eval_ms": 4127
+    },
+    {
+     "id": "S0289",
+     "wall_ms": 8542,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 23074,
+     "load_ms": 3,
+     "prompt_tokens": 3701,
+     "cached_tokens": 3573,
+     "output_tokens": 69,
+     "prompt_ms": 6217,
+     "eval_ms": 16800
+    },
+    {
+     "id": "S0290",
+     "wall_ms": 5608,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5606,
+     "load_ms": 1,
+     "prompt_tokens": 2417,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1489,
+     "eval_ms": 4088
+    },
+    {
+     "id": "S0293",
+     "wall_ms": 8210,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8207,
+     "load_ms": 1,
+     "prompt_tokens": 2445,
+     "cached_tokens": 2392,
+     "output_tokens": 26,
+     "prompt_ms": 3050,
+     "eval_ms": 5126
+    },
+    {
+     "id": "S0294",
+     "wall_ms": 6841,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14043,
+     "load_ms": 2,
+     "prompt_tokens": 3647,
+     "cached_tokens": 3573,
+     "output_tokens": 58,
+     "prompt_ms": 3675,
+     "eval_ms": 10313
+    },
+    {
+     "id": "S0295",
+     "wall_ms": 6577,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6574,
+     "load_ms": 1,
+     "prompt_tokens": 2426,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1936,
+     "eval_ms": 4608
+    },
+    {
+     "id": "S0296",
+     "wall_ms": 5360,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5358,
+     "load_ms": 3,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1214,
+     "eval_ms": 4107
+    },
+    {
+     "id": "S0302",
+     "wall_ms": 9623,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9620,
+     "load_ms": 2,
+     "prompt_tokens": 2469,
+     "cached_tokens": 2392,
+     "output_tokens": 26,
+     "prompt_ms": 4269,
+     "eval_ms": 5321
+    },
+    {
+     "id": "S0303",
+     "wall_ms": 8778,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 17653,
+     "load_ms": 2,
+     "prompt_tokens": 3697,
+     "cached_tokens": 3572,
+     "output_tokens": 65,
+     "prompt_ms": 5962,
+     "eval_ms": 11629
+    },
+    {
+     "id": "S0304",
+     "wall_ms": 9260,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9257,
+     "load_ms": 1,
+     "prompt_tokens": 2423,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1781,
+     "eval_ms": 7440
+    },
+    {
+     "id": "S0305",
+     "wall_ms": 6474,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16113,
+     "load_ms": 2,
+     "prompt_tokens": 3657,
+     "cached_tokens": 3571,
+     "output_tokens": 61,
+     "prompt_ms": 4547,
+     "eval_ms": 11507
+    },
+    {
+     "id": "S0307",
+     "wall_ms": 5814,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5811,
+     "load_ms": 1,
+     "prompt_tokens": 2421,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 1676,
+     "eval_ms": 4103
+    },
+    {
+     "id": "S0310",
+     "wall_ms": 4820,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4819,
+     "load_ms": 2,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 600,
+     "eval_ms": 4188
+    },
+    {
+     "id": "S0311",
+     "wall_ms": 5813,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5804,
+     "load_ms": 3,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1209,
+     "eval_ms": 4534
+    },
+    {
+     "id": "S0312",
+     "wall_ms": 6797,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 15685,
+     "load_ms": 3,
+     "prompt_tokens": 3645,
+     "cached_tokens": 3570,
+     "output_tokens": 60,
+     "prompt_ms": 3741,
+     "eval_ms": 11890
+    },
+    {
+     "id": "S0313",
+     "wall_ms": 6034,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6031,
+     "load_ms": 2,
+     "prompt_tokens": 2421,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1692,
+     "eval_ms": 4305
+    },
+    {
+     "id": "S0314",
+     "wall_ms": 9569,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9566,
+     "load_ms": 2,
+     "prompt_tokens": 2456,
+     "cached_tokens": 2392,
+     "output_tokens": 29,
+     "prompt_ms": 3741,
+     "eval_ms": 5798
+    },
+    {
+     "id": "S0315",
+     "wall_ms": 5710,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5708,
+     "load_ms": 1,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1112,
+     "eval_ms": 4566
+    },
+    {
+     "id": "S0316",
+     "wall_ms": 7008,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7005,
+     "load_ms": 1,
+     "prompt_tokens": 2434,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2384,
+     "eval_ms": 4588
+    },
+    {
+     "id": "S0318",
+     "wall_ms": 4775,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4773,
+     "load_ms": 2,
+     "prompt_tokens": 2401,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 660,
+     "eval_ms": 4084
+    },
+    {
+     "id": "S0320",
+     "wall_ms": 11247,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 19838,
+     "load_ms": 2,
+     "prompt_tokens": 3665,
+     "cached_tokens": 3568,
+     "output_tokens": 81,
+     "prompt_ms": 4638,
+     "eval_ms": 15149
+    },
+    {
+     "id": "S0321",
+     "wall_ms": 8032,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18228,
+     "load_ms": 6,
+     "prompt_tokens": 3679,
+     "cached_tokens": 3567,
+     "output_tokens": 62,
+     "prompt_ms": 5776,
+     "eval_ms": 12392
+    },
+    {
+     "id": "S0322",
+     "wall_ms": 8987,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 16096,
+     "load_ms": 5,
+     "prompt_tokens": 3713,
+     "cached_tokens": 3564,
+     "output_tokens": 50,
+     "prompt_ms": 7213,
+     "eval_ms": 8823
+    },
+    {
+     "id": "S0323",
+     "wall_ms": 5199,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5197,
+     "load_ms": 1,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 609,
+     "eval_ms": 4559
+    },
+    {
+     "id": "S0324",
+     "wall_ms": 11039,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 17921,
+     "load_ms": 2,
+     "prompt_tokens": 3629,
+     "cached_tokens": 3564,
+     "output_tokens": 79,
+     "prompt_ms": 3207,
+     "eval_ms": 14655
+    },
+    {
+     "id": "S0325",
+     "wall_ms": 6742,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6739,
+     "load_ms": 1,
+     "prompt_tokens": 2424,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1828,
+     "eval_ms": 4880
+    },
+    {
+     "id": "S0326",
+     "wall_ms": 5174,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5172,
+     "load_ms": 3,
+     "prompt_tokens": 2406,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 950,
+     "eval_ms": 4187
+    },
+    {
+     "id": "S0327",
+     "wall_ms": 7344,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7341,
+     "load_ms": 1,
+     "prompt_tokens": 2435,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2436,
+     "eval_ms": 4875
+    },
+    {
+     "id": "S0330",
+     "wall_ms": 5944,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 10768,
+     "load_ms": 2,
+     "prompt_tokens": 3605,
+     "cached_tokens": 3566,
+     "output_tokens": 45,
+     "prompt_ms": 2191,
+     "eval_ms": 8523
+    },
+    {
+     "id": "S0332",
+     "wall_ms": 6864,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6861,
+     "load_ms": 1,
+     "prompt_tokens": 2429,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2090,
+     "eval_ms": 4742
+    },
+    {
+     "id": "S0335",
+     "wall_ms": 10202,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 18675,
+     "load_ms": 2,
+     "prompt_tokens": 3669,
+     "cached_tokens": 3565,
+     "output_tokens": 76,
+     "prompt_ms": 5009,
+     "eval_ms": 13615
+    },
+    {
+     "id": "S0336",
+     "wall_ms": 6763,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6761,
+     "load_ms": 1,
+     "prompt_tokens": 2422,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 1765,
+     "eval_ms": 4965
+    },
+    {
+     "id": "S0337",
+     "wall_ms": 5885,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5882,
+     "load_ms": 1,
+     "prompt_tokens": 2412,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1256,
+     "eval_ms": 4598
+    },
+    {
+     "id": "S0339",
+     "wall_ms": 9084,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9081,
+     "load_ms": 1,
+     "prompt_tokens": 2462,
+     "cached_tokens": 2392,
+     "output_tokens": 27,
+     "prompt_ms": 3810,
+     "eval_ms": 5241
+    },
+    {
+     "id": "S0342",
+     "wall_ms": 7148,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7145,
+     "load_ms": 1,
+     "prompt_tokens": 2432,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2241,
+     "eval_ms": 4875
+    },
+    {
+     "id": "S0344",
+     "wall_ms": 7656,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7652,
+     "load_ms": 1,
+     "prompt_tokens": 2446,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 2983,
+     "eval_ms": 4640
+    },
+    {
+     "id": "S0345",
+     "wall_ms": 7266,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7263,
+     "load_ms": 1,
+     "prompt_tokens": 2438,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2582,
+     "eval_ms": 4644
+    },
+    {
+     "id": "S0346",
+     "wall_ms": 6029,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6026,
+     "load_ms": 3,
+     "prompt_tokens": 2418,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 1542,
+     "eval_ms": 4451
+    },
+    {
+     "id": "S0347",
+     "wall_ms": 4499,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4497,
+     "load_ms": 1,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 594,
+     "eval_ms": 3872
+    },
+    {
+     "id": "S0348",
+     "wall_ms": 5610,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 11321,
+     "load_ms": 2,
+     "prompt_tokens": 3617,
+     "cached_tokens": 3563,
+     "output_tokens": 50,
+     "prompt_ms": 2677,
+     "eval_ms": 8591
+    },
+    {
+     "id": "S0349",
+     "wall_ms": 7645,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7642,
+     "load_ms": 1,
+     "prompt_tokens": 2441,
+     "cached_tokens": 2393,
+     "output_tokens": 26,
+     "prompt_ms": 2708,
+     "eval_ms": 4904
+    },
+    {
+     "id": "S0350",
+     "wall_ms": 6151,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": true,
+      "full": false
+     },
+     "total_ms": 12996,
+     "load_ms": 2,
+     "prompt_tokens": 3637,
+     "cached_tokens": 3564,
+     "output_tokens": 55,
+     "prompt_ms": 3579,
+     "eval_ms": 9365
+    },
+    {
+     "id": "S0352",
+     "wall_ms": 5203,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5200,
+     "load_ms": 3,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2393,
+     "output_tokens": 22,
+     "prompt_ms": 1095,
+     "eval_ms": 4070
+    },
+    {
+     "id": "S0353",
+     "wall_ms": 4950,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4948,
+     "load_ms": 1,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1087,
+     "eval_ms": 3833
+    },
+    {
+     "id": "S0354",
+     "wall_ms": 6942,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6938,
+     "load_ms": 3,
+     "prompt_tokens": 2429,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2159,
+     "eval_ms": 4747
+    },
+    {
+     "id": "S0355",
+     "wall_ms": 5787,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5785,
+     "load_ms": 1,
+     "prompt_tokens": 2423,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1773,
+     "eval_ms": 3981
+    },
+    {
+     "id": "S0356",
+     "wall_ms": 5248,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5246,
+     "load_ms": 1,
+     "prompt_tokens": 2411,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1208,
+     "eval_ms": 4008
+    },
+    {
+     "id": "S0358",
+     "wall_ms": 7946,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7942,
+     "load_ms": 1,
+     "prompt_tokens": 2448,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 3172,
+     "eval_ms": 4741
+    },
+    {
+     "id": "S0360",
+     "wall_ms": 7615,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 15467,
+     "load_ms": 2,
+     "prompt_tokens": 3679,
+     "cached_tokens": 3562,
+     "output_tokens": 52,
+     "prompt_ms": 5871,
+     "eval_ms": 9526
+    },
+    {
+     "id": "S0361",
+     "wall_ms": 5757,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 12848,
+     "load_ms": 5,
+     "prompt_tokens": 3623,
+     "cached_tokens": 3562,
+     "output_tokens": 53,
+     "prompt_ms": 3197,
+     "eval_ms": 9585
+    },
+    {
+     "id": "S0364",
+     "wall_ms": 4953,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4951,
+     "load_ms": 1,
+     "prompt_tokens": 2405,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 849,
+     "eval_ms": 4073
+    },
+    {
+     "id": "S0366",
+     "wall_ms": 4850,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4848,
+     "load_ms": 1,
+     "prompt_tokens": 2407,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 956,
+     "eval_ms": 3860
+    },
+    {
+     "id": "S0367",
+     "wall_ms": 5090,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5088,
+     "load_ms": 1,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1165,
+     "eval_ms": 3894
+    },
+    {
+     "id": "S0369",
+     "wall_ms": 1,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4497,
+     "load_ms": 1,
+     "prompt_tokens": 2400,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 594,
+     "eval_ms": 3872
+    },
+    {
+     "id": "S0370",
+     "wall_ms": 4425,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4422,
+     "load_ms": 1,
+     "prompt_tokens": 2399,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 497,
+     "eval_ms": 3892
+    },
+    {
+     "id": "S0371",
+     "wall_ms": 6340,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6337,
+     "load_ms": 1,
+     "prompt_tokens": 2425,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1915,
+     "eval_ms": 4392
+    },
+    {
+     "id": "S0373",
+     "wall_ms": 8496,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8492,
+     "load_ms": 1,
+     "prompt_tokens": 2464,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 4087,
+     "eval_ms": 4375
+    },
+    {
+     "id": "S0374",
+     "wall_ms": 7768,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7764,
+     "load_ms": 1,
+     "prompt_tokens": 2443,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2848,
+     "eval_ms": 4883
+    },
+    {
+     "id": "S0376",
+     "wall_ms": 5185,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5182,
+     "load_ms": 1,
+     "prompt_tokens": 2413,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1255,
+     "eval_ms": 3889
+    },
+    {
+     "id": "S0377",
+     "wall_ms": 5213,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5210,
+     "load_ms": 1,
+     "prompt_tokens": 2409,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 1099,
+     "eval_ms": 4083
+    },
+    {
+     "id": "S0378",
+     "wall_ms": 6800,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 18517,
+     "load_ms": 2,
+     "prompt_tokens": 3649,
+     "cached_tokens": 3561,
+     "output_tokens": 66,
+     "prompt_ms": 4453,
+     "eval_ms": 14012
+    },
+    {
+     "id": "S0379",
+     "wall_ms": 5416,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5414,
+     "load_ms": 1,
+     "prompt_tokens": 2413,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1272,
+     "eval_ms": 4111
+    },
+    {
+     "id": "S0380",
+     "wall_ms": 5083,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5080,
+     "load_ms": 1,
+     "prompt_tokens": 2403,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 790,
+     "eval_ms": 4259
+    },
+    {
+     "id": "S0381",
+     "wall_ms": 6827,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 14783,
+     "load_ms": 2,
+     "prompt_tokens": 3647,
+     "cached_tokens": 3560,
+     "output_tokens": 53,
+     "prompt_ms": 4696,
+     "eval_ms": 10031
+    },
+    {
+     "id": "S0383",
+     "wall_ms": 9093,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 9090,
+     "load_ms": 1,
+     "prompt_tokens": 2462,
+     "cached_tokens": 2392,
+     "output_tokens": 27,
+     "prompt_ms": 3828,
+     "eval_ms": 5229
+    },
+    {
+     "id": "S0384",
+     "wall_ms": 6062,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6058,
+     "load_ms": 1,
+     "prompt_tokens": 2416,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 1534,
+     "eval_ms": 4489
+    },
+    {
+     "id": "S0389",
+     "wall_ms": 5785,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5782,
+     "load_ms": 1,
+     "prompt_tokens": 2416,
+     "cached_tokens": 2392,
+     "output_tokens": 22,
+     "prompt_ms": 1430,
+     "eval_ms": 4315
+    },
+    {
+     "id": "S0390",
+     "wall_ms": 5590,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5587,
+     "load_ms": 1,
+     "prompt_tokens": 2415,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1393,
+     "eval_ms": 4163
+    },
+    {
+     "id": "S0393",
+     "wall_ms": 4901,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 4898,
+     "load_ms": 1,
+     "prompt_tokens": 2403,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 798,
+     "eval_ms": 4070
+    },
+    {
+     "id": "S0394",
+     "wall_ms": 8013,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 8010,
+     "load_ms": 1,
+     "prompt_tokens": 2450,
+     "cached_tokens": 2392,
+     "output_tokens": 24,
+     "prompt_ms": 3291,
+     "eval_ms": 4683
+    },
+    {
+     "id": "S0395",
+     "wall_ms": 6969,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 6966,
+     "load_ms": 1,
+     "prompt_tokens": 2434,
+     "cached_tokens": 2392,
+     "output_tokens": 23,
+     "prompt_ms": 2421,
+     "eval_ms": 4516
+    },
+    {
+     "id": "S0397",
+     "wall_ms": 7212,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7209,
+     "load_ms": 1,
+     "prompt_tokens": 2432,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2324,
+     "eval_ms": 4856
+    },
+    {
+     "id": "S0398",
+     "wall_ms": 7872,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 7869,
+     "load_ms": 1,
+     "prompt_tokens": 2443,
+     "cached_tokens": 2392,
+     "output_tokens": 25,
+     "prompt_ms": 2988,
+     "eval_ms": 4850
+    },
+    {
+     "id": "S0399",
+     "wall_ms": 11345,
+     "status": "done",
+     "stages": [
+      "classify",
+      "verify"
+     ],
+     "variants": {
+      "llm_only": true,
+      "llm_lexicon": true,
+      "full": true
+     },
+     "total_ms": 17817,
+     "load_ms": 2,
+     "prompt_tokens": 3649,
+     "cached_tokens": 3568,
+     "output_tokens": 77,
+     "prompt_ms": 3913,
+     "eval_ms": 13850
+    },
+    {
+     "id": "S0400",
+     "wall_ms": 5287,
+     "status": "done",
+     "stages": [
+      "classify"
+     ],
+     "variants": {
+      "llm_only": false,
+      "llm_lexicon": false,
+      "full": false
+     },
+     "total_ms": 5284,
+     "load_ms": 1,
+     "prompt_tokens": 2410,
+     "cached_tokens": 2392,
+     "output_tokens": 21,
+     "prompt_ms": 1104,
+     "eval_ms": 4152
+    }
+   ]
+  }
+ }
+}

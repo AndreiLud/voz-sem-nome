@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o cliente ameacou cancelar o contrato se a entrega atrasasse dnvvv\",\"c\":true,\"k\":[\"av\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1205,
-  "cached_tokens": 1179,
+  "cached_tokens": 1170,
   "output_tokens": 29,
-  "total_ms": 5631,
-  "load_ms": 2,
-  "prompt_ms": 1117,
-  "eval_ms": 4487
+  "total_ms": 5712,
+  "load_ms": 1,
+  "prompt_ms": 1441,
+  "eval_ms": 4246
  }
 }

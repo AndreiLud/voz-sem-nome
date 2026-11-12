@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"car\",\"rem\",\"flx\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"escala q sai na vespera e diária q n paga nem o almoco\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2437,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 43,
-  "total_ms": 11243,
+  "total_ms": 10813,
   "load_ms": 1,
-  "prompt_ms": 2531,
-  "eval_ms": 8685
+  "prompt_ms": 2623,
+  "eval_ms": 8158
  }
 }

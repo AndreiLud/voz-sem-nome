@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"flx\",\"car\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2428,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 24,
-  "total_ms": 6940,
+  "total_ms": 6817,
   "load_ms": 1,
-  "prompt_ms": 2115,
-  "eval_ms": 4793
+  "prompt_ms": 2092,
+  "eval_ms": 4696
  }
 }

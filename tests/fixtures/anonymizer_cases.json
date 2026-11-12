@@ -1,0 +1,1524 @@
+{
+  "description": "Anonymizer cases shared by the Python anonymizer (tests/test_anonymizer_cases.py) and the Worker port (worker/test/anonymize.test.js), taken from tests/test_anonymize_*.py. must_mask: spans is the exact list of [type, original text] in order, and output, when present, the exact anonymized text. must_not_mask: the text comes back unchanged. python_only marks cases that need the spaCy NER layer, which the Worker does not have.",
+  "must_mask": [
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_contract_example",
+      "text": "falei com o João, meu cpf é 123.456.789-00",
+      "spans": [
+        ["PESSOA", "João"],
+        ["CPF", "123.456.789-00"]
+      ],
+      "output": "falei com o [PESSOA], meu cpf é [CPF]"
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_spans_use_original_coordinates_and_rebuild_the_output",
+      "text": "Meu gestor Paulo Mendes (tel 11 98765-4321) mora na Rua Augusta, 1200 e a placa do carro é ABC1D23. Email paulo.m@talvana.com.br",
+      "spans": [
+        ["PESSOA", "Paulo Mendes"],
+        ["TELEFONE", "11 98765-4321"],
+        ["LOCAL", "Rua Augusta, 1200"],
+        ["PLACA", "ABC1D23"],
+        ["EMAIL", "paulo.m@talvana.com.br"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_regex_wins_over_names",
+      "text": "Mande pra ana.paula@talvana.com.br ou fale com a Ana Paula.",
+      "spans": [
+        ["EMAIL", "ana.paula@talvana.com.br"],
+        ["PESSOA", "Ana Paula"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_mixed_comment",
+      "text": "A coordenadora Fernanda Lima me humilhou na frente do time. Já falei com o RH, meu whats é 11 98765-4321 e minha matrícula 45821.",
+      "spans": [
+        ["PESSOA", "Fernanda Lima"],
+        ["TELEFONE", "11 98765-4321"],
+        ["MATRICULA", "45821"]
+      ],
+      "output": "A coordenadora [PESSOA] me humilhou na frente do time. Já falei com o RH, meu whats é [TELEFONE] e minha matrícula [MATRICULA]."
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "meu cpf é 123.456.789-00 ok",
+      "spans": [
+        ["CPF", "123.456.789-00"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "cpf 529.982.247-25",
+      "spans": [
+        ["CPF", "529.982.247-25"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "CPF: 123456789-00",
+      "spans": [
+        ["CPF", "123456789-00"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "cpf 123 456 789 00 pra cadastro",
+      "spans": [
+        ["CPF", "123 456 789 00"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "o número 52998224725 aparece",
+      "spans": [
+        ["CPF", "52998224725"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "cpf 12345678900",
+      "spans": [
+        ["CPF", "12345678900"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cpf_formats_even_with_wrong_check_digits",
+      "text": "documento 12345678901 no sistema",
+      "spans": [
+        ["CPF", "12345678901"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cnpj_formats",
+      "text": "cnpj 11.222.333/0001-81",
+      "spans": [
+        ["CNPJ", "11.222.333/0001-81"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cnpj_formats",
+      "text": "empresa 11.222.333/0001-80 errado",
+      "spans": [
+        ["CNPJ", "11.222.333/0001-80"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cnpj_formats",
+      "text": "novo cnpj 12.ABC.345/01DE-35 em 2026",
+      "spans": [
+        ["CNPJ", "12.ABC.345/01DE-35"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cnpj_formats",
+      "text": "sem pontos 11222333000181",
+      "spans": [
+        ["CNPJ", "11222333000181"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cnpj_formats",
+      "text": "alfanumérico 12ABC34501DE35",
+      "spans": [
+        ["CNPJ", "12ABC34501DE35"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "meu rg é 12.345.678-9",
+      "spans": [
+        ["RG", "12.345.678-9"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "RG: MG-12.345.678",
+      "spans": [
+        ["RG", "MG-12.345.678"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "identidade 123456789",
+      "spans": [
+        ["RG", "123456789"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "Rg nº 4.567.890",
+      "spans": [
+        ["RG", "4.567.890"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "RG 12.345.678-X",
+      "spans": [
+        ["RG", "12.345.678-X"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "rg mg-12.345.678",
+      "spans": [
+        ["RG", "mg-12.345.678"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "meu rg é sp-12.345.678-9",
+      "spans": [
+        ["RG", "sp-12.345.678-9"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "RG mg 12.345.678",
+      "spans": [
+        ["RG", "mg 12.345.678"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_rg_with_cue",
+      "text": "meu rg e SP-12.345.678 pra cadastro",
+      "spans": [
+        ["RG", "SP-12.345.678"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "ligue (11) 98765-4321",
+      "spans": [
+        ["TELEFONE", "(11) 98765-4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "+55 11 98765-4321",
+      "spans": [
+        ["TELEFONE", "+55 11 98765-4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "+5511987654321",
+      "spans": [
+        ["TELEFONE", "+5511987654321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "fone 11 3456-7890",
+      "spans": [
+        ["TELEFONE", "11 3456-7890"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "whats 11 98765 4321",
+      "spans": [
+        ["TELEFONE", "11 98765 4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "(21)3456.7890",
+      "spans": [
+        ["TELEFONE", "(21)3456.7890"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "meu celular 98765-4321",
+      "spans": [
+        ["TELEFONE", "98765-4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "fixo 3456-7890",
+      "spans": [
+        ["TELEFONE", "3456-7890"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "sem ddd 9 8765-4321",
+      "spans": [
+        ["TELEFONE", "9 8765-4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "número 11987654321",
+      "spans": [
+        ["TELEFONE", "11987654321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "liga no 1134567890",
+      "spans": [
+        ["TELEFONE", "1134567890"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "zap 987654321",
+      "spans": [
+        ["TELEFONE", "987654321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_phone_formats",
+      "text": "ramal 4521",
+      "spans": [
+        ["TELEFONE", "4521"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_email",
+      "text": "email joao.silva@talvana.com.br.",
+      "spans": [
+        ["EMAIL", "joao.silva@talvana.com.br"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_email",
+      "text": "Ana_Souza+rh@gmail.com",
+      "spans": [
+        ["EMAIL", "Ana_Souza+rh@gmail.com"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cep",
+      "text": "moro no cep 01310-100",
+      "spans": [
+        ["CEP", "01310-100"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cep",
+      "text": "CEP: 01310100",
+      "spans": [
+        ["CEP", "01310100"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cep",
+      "text": "endereço 04567-000, perto",
+      "spans": [
+        ["CEP", "04567-000"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_cep",
+      "text": "cep 01.310-100",
+      "spans": [
+        ["CEP", "01.310-100"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "o carro ABC-1234 bateu",
+      "spans": [
+        ["PLACA", "ABC-1234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "placa abc1234",
+      "spans": [
+        ["PLACA", "abc1234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "veículo ABC 1234",
+      "spans": [
+        ["PLACA", "ABC 1234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "Mercosul BRA2E19",
+      "spans": [
+        ["PLACA", "BRA2E19"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "placa bra2e19.",
+      "spans": [
+        ["PLACA", "bra2e19"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_plates",
+      "text": "a placa é xyz 9876",
+      "spans": [
+        ["PLACA", "xyz 9876"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "matrícula 45821",
+      "spans": [
+        ["MATRICULA", "45821"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "matricula: 004512",
+      "spans": [
+        ["MATRICULA", "004512"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "mat. 9981",
+      "spans": [
+        ["MATRICULA", "9981"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "registro 778899",
+      "spans": [
+        ["MATRICULA", "778899"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "RE 123456",
+      "spans": [
+        ["MATRICULA", "123456"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "crachá A1234.",
+      "spans": [
+        ["MATRICULA", "A1234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "id funcional 33-221",
+      "spans": [
+        ["MATRICULA", "33-221"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "chapa 772",
+      "spans": [
+        ["MATRICULA", "772"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "minha matrícula nº 12345",
+      "spans": [
+        ["MATRICULA", "12345"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "matrícula funcional 12345",
+      "spans": [
+        ["MATRICULA", "12345"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "registro funcional: 778899",
+      "spans": [
+        ["MATRICULA", "778899"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_matricula_with_cue",
+      "text": "minha matricula e 45821",
+      "spans": [
+        ["MATRICULA", "45821"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "moro na Rua Augusta, 1200 perto",
+      "spans": [
+        ["LOCAL", "Rua Augusta, 1200"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "Av. Paulista 900",
+      "spans": [
+        ["LOCAL", "Av. Paulista 900"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "na avenida Brigadeiro Faria Lima",
+      "spans": [
+        ["LOCAL", "avenida Brigadeiro Faria Lima"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "Rua 25 de Março, 45",
+      "spans": [
+        ["LOCAL", "Rua 25 de Março, 45"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "na rua das flores, 123",
+      "spans": [
+        ["LOCAL", "rua das flores, 123"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "Travessa do Comércio nº 12",
+      "spans": [
+        ["LOCAL", "Travessa do Comércio nº 12"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "Rodovia Anhanguera, km 23",
+      "spans": [
+        ["LOCAL", "Rodovia Anhanguera, km 23"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_street_addresses_are_local",
+      "text": "moro no bairro Jardim Ângela",
+      "spans": [
+        ["LOCAL", "bairro Jardim Ângela"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_leftover_numbers_are_documento",
+      "text": "protocolo 12345678",
+      "spans": [
+        ["DOCUMENTO", "12345678"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_leftover_numbers_are_documento",
+      "text": "número 98.765.432-1 sem cue",
+      "spans": [
+        ["DOCUMENTO", "98.765.432-1"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_leftover_numbers_are_documento",
+      "text": "conta 0012345678901234",
+      "spans": [
+        ["DOCUMENTO", "0012345678901234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "o Marco grita comigo",
+      "spans": [
+        ["PESSOA", "Marco"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "falei com o marco ontem",
+      "spans": [
+        ["PESSOA", "marco"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "A Carla Sales é ótima",
+      "spans": [
+        ["PESSOA", "Carla Sales"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "o Paulo Vale grita",
+      "spans": [
+        ["PESSOA", "Paulo Vale"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "o Pedro da Frota sumiu",
+      "spans": [
+        ["PESSOA", "Pedro"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "a Ana vale ouro",
+      "spans": [
+        ["PESSOA", "Ana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "falei com o joao ontem",
+      "spans": [
+        ["PESSOA", "joao"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "a maria sumiu",
+      "spans": [
+        ["PESSOA", "maria"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "reclamei pro carlos e pra fernanda",
+      "spans": [
+        ["PESSOA", "carlos"],
+        ["PESSOA", "fernanda"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "minha gestora ana grita",
+      "spans": [
+        ["PESSOA", "ana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "o lider bruno e o supervisor marcos",
+      "spans": [
+        ["PESSOA", "bruno"],
+        ["PESSOA", "marcos"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "seu joaquim e dona francisca da limpeza",
+      "spans": [
+        ["PESSOA", "joaquim"],
+        ["PESSOA", "francisca"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_lowercase_names_after_cues",
+      "text": "O JOÃO ME HUMILHA",
+      "spans": [
+        ["PESSOA", "JOÃO"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "Paulo grita comigo.",
+      "spans": [
+        ["PESSOA", "Paulo"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "Fiquei sabendo que Juliana saiu.",
+      "spans": [
+        ["PESSOA", "Juliana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "Bom dia. Marcos é ótimo",
+      "spans": [
+        ["PESSOA", "Marcos"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "(Patrícia) me ajudou",
+      "spans": [
+        ["PESSOA", "Patrícia"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "Valeu, Ricardo!",
+      "spans": [
+        ["PESSOA", "Ricardo"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_capitalized_names_anywhere",
+      "text": "\"Fernanda\" disse",
+      "spans": [
+        ["PESSOA", "Fernanda"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "Meu gestor Paulo Mendes grita",
+      "spans": [
+        ["PESSOA", "Paulo Mendes"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "a Maria das Graças Souza saiu",
+      "spans": [
+        ["PESSOA", "Maria das Graças Souza"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "o joao da silva falou",
+      "spans": [
+        ["PESSOA", "joao da silva"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "a Ana Paula Oliveira chegou",
+      "spans": [
+        ["PESSOA", "Ana Paula Oliveira"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "a Ana-Clara chegou",
+      "spans": [
+        ["PESSOA", "Ana-Clara"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "a Ana do Financeiro ajudou",
+      "spans": [
+        ["PESSOA", "Ana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "o Pedro da logística sumiu",
+      "spans": [
+        ["PESSOA", "Pedro"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_extend_over_surnames",
+      "text": "o joao costa largo",
+      "spans": [
+        ["PESSOA", "joao"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a Clara me ajudou",
+      "spans": [
+        ["PESSOA", "Clara"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a supervisora Rosa é ótima",
+      "spans": [
+        ["PESSOA", "Rosa"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a dona Socorro da limpeza",
+      "spans": [
+        ["PESSOA", "Socorro"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_nicknames_diminutives_and_titles",
+      "text": "o gerente paulinho",
+      "spans": [
+        ["PESSOA", "paulinho"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_nicknames_diminutives_and_titles",
+      "text": "a bia da expedição",
+      "spans": [
+        ["PESSOA", "bia"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_nicknames_diminutives_and_titles",
+      "text": "o Seu Zé da portaria",
+      "spans": [
+        ["PESSOA", "Zé"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_nicknames_diminutives_and_titles",
+      "text": "o Sr. Antunes e a Sra. Lúcia",
+      "spans": [
+        ["PESSOA", "Antunes"],
+        ["PESSOA", "Lúcia"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_mentions_are_people",
+      "text": "me marcou @joao.silva e @mariana_s, escreve pra rh@talvana.com",
+      "spans": [
+        ["PESSOA", "@joao.silva"],
+        ["PESSOA", "@mariana_s"],
+        ["EMAIL", "rh@talvana.com"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Paulo grita com todo mundo.",
+      "spans": [
+        ["PESSOA", "Paulo"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Meu supervisor, o Ricardo, vive me expondo.",
+      "spans": [
+        ["PESSOA", "Ricardo"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "falei com o joao e a maria",
+      "spans": [
+        ["PESSOA", "joao"],
+        ["PESSOA", "maria"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "A Clara do Financeiro me ajudou.",
+      "spans": [
+        ["PESSOA", "Clara"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Falei com Clara ontem.",
+      "spans": [
+        ["PESSOA", "Clara"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Rosa me ajuda sempre, já o Marcos some.",
+      "spans": [
+        ["PESSOA", "Rosa"],
+        ["PESSOA", "Marcos"]
+      ],
+      "python_only": "A stoplist name at the start of a sentence, without a cue word, is found by the NER model only."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Quero ser promovido mas o Sr. Antunes não deixa.",
+      "spans": [
+        ["PESSOA", "Antunes"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "o Seu Zé da portaria é gente boa",
+      "spans": [
+        ["PESSOA", "Zé"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "a dona Socorro do RH some",
+      "spans": [
+        ["PESSOA", "Socorro"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Bruno e Fernanda são ótimos líderes.",
+      "spans": [
+        ["PESSOA", "Bruno"],
+        ["PESSOA", "Fernanda"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "Obrigado, Juliana!",
+      "spans": [
+        ["PESSOA", "Juliana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "o joao da silva sumiu",
+      "spans": [
+        ["PESSOA", "joao da silva"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "me marcou @mariana_s no grupo",
+      "spans": [
+        ["PESSOA", "@mariana_s"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "O SUPERVISOR CARLOS GRITA COM TODO MUNDO NA FRENTE DOS CLIENTES",
+      "spans": [
+        ["PESSOA", "CARLOS"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "pergunta pro jefferson, ele sabe",
+      "spans": [
+        ["PESSOA", "jefferson"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "o gerente paulinho e a bia da expedição",
+      "spans": [
+        ["PESSOA", "paulinho"],
+        ["PESSOA", "bia"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_people",
+      "text": "o gerente Marco Sales some",
+      "spans": [
+        ["PESSOA", "Marco Sales"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_places",
+      "text": "O Galpão 3 em Guarulhos não tem ventilação.",
+      "spans": [
+        ["LOCAL", "Guarulhos"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_places",
+      "text": "Moro no Jardim Ângela e trabalho em São Paulo.",
+      "spans": [
+        ["LOCAL", "Jardim Ângela"],
+        ["LOCAL", "São Paulo"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_places",
+      "text": "Moro na Rua Maria Antônia, 300.",
+      "spans": [
+        ["LOCAL", "Rua Maria Antônia, 300"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "meu cpf 529.982.247-25",
+      "spans": [
+        ["CPF", "529.982.247-25"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "cnpj 12.ABC.345/01DE-35",
+      "spans": [
+        ["CNPJ", "12.ABC.345/01DE-35"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "rg 12.345.678-9",
+      "spans": [
+        ["RG", "12.345.678-9"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "cep 01310-100",
+      "spans": [
+        ["CEP", "01310-100"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "me liga (11) 98765-4321",
+      "spans": [
+        ["TELEFONE", "(11) 98765-4321"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "escreve pra joao@talvana.com.br",
+      "spans": [
+        ["EMAIL", "joao@talvana.com.br"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_each_regex_type_reaches_the_output",
+      "text": "placa ABC-1234",
+      "spans": [
+        ["PLACA", "ABC-1234"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro em São José dos Campos e trabalho em Jacareí.",
+      "spans": [
+        ["LOCAL", "São José dos Campos"],
+        ["LOCAL", "Jacareí"]
+      ],
+      "output": "Moro em [LOCAL] e trabalho em [LOCAL]."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "moro em sao jose dos campos faz tempo",
+      "spans": [
+        ["LOCAL", "sao jose dos campos"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Sou de Mogi das Cruzes e pego dois ônibus.",
+      "spans": [
+        ["LOCAL", "Mogi das Cruzes"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "sou de mogi das cruzes",
+      "spans": [
+        ["LOCAL", "mogi das cruzes"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Fui transferida de Jundiaí para Campinas.",
+      "spans": [
+        ["LOCAL", "Jundiaí"],
+        ["LOCAL", "Campinas"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "A filial de Ribeirão Preto fechou.",
+      "spans": [
+        ["LOCAL", "Ribeirão Preto"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "MORO EM OSASCO E TRABALHO EM BARUERI",
+      "spans": [
+        ["LOCAL", "OSASCO"],
+        ["LOCAL", "BARUERI"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro em Natal e a festa de Natal foi boa.",
+      "spans": [
+        ["LOCAL", "Natal"]
+      ],
+      "output": "Moro em [LOCAL] e a festa de Natal foi boa."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro em Marília e a Marília do RH me ajuda.",
+      "spans": [
+        ["LOCAL", "Marília"],
+        ["PESSOA", "Marília"]
+      ],
+      "output": "Moro em [LOCAL] e a [PESSOA] do RH me ajuda."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Trabalho com a Vitória e moro em Vitória.",
+      "spans": [
+        ["PESSOA", "Vitória"],
+        ["LOCAL", "Vitória"]
+      ],
+      "output": "Trabalho com a [PESSOA] e moro em [LOCAL]."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "moro no bairro jaçanã",
+      "spans": [
+        ["LOCAL", "jaçanã"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Campinas é longe de casa.",
+      "spans": [
+        ["LOCAL", "Campinas"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro em Contagem e o fretado atrasa.",
+      "spans": [
+        ["LOCAL", "Contagem"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro perto de Itapevi e o fretado não passa.",
+      "spans": [
+        ["LOCAL", "Itapevi"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "venho de pindamonhangaba todo dia",
+      "spans": [
+        ["LOCAL", "pindamonhangaba"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "A unidade de Feira de Santana bate meta.",
+      "spans": [
+        ["LOCAL", "Feira de Santana"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Falei com o Barbosa e nada mudou.",
+      "spans": [
+        ["PESSOA", "Barbosa"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Liguei pra Jundiaí e ninguém atendeu.",
+      "spans": [
+        ["LOCAL", "Jundiaí"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Santa Rita do Sapucaí tem fábrica nova.",
+      "spans": [
+        ["LOCAL", "Santa Rita do Sapucaí"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro em Bom Jesus e trabalho em Embu-Guaçu.",
+      "spans": [
+        ["LOCAL", "Bom Jesus"],
+        ["LOCAL", "Embu-Guaçu"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Mande para sao.paulo@talvana.com.br amanhã.",
+      "spans": [
+        ["EMAIL", "sao.paulo@talvana.com.br"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Moro na Rua Guarulhos, 45 desde 2019.",
+      "spans": [
+        ["LOCAL", "Rua Guarulhos, 45"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "A Vila Mariana é cara e o Tatuapé também.",
+      "spans": [
+        ["LOCAL", "Vila Mariana"],
+        ["LOCAL", "Tatuapé"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "Sou de Pau D'Arco do Piauí.",
+      "spans": [
+        ["LOCAL", "Pau D'Arco do Piauí"]
+      ]
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_places_are_masked",
+      "text": "moro em São João del Rei",
+      "spans": [
+        ["LOCAL", "São João del Rei"]
+      ]
+    }
+  ],
+  "must_not_mask": [
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "recebo R$ 2.500,00 por mês"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "o 13º atrasou"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "escala 6x1"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "nota 10"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "5 anos de casa"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "pedido 4471"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "saio às 18h"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "aumento de 15% e 7,5%"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "dia 10/11 e 10/11/2025"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "entre 2019-2021 e 2023 2024"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "faixa de 5000-6000 reais"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "ano 2024, ISO 9001 e PLR 2025"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "Ano 2024 foi difícil"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "a rua tem 30 buracos"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "a estrada tá ruim"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "registro de ponto às 8h"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "registro 100 horas extras"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "R$ 12345678 de prejuízo"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "abc 1234"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "registro e 100 horas de treinamento"
+    },
+    {
+      "from": "tests/test_anonymize_patterns.py::test_ordinary_numbers_are_not_masked",
+      "text": "rg e cpf atualizados"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_names_that_collide_with_allowlist_words",
+      "text": "Março foi puxado, em março tem PLR"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "comunicação clara faz falta"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a camisa rosa é feia"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a luz do galpão queimou"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a clara do ovo"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a ida pro trabalho cansa"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a norma da empresa"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "o junior da equipe"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_stoplist_needs_cue_and_capital",
+      "text": "a irmã do gerente foi promovida"
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_workplace_words_are_not_names",
+      "text": "O RH e a TI não respondem, a Talvana paga mal."
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_workplace_words_are_not_names",
+      "text": "Trabalho em Operações, a Diretoria sumiu, segunda-feira tem reunião."
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_workplace_words_are_not_names",
+      "text": "O SAP, o Excel e o Teams travam. Home office e PLR."
+    },
+    {
+      "from": "tests/test_anonymize_gazetteer.py::test_workplace_words_are_not_names",
+      "text": "Falta caminho, cozinha limpa e carinho da chefia."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "O RH não responde e a TI demora."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "A Talvana Distribuição paga em dia."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Trabalho em Operações, mas já passei por Transporte, Atendimento e Pessoas e Cultura."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "O Jurídico e o Financeiro brigam com o Comercial e a Tecnologia."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Home office duas vezes por semana seria ótimo."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "A PLR caiu e o 13º atrasou."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Recebo R$ 2.500,00 na escala 6x1."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Dou nota 10 para a equipe."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Tenho 5 anos de casa."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Toda segunda-feira às 18h tem reunião."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "O pedido 4471 ficou parado no SAP."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "O Excel trava e o Teams cai."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "A camisa rosa do uniforme é feia."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Falta comunicação clara da diretoria."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "A luz do galpão vive queimada."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Aumento de 15% não cobre a inflação de 7,5%."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "No dia 10/11 teve treinamento."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Excelente empresa! Recomendo."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Valeu a pena entrar aqui."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Moro longe e o fretado atrasa."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Luz do galpão queimou e ninguém troca."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "CLT, VR, VA, FGTS e INSS em dia. A URA e o CRM são lentos."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Gostaria que a Diretoria olhasse mais pra Operações."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "O Gerente Regional não ouve ninguém."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Graças a Deus tenho emprego."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Contrataram a irmã da coordenadora."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_ordinary_workplace_text_is_kept",
+      "text": "Março foi puxado, a PLR sai em abril."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "A gente mora longe e o fretado atrasa."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "a gente mora longe"
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "vim de carro"
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Vim de carro e voltei de ônibus."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Tenho esperança de que melhore."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Esperança é a última que morre."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Liberdade para trabalhar é bom."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Socorro, ninguém ajuda aqui."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Palmas para a liderança."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "O Cruzeiro ganhou ontem e o Palmeiras perdeu."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Na festa de Natal teve sorteio."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Feliz Natal e Boa Sorte a todos."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Graças a Deus e ao Bom Jesus."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "O banco Itaú paga em dia."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Moro em casa alugada perto de tudo."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Sou de humanas e vim de outra empresa."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Fui transferido de setor e de turno."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "A unidade de negócio cresceu em geral."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Trabalho em Operações e moro perto de casa."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Já trabalhei em Transporte, em Atendimento e em Tecnologia."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "A PLR saiu e o pessoal do Comercial comemorou."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "O feriado de Sete de Setembro caiu numa segunda."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Contagem de estoque toda sexta."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Bonito mesmo seria pagar em dia."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "Em breve teremos PLR, em dia e em casa."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "A gente vem de longe e mora em república."
+    },
+    {
+      "from": "tests/test_anonymize_places.py::test_common_words_and_cues_alone_are_kept",
+      "text": "O Comércio e a Assistência Técnica não conversam."
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_blank_text",
+      "text": ""
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_blank_text",
+      "text": "   "
+    },
+    {
+      "from": "tests/test_anonymize_pipeline.py::test_blank_text",
+      "text": "\n"
+    }
+  ]
+}

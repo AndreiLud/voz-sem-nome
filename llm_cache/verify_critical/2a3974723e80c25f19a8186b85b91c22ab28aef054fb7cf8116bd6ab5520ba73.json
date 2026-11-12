@@ -49,11 +49,11 @@
   "content": "{\"e\":\"se alguém passa um minuto da pausa a supervisora manda áudio no grupo falando o nome da pessoa e...\",\"c\":true,\"k\":[\"am\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1239,
-  "cached_tokens": 1177,
+  "cached_tokens": 1178,
   "output_tokens": 35,
-  "total_ms": 8305,
+  "total_ms": 8233,
   "load_ms": 1,
-  "prompt_ms": 2521,
-  "eval_ms": 5759
+  "prompt_ms": 2454,
+  "eval_ms": 5748
  }
 }

@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"eqp\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2421,
-  "cached_tokens": 2392,
+  "cached_tokens": 2390,
   "output_tokens": 22,
-  "total_ms": 5811,
+  "total_ms": 6182,
   "load_ms": 1,
-  "prompt_ms": 1676,
-  "eval_ms": 4103
+  "prompt_ms": 1864,
+  "eval_ms": 4284
  }
 }

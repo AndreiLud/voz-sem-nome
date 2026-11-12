@@ -78,14 +78,14 @@
   }
  },
  "reply": {
-  "content": "{\"t\":[\"eqp\",\"com\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}",
+  "content": "{\"t\":[\"car\",\"eqp\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2444,
   "cached_tokens": 2392,
   "output_tokens": 24,
-  "total_ms": 10243,
+  "total_ms": 7498,
   "load_ms": 1,
-  "prompt_ms": 3237,
-  "eval_ms": 6971
+  "prompt_ms": 2982,
+  "eval_ms": 4481
  }
 }

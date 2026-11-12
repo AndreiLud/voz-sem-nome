@@ -4,17 +4,35 @@ Inputs may be missing or partial. A missing file falls back to a fixture under
 site/src/fixtures/ marked as sample data; a missing number inside a real file is shown
 as "not measured yet". Nothing here invents a number.
 
-Expected shape of metrics/metrics.json (every key optional):
+Expected shape of metrics/metrics.json v2 (every key optional):
 
     {
       "generated_at": ISO 8601,
-      "anonymization": {"n_spans", "recall", "recall_ci95": [lo, hi], "precision",
-                        "n_comments", "comments_with_leak"},
-      "classification": output of enps.evaluation.classification.evaluate, plus
-                        "reference": "intended" | "human",
-      "performance": output of enps.evaluation.performance (cold_start, steady, hardware),
-      "pipeline": {"model", "quantization", "prompt_version", "anonymizer_version"}
+      "live_mode": "edge",
+      "modes": {
+        "edge": {      # live demo: Worker anonymizer + Workers AI
+          "pipeline": {"provider", "model", "prompt_version", "verifier_version", "anonymizer_version"},
+          "anonymization": ANONYMIZATION,
+          "classification": CLASSIFICATION, "classification_intended": CLASSIFICATION,
+          "performance": {"status", "n_comments", "latency": {"mean_s", "p50_s", "p95_s", "max_s"},
+                          "tokens": {"prompt_mean", "output_mean"}, "neurons_per_comment_estimate"}
+        },
+        "local": {     # docker compose on the organization's server: spaCy + Ollama
+          "pipeline": {"provider", "model", "quantization", "prompt_version", "anonymizer_version"},
+          "anonymization": ANONYMIZATION, "classification": CLASSIFICATION,
+          "performance": output of enps.evaluation.performance (cold_start, steady, hardware)
+        }
+      },
+      "development": [...]
     }
+
+    ANONYMIZATION = {"n_spans", "recall", "recall_ci95": [lo, hi], "precision", "n_comments",
+                     "n_comments_with_pii", "comments_with_leak"}
+    CLASSIFICATION = output of enps.evaluation.classification.evaluate, plus
+                     "reference": "intended" | "human"
+
+A file without "modes" (version 1) holds the same blocks at the top level; they were all
+measured in local mode, so they are read as the local mode.
 """
 from __future__ import annotations
 
@@ -30,6 +48,9 @@ from enps.export.site_content import SRC_DIR, PUBLIC_DIR
 FIXTURES_DIR = SRC_DIR / "fixtures"
 METRICS_PATH = config.ROOT / "metrics" / "metrics.json"
 DASHBOARD_SYNTHETIC_PATH = PUBLIC_DIR / "data" / "dashboard-synthetic.json"
+
+MODES = ("edge", "local")      # headline first
+MODE_BLOCKS = ("pipeline", "anonymization", "classification", "performance")
 
 
 @dataclass(frozen=True)
@@ -96,12 +117,20 @@ def _interval(value: Any) -> tuple[float, float] | None:
     return None
 
 
+def mode_blocks(metrics: Mapping[str, Any]) -> dict[str, Mapping[str, Any]]:
+    """{"edge": {...}, "local": {...}} from a v2 file, or from a v1 file (local only)."""
+    modes = metrics.get("modes")
+    if isinstance(modes, Mapping):
+        return {mode: modes[mode] if isinstance(modes.get(mode), Mapping) else {} for mode in MODES}
+    return {"edge": {}, "local": {key: metrics[key] for key in MODE_BLOCKS if key in metrics}}
+
+
 # ------------------------------------------------------------------- results
 
 
 @dataclass(frozen=True)
 class ResultItem:
-    """One number of the results section."""
+    """One number of the results section, read from one mode's block."""
     key: str
     kind: str                         # "share" (0..1), "seconds", "score" (0..1, two decimals)
     value: Callable[[Any], Any]
@@ -111,19 +140,23 @@ class ResultItem:
     extra_kind: str = ""
 
 
+def _with_pii(m: Any) -> Any:
+    """Comments that had planted personal data (older files only give every comment)."""
+    return first(m, "anonymization.n_comments_with_pii", "anonymization.n_comments")
+
+
 def _leak_share(m: Any) -> float | None:
     leaks = _number(dig(m, "anonymization.comments_with_leak"))
-    total = _number(dig(m, "anonymization.n_comments"))
+    total = _number(_with_pii(m))
     return leaks / total if leaks is not None and total else None
 
 
-RESULT_ITEMS: tuple[ResultItem, ...] = (
+QUALITY_ITEMS: tuple[ResultItem, ...] = (
     ResultItem("pii_recall", "share",
                value=lambda m: first(m, "anonymization.recall", "anonymization.overall.recall"),
                n=lambda m: first(m, "anonymization.n_spans", "anonymization.overall.support"),
                ci=lambda m: first(m, "anonymization.recall_ci95", "anonymization.overall.recall_ci95")),
-    ResultItem("pii_leaks", "share", value=_leak_share,
-               n=lambda m: dig(m, "anonymization.n_comments")),
+    ResultItem("pii_leaks", "share", value=_leak_share, n=_with_pii),
     ResultItem("critical_recall", "share",
                value=lambda m: dig(m, "classification.critical.recall"),
                n=lambda m: _sum(dig(m, "classification.critical.tp"), dig(m, "classification.critical.fn")),
@@ -139,11 +172,20 @@ RESULT_ITEMS: tuple[ResultItem, ...] = (
     ResultItem("themes", "score",
                value=lambda m: dig(m, "classification.themes.macro_f1"),
                n=lambda m: dig(m, "classification.n")),
-    ResultItem("latency", "seconds",
-               value=lambda m: dig(m, "performance.steady.p50_s"),
-               n=lambda m: dig(m, "performance.steady.n"),
-               extra=lambda m: dig(m, "performance.steady.p95_s"), extra_kind="seconds"),
 )
+
+# Time per comment: Workers AI as measured by the Worker, or the local CPU after warm up.
+LATENCY_ITEMS: dict[str, ResultItem] = {
+    "edge": ResultItem("latency", "seconds",
+                       value=lambda m: dig(m, "performance.latency.p50_s"),
+                       n=lambda m: dig(m, "performance.n_comments"),
+                       extra=lambda m: dig(m, "performance.latency.p95_s"), extra_kind="seconds"),
+    "local": ResultItem("latency", "seconds",
+                        value=lambda m: dig(m, "performance.steady.p50_s"),
+                        n=lambda m: dig(m, "performance.steady.n"),
+                        extra=lambda m: dig(m, "performance.steady.p95_s"), extra_kind="seconds"),
+}
+RESULT_KEYS = tuple(item.key for item in QUALITY_ITEMS) + ("latency",)
 
 
 @dataclass(frozen=True)
@@ -161,36 +203,70 @@ class ResultValue:
         return self.value is not None
 
 
-def result_values(metrics: Mapping[str, Any]) -> list[ResultValue]:
-    out = []
-    for item in RESULT_ITEMS:
-        n = _number(item.n(metrics))
-        out.append(ResultValue(
-            key=item.key, kind=item.kind, value=_number(item.value(metrics)),
-            n=int(n) if n is not None else None, ci=_interval(item.ci(metrics)),
-            extra=_number(item.extra(metrics)), extra_kind=item.extra_kind,
-        ))
-    return out
+def _evaluate(item: ResultItem, block: Mapping[str, Any]) -> ResultValue:
+    n = _number(item.n(block))
+    return ResultValue(
+        key=item.key, kind=item.kind, value=_number(item.value(block)),
+        n=int(n) if n is not None else None, ci=_interval(item.ci(block)),
+        extra=_number(item.extra(block)), extra_kind=item.extra_kind,
+    )
 
 
-def machine_seconds_per_comment(metrics: Mapping[str, Any]) -> float | None:
-    """Mean steady-state classification time, used by the estimator."""
-    return _number(first(metrics, "performance.steady.mean_s", "performance.steady.p50_s"))
+def result_values(metrics: Mapping[str, Any], mode: str = "edge") -> list[ResultValue]:
+    """Every result number of one mode, in RESULT_KEYS order."""
+    block = mode_blocks(metrics)[mode]
+    return [_evaluate(item, block) for item in (*QUALITY_ITEMS, LATENCY_ITEMS[mode])]
+
+
+def comparison(metrics: Mapping[str, Any]) -> list[dict[str, ResultValue]]:
+    """One row per result key with the value of each mode: [{"edge": ..., "local": ...}]."""
+    by_mode = {mode: result_values(metrics, mode) for mode in MODES}
+    return [{mode: by_mode[mode][i] for mode in MODES} for i in range(len(RESULT_KEYS))]
+
+
+@dataclass(frozen=True)
+class MachineTime:
+    """Mean machine seconds per comment and the mode that measured them."""
+    mode: str
+    seconds: float
+
+
+def machine_time(metrics: Mapping[str, Any]) -> MachineTime | None:
+    """Time per comment for the estimator: the live demo's when measured, else the local mode's."""
+    blocks = mode_blocks(metrics)
+    paths = {"edge": ("performance.latency.mean_s", "performance.latency.p50_s"),
+             "local": ("performance.steady.mean_s", "performance.steady.p50_s")}
+    for mode in MODES:
+        seconds = _number(first(blocks[mode], *paths[mode]))
+        if seconds is not None:
+            return MachineTime(mode, seconds)
+    return None
 
 
 def hardware(metrics: Mapping[str, Any]) -> dict[str, Any] | None:
-    cpus = _number(first(metrics, "performance.hardware.logical_cpus", "performance.hardware.os_cpu_count"))
-    mem = _number(dig(metrics, "performance.hardware.mem_total_gib"))
+    """CPU count and memory of the local mode's benchmark machine."""
+    local = mode_blocks(metrics)["local"]
+    cpus = _number(first(local, "performance.hardware.logical_cpus", "performance.hardware.os_cpu_count"))
+    mem = _number(dig(local, "performance.hardware.mem_total_gib"))
     if cpus is None or mem is None:
         return None
     return {"cpus": int(cpus), "mem": mem}
 
 
-def reference_kind(metrics: Mapping[str, Any]) -> str | None:
-    ref = dig(metrics, "classification.reference")
+def reference_kind(block: Mapping[str, Any]) -> str | None:
+    """Labels a mode's classification was compared with: "intended" or "human"."""
+    ref = dig(block, "classification.reference")
     if ref in ("intended", "human"):
         return str(ref)
-    return "intended" if dig(metrics, "classification") else None
+    return "intended" if dig(block, "classification") else None
+
+
+def pipeline(block: Mapping[str, Any]) -> dict[str, str]:
+    """Model, prompt and anonymizer versions of one mode, only those present."""
+    keys = {"model": "pipeline.model", "prompt": "pipeline.prompt_version",
+            "anonymizer": "pipeline.anonymizer_version"}
+    found = {name: dig(block, path) for name, path in keys.items()}
+    return {name: str(value) for name, value in found.items() if isinstance(value, str) and value}
 
 
 # ---------------------------------------------------------------- estimator

@@ -15,7 +15,7 @@
   <nav class="toc" aria-labelledby="toc-title">
     <p class="toc__title" id="toc-title">{{ p.toc_title }}</p>
     <ol>
-      {% for key in ["collect", "anonymize", "never", "retention", "min_group", "who", "legal", "rights"] %}
+      {% for key in ["collect", "where", "roles", "anonymize", "model", "never", "retention", "min_group", "who", "local", "legal", "rights"] %}
       <li><a href="#{{ key | replace('_', '-') }}">{{ sec[key].title }}</a></li>
       {% endfor %}
     </ol>
@@ -25,13 +25,27 @@
     <section id="collect">
       <h2>{{ sec.collect.title }}</h2>
       <ul>
-        {% for item in sec.collect["items"] %}<li>{{ item }}</li>{% endfor %}
+        {% for item in sec.collect["items"] %}<li>{{ md(item) }}</li>{% endfor %}
       </ul>
+    </section>
+
+    <section id="where">
+      <h2>{{ sec.where.title }}</h2>
+      <p>{{ md(sec.where.text) }}</p>
+      <ul>
+        {% for item in sec.where["items"] %}<li>{{ md(item) }}</li>{% endfor %}
+      </ul>
+      <div class="callout">{{ ui.icon('info') }}<p>{{ md(sec.where.abroad) }}</p></div>
+    </section>
+
+    <section id="roles">
+      <h2>{{ sec.roles.title }}</h2>
+      <p>{{ md(sec.roles.text) }}</p>
     </section>
 
     <section id="anonymize">
       <h2>{{ sec.anonymize.title }}</h2>
-      <p>{{ sec.anonymize.text }}</p>
+      <p>{{ md(sec.anonymize.text) }}</p>
       <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
         <table class="table">
           <caption id="placeholders-caption">{{ sec.anonymize.table_caption }}</caption>
@@ -43,26 +57,33 @@
           </tbody>
         </table>
       </div>
-      <p>{{ sec.anonymize.limits }}</p>
+      <p>{{ md(sec.anonymize.limits) }}</p>
+    </section>
+
+    <section id="model">
+      <h2>{{ sec.model.title }}</h2>
+      <ul>
+        {% for item in sec.model["items"] %}<li>{{ md(item) }}</li>{% endfor %}
+      </ul>
     </section>
 
     <section id="never">
       <h2>{{ sec.never.title }}</h2>
       <ul class="checklist">
-        {% for item in sec.never["items"] %}<li>{{ ui.icon('lock') }}<span>{{ item }}</span></li>{% endfor %}
+        {% for item in sec.never["items"] %}<li>{{ ui.icon('lock') }}<span>{{ md(item) }}</span></li>{% endfor %}
       </ul>
     </section>
 
     <section id="retention">
       <h2>{{ sec.retention.title }}</h2>
       <ul>
-        {% for item in sec.retention["items"] %}<li>{{ fill(item) }}</li>{% endfor %}
+        {% for item in sec.retention["items"] %}<li>{{ md(item) }}</li>{% endfor %}
       </ul>
     </section>
 
     <section id="min-group">
       <h2>{{ sec.min_group.title }}</h2>
-      <p>{{ fill(sec.min_group.text) }}</p>
+      <p>{{ md(sec.min_group.text) }}</p>
     </section>
 
     <section id="who">
@@ -80,9 +101,14 @@
       </div>
     </section>
 
+    <section id="local">
+      <h2>{{ sec.local.title }}</h2>
+      <p>{{ md(sec.local.text) }}</p>
+    </section>
+
     <section id="legal">
       <h2>{{ sec.legal.title }}</h2>
-      <p>{{ sec.legal.text }}</p>
+      <p>{{ md(sec.legal.text) }}</p>
       <div class="callout">{{ ui.icon('info') }}<p>{{ sec.legal.disclaimer }}</p></div>
     </section>
 

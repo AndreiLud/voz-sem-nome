@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o ritmo aqui é puxado demais e pergunta pro [PESSOA] da manutenção quantas vezes ele ja pediu peça\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1217,
-  "cached_tokens": 1178,
+  "cached_tokens": 1172,
   "output_tokens": 34,
-  "total_ms": 7029,
+  "total_ms": 7217,
   "load_ms": 1,
-  "prompt_ms": 1711,
-  "eval_ms": 5292
+  "prompt_ms": 1859,
+  "eval_ms": 5333
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"fazem a gente cobrir duas funções e pagam uma so o calor dentro do armazem a tarde e insuportável.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1243,
-  "cached_tokens": 1182,
+  "cached_tokens": 1179,
   "output_tokens": 39,
-  "total_ms": 8929,
+  "total_ms": 8756,
   "load_ms": 1,
-  "prompt_ms": 2478,
-  "eval_ms": 6430
+  "prompt_ms": 2636,
+  "eval_ms": 6094
  }
 }

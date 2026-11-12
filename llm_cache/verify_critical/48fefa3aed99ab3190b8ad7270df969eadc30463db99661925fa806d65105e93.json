@@ -46,14 +46,14 @@
   }
  },
  "reply": {
-  "content": "{\"e\":\"o salario de motorista aqui e dos piores da região e o mouse e o teclado do posto sao horríveis, ja\\u00e9\", \"c\":false,\"k\":[]}",
+  "content": "{\"e\":\"o salario de motorista aqui e dos piores da região e o mouse e o teclado do posto sao horríveis, ja\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1246,
-  "cached_tokens": 1181,
-  "output_tokens": 44,
-  "total_ms": 14536,
-  "load_ms": 1,
-  "prompt_ms": 2633,
-  "eval_ms": 11878
+  "cached_tokens": 1179,
+  "output_tokens": 37,
+  "total_ms": 9105,
+  "load_ms": 5,
+  "prompt_ms": 2790,
+  "eval_ms": 6288
  }
 }

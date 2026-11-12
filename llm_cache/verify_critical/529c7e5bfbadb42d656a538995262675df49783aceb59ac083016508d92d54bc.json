@@ -46,14 +46,14 @@
   }
  },
  "reply": {
-  "content": "{\"e\":\"A meta precisa ficar clara desde o começo do mês; a liderança é muito distante, nunca vi o diretor\",\"c\":false,\"k\":[]}",
+  "content": "{\"e\":\"A meta precisa ficar clara desde o começo do mês; a liderança é muito distante\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1235,
-  "cached_tokens": 1175,
-  "output_tokens": 34,
-  "total_ms": 7459,
-  "load_ms": 2,
-  "prompt_ms": 2422,
-  "eval_ms": 5012
+  "cached_tokens": 1173,
+  "output_tokens": 29,
+  "total_ms": 7062,
+  "load_ms": 1,
+  "prompt_ms": 2507,
+  "eval_ms": 4527
  }
 }

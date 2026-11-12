@@ -47,7 +47,7 @@
     </ol>
     <div class="callout">
       {{ ui.icon('info') }}
-      <p><strong>{{ h.problem.nr1_label }}.</strong> {{ h.problem.nr1 }}</p>
+      <p><strong>{{ h.problem.nr1_label }}.</strong> {{ h.problem.nr1 }} <a href="{{ h.problem.nr1_url }}" rel="noopener">{{ h.problem.nr1_link }}</a>.</p>
     </div>
   </div>
 </section>
@@ -81,13 +81,13 @@
           {% set k = h.how.kinds[kind] %}
           <li>
             <svg class="kind-sample" viewBox="0 0 44 28" aria-hidden="true" focusable="false"><rect class="dg-node dg-node--{{ kind }}" x="2" y="2" width="40" height="24" rx="{{ {'rule': 2, 'ner': 2, 'llm': 8, 'n8n': 12}[kind] }}"></rect><rect class="dg-swatch dg-swatch--{{ kind }}" x="17" y="9" width="10" height="10" rx="2"></rect></svg>
-            <span><span class="kind-tag">{{ k.tag }}</span> <strong>{{ k.name }}:</strong> {{ k.text }}</span>
+            <span><span class="kind-tag">{{ k.tag }}</span> <strong>{{ k.name }}:</strong> {{ md(k.text) }}</span>
           </li>
           {% endfor %}
         </ul>
         <h3>{{ h.how.text_title }}</h3>
         <ol class="steps">
-          {% for key, kind in [("input", none), ("rules", "rule"), ("ner", "ner"), ("lexicon", "rule"), ("llm", "llm"), ("verifier", "llm"), ("dashboard", none), ("n8n", "n8n")] %}
+          {% for key, kind in [("input", none), ("rules", "rule"), ("ner", "ner"), ("lexicon", "rule"), ("llm", "llm"), ("verifier", "llm"), ("storage", none), ("dashboard", none), ("alert", "n8n")] %}
           {% set step = h.how.steps[key] %}
           <li>
             <strong>{{ step.title }}</strong>{% if kind %} <span class="kind-tag">{{ h.how.kinds[kind].tag }}</span>{% endif %}
@@ -95,6 +95,10 @@
           </li>
           {% endfor %}
         </ol>
+        <h3>{{ h.how.local_title }}</h3>
+        <ul class="local-mode">
+          {% for item in h.how.local_items %}<li>{{ md(item) }}</li>{% endfor %}
+        </ul>
       </div>
     </div>
   </div>
@@ -109,7 +113,8 @@
       <div class="cluster">{{ ui.sample_badge() }}<p class="note">{{ h.results.sample_note }}</p></div>
       {% endif %}
     </header>
-    <ul class="results-grid">
+    <h3 class="results-subhead" id="results-live">{{ h.results.live_title }}</h3>
+    <ul class="results-grid" aria-labelledby="results-live">
       {% for r in results %}
       {% set item = h.results["items"][r.key] %}
       <li class="stat{% if not r.measured %} stat--missing{% endif %}">
@@ -126,16 +131,58 @@
           {% if r.extra and item.extra %}<li>{{ fill(item.extra, value=r.extra) }}</li>{% endif %}
         </ul>
         {% endif %}
-        <p class="stat__method">{{ item.method }}</p>
+        <p class="stat__method">{{ md(item.method) }}</p>
         {{ ui.status_badge(r.measured) }}
       </li>
       {% endfor %}
     </ul>
-    {% if result_notes.reference or result_notes.hardware or result_notes.pipeline %}
+    {% if result_notes.reference or result_notes.pipeline_edge %}
     <p class="note results-notes">
-      {%- for note in [result_notes.reference, result_notes.hardware, result_notes.pipeline] if note %}{{ note }}{% if not loop.last %} {% endif %}{% endfor -%}
+      {%- for note in [result_notes.reference, result_notes.pipeline_edge] if note %}{{ note }}{% if not loop.last %} {% endif %}{% endfor -%}
     </p>
     {% endif %}
+
+    {% set c = h.results.compare %}
+    <div class="compare">
+      <h3 id="compare-title">{{ c.title }}</h3>
+      <p class="compare__lead">{{ md(c.lead) }}</p>
+      <div class="table-wrap" role="region" aria-labelledby="compare-title" tabindex="0">
+        <table class="table table--stack compare__table" aria-labelledby="compare-title">
+          <thead>
+            <tr><th scope="col">{{ c.col_metric }}</th><th scope="col">{{ c.col_edge }}</th><th scope="col">{{ c.col_local }}</th></tr>
+          </thead>
+          <tbody>
+            {% for key in ["anonymizer", "model"] %}
+            <tr class="compare__setup">
+              <th scope="row">{{ c.rows[key].label }}</th>
+              <td class="compare__text" data-label="{{ c.col_edge }}">{{ md(c.rows[key].edge) }}</td>
+              <td class="compare__text" data-label="{{ c.col_local }}">{{ md(c.rows[key].local) }}</td>
+            </tr>
+            {% endfor %}
+            {% for row in compare %}
+            <tr>
+              <th scope="row">{{ h.results["items"][row.key].label }}</th>
+              {% for mode, col in [("edge", c.col_edge), ("local", c.col_local)] %}
+              {% set cell = row[mode] %}
+              <td data-label="{{ col }}">
+                {%- if cell.measured -%}
+                <span class="compare__value"><strong>{{ cell.value }}</strong>{% if cell.n %} <span class="muted">{{ fill(c.n, n=cell.n) }}</span>{% endif %}</span>
+                {%- else -%}
+                <span class="compare__value compare__value--missing">{{ s.common.not_measured }}</span>
+                {%- endif -%}
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if result_notes.pipeline_local or result_notes.hardware %}
+      <p class="note results-notes">
+        {%- for note in [result_notes.pipeline_local, result_notes.hardware] if note %}{{ note }}{% if not loop.last %} {% endif %}{% endfor -%}
+      </p>
+      {% endif %}
+    </div>
 
     <div class="estimate" id="{{ anchor('estimate') }}">
       <header class="section-head section-head--sub">
@@ -180,6 +227,7 @@
               {%- else %}<span class="muted">{{ h.estimate.machine_not_measured }}</span>{% endif -%}
             </dd></div>
           </dl>
+          {% if est.machine_mode %}<p class="note">{{ h.estimate.machine_source[est.machine_mode] }}</p>{% endif %}
           <p><button class="btn btn--ghost btn--small" type="reset">{{ h.estimate.reset }}</button></p>
           <details class="details">
             <summary>{{ h.estimate.formula_title }}</summary>
@@ -228,7 +276,7 @@
     {{ ui.section_head('privacy-summary', h.privacy_summary.title, h.privacy_summary.lead) }}
     <ul class="checklist">
       {% for item in h.privacy_summary["items"] %}
-      <li>{{ ui.icon('check') }}<span>{{ fill(item) }}</span></li>
+      <li>{{ ui.icon('check') }}<span>{{ md(item) }}</span></li>
       {% endfor %}
     </ul>
     <p class="more-link"><a href="{{ url('privacy') }}">{{ h.privacy_summary.link }}</a></p>

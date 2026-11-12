@@ -1,0 +1,54 @@
+{
+ "status": "measured",
+ "measured_at": "2026-11-11T12:58:25+00:00",
+ "n_comments": 300,
+ "model": "gemma4:e2b-it-qat",
+ "quantization": "Q4_0",
+ "model_digest": "07ea59a474013479c8b6b802bef095c40e964a1d776ba02f264c0e30e1aede0c",
+ "runtime_version": "0.40.16",
+ "prompt_version": "classify.v3+708a3315",
+ "model_time": {
+  "cold_start": {
+   "total_s": 57.94,
+   "load_s": 6.392,
+   "prompt_tokens": 2399,
+   "cached_tokens": 0,
+   "prompt_tps": 50.546764712079394
+  },
+  "steady": {
+   "n": 300,
+   "total_s": 2979.103,
+   "mean_s": 9.930343333333333,
+   "p50_s": 7.316000000000001,
+   "p95_s": 18.697900000000004,
+   "max_s": 35.445,
+   "generation_tps": 5.508307282676488,
+   "prompt_tps": 20.142076452416358,
+   "prompt_tokens": 872367,
+   "cached_tokens": 854867,
+   "cache_ratio": 0.9799396354974454,
+   "output_tokens": 11552
+  }
+ },
+ "wall_time_per_comment": {
+  "n": 300,
+  "total_s": 2980.616,
+  "mean_s": 9.935386666666666,
+  "p50_s": 7.32,
+  "p95_s": 18.70495
+ },
+ "hardware": {
+  "model_name": "QEMU Virtual CPU version 2.5+",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "flags": {
+   "sse4_2": true,
+   "avx": false,
+   "avx2": false,
+   "fma": false
+  },
+  "mem_total_gib": 13.6,
+  "os_cpu_count": 6,
+  "machine": "x86_64"
+ }
+}

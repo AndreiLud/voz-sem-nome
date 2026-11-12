@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"car\",\"lid\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2433,
-  "cached_tokens": 2392,
+  "cached_tokens": 2390,
   "output_tokens": 23,
-  "total_ms": 6936,
-  "load_ms": 1,
-  "prompt_ms": 2373,
-  "eval_ms": 4526
+  "total_ms": 7077,
+  "load_ms": 2,
+  "prompt_ms": 2432,
+  "eval_ms": 4610
  }
 }

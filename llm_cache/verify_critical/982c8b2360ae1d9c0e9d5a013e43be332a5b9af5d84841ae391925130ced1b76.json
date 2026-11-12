@@ -49,11 +49,11 @@
   "content": "{\"e\":\"tipo assim, mó correria todo dia, ñ dá nem para respirar. o sistema trava toda hora e a gente perde\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1218,
-  "cached_tokens": 1178,
+  "cached_tokens": 1183,
   "output_tokens": 37,
-  "total_ms": 8891,
+  "total_ms": 7006,
   "load_ms": 1,
-  "prompt_ms": 1651,
-  "eval_ms": 7218
+  "prompt_ms": 1495,
+  "eval_ms": 5479
  }
 }

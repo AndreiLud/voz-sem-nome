@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"cre\",\"car\",\"rem\",\"eqp\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2440,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 28,
-  "total_ms": 9514,
-  "load_ms": 2,
-  "prompt_ms": 2896,
-  "eval_ms": 6587
+  "total_ms": 8000,
+  "load_ms": 1,
+  "prompt_ms": 2806,
+  "eval_ms": 5165
  }
 }

@@ -259,7 +259,7 @@ def test_data_files(built, sources):
     assert cfg["max_comment_chars"] == privacy["max_comment_chars"]
     assert cfg["api_base"] == "/api/v1/public"
     assert cfg["languages"] == ["pt", "en"]
-    assert cfg["turnstile_site_key"] == sources.site["turnstile_test_key"]
+    assert cfg["turnstile_site_key"] == sources.site["turnstile_site_key"]
     assert cfg["routes"]["dashboard"] == {"pt": "/painel/", "en": "/en/dashboard/"}
     assert cfg["sample"] == {"metrics": True, "dashboard_synthetic": True}
     taxonomy = json.loads((data / "taxonomy.json").read_text(encoding="utf-8"))
@@ -291,13 +291,38 @@ def test_turnstile_key_from_environment(tmp_path):
     assert 'data-sitekey="0x4AAAAexample"' in html
 
 
+def _build_with(tmp_path: Path, metrics: dict) -> tuple[str, str, dict]:
+    """Build with a metrics file and the fixture dashboard; return pt home, en home, config."""
+    path = tmp_path / "metrics.json"
+    path.write_text(json.dumps(metrics), encoding="utf-8")
+    out = tmp_path / "public"
+    site.build(out, metrics_path=path, dashboard_path=tmp_path / "missing.json", environ={})
+    cfg = json.loads((out / "data" / "config.json").read_text(encoding="utf-8"))
+    return ((out / "index.html").read_text(encoding="utf-8"),
+            (out / "en" / "index.html").read_text(encoding="utf-8"), cfg)
+
+
+def _section(html: str, start: str, end: str) -> str:
+    return html[html.index(start):html.index(end)]
+
+
+def _headline(html: str) -> str:
+    return _section(html, 'id="results-live"', 'class="compare"')
+
+
+def _compare(html: str) -> str:
+    return _section(html, 'class="compare"', 'class="estimate"')
+
+
 def test_sample_badge_only_for_fixtures(built, tmp_path):
     home = (built.out / "index.html").read_text(encoding="utf-8")
     assert home.count("badge--sample") == 2  # results and dashboard preview
+    sample = json.loads((SRC_DIR / "fixtures" / "metrics.sample.json").read_text(encoding="utf-8"))
+    assert sample["sample"] is True and set(sample["modes"]) == {"edge", "local"}
 
     metrics = tmp_path / "metrics.json"
-    metrics.write_text(json.dumps({"classification": {"n": 100, "critical": {
-        "tp": 20, "fn": 2, "fp": 3, "recall": 0.909, "precision": 0.87}}}), encoding="utf-8")
+    metrics.write_text(json.dumps({"modes": {"edge": {"classification": {"n": 100, "critical": {
+        "tp": 20, "fn": 2, "fp": 3, "recall": 0.909, "precision": 0.87}}}}}), encoding="utf-8")
     dashboard = tmp_path / "dash.json"
     dashboard.write_text(json.dumps({"dataset": "synthetic", "totals": {
         "responses": 10, "enps": 20, "promoters": 4, "passives": 4, "detractors": 2,
@@ -305,10 +330,113 @@ def test_sample_badge_only_for_fixtures(built, tmp_path):
     site.build(tmp_path / "public", metrics_path=metrics, dashboard_path=dashboard, environ={})
     real = (tmp_path / "public" / "index.html").read_text(encoding="utf-8")
     assert "badge--sample" not in real
-    assert "91%" in real and "87%" in real and "+20" in real
-    assert real.count("badge--pending") == 5  # the five numbers missing from metrics.json
+    assert "91%" in _headline(real) and "87%" in _headline(real) and "+20" in real
+    assert _headline(real).count("badge--pending") == 5  # the five numbers missing from metrics.json
     copied = json.loads((tmp_path / "public" / "data" / "dashboard-synthetic.json").read_text(encoding="utf-8"))
     assert copied["totals"]["enps"] == 20
+
+
+def test_results_show_the_live_demo_and_compare_with_local_mode(tmp_path):
+    edge = {
+        "pipeline": {"model": "@cf/google/gemma-4-26b-a4b-it", "prompt_version": "classify.v3+abcd1234",
+                     "anonymizer_version": "edge-1.0.0"},
+        "anonymization": {"n_spans": 104, "recall": 0.9135, "n_comments": 60, "comments_with_leak": 6},
+        "performance": {"status": "measured", "n_comments": 100,
+                        "latency": {"mean_s": 2.5, "p50_s": 2.2, "p95_s": 5.1}},
+    }
+    local = {
+        "pipeline": {"model": "gemma4:e2b-it-qat", "anonymizer_version": "1.0.0"},
+        "anonymization": {"n_spans": 104, "recall": 0.9712, "n_comments": 60, "comments_with_leak": 2},
+        "performance": {"steady": {"n": 99, "mean_s": 6.0, "p50_s": 5.8, "p95_s": 9.9},
+                        "hardware": {"logical_cpus": 4, "mem_total_gib": 15.6}},
+    }
+    pt, en, cfg = _build_with(tmp_path, {"live_mode": "edge", "modes": {"edge": edge, "local": local}})
+    head, table = _headline(pt), _compare(pt)
+    assert "91%" in head and "2,2 s" in head and "5,1 s" in head  # edge numbers in the tiles
+    assert "97%" not in head and "97%" in table and "5,8 s" in table and "2,2 s" in table
+    assert "Demo (Cloudflare) vs modo local (servidor próprio)" in table
+    assert table.count("Ainda não medido") == 8  # classification of both modes: 4 rows x 2
+    assert "Gemma 4 26B A4B no Workers AI" in table and "Gemma 4 E2B no Ollama" in table
+    assert "Demo: modelo @cf/google/gemma-4-26b-a4b-it, prompt classify.v3+abcd1234" in pt
+    assert "Modo local: modelo gemma4:e2b-it-qat, anonimizador 1.0.0." in pt
+    assert "4 vCPUs" in table
+    assert "Not measured yet" in _compare(en) and "Demo (Cloudflare) vs local mode (own server)" in en
+    # The estimator uses the live demo's mean time when it exists.
+    assert cfg["estimator"]["machine_seconds_per_comment"] == 2.5
+    assert "média medida no Workers AI" in pt
+
+
+def test_missing_numbers_are_never_invented(tmp_path):
+    pt, en, cfg = _build_with(tmp_path, {"modes": {"edge": {}, "local": {}}})
+    assert _headline(pt).count("badge--pending") == 7
+    assert _compare(pt).count("Ainda não medido") == 14 and _compare(en).count("Not measured yet") == 14
+    assert cfg["estimator"]["machine_seconds_per_comment"] is None
+    assert "Ainda não medido" in _section(pt, 'class="estimate"', "</form>")
+
+
+def test_version_1_metrics_are_read_as_local_mode(tmp_path):
+    v1 = {"pipeline": {"model": "gemma4:e2b-it-qat"},
+          "anonymization": {"n_spans": 104, "recall": 0.9712, "n_comments": 340, "n_comments_with_pii": 60,
+                            "comments_with_leak": 2},
+          "performance": {"steady": {"n": 10, "mean_s": 7.0, "p50_s": 6.5, "p95_s": 8.0}}}
+    pt, _, cfg = _build_with(tmp_path, v1)
+    assert _headline(pt).count("badge--pending") == 7
+    assert "97%" in _compare(pt) and "6,5 s" in _compare(pt)
+    assert "3%" in _compare(pt) and "(n = 60)" in _compare(pt)  # leaks among comments that had data
+    assert cfg["estimator"]["machine_seconds_per_comment"] == 7.0
+    assert "média medida na CPU do modo local" in pt
+
+
+def test_copy_describes_the_cloudflare_demo_and_the_local_mode(built, sources):
+    stale = re.compile(r"IA local|local AI|modelo local|local model|no próprio servidor separa|"
+                       r"running on the server itself|monitora a fila|monitors the queue", re.I)
+    for lang in sources.languages:
+        how = sources.strings[lang]["home"]["how"]
+        assert set(how["steps"]) == {"input", "rules", "ner", "lexicon", "llm", "verifier", "storage",
+                                     "dashboard", "alert"}
+        for text in leaf_strings(sources.strings[lang]):
+            assert not stale.search(text), (lang, text)
+    home = parse(built.out / "index.html")
+    text = " ".join(home.texts)
+    assert "Gemma 4 26B A4B" in text and "Gemma 4 E2B" in text and "Workers AI" in text
+    assert "Banco D1" in text and "Modo local" in text and "spaCy" in text
+    diagram = (built.out / "index.html").read_text(encoding="utf-8")
+    diagram = diagram[diagram.index('<svg class="diagram"'):diagram.index("</svg>", diagram.index('<svg class="diagram"'))]
+    for title in ("Regras no Worker", "Nomes e lugares", "Workers AI", "Banco D1", "Alerta", "modo local"):
+        assert title in diagram, title
+
+
+OFFICIAL_PAGES = (
+    "https://developers.cloudflare.com/workers-ai/platform/data-usage/",
+    "https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/",
+    "https://developers.cloudflare.com/d1/configuration/data-location/",
+    "https://developers.cloudflare.com/d1/reference/time-travel/",
+    "https://www.cloudflare.com/turnstile-privacy-policy/",
+    "https://www.cloudflare.com/cloudflare-customer-dpa/",
+    "https://developers.cloudflare.com/workers/observability/logs/workers-logs/",
+)
+
+
+def test_privacy_page_cites_the_official_cloudflare_pages(built, sources):
+    retention = config.settings()["privacy"]["public_retention_days"]
+    for lang in sources.languages:
+        page = built.out / site.output_file(sources.page_path("privacy", lang))
+        parsed = parse(page)
+        urls = {url for _, url, _ in parsed.links}
+        assert set(OFFICIAL_PAGES) <= urls, lang
+        text = " ".join(parsed.texts)
+        assert "Cloudflare does not use Customer Content processed by Workers AI to train AI models" in text
+        assert "does not retain inputs or outputs after they are no longer needed to process the request" in text
+        assert "the Customer is the Controller" in text and "Cloudflare is a Processor" in text
+        assert f" {retention + 7} " in text  # last day a deleted row can still be restored
+        assert ("orientação jurídica" if lang == "pt" else "legal advice") in text
+        for word in ("controlador", "operador", "Time Travel", "Turnstile", "user agent", "TLS"):
+            assert word in text, (lang, word)
+    doc = (ROOT / "docs" / "privacy.md").read_text(encoding="utf-8")
+    for url in OFFICIAL_PAGES:
+        assert url in doc, url
+    for dash in DASHES:
+        assert dash not in doc, dash
 
 
 # ------------------------------------------------------------------ formatting and estimate

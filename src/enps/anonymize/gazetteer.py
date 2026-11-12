@@ -50,7 +50,8 @@ def _gap(text: str, left: Token, right: Token) -> str:
     return text[left.end:right.start]
 
 
-def _has_cue(tokens: list[Token], i: int, text: str, lex: Lexicon) -> bool:
+def has_name_cue(tokens: list[Token], i: int, text: str, lex: Lexicon) -> bool:
+    """Whether a name cue ("o", "gestora", "Sr.") comes right before token i on the same line."""
     if i == 0:
         return False
     prev = tokens[i - 1]
@@ -67,7 +68,7 @@ def _starts_name(tokens: list[Token], i: int, text: str, lex: Lexicon) -> bool:
     if len(tok.norm) < 2 or lex.is_allowed(tok.text) or not lex.is_first_name(tok.norm):
         return False
     title = is_title(tok.text)
-    cue = _has_cue(tokens, i, text, lex)
+    cue = has_name_cue(tokens, i, text, lex)
     if tok.norm in lex.stoplist:
         return cue and title
     return cue or title

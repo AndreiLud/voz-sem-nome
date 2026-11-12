@@ -49,11 +49,11 @@
   "content": "{\"e\":\"tô com burnout, já tive dois afastamentos esse ano e a cobranca so aumenta\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1219,
-  "cached_tokens": 1177,
+  "cached_tokens": 1171,
   "output_tokens": 32,
-  "total_ms": 6757,
+  "total_ms": 7234,
   "load_ms": 1,
-  "prompt_ms": 1731,
-  "eval_ms": 5003
+  "prompt_ms": 1995,
+  "eval_ms": 5212
  }
 }

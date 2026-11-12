@@ -78,14 +78,14 @@
   }
  },
  "reply": {
-  "content": "{\"t\":[\"inf\",\"car\",\"bem\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"o armazem tá um caos, cada dia um b.o. novo para pedir um teclado novo abri chamado em marco e ate h\"}",
+  "content": "{\"t\":[\"inf\",\"car\",\"bem\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2428,
-  "cached_tokens": 2392,
-  "output_tokens": 53,
-  "total_ms": 25711,
-  "load_ms": 3,
-  "prompt_ms": 2405,
-  "eval_ms": 23240
+  "cached_tokens": 2388,
+  "output_tokens": 25,
+  "total_ms": 6877,
+  "load_ms": 1,
+  "prompt_ms": 2239,
+  "eval_ms": 4600
  }
 }

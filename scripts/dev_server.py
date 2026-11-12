@@ -9,18 +9,19 @@ Serves site/public on 127.0.0.1 only:
   * headers from site/public/_headers (without HSTS and upgrade-insecure-requests, so
     plain http on localhost works).
 
-/api/v1/public/* is proxied to http://127.0.0.1:8001/v1/public/* (the Worker drops "/api" the
-same way) with X-Origin-Secret (from .env) and X-Client-IP 127.0.0.1, or, with --mock,
-answered from site/src/fixtures/:
+/api/v1/public/* is proxied to the local mode's public API at http://127.0.0.1:8001/v1/public/*
+with X-Origin-Secret (from .env) and X-Client-IP 127.0.0.1, or, with --mock, answered from
+site/src/fixtures/:
   GET  /dashboard?dataset=synthetic|public    fixture dashboards
-  GET  /status                                queue, worker and production numbers
+  GET  /status                                the flat status of the live demo's Worker
   POST /submissions                           202 with a tracking code; the job goes
                                               queued -> processing -> done in about 12 s
   GET  /submissions/{code}                    state of a job; ready made codes:
        TEST-DQNE done, TEST-CR7T critical (with burnout), TEST-SK9P skipped,
        TEST-FA9D failed, TEST-WA7T always queued
 Mock triggers in the comment: a repeated comment gives 409, "#409", "#429" and "#503"
-force those answers, words such as "grita" or "remédio" give a critical result.
+force those answers ("#quota" gives the Worker's 503 when the model's daily quota is used
+up), words such as "grita" or "remédio" give a critical result.
 More than the configured submissions per IP window gives 429 (unless --no-rate-limit).
 /__og/pt and /__og/en render the social card used to make /assets/og/og-*.png.
 """
@@ -52,7 +53,7 @@ from enps import config  # noqa: E402
 PUBLIC_DIR = ROOT / "site" / "public"
 FIXTURES_DIR = ROOT / "site" / "src" / "fixtures"
 API_PREFIX = "/api/v1/public"
-UPSTREAM_PREFIX = "/v1/public"  # what enps.api.public serves; same mapping as worker/origin.js
+UPSTREAM_PREFIX = "/v1/public"  # what enps.api.public serves
 UPSTREAM = ("127.0.0.1", 8001)
 HIDDEN_FILES = {"_headers", "_redirects", ".assetsignore"}
 TYPES = {".js": "text/javascript", ".mjs": "text/javascript", ".css": "text/css",
@@ -229,7 +230,7 @@ class MockApi:
     def status(self) -> tuple[int, dict[str, Any], dict[str, str]]:
         data = _without_sample(_fixture("status.json"))
         active = [j for j in self.jobs.values() if self.clock() - j.created < DONE_S and not j.skipped]
-        data["queue"]["pending"] = data["queue"]["pending"] + len(active)
+        data["pending"] = data["pending"] + len(active)
         data["generated_at"] = _iso(self.wall())
         return 200, data, self._snapshot_headers()
 
@@ -283,6 +284,8 @@ class MockApi:
             return 429, {"error": "rate_limited", "retry_after": 240}, {"Retry-After": "240"}
         if "#503" in comment:
             return 503, {"error": "queue_full"}, {"Retry-After": "120"}
+        if "#quota" in comment:
+            return 503, {"error": "quota"}, {"Retry-After": "3600"}
         return None
 
     def _rate_limited(self) -> tuple[int, dict[str, Any], dict[str, str]] | None:

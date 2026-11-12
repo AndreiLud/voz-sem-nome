@@ -49,11 +49,11 @@
   "content": "{\"e\":\"fim de mês sempre aperta, já faz parte, o clima entre os turnos é ruim, um culpa o outro\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1235,
-  "cached_tokens": 1169,
+  "cached_tokens": 1183,
   "output_tokens": 35,
-  "total_ms": 7822,
+  "total_ms": 7753,
   "load_ms": 1,
-  "prompt_ms": 2669,
-  "eval_ms": 5126
+  "prompt_ms": 2170,
+  "eval_ms": 5560
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"ando exausta com esse ritmo, chego em casa sem energia para nada, e o ritmo aqui e puxado demais\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1214,
-  "cached_tokens": 1176,
+  "cached_tokens": 1167,
   "output_tokens": 38,
-  "total_ms": 7628,
+  "total_ms": 7772,
   "load_ms": 1,
-  "prompt_ms": 1557,
-  "eval_ms": 6045
+  "prompt_ms": 1944,
+  "eval_ms": 5806
  }
 }

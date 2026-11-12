@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>Privacy | Voz sem nome</title>
-<meta name="description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<meta name="description" content="What the demo collects, where the data is processed, what is anonymized and how long submissions are kept.">
 <link rel="canonical" href="https://voz-sem-nome.andreiludescher.com/en/privacy/">
 <link rel="alternate" hreflang="pt-BR" href="https://voz-sem-nome.andreiludescher.com/privacidade/">
 <link rel="alternate" hreflang="en" href="https://voz-sem-nome.andreiludescher.com/en/privacy/">
@@ -18,19 +18,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voz sem nome">
 <meta property="og:title" content="Privacy | Voz sem nome">
-<meta property="og:description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<meta property="og:description" content="What the demo collects, where the data is processed, what is anonymized and how long submissions are kept.">
 <meta property="og:url" content="https://voz-sem-nome.andreiludescher.com/en/privacy/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<meta property="og:image:alt" content="Voz sem nome: climate survey and eNPS analysis with AI, without exposing anyone">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Privacy | Voz sem nome">
-<meta name="twitter:description" content="What the demo collects, what is anonymized, what is never stored and how long submissions are kept.">
+<meta name="twitter:description" content="What the demo collects, where the data is processed, what is anonymized and how long submissions are kept.">
 <meta name="twitter:image" content="https://voz-sem-nome.andreiludescher.com/assets/og/og-en.png">
-<meta name="twitter:image:alt" content="Voz sem nome: climate survey and eNPS analysis with local AI">
+<meta name="twitter:image:alt" content="Voz sem nome: climate survey and eNPS analysis with AI, without exposing anyone">
 <script type="module" src="/assets/js/main.js"></script>
 </head>
 <body data-page="privacy">
@@ -59,8 +59,8 @@
 <div class="page-head">
   <div class="wrap">
     <h1>Privacy</h1>
-    <p class="lead">This page explains what the public demo collects and how each item is handled. It is a portfolio project and uses a fictitious company.</p>
-    <p class="note">Applies to the current version of the demo.</p>
+    <p class="lead">This page explains what the public demo collects, where each item is processed and how long it is kept. It is a portfolio project and uses a fictitious company.</p>
+    <p class="note">Applies to the current version of the demo, which runs on Cloudflare.</p>
   </div>
 </div>
 
@@ -69,11 +69,15 @@
     <p class="toc__title" id="toc-title">On this page</p>
     <ol>
       <li><a href="#collect">What the demo collects</a></li>
+      <li><a href="#where">Where the data is processed</a></li>
+      <li><a href="#roles">Controller and processor</a></li>
       <li><a href="#anonymize">What is anonymized and how</a></li>
+      <li><a href="#model">What Cloudflare does with the text</a></li>
       <li><a href="#never">What is never stored</a></li>
       <li><a href="#retention">How long data is kept</a></li>
       <li><a href="#min-group">Minimum group</a></li>
       <li><a href="#who">Who sees what</a></li>
+      <li><a href="#local">Local mode</a></li>
       <li><a href="#legal">Suggested legal basis for a real company</a></li>
       <li><a href="#rights">Questions</a></li>
     </ol>
@@ -83,12 +87,25 @@
     <section id="collect">
       <h2>What the demo collects</h2>
       <ul>
-<li>The score from 0 to 10, the area and the tenure you pick.</li><li>The comment, if you write one. It is anonymized before it is stored.</li><li>The page language and the date and time of the submission.</li><li>The result of the bot check (Cloudflare Turnstile). The token is verified and dropped.</li>      </ul>
+<li>The score from 0 to 10, the area and the tenure you pick.</li><li>The comment, if you write one. It is anonymized before it is stored and before it reaches the model.</li><li>The page language and the date and time of the submission.</li><li>The result of the bot check. To run that check, Cloudflare Turnstile processes your IP address, the TLS fingerprint of the connection and your browser's user agent. The token is verified and dropped. Details in the <a href="https://www.cloudflare.com/turnstile-privacy-policy/">Turnstile privacy policy</a>.</li>      </ul>
+    </section>
+
+    <section id="where">
+      <h2>Where the data is processed</h2>
+      <p>The demo runs entirely on Cloudflare. No part of it runs on a home server.</p>
+      <ul>
+<li><strong>Worker</strong>: the code that receives the answer, anonymizes the comment and stores the result.</li><li><strong>Workers AI</strong>: the Cloudflare service that runs the Gemma 4 26B A4B model and classifies the anonymized text.</li><li><strong>D1</strong>: Cloudflare's database, which holds the anonymized text, the score, area, tenure and the classification.</li><li><strong>Turnstile</strong>: the bot check.</li>      </ul>
+      <div class="callout"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>Processing and storage happen outside Brazil. Cloudflare lists companies in the United States and England as sub-processors for Workers AI (<a href="https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/">sub-processor list</a>), and D1 offers no location in Brazil or South America (<a href="https://developers.cloudflare.com/d1/configuration/data-location/">D1 data location</a>). This is an international data transfer, which is why the form says so before you submit.</p></div>
+    </section>
+
+    <section id="roles">
+      <h2>Controller and processor</h2>
+      <p>The person in charge of the project, Andrei Ludescher, is the controller (controlador under the LGPD): he decides what is collected and why. Cloudflare is the processor (operador): it processes the data on the controller's behalf. The <a href="https://www.cloudflare.com/cloudflare-customer-dpa/">Cloudflare data processing addendum</a> puts it in these words: “the Customer is the Controller” and “Cloudflare is a Processor”. The addendum does not mention the LGPD. Cloudflare explains its view of the law on its <a href="https://www.cloudflare.com/trust-hub/brazil-lgpd/">LGPD page</a>. Turnstile is an exception: Cloudflare also uses the bot check signals to improve its own bot detection, and for that use it states that it is a controller (<a href="https://www.cloudflare.com/turnstile-privacy-policy/">Turnstile privacy policy</a>).</p>
     </section>
 
     <section id="anonymize">
       <h2>What is anonymized and how</h2>
-      <p>Before storing anything, the system looks for personal data in the comment and replaces each item with a placeholder. Fixed rules find documents and contact details by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, and a small name recognition model find people and places. Only the text with placeholders goes on to the language model.</p>
+      <p>The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, finds personal names. The demo does not use a name recognition model, so place names slip through more easily than in local mode. Only the text with placeholders reaches Workers AI.</p>
       <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
         <table class="table">
           <caption id="placeholders-caption">Placeholders used instead of personal data</caption>
@@ -112,16 +129,22 @@
       <p>No method is always right. That is why we ask you not to write real data. In public excerpts on the dashboard, swear words also become a placeholder.</p>
     </section>
 
+    <section id="model">
+      <h2>What Cloudflare does with the text</h2>
+      <ul>
+<li>Cloudflare states that it does not use content processed by Workers AI to train models: “Cloudflare does not use Customer Content processed by Workers AI to train AI models” (<a href="https://developers.cloudflare.com/workers-ai/platform/data-usage/">Workers AI data usage</a>).</li><li>For standard inference requests, like the ones in this demo, it states that it does not keep inputs or outputs after delivering the response: “does not retain inputs or outputs after they are no longer needed to process the request” (same page). The same page lists exceptions, such as a legal obligation.</li><li>It may keep technical metadata, such as timestamps, the model used and token counts, without the content.</li><li>The Worker never writes comment text to its logs.</li>      </ul>
+    </section>
+
     <section id="never">
       <h2>What is never stored</h2>
       <ul class="checklist">
-<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The original comment text.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Your IP address. It stays in memory only, to limit excessive submissions and to count distinct people per day with a code that changes every day.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Tracking cookies or audience analytics. The site uses none.</span></li>      </ul>
+<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The original comment text.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Your IP address. It is the key of Cloudflare's submission rate limiter, which keeps only short lived counters, and it is never written to the database. To count distinct people per day, the Worker stores a code (hash) of the IP mixed with a value that changes every day. These codes are deleted the next day.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Tracking cookies or audience analytics. The site uses none.</span></li>      </ul>
     </section>
 
     <section id="retention">
       <h2>How long data is kept</h2>
       <ul>
-<li>Public submissions: deleted after 30 days.</li><li>Alert log: only an identifier, the case types and timestamps, deleted after 90 days.</li><li>Daily counters without any text, such as number of submissions and analysis time: kept for the production statistics.</li>      </ul>
+<li>Public submissions: deleted after 30 days by a daily job of the Worker.</li><li>Alert log: only an identifier, the case types and timestamps, deleted after 90 days.</li><li>Daily codes used to count distinct people: deleted the next day.</li><li>Rows deleted from D1 can still be restored for 7 days through Time Travel, a database feature that is always on (<a href="https://developers.cloudflare.com/d1/reference/time-travel/">D1 Time Travel</a>). In practice, a submission is gone for good within 37 days.</li><li>Technical records of the API calls (Workers Logs), without comment text: Cloudflare keeps them for 3 days (<a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/">Workers Logs</a>).</li><li>Daily counters without any text, such as number of submissions and analysis time: kept for the demo statistics.</li>      </ul>
     </section>
 
     <section id="min-group">
@@ -138,16 +161,22 @@
           <tbody>
             <tr><th scope="row">Anyone on the site</th><td data-label="What they see">Aggregated numbers with a minimum group and anonymized excerpts of critical cases, without tenure and with the area only when the group is large enough.</td></tr>
             <tr><th scope="row">The person who submitted</th><td data-label="What they see">Their own result, with the tracking code.</td></tr>
-            <tr><th scope="row">Person in charge of the project</th><td data-label="What they see">The alerts, with the anonymized text, which can go to Telegram, and the database, which keeps anonymized text only.</td></tr>
-            <tr><th scope="row">Cloudflare</th><td data-label="What they see">Connection data to deliver the site, run the bot check and block abuse, under Cloudflare&#39;s own policy.</td></tr>
+            <tr><th scope="row">Person in charge of the project (controller)</th><td data-label="What they see">The D1 database, which keeps anonymized text only, and the critical case alerts.</td></tr>
+            <tr><th scope="row">Cloudflare (processor)</th><td data-label="What they see">Runs the Worker, the model on Workers AI, the D1 database and Turnstile. Receives connection data to deliver the site and block abuse, and the already anonymized text for the classification.</td></tr>
+            <tr><th scope="row">n8n, when set up</th><td data-label="What they see">Receives critical case alerts through a webhook, with the anonymized excerpt. Without the webhook, nothing goes to n8n.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
+    <section id="local">
+      <h2>Local mode</h2>
+      <p>For organizations that cannot let anything leave their own infrastructure, the same system runs with docker compose on a company server: anonymization with rules, the IBGE list and spaCy name recognition, classification with Gemma 4 E2B on Ollama, an SQLite database and n8n automations. In this mode, no comment goes to Cloudflare or any other service, except alert channels the company itself turns on, such as Telegram.</p>
+    </section>
+
     <section id="legal">
       <h2>Suggested legal basis for a real company</h2>
-      <p>In this demo, the basis is your consent, given with the confirmation box on the form. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered.</p>
+      <p>In this demo, the basis is your consent, given with the confirmation box on the form, which also says that the analysis happens outside Brazil. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered. A company that uses Cloudflare, like this demo, also has to handle the international transfer (LGPD, art. 33). The local mode avoids that transfer.</p>
       <div class="callout"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>This is a portfolio project and not legal advice. A real company should confirm the legal basis with its data protection officer and legal team.</p></div>
     </section>
 
@@ -173,6 +202,6 @@
     </nav>
   </div>
 </footer>
-<script type="application/json" id="page-data">{"lang":"en","page":"privacy","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand."},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"max":1000,"model":"gemma4:e2b-it-qat"}}</script>
+<script type="application/json" id="page-data">{"lang":"en","page":"privacy","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand."},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"gone_days":37,"max":1000,"model":"gemma4:e2b-it-qat","edge_model":"Gemma 4 26B A4B","edge_model_id":"@cf/google/gemma-4-26b-a4b-it","local_model":"Gemma 4 E2B"}}</script>
 </body>
 </html>

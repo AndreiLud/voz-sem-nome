@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a gente rala muito e ninguem fala nem um obrigado fazem a gente cobrir duas funções e pagam uma só\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1230,
-  "cached_tokens": 1179,
+  "cached_tokens": 1175,
   "output_tokens": 37,
-  "total_ms": 8633,
+  "total_ms": 8170,
   "load_ms": 1,
-  "prompt_ms": 2313,
-  "eval_ms": 6292
+  "prompt_ms": 2216,
+  "eval_ms": 5918
  }
 }

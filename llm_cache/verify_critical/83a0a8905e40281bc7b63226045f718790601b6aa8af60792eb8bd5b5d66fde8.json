@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Minha supervisora lê em voz alta os meus erros de atendimento na frente da equipe toda\",\"c\":true,\"k\":[\"am\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1220,
-  "cached_tokens": 1176,
+  "cached_tokens": 1168,
   "output_tokens": 31,
-  "total_ms": 6477,
+  "total_ms": 6946,
   "load_ms": 1,
-  "prompt_ms": 1801,
-  "eval_ms": 4654
+  "prompt_ms": 2142,
+  "eval_ms": 4780
  }
 }

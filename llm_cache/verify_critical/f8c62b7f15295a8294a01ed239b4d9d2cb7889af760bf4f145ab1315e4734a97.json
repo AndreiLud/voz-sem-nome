@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a gente descarrega caminhao num calor de 40 graus, sem ventilador, com empilhadeira quebrada, ganhos\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1248,
-  "cached_tokens": 1175,
+  "cached_tokens": 1172,
   "output_tokens": 42,
-  "total_ms": 10177,
+  "total_ms": 10005,
   "load_ms": 2,
-  "prompt_ms": 3052,
-  "eval_ms": 7099
+  "prompt_ms": 3054,
+  "eval_ms": 6925
  }
 }

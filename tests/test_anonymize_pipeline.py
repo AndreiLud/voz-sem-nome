@@ -24,7 +24,7 @@ def test_contract_example():
     assert isinstance(result, AnonymizationResult)
     assert result.text == "falei com o [PESSOA], meu cpf é [CPF]"
     assert result.counts == {"CPF": 1, "PESSOA": 1}
-    assert result.version == pipeline.ANONYMIZER_VERSION == "1.0.0"
+    assert result.version == pipeline.ANONYMIZER_VERSION == "1.1.0"
 
 
 @pytest.mark.parametrize("text", ["", "   ", "\n"])

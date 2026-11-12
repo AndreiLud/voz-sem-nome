@@ -46,14 +46,14 @@
   }
  },
  "reply": {
-  "content": "{\"e\":\"o financeiro vive refazendo trabalho porque as outras áreas mandam tudo errado e no último dia, a\\npr\", \"c\":false,\"k\":[]}",
+  "content": "{\"e\":\"o financeiro vive refazendo trabalho porque as outras áreas mandam tudo errado e no último dia, a a\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1230,
-  "cached_tokens": 1173,
-  "output_tokens": 38,
-  "total_ms": 8478,
+  "cached_tokens": 1175,
+  "output_tokens": 35,
+  "total_ms": 7881,
   "load_ms": 1,
-  "prompt_ms": 2345,
-  "eval_ms": 6111
+  "prompt_ms": 2210,
+  "eval_ms": 5648
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Existe discriminação contra quem tem mais idade, os mais velhos sao sempre os primeiros a sair nos [\",\"c\":true,\"k\":[\"di\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1210,
-  "cached_tokens": 1173,
+  "cached_tokens": 1175,
   "output_tokens": 35,
-  "total_ms": 7044,
+  "total_ms": 6780,
   "load_ms": 1,
-  "prompt_ms": 1536,
-  "eval_ms": 5483
+  "prompt_ms": 1442,
+  "eval_ms": 5317
  }
 }

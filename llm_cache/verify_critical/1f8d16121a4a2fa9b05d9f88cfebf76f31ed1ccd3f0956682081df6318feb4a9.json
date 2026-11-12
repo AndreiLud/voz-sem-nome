@@ -49,11 +49,11 @@
   "content": "{\"e\":\"A avaliacao de desempenho ñ serve pra nada, ninguém é promovido dpeois dela, e em dia de pico não da\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1236,
-  "cached_tokens": 1181,
+  "cached_tokens": 1176,
   "output_tokens": 39,
-  "total_ms": 8632,
-  "load_ms": 1,
-  "prompt_ms": 2271,
-  "eval_ms": 6336
+  "total_ms": 8417,
+  "load_ms": 2,
+  "prompt_ms": 2433,
+  "eval_ms": 5963
  }
 }

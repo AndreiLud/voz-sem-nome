@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Trabalhei 3 sábados seguidos em outubro. Quem faz bem feito ganha mais tarefa, não mais salário.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1238,
-  "cached_tokens": 1173,
+  "cached_tokens": 1174,
   "output_tokens": 37,
-  "total_ms": 9792,
+  "total_ms": 8645,
   "load_ms": 1,
-  "prompt_ms": 3171,
-  "eval_ms": 6595
+  "prompt_ms": 2654,
+  "eval_ms": 5967
  }
 }

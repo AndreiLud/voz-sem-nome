@@ -10,7 +10,7 @@
   "public_retention_days": 30,
   "duplicate_window_hours": 24,
   "poll_interval_ms": 4000,
-  "turnstile_site_key": "1x00000000000000000000AA",
+  "turnstile_site_key": "0x4AAAAAAF9kSvw7Qvlrcl1z",
   "routes": {
     "home": {
       "pt": "/",
@@ -105,10 +105,10 @@
       "review_share": 0.15,
       "minutes_per_review": 2.0
     },
-    "machine_seconds_per_comment": null
+    "machine_seconds_per_comment": 9.930343333333333
   },
   "sample": {
     "metrics": false,
-    "dashboard_synthetic": true
+    "dashboard_synthetic": false
   }
 }

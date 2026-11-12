@@ -127,7 +127,7 @@ def test_errors_are_linked_only_through_data_error(submit_page):
 def test_turnstile_widget(submit_page, sources):
     lang, page, html = submit_page
     (widget,) = [a for _, a in page.tags if "cf-turnstile" in a.get("class", "").split()]
-    assert widget["data-sitekey"] == sources.site["turnstile_test_key"]
+    assert widget["data-sitekey"] == sources.site["turnstile_site_key"]  # the real public key ships
     assert widget["data-response-field-name"] == "turnstile"
     assert widget["data-language"] == ("pt-br" if lang == "pt" else "en")
     assert sources.site["turnstile_script"] in html
@@ -197,37 +197,31 @@ def test_wrangler_config(wrangler):
     assert wrangler["name"] == "voz-sem-nome"
     assert (ROOT / wrangler["main"]).is_file()
     assert wrangler["compatibility_date"] == "2026-11-10"
-    assert wrangler["compatibility_flags"] == ["global_fetch_strictly_public"]
     assert wrangler["assets"] == {
         "directory": "./site/public", "binding": "ASSETS", "run_worker_first": ["/api/*"],
         "html_handling": "auto-trailing-slash", "not_found_handling": "404-page",
     }
     assert wrangler["routes"] == [{"pattern": "voz-sem-nome.andreiludescher.com", "custom_domain": True}]
     assert wrangler["workers_dev"] is False and wrangler["preview_urls"] is False
-    assert wrangler["observability"] == {"enabled": True}
-    assert wrangler["vars"] == {"API_ORIGIN": "https://voz-sem-nome-api.andreiludescher.com"}
-    assert [kv["binding"] for kv in wrangler["kv_namespaces"]] == ["SNAPSHOTS"]
-    assert wrangler["ratelimits"] == [{"name": "RL", "namespace_id": "1001", "simple": {"limit": 5, "period": 60}}]
-    assert wrangler["triggers"] == {"crons": ["*/10 * * * *"]}
+    # Invocation logs would record request details; the Worker logs only event names and codes.
+    assert wrangler["observability"] == {"enabled": True, "logs": {"invocation_logs": False}}
+    assert wrangler["ai"] == {"binding": "AI"}
+    assert [(d["binding"], d["database_name"]) for d in wrangler["d1_databases"]] == [("DB", "voz-sem-nome")]
+    assert wrangler["vars"] == {"AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"}
+    assert "kv_namespaces" not in wrangler
+    assert wrangler["triggers"] == {"crons": ["*/10 * * * *", "17 6 * * *"]}
 
 
 def test_wrangler_documents_secrets_without_values(wrangler):
     text = (ROOT / "wrangler.jsonc").read_text(encoding="utf-8")
-    for name in ("ORIGIN_SHARED_SECRET", "TURNSTILE_SECRET"):
+    for name in ("TURNSTILE_SECRET", "EVAL_TOKEN", "ALERT_WEBHOOK_URL", "ALERT_WEBHOOK_TOKEN"):
         assert name in text
         assert name not in wrangler.get("vars", {})
 
 
-def test_worker_upstream_prefix_matches_the_api_router():
-    api = (ROOT / "src" / "enps" / "api" / "public.py").read_text(encoding="utf-8")
-    router_prefix = re.search(r'APIRouter\(prefix="([^"]+)"\)', api).group(1)
-    origin = (WORKER_DIR / "origin.js").read_text(encoding="utf-8")
-    assert f'UPSTREAM_PREFIX = "{router_prefix}"' in origin
-
-
 def test_worker_rate_limit_period_matches_wrangler(wrangler):
-    api = (WORKER_DIR / "api.js").read_text(encoding="utf-8")
-    period = int(re.search(r"RATE_LIMIT_PERIOD_S = (\d+)", api).group(1))
+    limits = (WORKER_DIR / "limits.js").read_text(encoding="utf-8")
+    period = int(re.search(r"RL_PERIOD_S = (\d+)", limits).group(1))
     assert period == wrangler["ratelimits"][0]["simple"]["period"]
 
 

@@ -9,11 +9,21 @@ og_locale: {pt: pt_BR, en: en_US}
 github_url: "https://github.com/AndreiLud/voz-sem-nome"
 author: {name: "Andrei Ludescher", url: "https://andreiludescher.com"}
 
+# Models named in the copy. The live demo's model id is set in the Worker config; the local
+# model tag comes from config/settings.yaml (llm.model). Version notes under the results read
+# the exact ids from metrics/metrics.json.
+models:
+  edge: {name: "Gemma 4 26B A4B", id: "@cf/google/gemma-4-26b-a4b-it"}
+  local: {name: "Gemma 4 E2B"}
+
 api_base: "/api/v1/public"
 poll_interval_ms: 4000
 
-# Turnstile: the environment variable TURNSTILE_SITE_KEY wins; without it the build uses
-# Cloudflare's official test key, which always passes (dev only).
+# Turnstile site key, in this order: the environment variable TURNSTILE_SITE_KEY, then
+# turnstile_site_key below (the public key of the widget for voz-sem-nome.andreiludescher.com,
+# not a secret), then Cloudflare's official test key. For local work on 127.0.0.1, build with
+# TURNSTILE_SITE_KEY=1x00000000000000000000AA, because the real key only works on the real host.
+turnstile_site_key: "0x4AAAAAAF9kSvw7Qvlrcl1z"
 turnstile_test_key: "1x00000000000000000000AA"
 turnstile_script: "https://challenges.cloudflare.com/turnstile/v0/api.js"
 

@@ -1,14 +1,14 @@
 {
   // Every deploy applies this file over the dashboard: domains, workers.dev, previews,
-  // vars, bindings, cron and the compatibility date. Settings belong here. Secrets stay.
+  // vars, bindings, crons and the compatibility date. Settings belong here. Secrets stay.
   // Must match the Worker name in the Cloudflare dashboard.
   "name": "voz-sem-nome",
   // Only answers /api/* (see run_worker_first). Tests: node --test worker/test/
   "main": "worker/index.js",
   // Never a future date. Update it on purpose, then test.
   "compatibility_date": "2026-11-10",
-  // fetch() to API_ORIGIN goes out through the public internet, like any visitor's request,
-  // so it reaches the tunnel hostname instead of being sent to an origin of this zone.
+  // fetch() to the alert webhook goes out through the public internet, like any visitor's
+  // request, even when its hostname is in this zone (an n8n behind a tunnel, for example).
   "compatibility_flags": ["global_fetch_strictly_public"],
   "assets": {
     // The static site built by `python -m enps.export.site`. Only this folder is uploaded,
@@ -30,37 +30,51 @@
   ],
   "workers_dev": false,
   "preview_urls": false,
-  // Workers Logs. A deploy without this key turns them off. The Worker never logs bodies.
-  "observability": { "enabled": true },
-  "vars": {
-    // Public hostname of the Cloudflare Tunnel in front of enps.api.public (port 8001).
-    // The Worker calls API_ORIGIN + /v1/public/...; the API refuses calls without
-    // the shared secret below.
-    "API_ORIGIN": "https://voz-sem-nome-api.andreiludescher.com"
-  },
-  // Last good copy of the dashboard and status answers, served when the origin is down.
-  // Written by the cron below only when the content changes.
-  "kv_namespaces": [
+  // Workers Logs keep only what the code prints: event names and error codes, never a
+  // comment or a request. Invocation logs (request and response details) stay off.
+  "observability": { "enabled": true, "logs": { "invocation_logs": false } },
+  // Workers AI. Called without AI Gateway, so no prompt or answer is logged by Cloudflare.
+  // Usage counts against the account's daily free allocation, also during `wrangler dev`.
+  "ai": { "binding": "AI" },
+  // Submissions, alerts and daily counters. The Worker creates the tables itself
+  // (CREATE TABLE IF NOT EXISTS), so no migration step is needed.
+  "d1_databases": [
     {
-      "binding": "SNAPSHOTS"
-      // Deploy step: create the namespace once with
-      //   npx wrangler kv namespace create voz-sem-nome-snapshots
-      // and add the printed id here as "id": "<id>". The id is not secret.
+      "binding": "DB",
+      "database_name": "voz-sem-nome",
+      // Deploy step: create the database once with
+      //   npx wrangler d1 create voz-sem-nome
+      // and put the printed database_id here. The id is not secret. A deploy with this
+      // placeholder fails, which is better than one that silently creates an empty database.
+      "database_id": "d60f2126-a82e-4c65-812c-c0a825c2bf0b"
     }
   ],
-  // Per-IP limit on POST /api/v1/public/submissions, after Turnstile: 5 per 60 s per
-  // Cloudflare location. The API keeps its own stricter limits (config/settings.yaml).
-  // namespace_id is any number unique to this limit in the account.
+  // Per-IP limit on POST /api/v1/public/submissions, after Turnstile: 3 per 60 s per
+  // Cloudflare location. The daily per-IP cap and the hourly global cap of
+  // config/settings.yaml (limits) are counted in D1. namespace_id is any number unique to
+  // this limit in the account.
   "ratelimits": [
-    { "name": "RL", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+    { "name": "RL", "namespace_id": "1001", "simple": { "limit": 3, "period": 60 } }
   ],
-  // Refresh the KV snapshots every 10 minutes.
-  "triggers": { "crons": ["*/10 * * * *"] }
+  // UTC. Every 10 minutes: retry classifications that did not finish, and after 00:00 UTC
+  // the ones that waited for the Workers AI quota. 06:17 (03:17 in Sao Paulo): purge
+  // expired submissions, alerts and daily IP hashes. worker/app.js tells them apart by
+  // these strings.
+  "triggers": { "crons": ["*/10 * * * *", "17 6 * * *"] },
+  "vars": {
+    // Workers AI model of the live demo (the code falls back to the same id).
+    "AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"
+  }
   // Secrets, set with `npx wrangler secret put <NAME>` (never in this file):
-  //   ORIGIN_SHARED_SECRET  same value as ORIGIN_SHARED_SECRET in the server's .env;
-  //                         sent to the API as X-Origin-Secret.
-  //   TURNSTILE_SECRET      secret key of the Turnstile widget whose site key is
-  //                         TURNSTILE_SITE_KEY at build time. For wrangler dev, put both
-  //                         in .dev.vars; the test secret 1x0000000000000000000000000000000AA
-  //                         always passes and 2x0000000000000000000000000000000AA always fails.
+  //   TURNSTILE_SECRET     secret key of the Turnstile widget whose site key is
+  //                        TURNSTILE_SITE_KEY at build time. Without it, submissions are
+  //                        refused. For wrangler dev, put it in .dev.vars; the test secret
+  //                        1x0000000000000000000000000000000AA always passes and
+  //                        2x0000000000000000000000000000000AA always fails. Only in .dev.vars,
+  //                        DEV_ALLOW_NO_TURNSTILE=1 with no secret skips the check.
+  //   EVAL_TOKEN           enables POST /api/v1/internal/evaluate (header X-Eval-Token),
+  //                        used by src/enps/evaluation/edge_client.py. Without it the route
+  //                        answers 404.
+  //   ALERT_WEBHOOK_URL    optional: n8n webhook that receives critical-case alerts.
+  //   ALERT_WEBHOOK_TOKEN  optional: sent as X-Internal-Token with each alert.
 }

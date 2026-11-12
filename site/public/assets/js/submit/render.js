@@ -32,6 +32,7 @@ export function renderStatus(ui, state, { t, lang }) {
 
 export function queueText(state, { t, lang }) {
   const parts = [];
+  if (state.status === "queued_quota") parts.push(t("submit.track.quota"));
   if (state.status === "queued" && state.position != null) {
     parts.push(t("submit.track.position", { position: fmtNumber(state.position, lang) }));
   }

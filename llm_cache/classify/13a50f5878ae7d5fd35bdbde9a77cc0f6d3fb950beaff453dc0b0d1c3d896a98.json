@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"eqp\",\"car\"],\"s\":\"neg\",\"c\":true,\"k\":[\"as\"],\"e\":\"um colega de outro setor faz piadinha sobre o meu corpo toda vez q eu passo\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2433,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 43,
-  "total_ms": 11002,
+  "total_ms": 10782,
   "load_ms": 1,
-  "prompt_ms": 2314,
-  "eval_ms": 8656
+  "prompt_ms": 2427,
+  "eval_ms": 8315
  }
 }

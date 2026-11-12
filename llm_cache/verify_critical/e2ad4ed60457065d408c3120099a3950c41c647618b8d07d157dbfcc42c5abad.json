@@ -49,11 +49,11 @@
   "content": "{\"e\":\"rota impossivel, caminhão sem manutenção, escala q sai na vespera e diária q n paga nem o almoco\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1228,
-  "cached_tokens": 1176,
+  "cached_tokens": 1181,
   "output_tokens": 38,
-  "total_ms": 8595,
+  "total_ms": 7754,
   "load_ms": 1,
-  "prompt_ms": 2107,
-  "eval_ms": 6464
+  "prompt_ms": 1927,
+  "eval_ms": 5805
  }
 }

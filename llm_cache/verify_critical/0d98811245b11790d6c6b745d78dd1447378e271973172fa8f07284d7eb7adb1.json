@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Depois das demissões a mesma quantidade de tarefa ficou com metade da equipe. Às vezes no caminho...\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1239,
-  "cached_tokens": 1170,
+  "cached_tokens": 1180,
   "output_tokens": 35,
-  "total_ms": 8151,
-  "load_ms": 2,
-  "prompt_ms": 2801,
-  "eval_ms": 5320
+  "total_ms": 7937,
+  "load_ms": 1,
+  "prompt_ms": 2413,
+  "eval_ms": 5497
  }
 }

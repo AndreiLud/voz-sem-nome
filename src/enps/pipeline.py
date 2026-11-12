@@ -219,15 +219,24 @@ def step_evaluate() -> dict[str, Any]:
 
 
 def _brief(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
+    """The evaluation output without the per-comment error list (kept in metrics/classification*.json)."""
     if not result:
         return None
-    crit = result["critical"]
+    return {k: v for k, v in result.items() if k != "errors"}
+
+
+def _anonymization_block(anon: Mapping[str, Any] | None) -> dict[str, Any]:
+    if not anon:
+        return {"status": "not_measured"}
+    o = anon["overall"]
     return {
-        "reference": result.get("reference"), "n": result["n"],
-        "sentiment": {k: result["sentiment"].get(k) for k in ("accuracy", "kappa", "confusion", "labels")},
-        "themes": {k: result["themes"].get(k) for k in ("micro_f1", "macro_f1", "per_theme")},
-        "critical": crit,
-        "critical_variants": result.get("critical_variants"),
+        "status": "measured", "version": anon.get("anonymizer_version"),
+        "n_comments": anon.get("documents"), "n_comments_with_pii": anon.get("documents_with_gold"),
+        "n_spans": o.get("gold"), "caught": o.get("caught"), "recall": o.get("recall"),
+        "recall_ci95": _wilson(o.get("caught", 0), o.get("gold", 0)), "precision": o.get("precision"),
+        "false_positives": o.get("false_positives"), "leak_rate": o.get("leak_rate"),
+        "comments_with_leak": len({x["id"] for x in anon.get("leaks", [])}),
+        "by_type": anon.get("by_gold_type"), "ms_per_comment": (anon.get("runtime") or {}).get("ms_per_comment"),
     }
 
 
@@ -254,6 +263,55 @@ def _dev_rounds() -> list[dict[str, Any]]:
     return rounds
 
 
+def _edge_block(llm: Mapping[str, Any]) -> dict[str, Any]:
+    """Live demo on Cloudflare: Worker anonymizer + Workers AI, measured through the deployed Worker."""
+    wrangler = (config.resolve("wrangler.jsonc")).read_text(encoding="utf-8")
+    import re
+    model = re.search(r'"AI_MODEL"\s*:\s*"([^"]+)"', wrangler)
+    anon = _read_json(METRICS / "anonymization_worker.json")
+    classification = _read_json(METRICS / "edge" / "classification_test.json") or {}
+    perf = _read_json(METRICS / "edge" / "performance_benchmark300.json") or _read_json(
+        METRICS / "edge" / "performance_test.json")
+    from enps.classify.prompts import load_prompt
+    return {
+        "pipeline": {"provider": "workers-ai", "model": model.group(1) if model else None,
+                     "prompt_version": load_prompt(llm["classify_prompt"]).prompt_version,
+                     "verifier_version": load_prompt(llm["verify_prompt"]).prompt_version,
+                     "anonymizer_version": (anon or {}).get("anonymizer_version")},
+        "anonymization": _anonymization_block(anon),
+        "classification": _brief(classification.get("human") or classification.get("intended")),
+        "classification_intended": _brief(classification.get("intended")),
+        "performance": perf or {"status": "not_measured"},
+    }
+
+
+def _local_block(preds: list[dict[str, Any]], llm: Mapping[str, Any]) -> dict[str, Any]:
+    """Local mode: spaCy anonymizer + Ollama on the reference server."""
+    anon = _read_json(METRICS / "anonymization.json")
+    classification = _read_json(METRICS / "classification.json") or {}
+    bench = _read_json(BENCHMARK)
+    first = next((p for p in preds if p.get("model")), {})
+    performance: dict[str, Any] = {"status": "not_measured"}
+    if bench:
+        performance = {"status": "measured", "n_comments": bench["n_comments"], "measured_at": bench["measured_at"],
+                       **bench["model_time"], "wall_time_per_comment": bench["wall_time_per_comment"],
+                       "hardware": bench["hardware"]}
+    return {
+        "pipeline": {"provider": "ollama", "model": first.get("model") or llm["model"],
+                     "quantization": (bench or {}).get("quantization"),
+                     "runtime_version": (bench or {}).get("runtime_version"),
+                     "prompt_version": first.get("prompt_version"),
+                     "verifier_version": next((p["verifier_version"] for p in preds if p.get("verifier_version")), None),
+                     "anonymizer_version": (anon or {}).get("anonymizer_version")},
+        "anonymization": _anonymization_block(anon),
+        "classification": _brief(classification.get("human_test") or classification.get("intended_test")),
+        "classification_intended": _brief(classification.get("intended_test")),
+        "classification_intended_all": _brief(classification.get("intended_all")),
+        "performance": performance,
+        "status_counts": {s: sum(1 for p in preds if p["status"] == s) for s in ("done", "review", "skipped", "failed")},
+    }
+
+
 def step_export(*, build_site: bool = True) -> dict[str, Any]:
     from enps.metrics.aggregates import build_dashboard
 
@@ -264,43 +322,13 @@ def step_export(*, build_site: bool = True) -> dict[str, Any]:
         conn.close()
     _write_json(Path("site/public/data/dashboard-synthetic.json"), dashboard)
 
-    anon = _read_json(METRICS / "anonymization.json") or {}
-    overall = anon.get("overall", {})
-    classification = _read_json(METRICS / "classification.json") or {}
-    bench = _read_json(BENCHMARK)
     preds = [json.loads(line) for line in open(config.resolve(PREDICTIONS), encoding="utf-8")]
-    first = next((p for p in preds if p.get("model")), {})
     llm = config.settings()["llm"]
-    primary = classification.get("human_test") or classification.get("intended_test")
     metrics = {
         "generated_at": _now(),
-        "pipeline": {
-            "model": first.get("model") or llm["model"],
-            "quantization": (bench or {}).get("quantization"),
-            "model_digest": (bench or {}).get("model_digest"),
-            "runtime_version": (bench or {}).get("runtime_version"),
-            "prompt_version": first.get("prompt_version"),
-            "verifier_version": next((p["verifier_version"] for p in preds if p.get("verifier_version")), None),
-            "anonymizer_version": anon.get("anonymizer_version"),
-        },
-        "anonymization": {
-            "status": "measured" if overall else "not_measured",
-            "n_comments": anon.get("documents"), "n_comments_with_pii": anon.get("documents_with_gold"),
-            "n_spans": overall.get("gold"), "caught": overall.get("caught"),
-            "recall": overall.get("recall"), "recall_ci95": _wilson(overall.get("caught", 0), overall.get("gold", 0)),
-            "precision": overall.get("precision"), "false_positives": overall.get("false_positives"),
-            "leak_rate": overall.get("leak_rate"), "comments_with_leak": len({x["id"] for x in anon.get("leaks", [])}),
-            "by_type": anon.get("by_gold_type"), "ms_per_comment": (anon.get("runtime") or {}).get("ms_per_comment"),
-        },
-        "classification": _brief(primary),
-        "classification_human": _brief(classification.get("human_test")),
-        "classification_intended_test": _brief(classification.get("intended_test")),
-        "classification_intended_all": _brief(classification.get("intended_all")),
-        "performance": ({**bench["model_time"], "status": "measured", "n_comments": bench["n_comments"],
-                         "wall_time_per_comment": bench["wall_time_per_comment"], "hardware": bench["hardware"],
-                         "measured_at": bench["measured_at"]} if bench else {"status": "not_measured"}),
+        "live_mode": "edge",
+        "modes": {"edge": _edge_block(llm), "local": _local_block(preds, llm)},
         "development": _dev_rounds(),
-        "status_counts": {s: sum(1 for p in preds if p["status"] == s) for s in ("done", "review", "skipped", "failed")},
     }
     _write_json(METRICS / "metrics.json", metrics)
     if build_site:

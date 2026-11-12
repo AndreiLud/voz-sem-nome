@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"car\",\"rem\",\"rec\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2436,
-  "cached_tokens": 2392,
+  "cached_tokens": 2388,
   "output_tokens": 25,
-  "total_ms": 7394,
+  "total_ms": 7742,
   "load_ms": 1,
-  "prompt_ms": 2499,
-  "eval_ms": 4870
+  "prompt_ms": 2698,
+  "eval_ms": 5010
  }
 }

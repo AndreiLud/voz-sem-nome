@@ -49,11 +49,11 @@
   "content": "{\"e\":\"fim de mês sempre aperta, ja faz parte.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1198,
-  "cached_tokens": 1174,
+  "cached_tokens": 1178,
   "output_tokens": 22,
-  "total_ms": 4827,
+  "total_ms": 4117,
   "load_ms": 1,
-  "prompt_ms": 1219,
-  "eval_ms": 3585
+  "prompt_ms": 891,
+  "eval_ms": 3203
  }
 }

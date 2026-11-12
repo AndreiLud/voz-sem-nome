@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Tive uma crise no meio do expediente, coração disparado, achei que ia morrer\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1217,
-  "cached_tokens": 1173,
+  "cached_tokens": 1181,
   "output_tokens": 31,
-  "total_ms": 6358,
+  "total_ms": 6190,
   "load_ms": 1,
-  "prompt_ms": 1791,
-  "eval_ms": 4545
+  "prompt_ms": 1518,
+  "eval_ms": 4642
  }
 }

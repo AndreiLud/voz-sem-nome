@@ -46,14 +46,14 @@
   }
  },
  "reply": {
-  "content": "{\"e\":\"As empilhadeiras estao com bateria velha e param no meio do turno. o barulho do galpao da dor de c\\u00e1d\",\"c\":false,\"k\":[]}",
+  "content": "{\"e\":\"As empilhadeiras estao com bateria velha e param no meio do turno. o barulho do galpao da dor de c\\u00e2d\", \"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1255,
-  "cached_tokens": 1173,
+  "cached_tokens": 1170,
   "output_tokens": 48,
-  "total_ms": 12425,
+  "total_ms": 11362,
   "load_ms": 1,
-  "prompt_ms": 3310,
-  "eval_ms": 9091
+  "prompt_ms": 3400,
+  "eval_ms": 7939
  }
 }

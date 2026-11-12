@@ -1,4 +1,5 @@
-{# "How it works" diagram. Vertical so it stays legible on a 320 px screen.
+{# "How it works" diagram: the live demo's path on Cloudflare, with the step that exists only
+   in local mode (spaCy NER) as a side branch. Vertical so it stays legible on a 320 px screen.
    Kind is encoded three ways: outline style, a colored swatch and a text tag. #}
 {% set how = s.home.how %}
 {% set radius = {"plain": 8, "rule": 2, "ner": 2, "llm": 12, "n8n": 22} %}
@@ -20,7 +21,7 @@
 </g>
 {%- endmacro %}
 
-<svg class="diagram" viewBox="0 0 360 772" role="img" aria-labelledby="dg-title dg-desc" focusable="false">
+<svg class="diagram" viewBox="0 0 360 872" role="img" aria-labelledby="dg-title dg-desc" focusable="false">
   <title id="dg-title">{{ how.figure_title }}</title>
   <desc id="dg-desc">{{ how.figure_caption }}</desc>
   <defs>
@@ -30,19 +31,23 @@
   </defs>
   <g class="dg-links">
     <path d="M180 80V101"></path>
-    <path d="M180 176V201"></path>
-    <path d="M180 276V297"></path>
+    <path d="M180 176V194H64V297"></path>
+    <path class="dg-link--local" d="M180 194H226V209"></path>
+    <path class="dg-link--local" d="M226 284V297"></path>
     <path d="M180 332V353"></path>
     <path d="M180 428V453"></path>
     <path d="M180 528V553"></path>
-    <path d="M180 628V652H95V673"></path>
-    <path d="M180 652H265V673"></path>
+    <path d="M180 628V653"></path>
+    <path d="M180 728V752H95V773"></path>
+    <path d="M180 752H265V773"></path>
   </g>
-  <text class="dg-branch" x="137" y="646" text-anchor="middle">{{ how.branch_all }}</text>
-  <text class="dg-branch" x="223" y="646" text-anchor="middle">{{ how.branch_critical }}</text>
+  <text class="dg-branch" x="174" y="189" text-anchor="end">{{ how.branch_edge }}</text>
+  <text class="dg-branch" x="186" y="189">{{ how.branch_local }}</text>
+  <text class="dg-branch" x="137" y="746" text-anchor="middle">{{ how.branch_all }}</text>
+  <text class="dg-branch" x="223" y="746" text-anchor="middle">{{ how.branch_critical }}</text>
   {{ node("input", "plain", 16, 8, 328, 72) }}
   {{ node("rules", "rule", 16, 104, 328, 72) }}
-  {{ node("ner", "ner", 16, 204, 328, 72) }}
+  {{ node("ner", "ner", 108, 212, 236, 72) }}
   <g class="dg-divider">
     <rect class="dg-redact" x="16" y="300" width="328" height="32" rx="2"></rect>
     <text class="dg-redact-text" x="180" y="321" text-anchor="middle">{{ how.divider }}</text>
@@ -50,6 +55,7 @@
   {{ node("lexicon", "rule", 16, 356, 328, 72) }}
   {{ node("llm", "llm", 16, 456, 328, 72) }}
   {{ node("verifier", "llm", 16, 556, 328, 72) }}
-  {{ node("dashboard", "plain", 16, 676, 158, 88) }}
-  {{ node("n8n", "n8n", 186, 676, 158, 88) }}
+  {{ node("storage", "plain", 16, 656, 328, 72) }}
+  {{ node("dashboard", "plain", 16, 776, 158, 88) }}
+  {{ node("alert", "n8n", 186, 776, 158, 88) }}
 </svg>

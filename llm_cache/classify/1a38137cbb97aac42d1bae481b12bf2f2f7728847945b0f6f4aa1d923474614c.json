@@ -78,14 +78,14 @@
   }
  },
  "reply": {
-  "content": "{\"t\":[\"car\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
+  "content": "{\"t\":[\"car\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2409,
-  "cached_tokens": 2392,
+  "cached_tokens": 2390,
   "output_tokens": 21,
-  "total_ms": 9242,
-  "load_ms": 3,
-  "prompt_ms": 1912,
-  "eval_ms": 7262
+  "total_ms": 5094,
+  "load_ms": 1,
+  "prompt_ms": 1166,
+  "eval_ms": 3893
  }
 }

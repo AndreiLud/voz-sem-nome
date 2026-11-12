@@ -49,11 +49,11 @@
   "content": "{\"e\":\"A meta é irreal e todo mês sobe mais um pouco, não tem auxílio creche, pra quem tem filho pequeno\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1244,
-  "cached_tokens": 1180,
+  "cached_tokens": 1179,
   "output_tokens": 38,
-  "total_ms": 8879,
-  "load_ms": 1,
-  "prompt_ms": 2600,
-  "eval_ms": 6246
+  "total_ms": 8869,
+  "load_ms": 2,
+  "prompt_ms": 2697,
+  "eval_ms": 6146
  }
 }

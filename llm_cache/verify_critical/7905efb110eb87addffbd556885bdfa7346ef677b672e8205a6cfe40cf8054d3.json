@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Feedback aqui só existe quando é para apontar erro, reajuste de 2%, agora vai dar para trocar de car\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1215,
-  "cached_tokens": 1173,
+  "cached_tokens": 1180,
   "output_tokens": 37,
-  "total_ms": 11386,
+  "total_ms": 7597,
   "load_ms": 1,
-  "prompt_ms": 1742,
-  "eval_ms": 9615
+  "prompt_ms": 1451,
+  "eval_ms": 6123
  }
 }

@@ -41,7 +41,7 @@ export function normalizeCode(text) {
 
 export const TERMINAL = new Set(["done", "review", "skipped", "failed"]);
 export const FINISHED = new Set(["done", "review"]);
-export const STAGES = { queued: 1, processing: 2, done: 3, review: 3, skipped: 3, failed: 3 };
+export const STAGES = { queued: 1, queued_quota: 1, processing: 2, done: 3, review: 3, skipped: 3, failed: 3 };
 
 /**
  * One shape for the submission answers. The API puts the queue position in
@@ -96,6 +96,7 @@ export function apiErrorMessage(result) {
   if (code === "turnstile_unavailable") return { key: "turnstile_unavailable" };
   if (result.status === 413 || code === "too_large") return { key: "too_large" };
   if (result.status === 422 || code === "validation") return { key: "validation" };
+  if (code === "quota") return { key: "quota" };
   if (result.status === 503 || code === "offline") return { key: "offline" };
   return { key: "unknown" };
 }

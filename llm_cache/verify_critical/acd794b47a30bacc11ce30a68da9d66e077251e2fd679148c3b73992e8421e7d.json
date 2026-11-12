@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a meta sobe todo mês, o salario e o msm faz dois anos, o supervisor so cobra e quando a gente pede\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1249,
-  "cached_tokens": 1170,
+  "cached_tokens": 1180,
   "output_tokens": 38,
-  "total_ms": 9584,
-  "load_ms": 1,
-  "prompt_ms": 3292,
-  "eval_ms": 6269
+  "total_ms": 9098,
+  "load_ms": 3,
+  "prompt_ms": 2833,
+  "eval_ms": 6239
  }
 }

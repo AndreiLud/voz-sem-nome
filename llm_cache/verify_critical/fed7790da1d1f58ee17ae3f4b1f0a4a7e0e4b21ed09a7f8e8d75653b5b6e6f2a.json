@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Estamos sempre no limite, qualquer falta vira caos e o q eu penso.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1204,
-  "cached_tokens": 1175,
+  "cached_tokens": 1173,
   "output_tokens": 28,
-  "total_ms": 5602,
-  "load_ms": 3,
-  "prompt_ms": 1261,
-  "eval_ms": 4319
+  "total_ms": 5787,
+  "load_ms": 1,
+  "prompt_ms": 1301,
+  "eval_ms": 4453
  }
 }

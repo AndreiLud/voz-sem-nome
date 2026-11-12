@@ -1,124 +1,80 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
 import worker from "../index.js";
-import {
-  ORIGIN, SECRET, apiRequest, jsonResponse, makeEnv, mockFetch, originCalls,
-} from "./helpers.js";
+import { apiRequest, makeApp, makeCtx, makeEnv, spyConsole } from "./helpers.js";
 
-let fetchMock;
+let spy;
+afterEach(() => spy?.restore());
 
-afterEach(() => fetchMock?.restore());
-
-function okOrigin() {
-  fetchMock = mockFetch(() => jsonResponse(200, { ok: true }));
-  return fetchMock;
-}
-
-describe("allowlist", () => {
+describe("routing", () => {
   it("serves non API paths from the assets binding", async () => {
-    const { calls } = okOrigin();
-    const response = await worker.fetch(apiRequest("/painel/"), makeEnv());
+    const env = makeEnv();
+    const response = await worker.fetch(apiRequest("/painel/"), env, makeCtx());
     assert.equal(await response.text(), "asset /painel/");
-    assert.equal(calls.length, 0);
+    assert.equal(env.DB.log.length, 0);
   });
 
-  const allowed = [
-    ["/api/v1/public/status", "/v1/public/status"],
-    ["/api/v1/public/health", "/v1/public/health"],
-    ["/api/v1/public/dashboard?dataset=public", "/v1/public/dashboard?dataset=public"],
-    ["/api/v1/public/dashboard?dataset=synthetic", "/v1/public/dashboard?dataset=synthetic"],
-    ["/api/v1/public/submissions/ab2c-de3f", "/v1/public/submissions/AB2C-DE3F"],
-    ["/api/v1/public/submissions/AB2CDE3F", "/v1/public/submissions/AB2C-DE3F"],
-  ];
-  for (const [path, upstream] of allowed) {
-    it(`forwards GET ${path}`, async () => {
-      const { calls } = okOrigin();
-      const response = await worker.fetch(apiRequest(path), makeEnv());
-      assert.equal(response.status, 200);
-      assert.equal(response.headers.get("Cache-Control"), "no-store");
-      const [call] = originCalls(calls);
-      assert.equal(call.url.href, ORIGIN + upstream);
-      assert.equal(call.method, "GET");
-    });
-  }
-
-  it("drops extra query parameters of the dashboard and defaults to public", async () => {
-    const { calls } = okOrigin();
-    await worker.fetch(apiRequest("/api/v1/public/dashboard?dataset=synthetic&x=1"), makeEnv());
-    await worker.fetch(apiRequest("/api/v1/public/dashboard"), makeEnv());
-    assert.deepEqual(originCalls(calls).map((c) => c.url.search), ["?dataset=synthetic", "?dataset=public"]);
-  });
-
-  it("rejects an unknown dataset without calling the origin", async () => {
-    const { calls } = okOrigin();
-    const response = await worker.fetch(apiRequest("/api/v1/public/dashboard?dataset=all"), makeEnv());
-    assert.equal(response.status, 422);
-    assert.equal((await response.json()).error, "validation");
-    assert.equal(calls.length, 0);
-  });
-
-  const blocked = [
+  const missing = [
     ["GET", "/api"],
     ["GET", "/api/"],
     ["GET", "/api/v1/public"],
-    ["GET", "/api/v1/public/status/"],
-    ["GET", "/api/v1/internal/alerts"],
+    ["GET", "/api/v1/public/unknown"],
     ["GET", "/api/v1/public/submissions"],
-    ["GET", "/api/v1/public/submissions/not-a-code"],
-    ["GET", "/api/v1/public/submissions/OOOO-IIII"],
     ["GET", "/api/v1/public/submissions/AB2C-DE3F/extra"],
-    ["GET", "/api/v1/public/submissions/..%2F..%2Finternal"],
+    ["GET", "/api/v1/internal/alerts/pending"],
+    ["GET", "/api/v1/internal/evaluate"],
     ["DELETE", "/api/v1/public/submissions/AB2C-DE3F"],
-    ["POST", "/api/v1/public/status"],
     ["PUT", "/api/v1/public/submissions"],
-    ["HEAD", "/api/v1/public/status"],
-    ["GET", "/api/v1/public/docs"],
+    ["OPTIONS", "/api/v1/public/submissions"],
+    ["POST", "/api/v1/public/status"],
+    ["GET", "/api/v2/public/status"],
   ];
-  for (const [method, path] of blocked) {
-    it(`answers 404 JSON to ${method} ${path} without calling the origin`, async () => {
-      const { calls } = okOrigin();
-      const response = await worker.fetch(apiRequest(path, { method }), makeEnv());
+  for (const [method, path] of missing) {
+    it(`answers ${method} ${path} with a JSON 404`, async () => {
+      const env = makeEnv();
+      const response = await worker.fetch(apiRequest(path, { method }), env, makeCtx());
       assert.equal(response.status, 404);
+      assert.deepEqual(await response.json(), { error: "not_found" });
       assert.match(response.headers.get("Content-Type"), /^application\/json/);
-      if (method !== "HEAD") assert.deepEqual(await response.json(), { error: "not_found" });
-      assert.equal(calls.length, 0);
+      assert.equal(response.headers.get("Cache-Control"), "no-store");
+      assert.equal(response.headers.get("Access-Control-Allow-Origin"), null);
+      assert.equal(env.DB.log.length, 0);
     });
   }
-});
 
-describe("forwarding headers", () => {
-  it("sends the shared secret and the visitor IP on GET routes", async () => {
-    const { calls } = okOrigin();
-    await worker.fetch(apiRequest("/api/v1/public/submissions/AB2C-DE3F", {
-      headers: { "CF-Connecting-IP": "198.51.100.4", Cookie: "a=b", "X-Origin-Secret": "forged" },
-    }), makeEnv());
-    const [call] = calls;
-    assert.equal(call.headers.get("X-Origin-Secret"), SECRET);
-    assert.equal(call.headers.get("X-Client-IP"), "198.51.100.4");
-    assert.equal(call.headers.get("Cookie"), null);
-    assert.ok(call.signal instanceof AbortSignal, "GET routes have a timeout");
+  it("answers GET /health with ok once D1 answers", async () => {
+    const env = makeEnv();
+    const response = await worker.fetch(apiRequest("/api/v1/public/health"), env, makeCtx());
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), { status: "ok" });
+    assert.ok(env.DB.row("SELECT name FROM sqlite_master WHERE name = 'submissions'"));
   });
 
-  it("passes a 404 for an unknown code through", async () => {
-    fetchMock = mockFetch(() => jsonResponse(404, { error: "not_found" }));
-    const response = await worker.fetch(apiRequest("/api/v1/public/submissions/AB2C-DE3F"), makeEnv());
-    assert.equal(response.status, 404);
-    assert.deepEqual(await response.json(), { error: "not_found" });
-  });
-
-  it("answers 503 offline when the origin is unreachable for a submission lookup", async () => {
-    fetchMock = mockFetch(() => { throw new TypeError("network"); });
-    const response = await worker.fetch(apiRequest("/api/v1/public/submissions/AB2C-DE3F"), makeEnv());
+  it("answers 503 on /health when D1 fails", async () => {
+    const env = makeEnv();
+    env.DB.failWith = new Error("D1_ERROR: storage down");
+    const response = await worker.fetch(apiRequest("/api/v1/public/health"), env, makeCtx());
     assert.equal(response.status, 503);
-    assert.deepEqual(await response.json(), { error: "offline" });
+    assert.deepEqual(await response.json(), { error: "unavailable" });
   });
 
-  it("turns a tunnel error page into 503 offline", async () => {
-    fetchMock = mockFetch(() => new Response("<html>error 1033</html>", {
-      status: 530, headers: { "Content-Type": "text/html" },
-    }));
-    const response = await worker.fetch(apiRequest("/api/v1/public/health"), makeEnv());
-    assert.equal(response.status, 503);
-    assert.deepEqual(await response.json(), { error: "offline" });
+  it("turns an unexpected failure into a JSON 500 and logs only the error name", async () => {
+    spy = spyConsole();
+    const env = makeEnv();
+    env.DB.failWith = new Error("D1_ERROR: storage down, secret detail");
+    const response = await worker.fetch(apiRequest("/api/v1/public/status"), env, makeCtx());
+    assert.equal(response.status, 500);
+    assert.deepEqual(await response.json(), { error: "internal" });
+    assert.deepEqual(spy.lines, ["api_error name=Error"]);
+  });
+
+  it("creates the schema once per database binding", async () => {
+    const { app } = makeApp();
+    const env = makeEnv();
+    for (let i = 0; i < 3; i += 1) await app.fetch(apiRequest("/api/v1/public/health"), env, makeCtx());
+    const creates = env.DB.log.filter((q) => q.sql.includes("CREATE TABLE IF NOT EXISTS submissions"));
+    assert.equal(creates.length, 1);
+    const indexes = env.DB.rows("SELECT name FROM sqlite_master WHERE type = 'index' AND name NOT LIKE 'sqlite_%'").map((r) => r.name);
+    assert.deepEqual(indexes.sort(), ["alerts_detected_at", "submissions_created_at", "submissions_dedupe_key", "submissions_status"]);
   });
 });

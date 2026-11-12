@@ -101,5 +101,6 @@ def test_cli_writes_metrics(tmp_path, capsys):
     assert metrics["documents"] == 3  # the empty comment is not evaluated
     assert metrics["overall"]["recall"] == 1.0 and metrics["overall"]["leak_rate"] == 0.0
     assert metrics["gold_offset_problems"] == []
-    assert metrics["anonymizer_version"] == "1.0.0"
+    from enps.anonymize.pipeline import ANONYMIZER_VERSION
+    assert metrics["anonymizer_version"] == ANONYMIZER_VERSION
     assert "ALL" in capsys.readouterr().out

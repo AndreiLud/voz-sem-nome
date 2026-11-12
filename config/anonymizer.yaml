@@ -12,6 +12,15 @@
 #             match when written with a period ("Sr. Antunes").
 # connectors  Particles allowed inside a full name ("Maria das Graças", "joao da silva").
 # nicknames   Short forms missing from the IBGE ranking, treated as first names.
+# places      The place gazetteer (src/enps/anonymize/places.py) masks official IBGE place names
+#             (data/reference/ibge_*.csv) as LOCAL.
+#   cues      Words right before a place name. Each entry joins every word of `first` with every
+#             word of `then` ("moro em", "sou de", "filial da"); an entry without `then` is a
+#             single word ("em", "bairro"). After a cue a place also matches in lowercase
+#             ("moro em pirituba"), unless all its words are common words.
+#   stoplist  Place names that usually mean something else: common words, holidays, saints,
+#             greetings, dates, brands and football clubs. They match only with a capital letter
+#             right after a cue ("moro em Natal"; "o Natal da empresa" is kept).
 version: 1
 
 allowlist:
@@ -293,3 +302,94 @@ nicknames:
   - tuca
   - zezé
   - zé
+
+places:
+  cues:
+    - first: [moro, mora, moram, moramos, morava, moravam, morei, morou, moraram, morar, morando,
+              resido, reside, residem, residia, residente]
+      then: [em, no, na, nos, nas]
+    - first: [sou, somos, natural, venho, vem, vim, veio, viemos, vindo, vinda, perto, cidade,
+              município, filial, unidade, bairro]
+      then: [de, do, da, dos, das]
+    - first: [transferido, transferida, transferidos, transferidas]
+      then: [de, do, da, dos, das, para, pra, pro]
+    - first: [em, bairro]
+  stoplist:
+    # Common words named in the project spec
+    - Alegre
+    - Areia
+    - Barra
+    - Bonito
+    - Cruzeiro
+    - Esperança
+    - Feliz
+    - Formosa
+    - Lagoa
+    - Palmas
+    - Paraíso
+    - Pedra
+    - Planalto
+    - Serra
+    - Vitória
+    # Words often capitalized with another meaning, workplace words among them
+    - América
+    - Armazém
+    - Assistência
+    - Brasileira
+    - Câmara
+    - Ceasa
+    - Comércio
+    - Cruz
+    - Guia
+    - Leão
+    - Nacional
+    - Oriente
+    - Primavera
+    - República
+    - Tesouro
+    - União
+    # Holidays, saints, greetings and prayers
+    - Natal
+    - Feliz Natal
+    - Bom Jesus
+    - Bom Pastor
+    - Boa Hora
+    - Boa Sorte
+    - Boa Viagem
+    - Carmo
+    - Divino
+    - Espírito Santo
+    - Glória
+    - Pelo Sinal
+    - Perpétuo Socorro
+    - Rosário
+    - Sagrada Família
+    # Dates
+    - Primeiro de Maio
+    - Dois de Abril
+    - Três de Maio
+    - Dez de Maio
+    - Treze de Maio
+    - Sete de Setembro
+    - Quinze de Novembro
+    - Dezesseis de Novembro
+    - Vinte e Cinco de Julho
+    # Brands and institutions
+    - Aurora
+    - Banco Central
+    - Itaipava
+    - Itambé
+    - Itaú
+    - Pão de Açúcar
+    - Perdigão
+    - Piracanjuba
+    - Piraquê
+    - Riachuelo
+    - Seara
+    # Football clubs
+    - Avaí
+    - Botafogo
+    - Flamengo
+    - Guarani
+    - Palmeiras
+    - Ponte Preta

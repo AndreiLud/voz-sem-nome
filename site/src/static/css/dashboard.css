@@ -531,7 +531,7 @@
   color: var(--ink-2);
 }
 
-/* Queue and production ------------------------------------------------------------------ */
+/* Live demo status ---------------------------------------------------------------------- */
 
 .dash-stats {
   display: grid;
@@ -541,17 +541,6 @@
 
 .dash-stat { padding: var(--space-4); }
 .dash-stat .stat__value { font-size: var(--step-2); margin-block-start: auto; }
-
-.worker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35em;
-}
-
-.worker .icon { inline-size: 0.9em; block-size: 0.9em; }
-.worker--online .icon { color: var(--good); }
-.worker--offline .icon { color: var(--critical); }
-.worker--unknown .icon { color: var(--muted); }
 
 /* Forced colors: keep the data colors, they carry the marks. */
 @media (forced-colors: active) {

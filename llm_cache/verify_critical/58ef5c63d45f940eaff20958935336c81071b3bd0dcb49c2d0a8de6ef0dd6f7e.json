@@ -49,11 +49,11 @@
   "content": "{\"e\":\"um colega de outro setor faz piadinha sobre o meu corpo toda vez q eu passo\",\"c\":true,\"k\":[\"as\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1224,
-  "cached_tokens": 1175,
+  "cached_tokens": 1174,
   "output_tokens": 32,
-  "total_ms": 7388,
+  "total_ms": 7283,
   "load_ms": 1,
-  "prompt_ms": 2240,
-  "eval_ms": 5127
+  "prompt_ms": 2179,
+  "eval_ms": 5076
  }
 }

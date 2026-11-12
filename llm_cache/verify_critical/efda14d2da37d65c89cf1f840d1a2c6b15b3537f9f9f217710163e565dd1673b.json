@@ -49,11 +49,11 @@
   "content": "{\"e\":\"O tech lead revisa meu código no canal publico com comentário debochado, o pessoal reage com risadín\",\"c\":true,\"k\":[\"am\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1242,
-  "cached_tokens": 1172,
+  "cached_tokens": 1170,
   "output_tokens": 38,
-  "total_ms": 9505,
-  "load_ms": 1,
-  "prompt_ms": 3253,
-  "eval_ms": 6221
+  "total_ms": 9232,
+  "load_ms": 3,
+  "prompt_ms": 2944,
+  "eval_ms": 6262
  }
 }

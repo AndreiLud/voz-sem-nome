@@ -49,11 +49,11 @@
   "content": "{\"e\":\"A avaliação de desempenho não serve para nada, ninguém é promovido depois dela\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1241,
-  "cached_tokens": 1173,
+  "cached_tokens": 1172,
   "output_tokens": 27,
-  "total_ms": 7093,
+  "total_ms": 6959,
   "load_ms": 1,
-  "prompt_ms": 2915,
-  "eval_ms": 4146
+  "prompt_ms": 2786,
+  "eval_ms": 4147
  }
 }

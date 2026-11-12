@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Meu banco de horas sumiu do sistema, matrícula [MATRICULA]. O supervisor do sábado some depois das<1\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1220,
-  "cached_tokens": 1183,
+  "cached_tokens": 1181,
   "output_tokens": 37,
-  "total_ms": 8140,
+  "total_ms": 7687,
   "load_ms": 1,
-  "prompt_ms": 1620,
-  "eval_ms": 6496
+  "prompt_ms": 1615,
+  "eval_ms": 6047
  }
 }

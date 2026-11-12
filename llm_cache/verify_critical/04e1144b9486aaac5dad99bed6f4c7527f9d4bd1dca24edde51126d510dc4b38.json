@@ -49,11 +49,11 @@
   "content": "{\"e\":\"queria entender melhor como é calculada a plr, em dia de pico n dá tempo nem de ir ao banheiro\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1219,
-  "cached_tokens": 1181,
+  "cached_tokens": 1180,
   "output_tokens": 35,
-  "total_ms": 7206,
-  "load_ms": 1,
-  "prompt_ms": 1569,
-  "eval_ms": 5614
+  "total_ms": 7138,
+  "load_ms": 5,
+  "prompt_ms": 1624,
+  "eval_ms": 5486
  }
 }

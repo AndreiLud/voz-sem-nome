@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a ergonomia dos postos podia ser avaliada de novo... nossa, q surpresa, mais uma meta nova esse mês\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1214,
-  "cached_tokens": 1177,
+  "cached_tokens": 1168,
   "output_tokens": 37,
-  "total_ms": 7523,
+  "total_ms": 7877,
   "load_ms": 1,
-  "prompt_ms": 1538,
-  "eval_ms": 5962
+  "prompt_ms": 1918,
+  "eval_ms": 5935
  }
 }

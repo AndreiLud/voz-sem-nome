@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o gestor tem os preferidos dele e todo mundo sabe quem são prometeram a efetivacao dps do contrato e\",\"c\":true,\"k\":[\"di\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1246,
-  "cached_tokens": 1176,
+  "cached_tokens": 1173,
   "output_tokens": 39,
-  "total_ms": 9322,
+  "total_ms": 8918,
   "load_ms": 1,
-  "prompt_ms": 2873,
-  "eval_ms": 6418
+  "prompt_ms": 2914,
+  "eval_ms": 5978
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"nao existe trilha tecnica, para ganhar mais tem que virar gestor e [PESSOA]\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1231,
-  "cached_tokens": 1174,
+  "cached_tokens": 1171,
   "output_tokens": 33,
-  "total_ms": 7731,
+  "total_ms": 7690,
   "load_ms": 1,
-  "prompt_ms": 2346,
-  "eval_ms": 5356
+  "prompt_ms": 2422,
+  "eval_ms": 5240
  }
 }

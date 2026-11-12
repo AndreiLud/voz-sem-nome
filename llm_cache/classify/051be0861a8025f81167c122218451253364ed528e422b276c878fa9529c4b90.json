@@ -78,14 +78,14 @@
   }
  },
  "reply": {
-  "content": "{\"t\":[\"rem\",\"inf\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}",
+  "content": "{\"t\":[\"rem\",\"inf\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2452,
   "cached_tokens": 2392,
   "output_tokens": 23,
-  "total_ms": 7974,
+  "total_ms": 7896,
   "load_ms": 1,
-  "prompt_ms": 3368,
-  "eval_ms": 4574
+  "prompt_ms": 3448,
+  "eval_ms": 4416
  }
 }

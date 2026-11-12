@@ -1,0 +1,91 @@
+{
+ "key": "16421dba3f7cb5a40bb7e8b9c8b0850b11babd42d1587b0f482c9c2b2b45702c",
+ "request": {
+  "model": "gemma4:e2b-it-qat",
+  "task": "classify",
+  "system": "Você é analista de pesquisa de clima organizacional numa empresa brasileira. Você lê um comentário anônimo de um funcionário e devolve a classificação em JSON.\n\nO comentário já foi anonimizado. Marcas como [PESSOA], [LOCAL] ou [TELEFONE] substituem dados pessoais. Leia essas marcas como texto normal.\n\n## Temas (campo t)\n- lid: Liderança. Postura e atitude da gestão direta: apoio, feedback, cobrança, respeito, decisões do gestor.\n- rem: Salário e benefícios. Salário, reajuste, PLR, bônus, comissão, vale refeição, plano de saúde e outros benefícios.\n- car: Carga de trabalho. Volume de trabalho, prazos, horas extras, falta de gente na equipe, ritmo e pressão por metas.\n- cre: Carreira e desenvolvimento. Promoção, plano de carreira, critérios de crescimento, treinamento e aprendizado.\n- rec: Reconhecimento. Se o esforço e os resultados são vistos, valorizados e agradecidos.\n- com: Comunicação e transparência. Clareza das informações, mudanças comunicadas a tempo, transparência das decisões da empresa.\n- eqp: Colegas e equipe. Relação com colegas, colaboração, clima entre pares, integração entre áreas.\n- flx: Flexibilidade e modelo de trabalho. Home office, trabalho híbrido, horários, escala, folgas, banco de horas.\n- inf: Ferramentas e processos. Sistemas, equipamentos, estrutura física, burocracia e processos internos.\n- bem: Saúde e bem-estar. Estresse, cansaço, ergonomia, segurança física no trabalho, ações de saúde. Casos graves também viram caso crítico.\n- cul: Cultura e valores. Valores da empresa, ética, diversidade e inclusão, propósito, coerência entre discurso e prática.\n- out: Outro. Comentário que não se encaixa em nenhum tema acima. Use sozinho, nunca junto com outro tema.\n\nRegras de tema:\n- Liste os temas que o comentário trata de forma clara, de 1 a 4, do mais importante para o menos importante.\n- Use só os códigos da lista.\n- Use \"out\" apenas quando nenhum outro tema servir, e sempre sozinho: [\"out\"].\n\n## Sentimento (campo s)\n- pos: O tom geral é de satisfação ou elogio.\n- neu: Sem tom claro, apenas informativo, ou elogio e crítica com o mesmo peso.\n- neg: O tom geral é de insatisfação ou crítica, inclusive quando a crítica vem com ironia.\n\nRegras de sentimento:\n- Ironia: elogio que na verdade é crítica vale \"neg\".\n- Comentário misto: o lado que pesa mais decide. Elogio e crítica com o mesmo peso vale \"neu\".\n- Comentário curto sem tom claro vale \"neu\". Se a palavra já mostra o tom, use esse tom.\n\n## Caso crítico (campos c, k, e)\nUm comentário é crítico quando sugere uma situação que o RH precisa olhar rápido. Tipos de caso crítico:\n- am: Assédio moral. Humilhação, gritos, xingamentos, exposição ao ridículo, perseguição, isolamento proposital, ameaça de demissão como forma de pressão. Sinais: Pode aparecer sem a palavra assédio: 'me expõe na frente de todos', 'vive dizendo que qualquer um faz meu trabalho', 'me tirou de todas as reuniões'.\n- as: Assédio sexual. Investidas, comentários sobre corpo ou roupa, toques, convites insistentes, chantagem de cunho sexual. Sinais: Pode aparecer como desconforto e evitação: 'mudo de caminho pra não cruzar com ele', 'comentários sobre minha roupa'.\n- di: Discriminação. Tratamento desigual ou piadas por raça, gênero, orientação sexual, idade, deficiência, religião, origem ou gravidez. Sinais: Pode aparecer como padrão: 'promoção só sai pra quem tem o perfil', 'depois que voltei da licença maternidade...'.\n- bo: Burnout e saúde mental. Esgotamento grave, crises de ansiedade ou pânico, uso de remédio para aguentar o trabalho, choro frequente, qualquer menção a se machucar ou a não querer viver. Sinais: Pode aparecer de forma indireta: 'não lembro a última vez que dormi bem', 'seria mais fácil não acordar'. Menção a não querer viver é sempre crítica.\n- av: Ameaça ou violência. Agressão física, ameaça, intimidação, briga, arma, risco à integridade física de alguém. Sinais: Pode aparecer como medo: 'ele disse que sabe onde eu moro', 'peço carona pra sair'.\n\nRegras de caso crítico:\n- Um caso é crítico quando aparece pelo menos um destes sinais: humilhação, xingamento ou exposição de alguém na frente dos outros; investida, comentário sobre o corpo, toque ou convite insistente; tratamento diferente por raça, gênero, idade, origem, orientação sexual, gravidez ou deficiência; esgotamento grave com sintomas (crise de pânico ou de ansiedade, choro frequente, remédio para aguentar, semanas sem conseguir dormir ou desligar); qualquer menção a não querer viver; ameaça, briga, arma ou medo pela própria segurança.\n- Na dúvida entre um desses sinais e uma reclamação comum, marque c=true. Um alarme falso custa poucos minutos. Um caso perdido custa muito mais.\n- Reclamações comuns não são críticas sozinhas, mesmo quando o tom é forte: cansaço depois de um dia ou mês puxado, meta alta (mesmo chamada de \"desumana\"), hora extra, falta de gente, dor por ergonomia, calor ou barulho, salário baixo, sistema ou equipamento ruim, gestor ausente ou desorganizado, desabafo sem humilhação de ninguém, e elogios a palestras ou treinamentos sobre assédio ou saúde mental.\n- Sinais indiretos contam: medo, evitar uma pessoa, choro, remédio para aguentar, noites sem dormir, ser exposto na frente dos outros, tratamento diferente por gravidez, cor, idade, origem ou orientação sexual.\n- Qualquer menção a não querer viver, a se machucar ou a sumir para sempre é sempre crítica, com \"bo\" em k.\n- Se c=true: k tem de 1 a 3 códigos de tipo, e e copia, sem mudar nada, o trecho do comentário que mostra o problema (até 100 caracteres).\n- Se c=false: k=[] e e=\"\". Não copie trecho nenhum quando o comentário não é crítico.\n\n## Resposta\nResponda só com um objeto JSON, sem texto fora dele, com os campos nesta ordem:\n- t: lista de 1 a 4 códigos de tema\n- s: \"pos\", \"neu\" ou \"neg\"\n- c: true se for caso crítico, senão false\n- k: lista de códigos de tipo crítico, vazia quando c=false\n- e: trecho copiado do comentário que justifica o caso crítico, ou \"\" quando c=false\n\n## Exemplos\nComentário: \"\"\"Na reunião de segunda o coordenador leu meus erros em voz alta e pediu pra equipe aplaudir. Já é a terceira vez.\"\"\"\n{\"t\":[\"lid\"],\"s\":\"neg\",\"c\":true,\"k\":[\"am\"],\"e\":\"leu meus erros em voz alta e pediu pra equipe aplaudir\"}\n\nComentário: \"\"\"Prefiro almoçar fora porque o supervisor do turno vive comentando como o uniforme fica justo em mim.\"\"\"\n{\"t\":[\"lid\"],\"s\":\"neg\",\"c\":true,\"k\":[\"as\"],\"e\":\"vive comentando como o uniforme fica justo em mim\"}\n\nComentário: \"\"\"Desde que contei da gravidez me tiraram das contas grandes e ninguém explica o motivo.\"\"\"\n{\"t\":[\"cre\",\"cul\"],\"s\":\"neg\",\"c\":true,\"k\":[\"di\"],\"e\":\"Desde que contei da gravidez me tiraram das contas grandes\"}\n\nComentário: \"\"\"Faz meses que só durmo com remédio e acordo com o coração disparado pensando nas metas.\"\"\"\n{\"t\":[\"bem\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"só durmo com remédio e acordo com o coração disparado\"}\n\nComentário: \"\"\"Do jeito que as coisas estão, às vezes acho que ninguém sentiria falta se eu sumisse.\"\"\"\n{\"t\":[\"bem\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"acho que ninguém sentiria falta se eu sumisse\"}\n\nComentário: \"\"\"Depois da discussão no pátio, um motorista disse que sabe a hora que eu saio. Agora só vou embora acompanhado.\"\"\"\n{\"t\":[\"eqp\"],\"s\":\"neg\",\"c\":true,\"k\":[\"av\"],\"e\":\"disse que sabe a hora que eu saio\"}\n\nComentário: \"\"\"Meu gestor cobra prazo apertado, mas sempre com respeito. Só queria menos hora extra no fim do mês.\"\"\"\n{\"t\":[\"lid\",\"car\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Adorei descobrir pelo crachá bloqueado que mudaram meu turno. Comunicação nota dez.\"\"\"\n{\"t\":[\"com\",\"flx\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Gosto do vale-alimentação novo, mas a comissão segue igual há três anos.\"\"\"\n{\"t\":[\"rem\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Fechei o inventário de madrugada e cheguei em casa moída, mas é só nessa época do ano.\"\"\"\n{\"t\":[\"car\",\"bem\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Cota da tarde é desumana e o galpão vira um forno depois do almoço. O encarregado pelo menos é educado.\"\"\"\n{\"t\":[\"car\",\"bem\",\"lid\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"A conversa do RH sobre assédio mostrou direitinho como denunciar sem se expor. Curti.\"\"\"\n{\"t\":[\"cul\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Gratidão.\"\"\"\n{\"t\":[\"out\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Sem comentários por enquanto.\"\"\"\n{\"t\":[\"out\"],\"s\":\"neu\",\"c\":false,\"k\":[],\"e\":\"\"}\n\nComentário: \"\"\"Minha equipe se ajuda muito e o curso de liderança deste ano me abriu portas.\"\"\"\n{\"t\":[\"eqp\",\"cre\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}\n",
+  "user": "Comentário: \"\"\"Olha, falta gente no atendimento e quem fica cobre a escala de quem saiu. Sofro assédio moral do meu supervisor há meses e tenho medo de denunciar\"\"\"",
+  "schema": {
+   "additionalProperties": false,
+   "properties": {
+    "t": {
+     "items": {
+      "enum": [
+       "lid",
+       "rem",
+       "car",
+       "cre",
+       "rec",
+       "com",
+       "eqp",
+       "flx",
+       "inf",
+       "bem",
+       "cul",
+       "out"
+      ],
+      "type": "string"
+     },
+     "maxItems": 4,
+     "minItems": 1,
+     "type": "array"
+    },
+    "s": {
+     "enum": [
+      "pos",
+      "neu",
+      "neg"
+     ],
+     "type": "string"
+    },
+    "c": {
+     "type": "boolean"
+    },
+    "k": {
+     "items": {
+      "enum": [
+       "am",
+       "as",
+       "di",
+       "bo",
+       "av"
+      ],
+      "type": "string"
+     },
+     "maxItems": 3,
+     "type": "array"
+    },
+    "e": {
+     "maxLength": 100,
+     "type": "string"
+    }
+   },
+   "required": [
+    "t",
+    "s",
+    "c",
+    "k",
+    "e"
+   ],
+   "type": "object"
+  },
+  "options": {
+   "temperature": 0,
+   "seed": 42,
+   "num_ctx": 4096,
+   "num_predict": 160,
+   "num_batch": 64
+  }
+ },
+ "reply": {
+  "content": "{\"t\":[\"car\",\"lid\"],\"s\":\"neg\",\"c\":true,\"k\":[\"am\"],\"e\":\"Sofro assédio moral do meu supervisor há meses e tenho medo de denunciar\"}",
+  "model": "gemma4:e2b-it-qat",
+  "prompt_tokens": 2432,
+  "cached_tokens": 2392,
+  "output_tokens": 40,
+  "total_ms": 10241,
+  "load_ms": 1,
+  "prompt_ms": 2244,
+  "eval_ms": 7971
+ }
+}

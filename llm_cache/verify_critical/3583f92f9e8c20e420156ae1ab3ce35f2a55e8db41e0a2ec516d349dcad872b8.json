@@ -49,11 +49,11 @@
   "content": "{\"e\":\"O chefe e gente fina mas n resolve nda, empurra tudo com a barriga e a cultura muda muito de área\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1229,
-  "cached_tokens": 1180,
+  "cached_tokens": 1166,
   "output_tokens": 37,
-  "total_ms": 7696,
+  "total_ms": 8328,
   "load_ms": 1,
-  "prompt_ms": 2002,
-  "eval_ms": 5674
+  "prompt_ms": 2556,
+  "eval_ms": 5748
  }
 }

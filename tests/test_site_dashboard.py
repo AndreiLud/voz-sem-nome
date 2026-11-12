@@ -149,6 +149,27 @@ def test_dashboard_fixtures_follow_the_contract(name):
         assert set(case) == {"id", "types", "themes", "area", "excerpt", "date"}
 
 
+def test_status_fixture_has_the_live_demo_fields():
+    """The dev server mock answers /status with this file: the Worker's flat shape."""
+    data = _fixture("status.json")
+    assert data["sample"] is True
+    assert set(data) - {"sample", "generated_at"} == {
+        "pending", "processing", "eta_seconds", "analyzed_today", "latency_p50_s", "latency_p95_s",
+        "critical_today", "alerts_recorded", "quota_exhausted_today", "production"}
+    assert isinstance(data["quota_exhausted_today"], bool)
+    assert {"total_submissions", "distinct_submitters", "classified", "first_public_day"} <= set(data["production"])
+
+
+def test_live_panel_never_talks_about_a_server_queue(sources):
+    for lang in sources.languages:
+        d = sources.strings[lang]["dashboard"]
+        assert "queue" not in d
+        text = " ".join([d["sections"]["production"], d["section_notes"]["production"],
+                         *d["live"].values(), *d["production"].values()]).lower()
+        for word in ("fila", "queue", "servidor", "server", "worker online", "analisador", "analyzer"):
+            assert word not in text, (lang, word)
+
+
 # ------------------------------------------------------------------ chart logic in Node
 
 
@@ -265,25 +286,36 @@ test("heat cells are shares of each area's classified comments", () => {
   assert.equal(m.heatPeak(none), null);
 });
 
-test("status from the API and from the older mock look the same", () => {
-  const api = m.normalizeStatus({
-    queue: { pending: 3, processing: 1, max_pending: 100, average_job_seconds: 8, eta_seconds_new_job: 40 },
-    worker: { heartbeat_age_seconds: 300 }, production: { total_submissions: 9 },
+test("live demo status: daily numbers, latency and the quota flag", () => {
+  const live = m.normalizeStatus({
+    pending: 0, processing: 1, eta_seconds: 4, analyzed_today: 12, latency_p50_s: 3.5, latency_p95_s: 9,
+    critical_today: 1, alerts_recorded: 2, quota_exhausted_today: true, production: { total_submissions: 9 },
   });
-  assert.equal(api.eta, 40);
-  assert.equal(api.online, true, "busy worker within the model timeout");
-  assert.equal(api.accepting, true);
-  assert.equal(api.production.total_submissions, 9);
-  const idle = m.normalizeStatus({ queue: { pending: 0, processing: 0 }, worker: { heartbeat_age_seconds: 300 } });
-  assert.equal(idle.online, false);
-  assert.equal(m.normalizeStatus({ queue: { pending: 1 }, worker: { heartbeat_age_seconds: null } }).online, false);
+  assert.deepEqual(
+    { ...live, production: null },
+    { analyzedToday: 12, latencyP50: 3.5, latencyP95: 9, criticalToday: 1, alertsRecorded: 2,
+      quotaExhausted: true, production: null });
+  assert.equal(live.production.total_submissions, 9);
   const mock = m.normalizeStatus(fixture("status.json"));
-  assert.equal(mock.online, true);
-  assert.equal(typeof mock.eta, "number");
+  assert.equal(mock.quotaExhausted, false);
+  for (const key of ["analyzedToday", "latencyP50", "latencyP95", "criticalToday", "alertsRecorded"]) {
+    assert.equal(typeof mock[key], "number", key);
+  }
+  assert.equal(typeof mock.production.first_public_day, "string");
+});
+
+test("status of the local mode API has no daily numbers, and junk is rejected", () => {
+  const local = m.normalizeStatus({
+    queue: { pending: 3, processing: 1, eta_seconds_new_job: 40 }, worker: { heartbeat_age_seconds: 5 },
+    production: { total_submissions: 9 },
+  });
+  assert.equal(local.analyzedToday, null);
+  assert.equal(local.latencyP50, null);
+  assert.equal(local.quotaExhausted, false);
+  assert.equal(local.production.total_submissions, 9);
+  assert.equal(m.normalizeStatus({ quota_exhausted_today: "yes" }).quotaExhausted, false);
+  assert.equal(m.normalizeStatus({ error: "offline" }), null);
   assert.equal(m.normalizeStatus(null), null);
-  const full = m.normalizeStatus({ queue: { pending: 100, max_pending: 100 } });
-  assert.equal(full.accepting, false);
-  assert.equal(full.online, null);
 });
 
 test("critical counts keep the configured order", () => {

@@ -264,37 +264,28 @@ export function critical(data, ctx, onToggle) {
   return out;
 }
 
-// ------------------------------------------------------------------ queue and production
+// ------------------------------------------------------------------ live demo status
 
-function tile(label, value, extra = null) {
-  return h("div", { class: "stat dash-stat" }, h("p", { class: "stat__label" }, label), h("p", { class: "stat__value" }, value), extra);
+function tile(label, value) {
+  return h("div", { class: "stat dash-stat" }, h("p", { class: "stat__label" }, label), h("p", { class: "stat__value" }, value));
 }
 
-function workerTile(online, ctx) {
-  const state = online === null ? "unknown" : (online ? "online" : "offline");
-  const text = { online: "dashboard.queue.worker_online", offline: "dashboard.queue.worker_offline", unknown: "dashboard.queue.worker_unknown" }[state];
-  const glyph = { online: "check", offline: "error", unknown: "pending" }[state];
-  return tile(ctx.t("dashboard.queue.worker"),
-    h("span", { class: `worker worker--${state}` }, icon(glyph), h("span", {}, ctx.t(text))));
-}
+const seconds = (ctx, value) => (typeof value === "number" ? fmtDuration(value, ctx.lang) : ctx.t("dashboard.live.none"));
+const count = (ctx, value) => (typeof value === "number" ? fmtNumber(value, ctx.lang) : ctx.t("dashboard.live.none"));
 
-const seconds = (ctx, value) => (typeof value === "number" ? fmtDuration(value, ctx.lang) : ctx.t("dashboard.production.none"));
-const count = (ctx, value) => (typeof value === "number" ? fmtNumber(value, ctx.lang) : ctx.t("dashboard.production.none"));
-
-/** Queue tiles always; production tiles only when `withProduction` (not for a small dataset). */
-export function queueAndProduction(status, ctx, { withProduction }) {
-  if (!status) return [h("p", { class: "muted" }, ctx.t("dashboard.queue.error"))];
-  const out = [
-    h("h3", { class: "viz-subhead" }, ctx.t("dashboard.queue.title")),
-    h("div", { class: "dash-stats" },
-      tile(ctx.t("dashboard.queue.pending"), count(ctx, status.pending)),
-      tile(ctx.t("dashboard.queue.processing"), count(ctx, status.processing)),
-      tile(ctx.t("dashboard.queue.eta"), typeof status.eta === "number" ? fmtDuration(status.eta, ctx.lang) : ctx.t("dashboard.queue.eta_none")),
-      workerTile(status.online, ctx)),
-  ];
-  if (status.accepting === false) {
-    out.push(h("div", { class: "alert alert--warning" }, icon("alert"), h("p", {}, ctx.t("dashboard.queue.full"))));
+/** Today's numbers and the quota notice always; production tiles only when `withProduction`. */
+export function liveStatus(status, ctx, { withProduction }) {
+  if (!status) return [h("p", { class: "muted" }, ctx.t("dashboard.live.error"))];
+  const out = [];
+  if (status.quotaExhausted) {
+    out.push(h("div", { class: "alert alert--warning" }, icon("clock"), h("p", {}, ctx.t("dashboard.live.quota"))));
   }
+  out.push(h("div", { class: "dash-stats" },
+    tile(ctx.t("dashboard.live.analyzed_today"), count(ctx, status.analyzedToday)),
+    tile(ctx.t("dashboard.live.median"), seconds(ctx, status.latencyP50)),
+    tile(ctx.t("dashboard.live.p95"), seconds(ctx, status.latencyP95)),
+    tile(ctx.t("dashboard.live.critical_today"), count(ctx, status.criticalToday)),
+    tile(ctx.t("dashboard.live.alerts"), count(ctx, status.alertsRecorded))));
   const p = status.production;
   if (withProduction && p) {
     const since = p.first_public_day ? ctx.t("dashboard.production.since", { date: fmtDay(p.first_public_day, ctx.lang) }) : ctx.t("dashboard.production.title");
@@ -302,9 +293,8 @@ export function queueAndProduction(status, ctx, { withProduction }) {
       h("div", { class: "dash-stats" },
         tile(ctx.t("dashboard.production.submissions"), count(ctx, p.total_submissions)),
         tile(ctx.t("dashboard.production.distinct"), count(ctx, p.distinct_submitters)),
-        tile(ctx.t("dashboard.production.median"), seconds(ctx, p.latency_p50_seconds)),
-        tile(ctx.t("dashboard.production.p95"), seconds(ctx, p.latency_p95_seconds)),
-        tile(ctx.t("dashboard.production.alerts"), count(ctx, p.alerts_sent))));
+        tile(ctx.t("dashboard.production.classified"), count(ctx, p.classified)),
+        tile(ctx.t("dashboard.production.to_alert"), seconds(ctx, p.mean_submission_to_alert_seconds))));
   }
   return out;
 }

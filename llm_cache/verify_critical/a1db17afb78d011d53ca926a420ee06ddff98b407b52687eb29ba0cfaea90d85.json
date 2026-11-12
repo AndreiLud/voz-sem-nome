@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Trocaram o plano de saúde por um pior e ninguém foi consultado\",\"c\":true,\"k\":[\"am\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1218,
-  "cached_tokens": 1174,
+  "cached_tokens": 1172,
   "output_tokens": 28,
-  "total_ms": 6514,
+  "total_ms": 6128,
   "load_ms": 1,
-  "prompt_ms": 1838,
-  "eval_ms": 4653
+  "prompt_ms": 1862,
+  "eval_ms": 4246
  }
 }

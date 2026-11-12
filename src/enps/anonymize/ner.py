@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 
 from . import PiiSpan
 from .gazetteer import is_sentence_start, is_title
-from .lexicon import Lexicon, lexicon, normalize
+from .lexicon import Lexicon, lexicon, normalize, normalize_phrase
 
 if TYPE_CHECKING:
     from spacy.language import Language
@@ -99,6 +99,8 @@ def entities(doc: Doc, lex: Lexicon | None = None) -> list[PiiSpan]:
         start, end = tokens[0].idx, tokens[-1].idx + len(tokens[-1].text)
         if lex.is_allowed(doc.text[start:end]):
             continue
+        if ent.label_ == "LOC" and normalize_phrase(doc.text[start:end]) in lex.place_stoplist:
+            continue  # "Feliz Natal", "Boa Sorte": the place gazetteer decides (places.py)
         if _shouting_without_names(tokens, lex):
             continue
         if len(tokens) == 1 and not _keep_single(tokens[0], ent.label_, doc.text, lex):

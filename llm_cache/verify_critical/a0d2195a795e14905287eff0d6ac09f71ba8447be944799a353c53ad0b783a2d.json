@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o pedido 4471 ficou parado tres dias esperando aprovacao. minha lideranca n conhece o trabalho q a g\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1242,
-  "cached_tokens": 1172,
+  "cached_tokens": 1179,
   "output_tokens": 37,
-  "total_ms": 9172,
+  "total_ms": 8505,
   "load_ms": 1,
-  "prompt_ms": 2860,
-  "eval_ms": 6285
+  "prompt_ms": 2608,
+  "eval_ms": 5876
  }
 }

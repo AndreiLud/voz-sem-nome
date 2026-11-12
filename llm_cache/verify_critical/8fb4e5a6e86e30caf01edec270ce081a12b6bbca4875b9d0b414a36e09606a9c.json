@@ -49,11 +49,11 @@
   "content": "{\"e\":\"carga alta\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1191,
-  "cached_tokens": 1174,
+  "cached_tokens": 1164,
   "output_tokens": 14,
-  "total_ms": 2735,
-  "load_ms": 2,
-  "prompt_ms": 783,
-  "eval_ms": 1929
+  "total_ms": 3357,
+  "load_ms": 1,
+  "prompt_ms": 1193,
+  "eval_ms": 2139
  }
 }

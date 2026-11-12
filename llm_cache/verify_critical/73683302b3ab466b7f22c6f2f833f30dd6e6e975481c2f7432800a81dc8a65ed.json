@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o armazem tá um caos, cada dia um b.o. novo para pedir um teclado novo abri chamado em marco e ate h\", \"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1219,
-  "cached_tokens": 1172,
+  "cached_tokens": 1178,
   "output_tokens": 41,
-  "total_ms": 8252,
-  "load_ms": 1,
-  "prompt_ms": 1945,
-  "eval_ms": 6287
+  "total_ms": 8056,
+  "load_ms": 2,
+  "prompt_ms": 1721,
+  "eval_ms": 6311
  }
 }

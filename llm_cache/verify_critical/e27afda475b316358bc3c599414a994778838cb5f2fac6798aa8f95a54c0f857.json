@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o gerente comenta do meu decote e diz que é para eu usar isso pra vender mais!\",\"c\":true,\"k\":[\"as\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1223,
-  "cached_tokens": 1179,
+  "cached_tokens": 1175,
   "output_tokens": 32,
-  "total_ms": 7011,
+  "total_ms": 7116,
   "load_ms": 1,
-  "prompt_ms": 1811,
-  "eval_ms": 5176
+  "prompt_ms": 1964,
+  "eval_ms": 5128
  }
 }

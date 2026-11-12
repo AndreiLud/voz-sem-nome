@@ -49,11 +49,11 @@
   "content": "{\"e\":\"A empresa contrata senior de fora em vez de desenvolver quem já tá aqui\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1204,
-  "cached_tokens": 1171,
+  "cached_tokens": 1172,
   "output_tokens": 27,
-  "total_ms": 5715,
+  "total_ms": 5749,
   "load_ms": 1,
-  "prompt_ms": 1410,
-  "eval_ms": 4281
+  "prompt_ms": 1347,
+  "eval_ms": 4376
  }
 }

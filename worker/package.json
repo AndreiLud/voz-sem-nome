@@ -1,10 +1,10 @@
 {
   "name": "voz-sem-nome-worker",
   "private": true,
-  "description": "Cloudflare Worker in front of the public API of Voz sem nome. No dependencies.",
+  "description": "Cloudflare Worker of Voz sem nome: the live demo API on Workers AI and D1. No dependencies.",
   "type": "module",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "test": "node --test test/"

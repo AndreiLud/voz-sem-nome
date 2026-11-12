@@ -1,0 +1,190 @@
+{
+  "documents": 340,
+  "documents_with_gold": 60,
+  "overall": {
+    "gold": 104,
+    "caught": 104,
+    "caught_same_type": 104,
+    "recall": 1,
+    "recall_typed": 1,
+    "leaked": 0,
+    "leak_rate": 0,
+    "predicted": 104,
+    "false_positives": 0,
+    "precision": 1
+  },
+  "by_gold_type": {
+    "CEP": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "CPF": {
+      "gold": 6,
+      "caught": 6,
+      "caught_same_type": 6,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "EMAIL": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "LOCAL": {
+      "gold": 13,
+      "caught": 13,
+      "caught_same_type": 13,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "MATRICULA": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "PESSOA": {
+      "gold": 47,
+      "caught": 47,
+      "caught_same_type": 47,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "PLACA": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "RG": {
+      "gold": 5,
+      "caught": 5,
+      "caught_same_type": 5,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "TELEFONE": {
+      "gold": 9,
+      "caught": 9,
+      "caught_same_type": 9,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    }
+  },
+  "by_predicted_type": {
+    "CEP": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "CPF": {
+      "predicted": 6,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "EMAIL": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "LOCAL": {
+      "predicted": 13,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "MATRICULA": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "PESSOA": {
+      "predicted": 47,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "PLACA": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "RG": {
+      "predicted": 5,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "TELEFONE": {
+      "predicted": 9,
+      "false_positives": 0,
+      "precision": 1
+    }
+  },
+  "misses": [],
+  "type_mismatches": [],
+  "leaks": [],
+  "false_positives": [],
+  "anonymizer_version": "edge-1.1.0",
+  "gold_offset_problems": [],
+  "runtime": {
+    "node": "v24.22.2",
+    "cpu_clock": "process.cpuUsage, user + system time of the whole process, one call per comment",
+    "module_load_ms": 59.435,
+    "module_load_cpu_ms": 64.543,
+    "first_call": {
+      "id": "S0001",
+      "wall_ms": 0.089,
+      "cpu_ms": 0.106
+    },
+    "comments": 340,
+    "warmup_passes": 3,
+    "cold_pass_cpu_ms_per_comment": {
+      "mean": 0.106,
+      "p50": 0.071,
+      "p95": 0.348,
+      "max": 1.545
+    },
+    "cpu_ms_per_comment": {
+      "mean": 0.085,
+      "p50": 0.059,
+      "p95": 0.158,
+      "max": 1.154
+    },
+    "wall_ms_per_comment": {
+      "mean": 0.062,
+      "p50": 0.058,
+      "p95": 0.115,
+      "max": 0.336
+    },
+    "slowest": {
+      "id": "S0129",
+      "chars": 158,
+      "cpu_ms": 1.154
+    },
+    "anonymize_s": 0.021,
+    "ms_per_comment": 0.062
+  }
+}

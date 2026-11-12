@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a sobrecarga da equipe tem comprometido a qualidade das entregas\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1227,
-  "cached_tokens": 1176,
+  "cached_tokens": 1175,
   "output_tokens": 25,
-  "total_ms": 5943,
-  "load_ms": 1,
-  "prompt_ms": 2087,
-  "eval_ms": 3829
+  "total_ms": 6208,
+  "load_ms": 3,
+  "prompt_ms": 2185,
+  "eval_ms": 3997
  }
 }

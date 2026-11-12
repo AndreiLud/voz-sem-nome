@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o treinamento sobre assédio e respeito foi muito bem feito aqui dá pra crescer se vc mostrar\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1214,
-  "cached_tokens": 1172,
+  "cached_tokens": 1171,
   "output_tokens": 32,
-  "total_ms": 6849,
+  "total_ms": 6950,
   "load_ms": 1,
-  "prompt_ms": 1763,
-  "eval_ms": 5063
+  "prompt_ms": 1776,
+  "eval_ms": 5150
  }
 }

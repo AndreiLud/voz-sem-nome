@@ -49,11 +49,11 @@
   "content": "{\"e\":\"as rotas da madrugada cansam mto, queria mais revezamento rsrs\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1219,
-  "cached_tokens": 1168,
+  "cached_tokens": 1170,
   "output_tokens": 29,
-  "total_ms": 7959,
-  "load_ms": 1,
-  "prompt_ms": 2549,
-  "eval_ms": 5384
+  "total_ms": 6749,
+  "load_ms": 2,
+  "prompt_ms": 2015,
+  "eval_ms": 4709
  }
 }

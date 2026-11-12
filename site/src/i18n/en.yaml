@@ -6,19 +6,19 @@ lang_name: "English"
 
 meta:
   site_name: "Voz sem nome"
-  og_image_alt: "Voz sem nome: climate survey and eNPS analysis with local AI"
+  og_image_alt: "Voz sem nome: climate survey and eNPS analysis with AI, without exposing anyone"
   home:
-    title: "Voz sem nome: climate survey and eNPS analysis with local AI"
-    description: "Climate survey comments anonymized before any model reads them, classified by a local AI model and shown on a dashboard that protects small groups."
+    title: "Voz sem nome: climate survey and eNPS analysis with AI, without exposing anyone"
+    description: "Climate survey comments anonymized before any model reads them, classified by AI and shown on a dashboard that protects small groups. The demo runs on Cloudflare, and the local mode runs on the company's own server."
   dashboard:
     title: "Dashboard | Voz sem nome"
     description: "eNPS, themes, sentiment and critical cases for Talvana Distribuição, a fictitious company, with a minimum group size."
   submit:
     title: "Submit a fictitious answer | Voz sem nome"
-    description: "Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by a local model."
+    description: "Answer the survey of a fictitious company, see your comment anonymized and follow the classification made by Cloudflare Workers AI."
   privacy:
     title: "Privacy | Voz sem nome"
-    description: "What the demo collects, what is anonymized, what is never stored and how long submissions are kept."
+    description: "What the demo collects, where the data is processed, what is anonymized and how long submissions are kept."
   not_found:
     title: "Page not found | Voz sem nome"
     description: "This page does not exist."
@@ -70,8 +70,8 @@ placeholders:
 home:
   hero:
     eyebrow: "Portfolio project"
-    title: "Climate survey and eNPS analysis with local AI"
-    lead: "Voz sem nome removes names, documents and contact details from survey comments before any model reads the text. Then a language model running on the server itself groups the comments by theme, measures sentiment and flags cases that need HR attention, such as harassment and burnout."
+    title: "Climate survey and eNPS analysis with AI, without exposing anyone"
+    lead: "Voz sem nome removes names, documents and contact details from survey comments before any model reads the text. Then a language model groups the comments by theme, measures sentiment and flags cases that need HR attention, such as harassment and burnout. The demo runs on Cloudflare. The same system can also run entirely on the company's own server."
     cta_primary: "Try the demo"
     cta_secondary: "See the dashboard"
     example_title: "A comment after it goes through the system"
@@ -97,32 +97,36 @@ home:
         text: "A report of harassment or exhaustion can sit among the other answers until the final report."
     nr1_label: "Context"
     nr1: "Since 26 May 2026, Brazil's NR-1 regulation includes psychosocial risk factors in the occupational risk management that companies must run. A climate survey does not meet that requirement on its own, but open comments often show these risks early. This is context, not legal advice."
+    nr1_link: "Read NR-1 on the Ministry of Labor website (Portuguese)"
+    nr1_url: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/nr-1"
 
   solution:
     title: "The solution"
     lead: "A flow that treats every comment as sensitive data, from submission to dashboard."
     items:
       - title: "Anonymization first"
-        text: "Rules and a small name recognition model replace personal data with placeholders such as PESSOA and CPF. The original text is never stored."
-      - title: "AI on the server itself"
-        text: "Classification runs on an open model with Ollama, on the server's CPU. No comment goes to a third party API."
+        text: "Rules and a list of names from IBGE replace personal data with placeholders such as PESSOA and CPF. In local mode, a small name recognition model adds to the search. The original text is never stored."
+      - title: "Two ways to run"
+        text: "The demo runs on Cloudflare: Workers AI classifies with {edge_model} and receives anonymized text only. Organizations that cannot let anything leave their premises use the local mode, with {local_model} on Ollama, on their own server's CPU."
       - title: "Dashboard with a minimum group"
         text: "No group with fewer than {k} answers is shown. Small areas are merged so nobody can be identified by subtraction."
       - title: "Critical case alerts"
-        text: "When the model or the risk lexicon points to harassment, discrimination, burnout or threats, n8n records the alert and can notify the person in charge on Telegram, with the anonymized text only."
+        text: "When the model or the risk lexicon points to harassment, discrimination, burnout or threats, the system records an alert with the anonymized text only. In local mode, n8n notifies the person in charge on Telegram and sends a daily summary. In the demo, the Worker can forward the case to an n8n webhook."
 
   how:
     title: "How it works"
-    lead: "Every answer goes through four kinds of parts. The legend shows what is a fixed rule, what is a small name recognition model, what is a language model and what is automation."
-    figure_title: "Path of one answer, from submission to dashboard and alert"
-    figure_caption: "Colors and tags show the kind of each part. The same information appears as text in the numbered list."
+    lead: "The live demo runs entirely on Cloudflare, with no server of its own. Every answer goes through fixed rules and a language model. The legend shows the kind of each part. Name recognition exists only in local mode, and n8n comes in after the alert."
+    figure_title: "Path of one answer in the demo, from submission to dashboard and alert"
+    figure_caption: "Colors and tags show the kind of each part. The local mode branch exists only when the system runs on its own server. The same information appears as text in the numbered list."
     text_title: "The diagram as text"
     legend_title: "Legend"
     kinds:
       rule: {tag: "RULE", name: "Fixed rule", text: "patterns, word lists and check digits. Always gives the same result."}
-      ner: {tag: "NER", name: "Small model", text: "recognizes names of people and places with spaCy."}
-      llm: {tag: "LLM", name: "Language model", text: "reads the anonymized text and returns labels in a fixed format."}
-      n8n: {tag: "N8N", name: "Automation", text: "n8n workflows that notify, summarize and clean up."}
+      ner: {tag: "NER", name: "Small model", text: "recognizes names of people and places with spaCy. Local mode only."}
+      llm: {tag: "LLM", name: "Language model", text: "reads the anonymized text and returns labels in a fixed format. In the demo, {edge_model} on Workers AI. In local mode, {local_model} on Ollama."}
+      n8n: {tag: "N8N", name: "Automation", text: "n8n workflows. In local mode they send the alerts and a daily summary and delete old submissions. In the demo, n8n only receives critical cases through a webhook, when one is set up."}
+    branch_edge: "demo"
+    branch_local: "local mode"
     branch_all: "all"
     branch_critical: "if critical"
     divider: "From here on, anonymized text only"
@@ -130,44 +134,56 @@ home:
       input:
         title: "Answer"
         lines: ["Score from 0 to 10, area, tenure", "and an optional comment"]
-        text: "The answer arrives with a score from 0 to 10, area, tenure and an optional comment."
+        text: "The answer reaches the Cloudflare Worker with a score from 0 to 10, area, tenure and an optional comment. Before that, Turnstile checks that the sender is not a bot."
       rules:
-        title: "Personal data rules"
-        lines: ["CPF, CNPJ, RG, CEP, email, phone,", "plate, employee ID; IBGE name list"]
-        text: "Patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates and employee IDs. A list of names from IBGE, the Brazilian statistics office, helps find personal names."
+        title: "Rules in the Worker"
+        lines: ["CPF, CNPJ, RG, CEP, email, phone, plate,", "employee ID, address, IBGE names"]
+        text: "Inside the Worker, patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates, employee IDs and addresses. A list of names from IBGE, the Brazilian statistics office, finds personal names. Each finding becomes a placeholder such as PESSOA, and the original text is dropped here."
       ner:
-        title: "Name recognition"
-        lines: ["A small spaCy model finds people", "and places the rules miss"]
-        text: "A small spaCy model finds names of people and places the rules miss. Each finding becomes a placeholder such as PESSOA. The original text is dropped here."
+        title: "Names and places"
+        lines: ["A small spaCy model finds what", "the rules miss"]
+        text: "Local mode only. A small spaCy model finds names of people and places the rules miss. The demo has no such step, so place names slip through more easily."
       lexicon:
         title: "Risk lexicon"
         lines: ["Explicit phrases about harassment,", "violence or self-harm flag the case"]
-        text: "Explicit phrases about harassment, violence or self-harm flag the case as critical, even if the model fails."
+        text: "Explicit phrases about harassment, violence or self-harm flag the case as critical, even if the model fails. The flag is dropped only when both model readings say it is not a critical case."
       llm:
-        title: "Local language model"
-        lines: ["{model} on Ollama returns themes,", "sentiment and a first critical flag"]
-        text: "The {model} model, running on Ollama, returns themes, sentiment and a first critical flag."
+        title: "Workers AI"
+        lines: ["{edge_model} returns themes,", "sentiment and a first critical flag"]
+        text: "The Worker sends only the anonymized text to Workers AI, where {edge_model} (`{edge_model_id}`) returns themes, sentiment and a first critical flag. In local mode, the same prompt runs on {local_model} with Ollama, on the server's CPU."
       verifier:
         title: "Second reading"
         lines: ["With any sign of risk, the model rereads.", "When in doubt, the case stays flagged."]
         text: "With any sign of risk, the model reads the comment again, focused on critical cases. When in doubt, the case stays flagged."
+      storage:
+        title: "D1 database"
+        lines: ["Keeps only the anonymized text,", "the labels and the timings"]
+        text: "The result is stored in D1, Cloudflare's database: anonymized text, labels and timings. Public submissions are deleted after {days} days. In local mode, the database is SQLite on the server itself."
       dashboard:
         title: "Dashboard"
         lines: ["Groups with {k} or", "more answers"]
         text: "The dashboard shows only groups with {k} or more answers."
-      n8n:
-        title: "n8n"
-        lines: ["Alerts, summary", "and cleanup"]
-        text: "n8n deletes public submissions after {days} days and monitors the queue. With Telegram turned on, it also sends the alerts and a daily summary."
+      alert:
+        title: "Alert"
+        lines: ["Recorded, and can", "go to n8n"]
+        text: "A critical case becomes an alert recorded in D1, with the anonymized text only. When an n8n webhook is set up, the Worker forwards the alert to it."
+    local_title: "Local mode"
+    local_items:
+      - "Runs with docker compose on the organization's own server. No comment leaves its infrastructure."
+      - "Anonymizes with the same rules and IBGE name list, plus spaCy name recognition."
+      - "Classifies with {local_model} on Ollama, on the server's CPU, without a GPU."
+      - "n8n sends the alerts on Telegram, writes a daily summary and deletes old submissions."
+      - "The published analysis of the synthetic dataset and the CPU timing come from this mode."
 
   results:
     title: "Results"
-    lead: "Numbers measured on the synthetic dataset. Each one shows how many cases were counted and how it was measured."
+    lead: "Numbers measured on the synthetic dataset, which has known labels. The tiles show the live demo, which runs on Cloudflare. The table compares the demo with the local mode."
     sample_note: "These numbers are samples. Measured results appear here after the evaluation."
+    live_title: "Live demo (Cloudflare)"
     items:
       pii_recall:
         label: "Personal data found"
-        method: "Share of the personal data planted in the synthetic dataset that the anonymizer replaced with placeholders."
+        method: "Share of the personal data planted in the synthetic dataset that the Worker replaced with placeholders, using only rules and the name list."
         n: "{n} personal data items"
       pii_leaks:
         label: "Comments with a leak"
@@ -183,7 +199,7 @@ home:
         n: "{n} alerts"
       sentiment:
         label: "Correct sentiment"
-        method: "Test set comments where the sentiment matched the reference."
+        method: "Test set comments where the sentiment matched the labels."
         n: "{n} comments"
         extra: "Cohen's kappa: {value}"
       themes:
@@ -192,20 +208,36 @@ home:
         n: "{n} comments"
       latency:
         label: "Time per comment"
-        method: "Median classification time on the server's CPU, without a GPU, after the model is loaded."
+        method: "Median classification time on Workers AI, measured by the Worker for each comment."
         n: "{n} comments"
         extra: "p95: {value}"
     ci: "95% CI: {lo} to {hi}"
+    compare:
+      title: "Demo (Cloudflare) vs local mode (own server)"
+      lead: "The same synthetic comments, measured on both paths. Local mode time is measured on the server's CPU, without a GPU, after the model is loaded."
+      col_metric: "Measure"
+      col_edge: "Demo (Cloudflare)"
+      col_local: "Local mode (own server)"
+      n: "(n = {n})"
+      rows:
+        anonymizer: {label: "Anonymization", edge: "Rules and IBGE name list, in the Worker", local: "Rules, IBGE list and spaCy NER"}
+        model: {label: "Model", edge: "{edge_model} on Workers AI", local: "{local_model} on Ollama, on the CPU"}
     reference:
       intended: "Reference: labels set when the synthetic dataset was generated."
       human: "Reference: labels from a person who read the comments without seeing the model's answer."
-    hardware: "Server with {cpus} vCPUs and {mem} GiB of RAM."
-    pipeline: "Model {model}, prompt {prompt}, anonymizer {anonymizer}."
+    hardware: "Local mode server with {cpus} vCPUs and {mem} GiB of RAM."
+    pipeline:
+      edge: "Demo: {parts}."
+      local: "Local mode: {parts}."
+    pipeline_parts:
+      model: "model {value}"
+      prompt: "prompt {value}"
+      anonymizer: "anonymizer {value}"
 
   estimate:
     title: "Hours saved"
     lead: "A simple calculation for your own case. Change the values in the table and the result updates right away."
-    note: "The default values are example assumptions, not measurements. Machine time comes from the measurement above, when it exists."
+    note: "The default values are example assumptions, not measurements. Machine time comes from the measurements above: the demo's when it exists, otherwise the local mode's."
     table_caption: "Assumptions of the estimate"
     col_assumption: "Assumption"
     col_value: "Value"
@@ -225,6 +257,9 @@ home:
       saved: "Hours saved per year"
       machine: "Machine time per year"
     machine_not_measured: "Not measured yet"
+    machine_source:
+      edge: "Machine time uses the mean measured on Workers AI."
+      local: "Machine time uses the mean measured on the local mode's CPU."
     hours: "{value} h"
     formula_title: "How the calculation works"
     formula:
@@ -252,15 +287,16 @@ home:
     title: "Privacy"
     lead: "The demo was designed to keep as little as possible."
     items:
-      - "The original comment text is never stored. Only the anonymized version is."
-      - "IP addresses are never stored. They are used only in memory, to limit excessive submissions."
-      - "Public submissions are deleted after {days} days."
-      - "Groups with fewer than {k} answers are not shown on the dashboard."
+      - "The comment is anonymized inside the Cloudflare Worker, before it reaches the model. The original text is never stored."
+      - "Cloudflare states that it does not use this content to train models and does not keep what goes through the model after the response."
+      - "Processing and the database are outside Brazil, on Cloudflare."
+      - "IP addresses are never written to the database. Only a daily code, deleted the next day, to count distinct people."
+      - "Public submissions are deleted after {days} days, and groups with fewer than {k} answers are not shown on the dashboard."
     link: "Read the privacy page"
 
   demo:
     title: "Try it with a fictitious answer"
-    text: "Write as if you worked at Talvana Distribuição, a made up company. You get a code to follow the result while it moves through the queue."
+    text: "Write as if you worked at Talvana Distribuição, a made up company. You get a code to follow the result of the analysis."
     cta: "Submit an answer"
 
 dashboard:
@@ -309,12 +345,12 @@ dashboard:
     themes: "Themes"
     heatmap: "Themes by area"
     critical: "Critical cases"
-    production: "Queue and production"
+    production: "Live demo"
   section_notes:
     themes: "How many comments mention each theme and the sentiment of those comments. A comment can have more than one theme."
     heatmap: "Share of each area's comments that mention the theme. In the table, the number in parentheses is the comment count."
     critical: "Anonymized excerpts. The area is shown only when the group has {k} or more answers. Tenure is never shown."
-    production: "How the public demo is doing right now."
+    production: "How the public demo is doing. The analysis runs on Cloudflare, with Workers AI."
   charts:
     overview: "Split of answers into promoters, passives and detractors"
     by_area: "Chart of eNPS by area"
@@ -360,34 +396,27 @@ dashboard:
     area: "Area"
     tenure: "Tenure"
     theme: "Theme"
-  queue:
-    title: "Queue now"
-    pending: "In queue"
-    processing: "Being analyzed"
-    eta: "Estimated wait"
-    eta_none: "No estimate"
-    worker: "Analyzer"
-    worker_online: "Online"
-    worker_offline: "Offline"
-    worker_unknown: "No signal"
-    went_online: "The analyzer is working again."
-    went_offline: "The analyzer stopped responding."
-    full: "The queue is full. New submissions are accepted again once it moves."
-    error: "Could not read the queue status right now."
+  live:
+    analyzed_today: "Answers analyzed today"
+    critical_today: "Critical cases today"
+    median: "Submission to result, median"
+    p95: "Submission to result, p95"
+    alerts: "Alerts recorded"
+    none: "No data"
+    quota: "The model's daily quota is used up. The demo accepts answers again after 00:00 UTC (21:00 in Brasília), when the quota resets."
+    error: "Could not read the demo status right now."
   production:
     title: "Since the demo started"
     since: "Since {date}"
-    none: "No data"
     submissions: "Submissions"
     distinct: "Distinct people"
-    median: "Time to result, median"
-    p95: "Time to result, p95"
-    alerts: "Alerts sent"
+    classified: "Comments analyzed"
+    to_alert: "Submission to alert, mean"
   noscript: "The dashboard uses JavaScript to draw the charts. The synthetic dataset is available at [dashboard-synthetic.json](/data/dashboard-synthetic.json)."
 
 submit:
   title: "Submit a fictitious answer"
-  lead: "Answer as if you worked at Talvana Distribuição, a made up company. Your comment is anonymized before it is stored and classified by a local model. At the end you get a code to follow the result."
+  lead: "Answer as if you worked at Talvana Distribuição, a made up company. Your comment is anonymized inside the Cloudflare Worker, before it is stored and before it reaches the model that classifies the text. At the end you get a code to follow the result."
   form_title: "Your answer"
   required_note: "Fields marked with * are required."
   score_low: "Not at all likely"
@@ -399,7 +428,7 @@ submit:
   comment_hint: "Do not write real data about yourself or other people. If you do, it will be replaced with placeholders."
   counter: "{count} of {max} characters"
   counter_over: "{count} characters over the limit"
-  consent_label: "I understand this is a demo with a fictitious company and that my comment will be anonymized and deleted after {days} days."
+  consent_label: "I understand this is a demo with a fictitious company and that my comment will be anonymized, analyzed on Cloudflare outside Brazil and deleted after {days} days."
   turnstile_label: "Bot check"
   submit: "Submit answer"
   sending: "Sending"
@@ -416,7 +445,7 @@ submit:
   api_errors:
     duplicate: "This comment was already submitted in the last 24 hours. Write a different one or follow the earlier submission with its code."
     rate_limited: "Too many submissions in a row. Try again in {minutes} min."
-    queue_full: "The queue is full right now. Try again in a few minutes."
+    queue_full: "The demo got too many submissions just now. Try again in a few minutes."
     offline: "The analysis is offline right now. Try again later."
     network: "No connection to the server. Check your internet and try again."
     turnstile: "The bot check failed. Reload the page and try again."
@@ -424,6 +453,7 @@ submit:
     unknown: "Something went wrong. Try again in a few minutes."
     too_large: "The submission is too large. Shorten the comment and try again."
     turnstile_unavailable: "The bot check did not answer. Try again in a moment."
+    quota: "The model's daily quota is used up. Try again after 00:00 UTC, when it resets."
   track:
     title: "Follow your answer"
     lead: "Paste the code you got when you submitted."
@@ -440,13 +470,15 @@ submit:
     paused: "Updates paused while the tab is in the background."
     not_found: "We could not find this code. Check that you typed it correctly. Submissions are deleted after {days} days."
     status_title: "Answer status"
-    checking: "Checking the queue"
-    anonymized_note: "The comment was anonymized as soon as it arrived, before it entered the queue."
+    checking: "Checking the result"
+    anonymized_note: "The comment was anonymized as soon as it arrived, before it went to the model."
+    quota: "Answer received. The model's daily quota is used up, so the analysis waits until 00:00 UTC (21:00 in Brasília), when the quota resets. Keep your code."
     reconnecting: "No connection to the server. Trying again in {seconds} s."
     offline: "The analysis is offline right now. Trying again in {seconds} s."
     result_ready: "The result is right below."
     status:
       queued: "In queue"
+      queued_quota: "Waiting for the model's daily quota"
       processing: "Being analyzed"
       done: "Done"
       review: "Done, with manual review"
@@ -471,41 +503,63 @@ submit:
     critical_no: "No"
     processing_time: "Analyzed in {seconds} s by the {model} model."
     cvv: "If you are going through something similar, CVV, a free Brazilian emotional support line, answers 24 hours a day at 188 or [cvv.org.br](https://cvv.org.br). Outside Brazil, look for a local crisis line."
-    alert_note: "In a real company, this case would trigger an alert to HR. Here, the alert goes to the person in charge of the project, with the anonymized text only."
-  noscript: "Submitting needs JavaScript, for the bot check and to follow the queue."
+    alert_note: "In a real company, this case would trigger an alert to HR. Here, the alert is recorded for the person in charge of the project, with the anonymized text only."
+  noscript: "Submitting needs JavaScript, for the bot check and to follow the result."
 
 privacy:
   title: "Privacy"
   toc_title: "On this page"
-  lead: "This page explains what the public demo collects and how each item is handled. It is a portfolio project and uses a fictitious company."
-  updated: "Applies to the current version of the demo."
+  lead: "This page explains what the public demo collects, where each item is processed and how long it is kept. It is a portfolio project and uses a fictitious company."
+  updated: "Applies to the current version of the demo, which runs on Cloudflare."
   sections:
     collect:
       title: "What the demo collects"
       items:
         - "The score from 0 to 10, the area and the tenure you pick."
-        - "The comment, if you write one. It is anonymized before it is stored."
+        - "The comment, if you write one. It is anonymized before it is stored and before it reaches the model."
         - "The page language and the date and time of the submission."
-        - "The result of the bot check (Cloudflare Turnstile). The token is verified and dropped."
+        - "The result of the bot check. To run that check, Cloudflare Turnstile processes your IP address, the TLS fingerprint of the connection and your browser's user agent. The token is verified and dropped. Details in the [Turnstile privacy policy](https://www.cloudflare.com/turnstile-privacy-policy/)."
+    where:
+      title: "Where the data is processed"
+      text: "The demo runs entirely on Cloudflare. No part of it runs on a home server."
+      items:
+        - "**Worker**: the code that receives the answer, anonymizes the comment and stores the result."
+        - "**Workers AI**: the Cloudflare service that runs the {edge_model} model and classifies the anonymized text."
+        - "**D1**: Cloudflare's database, which holds the anonymized text, the score, area, tenure and the classification."
+        - "**Turnstile**: the bot check."
+      abroad: "Processing and storage happen outside Brazil. Cloudflare lists companies in the United States and England as sub-processors for Workers AI ([sub-processor list](https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/)), and D1 offers no location in Brazil or South America ([D1 data location](https://developers.cloudflare.com/d1/configuration/data-location/)). This is an international data transfer, which is why the form says so before you submit."
+    roles:
+      title: "Controller and processor"
+      text: "The person in charge of the project, Andrei Ludescher, is the controller (controlador under the LGPD): he decides what is collected and why. Cloudflare is the processor (operador): it processes the data on the controller's behalf. The [Cloudflare data processing addendum](https://www.cloudflare.com/cloudflare-customer-dpa/) puts it in these words: “the Customer is the Controller” and “Cloudflare is a Processor”. The addendum does not mention the LGPD. Cloudflare explains its view of the law on its [LGPD page](https://www.cloudflare.com/trust-hub/brazil-lgpd/). Turnstile is an exception: Cloudflare also uses the bot check signals to improve its own bot detection, and for that use it states that it is a controller ([Turnstile privacy policy](https://www.cloudflare.com/turnstile-privacy-policy/))."
     anonymize:
       title: "What is anonymized and how"
-      text: "Before storing anything, the system looks for personal data in the comment and replaces each item with a placeholder. Fixed rules find documents and contact details by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, and a small name recognition model find people and places. Only the text with placeholders goes on to the language model."
+      text: "The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, finds personal names. The demo does not use a name recognition model, so place names slip through more easily than in local mode. Only the text with placeholders reaches Workers AI."
       table_caption: "Placeholders used instead of personal data"
       col_marker: "Placeholder"
       col_meaning: "What it replaces"
       limits: "No method is always right. That is why we ask you not to write real data. In public excerpts on the dashboard, swear words also become a placeholder."
+    model:
+      title: "What Cloudflare does with the text"
+      items:
+        - "Cloudflare states that it does not use content processed by Workers AI to train models: “Cloudflare does not use Customer Content processed by Workers AI to train AI models” ([Workers AI data usage](https://developers.cloudflare.com/workers-ai/platform/data-usage/))."
+        - "For standard inference requests, like the ones in this demo, it states that it does not keep inputs or outputs after delivering the response: “does not retain inputs or outputs after they are no longer needed to process the request” (same page). The same page lists exceptions, such as a legal obligation."
+        - "It may keep technical metadata, such as timestamps, the model used and token counts, without the content."
+        - "The Worker never writes comment text to its logs."
     never:
       title: "What is never stored"
       items:
         - "The original comment text."
-        - "Your IP address. It stays in memory only, to limit excessive submissions and to count distinct people per day with a code that changes every day."
+        - "Your IP address. It is the key of Cloudflare's submission rate limiter, which keeps only short lived counters, and it is never written to the database. To count distinct people per day, the Worker stores a code (hash) of the IP mixed with a value that changes every day. These codes are deleted the next day."
         - "Tracking cookies or audience analytics. The site uses none."
     retention:
       title: "How long data is kept"
       items:
-        - "Public submissions: deleted after {days} days."
+        - "Public submissions: deleted after {days} days by a daily job of the Worker."
         - "Alert log: only an identifier, the case types and timestamps, deleted after {alert_days} days."
-        - "Daily counters without any text, such as number of submissions and analysis time: kept for the production statistics."
+        - "Daily codes used to count distinct people: deleted the next day."
+        - "Rows deleted from D1 can still be restored for 7 days through Time Travel, a database feature that is always on ([D1 Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)). In practice, a submission is gone for good within {gone_days} days."
+        - "Technical records of the API calls (Workers Logs), without comment text: Cloudflare keeps them for 3 days ([Workers Logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/))."
+        - "Daily counters without any text, such as number of submissions and analysis time: kept for the demo statistics."
     min_group:
       title: "Minimum group"
       text: "No group, cross tab or slice with fewer than {k} answers is shown on the dashboard. Small areas are merged into one unnamed group. When that group is small too, the smallest visible area joins it, so nobody can find a hidden group by subtracting the others from the total."
@@ -519,13 +573,18 @@ privacy:
           what: "Aggregated numbers with a minimum group and anonymized excerpts of critical cases, without tenure and with the area only when the group is large enough."
         - who: "The person who submitted"
           what: "Their own result, with the tracking code."
-        - who: "Person in charge of the project"
-          what: "The alerts, with the anonymized text, which can go to Telegram, and the database, which keeps anonymized text only."
-        - who: "Cloudflare"
-          what: "Connection data to deliver the site, run the bot check and block abuse, under Cloudflare's own policy."
+        - who: "Person in charge of the project (controller)"
+          what: "The D1 database, which keeps anonymized text only, and the critical case alerts."
+        - who: "Cloudflare (processor)"
+          what: "Runs the Worker, the model on Workers AI, the D1 database and Turnstile. Receives connection data to deliver the site and block abuse, and the already anonymized text for the classification."
+        - who: "n8n, when set up"
+          what: "Receives critical case alerts through a webhook, with the anonymized excerpt. Without the webhook, nothing goes to n8n."
+    local:
+      title: "Local mode"
+      text: "For organizations that cannot let anything leave their own infrastructure, the same system runs with docker compose on a company server: anonymization with rules, the IBGE list and spaCy name recognition, classification with {local_model} on Ollama, an SQLite database and n8n automations. In this mode, no comment goes to Cloudflare or any other service, except alert channels the company itself turns on, such as Telegram."
     legal:
       title: "Suggested legal basis for a real company"
-      text: "In this demo, the basis is your consent, given with the confirmation box on the form. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered."
+      text: "In this demo, the basis is your consent, given with the confirmation box on the form, which also says that the analysis happens outside Brazil. In a real company in Brazil, the most common basis for a climate survey is legitimate interest (LGPD, art. 7, IX), with a documented balancing test and the right not to answer. Comments may contain sensitive data, such as health or sexual orientation, which needs a basis from art. 11. When the survey supports the psychosocial risk management required by NR-1, compliance with a legal obligation may be considered. A company that uses Cloudflare, like this demo, also has to handle the international transfer (LGPD, art. 33). The local mode avoids that transfer."
       disclaimer: "This is a portfolio project and not legal advice. A real company should confirm the legal basis with its data protection officer and legal team."
     rights:
       title: "Questions"

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o gerente regional só liga pra perguntar quanto falta para a meta\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1252,
-  "cached_tokens": 1172,
+  "cached_tokens": 1179,
   "output_tokens": 25,
-  "total_ms": 7113,
-  "load_ms": 3,
-  "prompt_ms": 3290,
-  "eval_ms": 3794
+  "total_ms": 6807,
+  "load_ms": 1,
+  "prompt_ms": 2934,
+  "eval_ms": 3851
  }
 }

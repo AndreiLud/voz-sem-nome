@@ -49,11 +49,11 @@
   "content": "{\"e\":\"saio daqui com dor nas costas todo dia\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1198,
-  "cached_tokens": 1174,
+  "cached_tokens": 1172,
   "output_tokens": 21,
-  "total_ms": 4211,
+  "total_ms": 4149,
   "load_ms": 2,
-  "prompt_ms": 1126,
-  "eval_ms": 3059
+  "prompt_ms": 1119,
+  "eval_ms": 3004
  }
 }

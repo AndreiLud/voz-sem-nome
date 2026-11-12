@@ -3,7 +3,8 @@
 //
 // Sources, in order: GET /api/v1/public/dashboard (live, or the Worker's snapshot, which comes
 // with X-Data-Source: snapshot and X-Snapshot-At), then, for the synthetic dataset only, the
-// static file published with the site. The public view also reads GET /api/v1/public/status.
+// static file published with the site. The public view also reads GET /api/v1/public/status
+// (the live demo's numbers of the day and the model quota).
 import { apiFetch, staticJson } from "./lib/api.js";
 import { labelOf, loadConfig, loadTaxonomy } from "./lib/config.js";
 import { h, icon, slot } from "./lib/dom.js";
@@ -38,7 +39,7 @@ class Dashboard {
     this.dataset = datasetFromSearch(window.location.search, this.lang, page.query);
     this.taxonomy = null;
     this.staticUrl = STATIC_SYNTHETIC;
-    this.shown = null; // {dataset, sig, statusSig, data, status, online}
+    this.shown = null; // {dataset, sig, statusSig, data, source, quota}
     this.loadedAt = 0;
     this.timer = 0;
     this.request = 0;
@@ -175,12 +176,10 @@ class Dashboard {
     const previous = this.shown;
     const ctx = this.context(k, data);
     if (!previous || previous.sig !== sig) this.renderData(data, ctx, small, dataset);
-    if (!previous || previous.statusSig !== statusSig || previous.sig !== sig) this.renderQueue(dataset, status, ctx, small);
-    if (previous && previous.dataset === dataset && status && previous.online !== null
-        && status.online !== null && previous.online !== status.online) {
-      announce(this.t(status.online ? "dashboard.queue.went_online" : "dashboard.queue.went_offline"));
-    }
-    this.shown = { dataset, sig, statusSig, data, source, online: status ? status.online : null };
+    if (!previous || previous.statusSig !== statusSig || previous.sig !== sig) this.renderLive(dataset, status, ctx, small);
+    const quota = Boolean(status && status.quotaExhausted);
+    if (previous && previous.dataset === dataset && quota && !previous.quota) announce(this.t("dashboard.live.quota"));
+    this.shown = { dataset, sig, statusSig, data, source, quota };
   }
 
   renderFreshness({ data, source, snapshotAt }) {
@@ -270,12 +269,12 @@ class Dashboard {
     slot("critical", this.root).replaceChildren(...sections.critical(data, ctx, toggle).filter(Boolean));
   }
 
-  renderQueue(dataset, status, ctx, small) {
+  renderLive(dataset, status, ctx, small) {
     const section = slot("production-section", this.root);
     section.hidden = dataset !== "public";
     if (dataset !== "public") return;
     slot("production", this.root).replaceChildren(
-      ...sections.queueAndProduction(status, ctx, { withProduction: !small }).filter(Boolean));
+      ...sections.liveStatus(status, ctx, { withProduction: !small }).filter(Boolean));
   }
 
   /** The chart mark that has focus now, to give focus back after a redraw. */

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"pedir troca de folga aqui é uma novela a liderança promete e ñ cumpre\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1253,
-  "cached_tokens": 1179,
+  "cached_tokens": 1175,
   "output_tokens": 30,
-  "total_ms": 8917,
-  "load_ms": 1,
-  "prompt_ms": 3331,
-  "eval_ms": 5558
+  "total_ms": 8002,
+  "load_ms": 2,
+  "prompt_ms": 3148,
+  "eval_ms": 4828
  }
 }

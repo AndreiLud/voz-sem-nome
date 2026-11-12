@@ -49,11 +49,11 @@
   "content": "{\"e\":\"ngm explica o motivo das decisoes, so manda fazer.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1240,
-  "cached_tokens": 1170,
+  "cached_tokens": 1176,
   "output_tokens": 25,
-  "total_ms": 6748,
+  "total_ms": 6723,
   "load_ms": 1,
-  "prompt_ms": 2852,
-  "eval_ms": 3870
+  "prompt_ms": 2855,
+  "eval_ms": 3828
  }
 }

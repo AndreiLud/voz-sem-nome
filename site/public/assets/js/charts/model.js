@@ -8,11 +8,6 @@ export const OTHER_KEY = "__other";
 export const SENTIMENT_ORDER = ["neg", "neu", "pos"];
 export const SEGMENT_ORDER = ["promoters", "passives", "detractors"];
 
-// The worker writes a heartbeat on every loop (about once a second) but not while a job runs,
-// and a job may take up to the model timeout (600 s in config/settings.yaml).
-const HEARTBEAT_IDLE_S = 90;
-const HEARTBEAT_BUSY_S = 660;
-
 const num = (value) => (typeof value === "number" && Number.isFinite(value) ? value : null);
 
 // ------------------------------------------------------------------ dataset in the URL
@@ -168,37 +163,26 @@ export function criticalByType(critical, codes) {
   return codes.map((code) => ({ code, n: num(byType[code]) || 0 }));
 }
 
-// ------------------------------------------------------------------ queue status
+// ------------------------------------------------------------------ live demo status
 
-/** Whether the worker is alive, from the age of its last heartbeat. */
-export function workerOnline(ageSeconds, processing) {
-  if (ageSeconds === null) return false;
-  return ageSeconds <= HEARTBEAT_IDLE_S || (processing > 0 && ageSeconds <= HEARTBEAT_BUSY_S);
-}
+const STATUS_KEYS = ["analyzed_today", "latency_p50_s", "latency_p95_s", "critical_today", "alerts_recorded",
+  "quota_exhausted_today", "pending", "queue", "production"];
 
 /**
- * /status in one shape. Accepts the API shape (queue.eta_seconds_new_job,
- * worker.heartbeat_age_seconds) and the older mock shape (queue.eta_seconds, worker.online).
+ * GET /status in one shape. The live demo's Worker sends flat fields: {pending, processing,
+ * eta_seconds, analyzed_today, latency_p50_s, latency_p95_s, critical_today, alerts_recorded,
+ * quota_exhausted_today, production}. The local mode's API nests a queue and has no daily
+ * numbers; those come out as null and the page says "no data".
  */
 export function normalizeStatus(raw) {
-  if (!raw || typeof raw !== "object" || !raw.queue) return null;
-  const q = raw.queue;
-  const w = raw.worker || {};
-  const pending = num(q.pending);
-  const processing = num(q.processing) || 0;
-  const maxPending = num(q.max_pending);
-  let online = null;
-  if (typeof w.online === "boolean") online = w.online;
-  else if ("heartbeat_age_seconds" in w) online = workerOnline(num(w.heartbeat_age_seconds), processing);
-  let accepting = typeof q.accepting === "boolean" ? q.accepting : null;
-  if (accepting === null && pending !== null && maxPending !== null) accepting = pending < maxPending;
+  if (!raw || typeof raw !== "object" || !STATUS_KEYS.some((key) => key in raw)) return null;
   return {
-    pending,
-    processing,
-    eta: num(q.eta_seconds_new_job) ?? num(q.eta_seconds),
-    maxPending,
-    accepting,
-    online,
+    analyzedToday: num(raw.analyzed_today),
+    latencyP50: num(raw.latency_p50_s),
+    latencyP95: num(raw.latency_p95_s),
+    criticalToday: num(raw.critical_today),
+    alertsRecorded: num(raw.alerts_recorded),
+    quotaExhausted: raw.quota_exhausted_today === true,
     production: raw.production && typeof raw.production === "object" ? raw.production : null,
   };
 }

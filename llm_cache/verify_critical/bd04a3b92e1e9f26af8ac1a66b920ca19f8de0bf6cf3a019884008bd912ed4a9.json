@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a [PESSOA] do rh pediu meu cpf [CPF] e meu rg [RG] três vezes pro msm cadastro, fim de mês sempre\\nap\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1225,
-  "cached_tokens": 1177,
+  "cached_tokens": 1176,
   "output_tokens": 46,
-  "total_ms": 9703,
+  "total_ms": 9503,
   "load_ms": 1,
-  "prompt_ms": 1971,
-  "eval_ms": 7707
+  "prompt_ms": 2026,
+  "eval_ms": 7448
  }
 }

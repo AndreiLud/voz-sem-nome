@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Sem tempo pra nada\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1193,
-  "cached_tokens": 1171,
+  "cached_tokens": 1177,
   "output_tokens": 16,
-  "total_ms": 3285,
+  "total_ms": 3030,
   "load_ms": 1,
-  "prompt_ms": 992,
-  "eval_ms": 2268
+  "prompt_ms": 736,
+  "eval_ms": 2270
  }
 }

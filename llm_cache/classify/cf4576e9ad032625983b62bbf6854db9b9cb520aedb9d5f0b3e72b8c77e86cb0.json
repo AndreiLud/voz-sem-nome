@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"inf\",\"car\"],\"s\":\"neg\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2434,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 23,
-  "total_ms": 6979,
+  "total_ms": 6949,
   "load_ms": 1,
-  "prompt_ms": 2371,
-  "eval_ms": 4580
+  "prompt_ms": 2502,
+  "eval_ms": 4410
  }
 }

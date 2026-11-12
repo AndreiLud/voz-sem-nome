@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"bem\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"Tive uma crise no meio do expediente, coração disparado, achei que ia morrer\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2426,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 39,
-  "total_ms": 12122,
+  "total_ms": 9375,
   "load_ms": 1,
   "prompt_ms": 1985,
-  "eval_ms": 10106
+  "eval_ms": 7351
  }
 }

@@ -78,14 +78,14 @@
   }
  },
  "reply": {
-  "content": "{\"t\":[\"lid\",\"car\",\"flx\"],\"s\":\"neg\",\"c\":true,\"k\":[\"am\",\"bo\"],\"e\":\"se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir as contas\"}",
+  "content": "{\"t\":[\"lid\",\"car\",\"flx\"],\"s\":\"neg\",\"c\":true,\"k\":[\"am\"],\"e\":\"se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir as contas\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2439,
   "cached_tokens": 2392,
-  "output_tokens": 49,
-  "total_ms": 12736,
-  "load_ms": 1,
-  "prompt_ms": 2759,
-  "eval_ms": 9947
+  "output_tokens": 47,
+  "total_ms": 11811,
+  "load_ms": 2,
+  "prompt_ms": 2643,
+  "eval_ms": 9137
  }
 }

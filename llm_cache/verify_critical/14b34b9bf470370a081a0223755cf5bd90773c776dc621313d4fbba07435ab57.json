@@ -49,11 +49,11 @@
   "content": "{\"e\":\"prazo apertado aqui é regra, não exceção. Fiquei sabendo da troca de sistema por um colega de outraá\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1250,
-  "cached_tokens": 1180,
+  "cached_tokens": 1177,
   "output_tokens": 40,
-  "total_ms": 9498,
+  "total_ms": 9563,
   "load_ms": 1,
-  "prompt_ms": 2815,
-  "eval_ms": 6651
+  "prompt_ms": 2941,
+  "eval_ms": 6595
  }
 }

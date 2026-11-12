@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Reconhecimento? Ganhei um bombom na páscoa. 1 ano e 3 meses aqui e já tive 4 gestores diferentes\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1220,
-  "cached_tokens": 1169,
+  "cached_tokens": 1171,
   "output_tokens": 43,
-  "total_ms": 11721,
+  "total_ms": 8790,
   "load_ms": 1,
-  "prompt_ms": 2307,
-  "eval_ms": 9391
+  "prompt_ms": 2038,
+  "eval_ms": 6728
  }
 }

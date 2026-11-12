@@ -1,17 +1,23 @@
 {
   "sample": true,
   "generated_at": "2026-11-10T15:00:00.000+00:00",
-  "queue": {"pending": 2, "processing": 1, "max_pending": 100, "average_job_seconds": 7.8, "eta_seconds_new_job": 24},
-  "worker": {"heartbeat_age_seconds": 8.0},
+  "pending": 0,
+  "processing": 1,
+  "eta_seconds": 4,
+  "analyzed_today": 17,
+  "latency_p50_s": 3.8,
+  "latency_p95_s": 9.6,
+  "critical_today": 2,
+  "alerts_recorded": 2,
+  "quota_exhausted_today": false,
   "production": {
     "total_submissions": 41,
     "distinct_submitters": 33,
     "classified": 21,
-    "latency_p50_seconds": 9.4,
-    "latency_p95_seconds": 31.2,
+    "latency_p50_seconds": 4.1,
+    "latency_p95_seconds": 11.2,
     "alerts_sent": 3,
-    "mean_submission_to_alert_seconds": 14.6,
+    "mean_submission_to_alert_seconds": 6.4,
     "first_public_day": "2026-11-04"
-  },
-  "queue_series": []
+  }
 }

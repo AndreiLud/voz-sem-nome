@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"bem\",\"inf\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"Trocaram o plano de saúde por um pior e ninguém foi consultado\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2427,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 38,
-  "total_ms": 9618,
-  "load_ms": 2,
-  "prompt_ms": 1990,
-  "eval_ms": 7599
+  "total_ms": 9723,
+  "load_ms": 1,
+  "prompt_ms": 2115,
+  "eval_ms": 7575
  }
 }

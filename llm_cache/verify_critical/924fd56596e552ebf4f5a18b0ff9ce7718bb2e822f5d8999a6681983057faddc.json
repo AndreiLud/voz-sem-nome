@@ -49,11 +49,11 @@
   "content": "{\"e\":\"toda semana muda td e quem paga o pato é qm ta na pontaaa\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1232,
-  "cached_tokens": 1176,
+  "cached_tokens": 1179,
   "output_tokens": 30,
-  "total_ms": 6906,
+  "total_ms": 6774,
   "load_ms": 1,
-  "prompt_ms": 2291,
-  "eval_ms": 4588
+  "prompt_ms": 2223,
+  "eval_ms": 4528
  }
 }

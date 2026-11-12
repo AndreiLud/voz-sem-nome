@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Quem entrega mais recebe mais tarefa, não reconhecimento. Fazem a gente cobrir duas funções e pagam \",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1230,
-  "cached_tokens": 1180,
+  "cached_tokens": 1176,
   "output_tokens": 34,
-  "total_ms": 9032,
-  "load_ms": 3,
-  "prompt_ms": 2312,
-  "eval_ms": 6672
+  "total_ms": 7802,
+  "load_ms": 1,
+  "prompt_ms": 2223,
+  "eval_ms": 5556
  }
 }

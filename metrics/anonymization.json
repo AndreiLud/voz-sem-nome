@@ -3,13 +3,13 @@
   "documents_with_gold": 60,
   "overall": {
     "gold": 104,
-    "caught": 101,
-    "caught_same_type": 101,
-    "recall": 0.9712,
-    "recall_typed": 0.9712,
-    "leaked": 3,
-    "leak_rate": 0.0288,
-    "predicted": 101,
+    "caught": 104,
+    "caught_same_type": 104,
+    "recall": 1.0,
+    "recall_typed": 1.0,
+    "leaked": 0,
+    "leak_rate": 0.0,
+    "predicted": 104,
     "false_positives": 0,
     "precision": 1.0
   },
@@ -43,12 +43,12 @@
     },
     "LOCAL": {
       "gold": 13,
-      "caught": 10,
-      "caught_same_type": 10,
-      "recall": 0.7692,
-      "recall_typed": 0.7692,
-      "leaked": 3,
-      "leak_rate": 0.2308
+      "caught": 13,
+      "caught_same_type": 13,
+      "recall": 1.0,
+      "recall_typed": 1.0,
+      "leaked": 0,
+      "leak_rate": 0.0
     },
     "MATRICULA": {
       "gold": 8,
@@ -113,7 +113,7 @@
       "precision": 1.0
     },
     "LOCAL": {
-      "predicted": 10,
+      "predicted": 13,
       "false_positives": 0,
       "precision": 1.0
     },
@@ -143,47 +143,15 @@
       "precision": 1.0
     }
   },
-  "misses": [
-    {
-      "id": "S0111",
-      "type": "LOCAL",
-      "text": "embu das artes"
-    },
-    {
-      "id": "S0319",
-      "type": "LOCAL",
-      "text": "pirituba"
-    },
-    {
-      "id": "S0319",
-      "type": "LOCAL",
-      "text": "cajamar"
-    }
-  ],
+  "misses": [],
   "type_mismatches": [],
-  "leaks": [
-    {
-      "id": "S0111",
-      "type": "LOCAL",
-      "text": "embu das artes"
-    },
-    {
-      "id": "S0319",
-      "type": "LOCAL",
-      "text": "pirituba"
-    },
-    {
-      "id": "S0319",
-      "type": "LOCAL",
-      "text": "cajamar"
-    }
-  ],
+  "leaks": [],
   "false_positives": [],
-  "anonymizer_version": "1.0.0",
+  "anonymizer_version": "1.1.0",
   "gold_offset_problems": [],
   "runtime": {
-    "model_load_s": 1.89,
-    "anonymize_s": 2.7,
-    "ms_per_comment": 7.94
+    "model_load_s": 1.04,
+    "anonymize_s": 1.68,
+    "ms_per_comment": 4.94
   }
 }

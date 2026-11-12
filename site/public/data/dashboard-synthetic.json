@@ -1,771 +1,1223 @@
 {
-  "sample": true,
-  "dataset": "synthetic",
-  "generated_at": "2026-11-10T15:00:00.000+00:00",
-  "min_group_size": 5,
-  "totals": {
-    "responses": 480,
-    "with_comment": 294,
-    "enps": -13,
-    "promoters": 113,
-    "passives": 190,
-    "detractors": 177,
-    "pct_promoters": 23.5,
-    "pct_passives": 39.6,
-    "pct_detractors": 36.9,
-    "critical": 9
+ "dataset": "synthetic",
+ "generated_at": "2026-11-11T12:59:09.512+00:00",
+ "min_group_size": 5,
+ "totals": {
+  "responses": 400,
+  "with_comment": 340,
+  "enps": -9,
+  "promoters": 121,
+  "passives": 122,
+  "detractors": 157,
+  "pct_promoters": 30.2,
+  "pct_passives": 30.5,
+  "pct_detractors": 39.2,
+  "critical": 42
+ },
+ "by_area": [
+  {
+   "code": "operacoes",
+   "n": 110,
+   "enps": -25,
+   "promoters": 25,
+   "passives": 33,
+   "detractors": 52,
+   "themes": {
+    "lid": 22,
+    "rem": 26,
+    "car": 34,
+    "cre": 8,
+    "rec": 0,
+    "com": 11,
+    "eqp": 13,
+    "flx": 6,
+    "inf": 30,
+    "bem": 15,
+    "cul": 7,
+    "out": 7
+   },
+   "sentiment": {
+    "pos": 15,
+    "neu": 34,
+    "neg": 40
+   },
+   "critical": 13
   },
-  "by_area": [
-    {
-      "code": "operacoes",
-      "n": 156,
-      "enps": -32,
-      "promoters": 23,
-      "passives": 60,
-      "detractors": 73,
-      "themes": {
-        "lid": 11,
-        "rem": 24,
-        "car": 10,
-        "cre": 17,
-        "rec": 12,
-        "com": 20,
-        "eqp": 7,
-        "flx": 12,
-        "inf": 13,
-        "bem": 12,
-        "cul": 5,
-        "out": 14
-      },
-      "sentiment": {
-        "pos": 14,
-        "neu": 37,
-        "neg": 48
-      },
-      "critical": 5
-    },
-    {
-      "code": "transporte",
-      "n": 102,
-      "enps": -43,
-      "promoters": 10,
-      "passives": 38,
-      "detractors": 54,
-      "themes": {
-        "lid": 10,
-        "rem": 11,
-        "car": 8,
-        "cre": 10,
-        "rec": 6,
-        "com": 8,
-        "eqp": 1,
-        "flx": 13,
-        "inf": 11,
-        "bem": 6,
-        "cul": 3,
-        "out": 9
-      },
-      "sentiment": {
-        "pos": 5,
-        "neu": 26,
-        "neg": 32
-      },
-      "critical": 0
-    },
-    {
-      "code": "atendimento",
-      "n": 86,
-      "enps": -9,
-      "promoters": 20,
-      "passives": 38,
-      "detractors": 28,
-      "themes": {
-        "lid": 9,
-        "rem": 12,
-        "car": 2,
-        "cre": 9,
-        "rec": 3,
-        "com": 9,
-        "eqp": 3,
-        "flx": 5,
-        "inf": 7,
-        "bem": 8,
-        "cul": 3,
-        "out": 5
-      },
-      "sentiment": {
-        "pos": 11,
-        "neu": 22,
-        "neg": 18
-      },
-      "critical": 3
-    },
-    {
-      "code": "comercial",
-      "n": 56,
-      "enps": 21,
-      "promoters": 24,
-      "passives": 20,
-      "detractors": 12,
-      "themes": {
-        "lid": 5,
-        "rem": 7,
-        "car": 2,
-        "cre": 8,
-        "rec": 4,
-        "com": 5,
-        "eqp": 8,
-        "flx": 5,
-        "inf": 3,
-        "bem": 5,
-        "cul": 5,
-        "out": 3
-      },
-      "sentiment": {
-        "pos": 14,
-        "neu": 11,
-        "neg": 10
-      },
-      "critical": 1
-    },
-    {
-      "code": "tecnologia",
-      "n": 34,
-      "enps": 50,
-      "promoters": 19,
-      "passives": 13,
-      "detractors": 2,
-      "themes": {
-        "lid": 3,
-        "rem": 5,
-        "car": 0,
-        "cre": 4,
-        "rec": 3,
-        "com": 2,
-        "eqp": 3,
-        "flx": 1,
-        "inf": 2,
-        "bem": 0,
-        "cul": 3,
-        "out": 1
-      },
-      "sentiment": {
-        "pos": 12,
-        "neu": 6,
-        "neg": 0
-      },
-      "critical": 0
-    },
-    {
-      "code": "pessoas",
-      "n": 28,
-      "enps": 18,
-      "promoters": 10,
-      "passives": 13,
-      "detractors": 5,
-      "themes": {
-        "lid": 2,
-        "rem": 2,
-        "car": 1,
-        "cre": 5,
-        "rec": 1,
-        "com": 4,
-        "eqp": 0,
-        "flx": 1,
-        "inf": 4,
-        "bem": 2,
-        "cul": 0,
-        "out": 2
-      },
-      "sentiment": {
-        "pos": 6,
-        "neu": 8,
-        "neg": 3
-      },
-      "critical": 0
-    }
-  ],
-  "other_areas": {
-    "codes": null,
-    "n": 18,
-    "enps": 22,
-    "promoters": 7,
-    "passives": 8,
-    "detractors": 3,
-    "themes": {
-      "lid": 2,
-      "rem": 1,
-      "car": 0,
-      "cre": 3,
-      "rec": 3,
-      "com": 3,
-      "eqp": 0,
-      "flx": 1,
-      "inf": 3,
-      "bem": 1,
-      "cul": 1,
-      "out": 3
-    },
-    "sentiment": {
-      "pos": 3,
-      "neu": 6,
-      "neg": 2
-    },
-    "critical": 0
+  {
+   "code": "transporte",
+   "n": 60,
+   "enps": -17,
+   "promoters": 15,
+   "passives": 20,
+   "detractors": 25,
+   "themes": {
+    "lid": 11,
+    "rem": 17,
+    "car": 17,
+    "cre": 0,
+    "rec": 1,
+    "com": 9,
+    "eqp": 8,
+    "flx": 6,
+    "inf": 13,
+    "bem": 7,
+    "cul": 6,
+    "out": 5
+   },
+   "sentiment": {
+    "pos": 12,
+    "neu": 12,
+    "neg": 27
+   },
+   "critical": 5
   },
-  "by_tenure": [
-    {
-      "code": "lt1",
-      "n": 106,
-      "enps": -9,
-      "promoters": 26,
-      "passives": 44,
-      "detractors": 36,
-      "themes": {
-        "lid": 9,
-        "rem": 13,
-        "car": 6,
-        "cre": 12,
-        "rec": 4,
-        "com": 13,
-        "eqp": 2,
-        "flx": 8,
-        "inf": 11,
-        "bem": 9,
-        "cul": 5,
-        "out": 6
-      },
-      "sentiment": {
-        "pos": 13,
-        "neu": 24,
-        "neg": 26
-      },
-      "critical": 2
-    },
-    {
-      "code": "y1to3",
-      "n": 188,
-      "enps": -18,
-      "promoters": 38,
-      "passives": 79,
-      "detractors": 71,
-      "themes": {
-        "lid": 12,
-        "rem": 30,
-        "car": 7,
-        "cre": 23,
-        "rec": 13,
-        "com": 19,
-        "eqp": 11,
-        "flx": 17,
-        "inf": 17,
-        "bem": 7,
-        "cul": 6,
-        "out": 12
-      },
-      "sentiment": {
-        "pos": 22,
-        "neu": 51,
-        "neg": 41
-      },
-      "critical": 3
-    },
-    {
-      "code": "y3to5",
-      "n": 105,
-      "enps": -7,
-      "promoters": 30,
-      "passives": 38,
-      "detractors": 37,
-      "themes": {
-        "lid": 9,
-        "rem": 7,
-        "car": 6,
-        "cre": 13,
-        "rec": 14,
-        "com": 10,
-        "eqp": 7,
-        "flx": 10,
-        "inf": 10,
-        "bem": 12,
-        "cul": 5,
-        "out": 10
-      },
-      "sentiment": {
-        "pos": 17,
-        "neu": 23,
-        "neg": 27
-      },
-      "critical": 2
-    },
-    {
-      "code": "gt5",
-      "n": 81,
-      "enps": -17,
-      "promoters": 19,
-      "passives": 29,
-      "detractors": 33,
-      "themes": {
-        "lid": 12,
-        "rem": 12,
-        "car": 4,
-        "cre": 8,
-        "rec": 1,
-        "com": 9,
-        "eqp": 2,
-        "flx": 3,
-        "inf": 5,
-        "bem": 6,
-        "cul": 4,
-        "out": 9
-      },
-      "sentiment": {
-        "pos": 13,
-        "neu": 18,
-        "neg": 19
-      },
-      "critical": 2
-    }
-  ],
-  "other_tenures": null,
-  "area_tenure": [
-    {
-      "area": "operacoes",
-      "tenure": "lt1",
-      "n": 29,
-      "enps": -34
-    },
-    {
-      "area": "operacoes",
-      "tenure": "y1to3",
-      "n": 67,
-      "enps": -36
-    },
-    {
-      "area": "operacoes",
-      "tenure": "y3to5",
-      "n": 30,
-      "enps": -30
-    },
-    {
-      "area": "operacoes",
-      "tenure": "gt5",
-      "n": 30,
-      "enps": -23
-    },
-    {
-      "area": "transporte",
-      "tenure": "lt1",
-      "n": 23,
-      "enps": -26
-    },
-    {
-      "area": "transporte",
-      "tenure": "y1to3",
-      "n": 39,
-      "enps": -44
-    },
-    {
-      "area": "transporte",
-      "tenure": "y3to5",
-      "n": 22,
-      "enps": -41
-    },
-    {
-      "area": "transporte",
-      "tenure": "gt5",
-      "n": 18,
-      "enps": -67
-    },
-    {
-      "area": "atendimento",
-      "tenure": "lt1",
-      "n": 24,
-      "enps": -8
-    },
-    {
-      "area": "atendimento",
-      "tenure": "y1to3",
-      "n": 27,
-      "enps": -7
-    },
-    {
-      "area": "atendimento",
-      "tenure": "y3to5",
-      "n": 19,
-      "enps": -5
-    },
-    {
-      "area": "atendimento",
-      "tenure": "gt5",
-      "n": 16,
-      "enps": -19
-    },
-    {
-      "area": "comercial",
-      "tenure": "lt1",
-      "n": 14,
-      "enps": 14
-    },
-    {
-      "area": "comercial",
-      "tenure": "y1to3",
-      "n": 26,
-      "enps": 23
-    },
-    {
-      "area": "comercial",
-      "tenure": "y3to5",
-      "n": 11,
-      "enps": 27
-    },
-    {
-      "area": "comercial",
-      "tenure": "gt5",
-      "n": 5,
-      "enps": 20
-    },
-    {
-      "area": "tecnologia",
-      "tenure": "lt1",
-      "n": 5,
-      "enps": 60
-    },
-    {
-      "area": "tecnologia",
-      "tenure": "y1to3",
-      "n": 14,
-      "enps": 29
-    },
-    {
-      "area": "tecnologia",
-      "tenure": "y3to5",
-      "n": 5,
-      "enps": 100
-    },
-    {
-      "area": "tecnologia",
-      "tenure": "gt5",
-      "n": 10,
-      "enps": 50
-    },
-    {
-      "area": "financeiro",
-      "tenure": "lt1",
-      "suppressed": true
-    },
-    {
-      "area": "financeiro",
-      "tenure": "y1to3",
-      "suppressed": true
-    },
-    {
-      "area": "financeiro",
-      "tenure": "y3to5",
-      "suppressed": true
-    },
-    {
-      "area": "financeiro",
-      "tenure": "gt5",
-      "suppressed": true
-    },
-    {
-      "area": "pessoas",
-      "tenure": "lt1",
-      "suppressed": true
-    },
-    {
-      "area": "pessoas",
-      "tenure": "y1to3",
-      "n": 8,
-      "enps": 13
-    },
-    {
-      "area": "pessoas",
-      "tenure": "y3to5",
-      "n": 13,
-      "enps": 23
-    },
-    {
-      "area": "pessoas",
-      "tenure": "gt5",
-      "suppressed": true
-    },
-    {
-      "area": "juridico",
-      "tenure": "lt1",
-      "suppressed": true
-    },
-    {
-      "area": "juridico",
-      "tenure": "y1to3",
-      "suppressed": true
-    },
-    {
-      "area": "juridico",
-      "tenure": "y3to5",
-      "suppressed": true
-    },
-    {
-      "area": "juridico",
-      "tenure": "gt5",
-      "suppressed": true
-    }
-  ],
-  "themes": [
-    {
-      "code": "lid",
-      "n": 42,
-      "sentiment": {
-        "pos": 18,
-        "neu": 0,
-        "neg": 24
-      },
-      "critical": 5
-    },
-    {
-      "code": "rem",
-      "n": 62,
-      "sentiment": {
-        "pos": 16,
-        "neu": 25,
-        "neg": 21
-      },
-      "critical": 0
-    },
-    {
-      "code": "car",
-      "n": 23,
-      "sentiment": {
-        "pos": 0,
-        "neu": 0,
-        "neg": 23
-      },
-      "critical": 2
-    },
-    {
-      "code": "cre",
-      "n": 56,
-      "sentiment": {
-        "pos": 14,
-        "neu": 22,
-        "neg": 20
-      },
-      "critical": 2
-    },
-    {
-      "code": "rec",
-      "n": 32,
-      "sentiment": {
-        "pos": 12,
-        "neu": 0,
-        "neg": 20
-      },
-      "critical": 0
-    },
-    {
-      "code": "com",
-      "n": 51,
-      "sentiment": {
-        "pos": 0,
-        "neu": 31,
-        "neg": 20
-      },
-      "critical": 1
-    },
-    {
-      "code": "eqp",
-      "n": 22,
-      "sentiment": {
-        "pos": 22,
-        "neu": 0,
-        "neg": 0
-      },
-      "critical": 0
-    },
-    {
-      "code": "flx",
-      "n": 38,
-      "sentiment": {
-        "pos": 0,
-        "neu": 17,
-        "neg": 21
-      },
-      "critical": 0
-    },
-    {
-      "code": "inf",
-      "n": 43,
-      "sentiment": {
-        "pos": 0,
-        "neu": 25,
-        "neg": 18
-      },
-      "critical": 0
-    },
-    {
-      "code": "bem",
-      "n": 34,
-      "sentiment": {
-        "pos": 9,
-        "neu": 0,
-        "neg": 25
-      },
-      "critical": 2
-    },
-    {
-      "code": "cul",
-      "n": 20,
-      "sentiment": {
-        "pos": 15,
-        "neu": 0,
-        "neg": 5
-      },
-      "critical": 5
-    },
-    {
-      "code": "out",
-      "n": 37,
-      "sentiment": {
-        "pos": 0,
-        "neu": 37,
-        "neg": 0
-      },
-      "critical": 0
-    }
-  ],
-  "critical": {
-    "total": 9,
-    "by_type": {
-      "am": 2,
-      "as": 0,
-      "di": 5,
-      "bo": 2,
-      "av": 0
-    },
-    "cases": [
-      {
-        "id": "sample0469",
-        "types": [
-          "di"
-        ],
-        "themes": [
-          "cul",
-          "lid"
-        ],
-        "area": "atendimento",
-        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
-        "date": "2026-10-17"
-      },
-      {
-        "id": "sample0418",
-        "types": [
-          "di"
-        ],
-        "themes": [
-          "cre",
-          "cul"
-        ],
-        "area": "comercial",
-        "excerpt": "Depois que voltei da licença maternidade me tiraram dos projetos e ninguém explica o motivo.",
-        "date": "2026-10-16"
-      },
-      {
-        "id": "sample0377",
-        "types": [
-          "am"
-        ],
-        "themes": [
-          "lid"
-        ],
-        "area": "operacoes",
-        "excerpt": "Meu coordenador [PESSOA] grita comigo na frente de todo mundo e vive dizendo que qualquer um faz meu trabalho.",
-        "date": "2026-10-15"
-      },
-      {
-        "id": "sample0335",
-        "types": [
-          "di"
-        ],
-        "themes": [
-          "cul",
-          "lid"
-        ],
-        "area": "atendimento",
-        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
-        "date": "2026-10-13"
-      },
-      {
-        "id": "sample0267",
-        "types": [
-          "di"
-        ],
-        "themes": [
-          "cre",
-          "cul"
-        ],
-        "area": "operacoes",
-        "excerpt": "Depois que voltei da licença maternidade me tiraram dos projetos e ninguém explica o motivo.",
-        "date": "2026-10-12"
-      },
-      {
-        "id": "sample0263",
-        "types": [
-          "di"
-        ],
-        "themes": [
-          "cul",
-          "lid"
-        ],
-        "area": "operacoes",
-        "excerpt": "Piada com sotaque nordestino todo dia na reunião, e o gestor [PESSOA] ri junto.",
-        "date": "2026-10-12"
-      },
-      {
-        "id": "sample0222",
-        "types": [
-          "bo"
-        ],
-        "themes": [
-          "bem",
-          "car"
-        ],
-        "area": "operacoes",
-        "excerpt": "Não durmo direito faz meses, tomo remédio pra conseguir vir trabalhar e choro no carro antes de entrar.",
-        "date": "2026-10-11"
-      },
-      {
-        "id": "sample0198",
-        "types": [
-          "bo"
-        ],
-        "themes": [
-          "bem",
-          "car"
-        ],
-        "area": "atendimento",
-        "excerpt": "Não durmo direito faz meses, tomo remédio pra conseguir vir trabalhar e choro no carro antes de entrar.",
-        "date": "2026-10-10"
-      },
-      {
-        "id": "sample0155",
-        "types": [
-          "am"
-        ],
-        "themes": [
-          "lid",
-          "com"
-        ],
-        "area": "operacoes",
-        "excerpt": "Chefe chama a gente de burro no grupo da equipe. Já reclamei e piorou.",
-        "date": "2026-10-09"
-      }
-    ]
+  {
+   "code": "atendimento",
+   "n": 80,
+   "enps": -38,
+   "promoters": 15,
+   "passives": 20,
+   "detractors": 45,
+   "themes": {
+    "lid": 25,
+    "rem": 11,
+    "car": 25,
+    "cre": 9,
+    "rec": 2,
+    "com": 4,
+    "eqp": 15,
+    "flx": 5,
+    "inf": 15,
+    "bem": 13,
+    "cul": 2,
+    "out": 5
+   },
+   "sentiment": {
+    "pos": 13,
+    "neu": 17,
+    "neg": 40
+   },
+   "critical": 14
   },
-  "pipeline": {
-    "model": "qwen3.5:2b-q4_K_M",
-    "quantization": "Q4_K_M",
-    "prompt_version": "classify.v1",
-    "anonymizer_version": "1.0.0"
+  {
+   "code": "comercial",
+   "n": 55,
+   "enps": 13,
+   "promoters": 22,
+   "passives": 18,
+   "detractors": 15,
+   "themes": {
+    "lid": 14,
+    "rem": 17,
+    "car": 17,
+    "cre": 10,
+    "rec": 5,
+    "com": 11,
+    "eqp": 9,
+    "flx": 3,
+    "inf": 2,
+    "bem": 3,
+    "cul": 4,
+    "out": 4
+   },
+   "sentiment": {
+    "pos": 16,
+    "neu": 14,
+    "neg": 18
+   },
+   "critical": 4
+  },
+  {
+   "code": "tecnologia",
+   "n": 45,
+   "enps": 40,
+   "promoters": 25,
+   "passives": 13,
+   "detractors": 7,
+   "themes": {
+    "lid": 14,
+    "rem": 9,
+    "car": 6,
+    "cre": 7,
+    "rec": 3,
+    "com": 12,
+    "eqp": 9,
+    "flx": 3,
+    "inf": 2,
+    "bem": 1,
+    "cul": 0,
+    "out": 1
+   },
+   "sentiment": {
+    "pos": 16,
+    "neu": 7,
+    "neg": 12
+   },
+   "critical": 2
+  },
+  {
+   "code": "financeiro",
+   "n": 30,
+   "enps": 10,
+   "promoters": 11,
+   "passives": 11,
+   "detractors": 8,
+   "themes": {
+    "lid": 5,
+    "rem": 4,
+    "car": 12,
+    "cre": 4,
+    "rec": 1,
+    "com": 11,
+    "eqp": 4,
+    "flx": 3,
+    "inf": 10,
+    "bem": 2,
+    "cul": 0,
+    "out": 1
+   },
+   "sentiment": {
+    "pos": 8,
+    "neu": 9,
+    "neg": 13
+   },
+   "critical": 2
   }
+ ],
+ "other_areas": {
+  "codes": null,
+  "n": 20,
+  "enps": 15,
+  "promoters": 8,
+  "passives": 7,
+  "detractors": 5,
+  "themes": {
+   "lid": 7,
+   "rem": 1,
+   "car": 6,
+   "cre": 2,
+   "rec": 1,
+   "com": 2,
+   "eqp": 6,
+   "flx": 5,
+   "inf": 1,
+   "bem": 0,
+   "cul": 1,
+   "out": 0
+  },
+  "sentiment": {
+   "pos": 6,
+   "neu": 5,
+   "neg": 6
+  },
+  "critical": 2
+ },
+ "by_tenure": [
+  {
+   "code": "lt1",
+   "n": 86,
+   "enps": 29,
+   "promoters": 41,
+   "passives": 29,
+   "detractors": 16,
+   "themes": {
+    "lid": 22,
+    "rem": 19,
+    "car": 17,
+    "cre": 7,
+    "rec": 3,
+    "com": 14,
+    "eqp": 16,
+    "flx": 7,
+    "inf": 21,
+    "bem": 5,
+    "cul": 3,
+    "out": 9
+   },
+   "sentiment": {
+    "pos": 32,
+    "neu": 21,
+    "neg": 22
+   },
+   "critical": 4
+  },
+  {
+   "code": "y1to3",
+   "n": 143,
+   "enps": -29,
+   "promoters": 33,
+   "passives": 35,
+   "detractors": 75,
+   "themes": {
+    "lid": 36,
+    "rem": 33,
+    "car": 52,
+    "cre": 8,
+    "rec": 6,
+    "com": 21,
+    "eqp": 19,
+    "flx": 8,
+    "inf": 28,
+    "bem": 18,
+    "cul": 7,
+    "out": 6
+   },
+   "sentiment": {
+    "pos": 15,
+    "neu": 34,
+    "neg": 69
+   },
+   "critical": 20
+  },
+  {
+   "code": "y3to5",
+   "n": 90,
+   "enps": -18,
+   "promoters": 25,
+   "passives": 24,
+   "detractors": 41,
+   "themes": {
+    "lid": 22,
+    "rem": 15,
+    "car": 21,
+    "cre": 17,
+    "rec": 3,
+    "com": 13,
+    "eqp": 13,
+    "flx": 8,
+    "inf": 15,
+    "bem": 11,
+    "cul": 5,
+    "out": 4
+   },
+   "sentiment": {
+    "pos": 16,
+    "neu": 25,
+    "neg": 36
+   },
+   "critical": 11
+  },
+  {
+   "code": "gt5",
+   "n": 81,
+   "enps": -4,
+   "promoters": 22,
+   "passives": 34,
+   "detractors": 25,
+   "themes": {
+    "lid": 18,
+    "rem": 18,
+    "car": 27,
+    "cre": 8,
+    "rec": 1,
+    "com": 12,
+    "eqp": 16,
+    "flx": 8,
+    "inf": 9,
+    "bem": 7,
+    "cul": 5,
+    "out": 4
+   },
+   "sentiment": {
+    "pos": 23,
+    "neu": 18,
+    "neg": 29
+   },
+   "critical": 7
+  }
+ ],
+ "other_tenures": null,
+ "area_tenure": [
+  {
+   "area": "operacoes",
+   "tenure": "lt1",
+   "n": 24,
+   "enps": 42
+  },
+  {
+   "area": "operacoes",
+   "tenure": "y1to3",
+   "n": 42,
+   "enps": -55
+  },
+  {
+   "area": "operacoes",
+   "tenure": "y3to5",
+   "n": 24,
+   "enps": -50
+  },
+  {
+   "area": "operacoes",
+   "tenure": "gt5",
+   "n": 20,
+   "enps": -10
+  },
+  {
+   "area": "transporte",
+   "tenure": "lt1",
+   "n": 9,
+   "enps": 11
+  },
+  {
+   "area": "transporte",
+   "tenure": "y1to3",
+   "n": 18,
+   "enps": -17
+  },
+  {
+   "area": "transporte",
+   "tenure": "y3to5",
+   "n": 15,
+   "enps": -33
+  },
+  {
+   "area": "transporte",
+   "tenure": "gt5",
+   "n": 18,
+   "enps": -17
+  },
+  {
+   "area": "atendimento",
+   "tenure": "lt1",
+   "n": 24,
+   "enps": -8
+  },
+  {
+   "area": "atendimento",
+   "tenure": "y1to3",
+   "n": 32,
+   "enps": -66
+  },
+  {
+   "area": "atendimento",
+   "tenure": "y3to5",
+   "n": 14,
+   "enps": -43
+  },
+  {
+   "area": "atendimento",
+   "tenure": "gt5",
+   "n": 10,
+   "enps": -10
+  },
+  {
+   "area": "comercial",
+   "tenure": "lt1",
+   "n": 11,
+   "enps": 36
+  },
+  {
+   "area": "comercial",
+   "tenure": "y1to3",
+   "n": 19,
+   "enps": -5
+  },
+  {
+   "area": "comercial",
+   "tenure": "y3to5",
+   "n": 14,
+   "enps": 50
+  },
+  {
+   "area": "comercial",
+   "tenure": "gt5",
+   "n": 11,
+   "enps": -27
+  },
+  {
+   "area": "tecnologia",
+   "tenure": "lt1",
+   "n": 11,
+   "enps": 73
+  },
+  {
+   "area": "tecnologia",
+   "tenure": "y1to3",
+   "n": 18,
+   "enps": 28
+  },
+  {
+   "area": "tecnologia",
+   "tenure": "y3to5",
+   "n": 10,
+   "enps": 10
+  },
+  {
+   "area": "tecnologia",
+   "tenure": "gt5",
+   "n": 6,
+   "enps": 67
+  },
+  {
+   "area": "financeiro",
+   "tenure": "lt1",
+   "suppressed": true
+  },
+  {
+   "area": "financeiro",
+   "tenure": "y1to3",
+   "suppressed": true
+  },
+  {
+   "area": "financeiro",
+   "tenure": "y3to5",
+   "n": 8,
+   "enps": -13
+  },
+  {
+   "area": "financeiro",
+   "tenure": "gt5",
+   "n": 10,
+   "enps": 10
+  },
+  {
+   "area": "pessoas",
+   "tenure": "lt1",
+   "suppressed": true
+  },
+  {
+   "area": "pessoas",
+   "tenure": "y1to3",
+   "suppressed": true
+  },
+  {
+   "area": "pessoas",
+   "tenure": "y3to5",
+   "suppressed": true
+  },
+  {
+   "area": "pessoas",
+   "tenure": "gt5",
+   "suppressed": true
+  },
+  {
+   "area": "juridico",
+   "tenure": "lt1",
+   "suppressed": true
+  },
+  {
+   "area": "juridico",
+   "tenure": "y1to3",
+   "suppressed": true
+  },
+  {
+   "area": "juridico",
+   "tenure": "y3to5",
+   "suppressed": true
+  },
+  {
+   "area": "juridico",
+   "tenure": "gt5",
+   "suppressed": true
+  }
+ ],
+ "themes": [
+  {
+   "code": "lid",
+   "n": 98,
+   "sentiment": {
+    "pos": 25,
+    "neu": 17,
+    "neg": 56
+   },
+   "critical": 25
+  },
+  {
+   "code": "rem",
+   "n": 85,
+   "sentiment": {
+    "pos": 14,
+    "neu": 22,
+    "neg": 49
+   },
+   "critical": 9
+  },
+  {
+   "code": "car",
+   "n": 117,
+   "sentiment": {
+    "pos": 9,
+    "neu": 35,
+    "neg": 73
+   },
+   "critical": 22
+  },
+  {
+   "code": "cre",
+   "n": 40,
+   "sentiment": {
+    "pos": 11,
+    "neu": 12,
+    "neg": 17
+   },
+   "critical": 5
+  },
+  {
+   "code": "rec",
+   "n": 13,
+   "sentiment": {
+    "pos": 6,
+    "neu": 2,
+    "neg": 5
+   },
+   "critical": 0
+  },
+  {
+   "code": "com",
+   "n": 60,
+   "sentiment": {
+    "pos": 13,
+    "neu": 21,
+    "neg": 26
+   },
+   "critical": 3
+  },
+  {
+   "code": "eqp",
+   "n": 64,
+   "sentiment": {
+    "pos": 26,
+    "neu": 13,
+    "neg": 25
+   },
+   "critical": 10
+  },
+  {
+   "code": "flx",
+   "n": 31,
+   "sentiment": {
+    "pos": 11,
+    "neu": 10,
+    "neg": 10
+   },
+   "critical": 2
+  },
+  {
+   "code": "inf",
+   "n": 73,
+   "sentiment": {
+    "pos": 10,
+    "neu": 25,
+    "neg": 38
+   },
+   "critical": 4
+  },
+  {
+   "code": "bem",
+   "n": 41,
+   "sentiment": {
+    "pos": 5,
+    "neu": 8,
+    "neg": 28
+   },
+   "critical": 11
+  },
+  {
+   "code": "cul",
+   "n": 20,
+   "sentiment": {
+    "pos": 5,
+    "neu": 6,
+    "neg": 9
+   },
+   "critical": 5
+  },
+  {
+   "code": "out",
+   "n": 23,
+   "sentiment": {
+    "pos": 9,
+    "neu": 13,
+    "neg": 1
+   },
+   "critical": 1
+  }
+ ],
+ "critical": {
+  "total": 42,
+  "by_type": {
+   "am": 18,
+   "as": 6,
+   "di": 9,
+   "bo": 15,
+   "av": 4
+  },
+  "cases": [
+   {
+    "id": "jgqYhGbNAx",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "Minha supervisora lê em voz alta os meus erros de atendimento na frente da equipe toda, ja saí da sala com vergonha várias vezes!",
+    "date": "2026-10-30"
+   },
+   {
+    "id": "fxA-iCs_ZW",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "rem",
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "O reajuste desse ano nem cobriu a inflacao, meu coordenador repete toda semana que tem uma pilha de curriculos na mesa dele e q eu sou fácil de trocar.",
+    "date": "2026-10-30"
+   },
+   {
+    "id": "m52Zqr4A0R",
+    "types": [
+     "am",
+     "di"
+    ],
+    "themes": [
+     "cre",
+     "lid",
+     "cul"
+    ],
+    "area": "operacoes",
+    "excerpt": "nao existe plano de carreira, a gente não sabe pra onde pode ir. o encarregado [PESSOA] xinga a equipe de tudo q é nome, isso é assédio e todo mundo sabe",
+    "date": "2026-10-30"
+   },
+   {
+    "id": "iM6RBpG1Ja",
+    "types": [
+     "am",
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "Podiam ter acompanhamento de nutricionista no refeitório, e depois q eu recusei sair com o coordenador minhas escalas pioraram de repente... prazo apertado aqui e regra, nao exceção",
+    "date": "2026-10-29"
+   },
+   {
+    "id": "xcQXxEOK-t",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "inf",
+     "car",
+     "lid"
+    ],
+    "area": "financeiro",
+    "excerpt": "desculpa o desabafo mas o financeiro vive refazendo trabalho porque as outras áreas mandam tudo errado e no último dia, a gente fica até tarde e ainda leva a culpa pelo atraso",
+    "date": "2026-10-29"
+   },
+   {
+    "id": "ixn3gCuWvy",
+    "types": [
+     "av"
+    ],
+    "themes": [
+     "lid",
+     "eqp"
+    ],
+    "area": null,
+    "excerpt": "Sofri ameaça de um colega por causa de uma discussão boba e a empresa não fez nada.",
+    "date": "2026-10-29"
+   },
+   {
+    "id": "rGQGeey6Ef",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "lid",
+     "rem"
+    ],
+    "area": "operacoes",
+    "excerpt": "Ando muito cansado, o ritmo está pesado, trocaram de coordenador tres vezes em um ano, ninguém sabe a quem responder; o salário do pessoal da doca é muito baixo para o esforço que a gente faz.",
+    "date": "2026-10-28"
+   },
+   {
+    "id": "WX1t_4JN23",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "rem",
+     "flx"
+    ],
+    "area": "transporte",
+    "excerpt": "rota impossivel, caminhão sem manutenção, escala q sai na vespera e diária q n paga nem o almoco, dps perguntam por q tanto motorista pee as contas!!",
+    "date": "2026-10-28"
+   },
+   {
+    "id": "kpSrwu4RXP",
+    "types": [
+     "am",
+     "as"
+    ],
+    "themes": [
+     "lid",
+     "eqp",
+     "car"
+    ],
+    "area": null,
+    "excerpt": "Bom dia. Tem gente nova entrando ganhando mais do que quem está aqui há anos. O que o [PESSOA] do comercial faz com as estagiárias tem nome, é assédio, convite para sair, mensagem fora de hora, e todo mundo finge que não vê.",
+    "date": "2026-10-28"
+   },
+   {
+    "id": "tc7LeUyIns",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "bem"
+    ],
+    "area": "operacoes",
+    "excerpt": "Choro no banheiro antes de entrar no turno quase todo dia",
+    "date": "2026-10-27"
+   },
+   {
+    "id": "pbtPhQXDBc",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "eqp",
+     "cul"
+    ],
+    "area": "operacoes",
+    "excerpt": "O pessoal faz piada com meu sotaque nordestino em toda reunião e o gestor ri junto.",
+    "date": "2026-10-26"
+   },
+   {
+    "id": "WQ1Lie3SHw",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "lid",
+     "rem",
+     "eqp"
+    ],
+    "area": "atendimento",
+    "excerpt": "o gestor tem os preferidos dele e todo mundo sabe quem são prometeram a efetivacao dps do contrato e ate agora nada e no atendimento nao deixam trocar de turno nem com colega da mesma funcao... n tem plano odontologico, isso faz mta falta",
+    "date": "2026-10-26"
+   },
+   {
+    "id": "O5U4v_FdQx",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "bem"
+    ],
+    "area": "financeiro",
+    "excerpt": "Faz meses que trabalho de madrugada e no fim de semana, esqueço coisas simples e não consigo mais desligar.",
+    "date": "2026-10-26"
+   },
+   {
+    "id": "1BfnGiqQ8Q",
+    "types": [
+     "am",
+     "di"
+    ],
+    "themes": [
+     "com",
+     "lid",
+     "cre"
+    ],
+    "area": "atendimento",
+    "excerpt": "Podiam avisar as mudanças com mais antecedência, se alguém passa um minuto da pausa a supervisora manda áudio no grupo falando o nome da pessoa e chamando de [ofensivo]; queria entender melhor o que preciso fazer para a próxima promoção",
+    "date": "2026-10-26"
+   },
+   {
+    "id": "4SbwyLvMNG",
+    "types": [
+     "am",
+     "bo"
+    ],
+    "themes": [
+     "bem",
+     "inf"
+    ],
+    "area": "operacoes",
+    "excerpt": "A poeira do armazém ataca minha rinite. Trocaram o plano de saúde por um pior e ninguém foi consultado",
+    "date": "2026-10-23"
+   },
+   {
+    "id": "CGbXNxrbRR",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "car",
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "Olha, falta gente no atendimento e quem fica cobre a escala de quem saiu. Sofro assédio moral do meu supervisor há meses e tenho medo de denunciar",
+    "date": "2026-10-23"
+   },
+   {
+    "id": "4HXPR2KejE",
+    "types": [
+     "am",
+     "as"
+    ],
+    "themes": [
+     "eqp",
+     "car"
+    ],
+    "area": "atendimento",
+    "excerpt": "falando com sinceridade, um colega de outro setor faz piadinha sobre o meu corpo toda vez q eu passo, agora espero ele sair pra ir ao refeitorio",
+    "date": "2026-10-23"
+   },
+   {
+    "id": "H4907pBG-D",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "lid",
+     "com",
+     "eqp"
+    ],
+    "area": "tecnologia",
+    "excerpt": "O tech lead revisa meu código no canal publico com comentário debochado, o pessoal reage com risadinha e eu já pensei em sair por causa disso, e o e-mail interno tem tanta coisa q ninguem lê mais nada!",
+    "date": "2026-10-22"
+   },
+   {
+    "id": "Zsj_vhGHLM",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "bem"
+    ],
+    "area": "operacoes",
+    "excerpt": "tô com burnout, já tive dois afastamentos esse ano e a cobranca so aumenta, e so lembram da gente qnd da errado.",
+    "date": "2026-10-22"
+   },
+   {
+    "id": "Sj6_7NLHHo",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "cre",
+     "lid"
+    ],
+    "area": "tecnologia",
+    "excerpt": "Com 52 anos virei o tiozinho do time, me deixam fora das tecnologias novas porque acham que eu n vou acompanhar...",
+    "date": "2026-10-22"
+   },
+   {
+    "id": "eMVs29UvAF",
+    "types": [
+     "am",
+     "as"
+    ],
+    "themes": [
+     "lid",
+     "car"
+    ],
+    "area": "comercial",
+    "excerpt": "a meta do trimestre foi definida sem olhar para o mercado em visita a cliente o gerente comenta do meu decote e diz que é para eu usar isso pra vender mais!",
+    "date": "2026-10-22"
+   },
+   {
+    "id": "0ZrQgn8a1R",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "bem"
+    ],
+    "area": "atendimento",
+    "excerpt": "ando exausta com esse ritmo, chego em casa sem energia para nada, e o ritmo aqui e puxado demais",
+    "date": "2026-10-21"
+   },
+   {
+    "id": "Q7AJT2IIEc",
+    "types": [
+     "av"
+    ],
+    "themes": [
+     "lid",
+     "car"
+    ],
+    "area": "operacoes",
+    "excerpt": "o cliente ameacou cancelar o contrato se a entrega atrasasse dnvvv",
+    "date": "2026-10-21"
+   },
+   {
+    "id": "DUYKz-zA2H",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "rem",
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "sou [PESSOA], CPF [CPF], moro em [LOCAL] e quero saber por q meu vale transporte foi cortado e no atendimento a única saida é virar supervisor, e abre uma vaga a cada dois anos.",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "6Rmz42NS6K",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "cre",
+     "car",
+     "rem"
+    ],
+    "area": "comercial",
+    "excerpt": "me prometeram crescimento qdo entrei, hj faço o mesmo trabalho, com o dobro da demanda, sem aumento, vendo gente de fora entrar ganhando mais. cansie",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "_pJdMRAZb1",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "bem",
+     "lid"
+    ],
+    "area": "atendimento",
+    "excerpt": "fui diagnosticada com depressão e ansiedade por causa do trabalho e ninguem da gestao quis saber!",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "z_WyI6nsbe",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "cul"
+    ],
+    "area": "transporte",
+    "excerpt": "Existe discriminação contra quem tem mais idade, os mais velhos sao sempre os primeiros a sair nos cortes",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "o_Xr8Ao0W8",
+    "types": [
+     "am",
+     "av"
+    ],
+    "themes": [
+     "lid",
+     "car"
+    ],
+    "area": "atendimento",
+    "excerpt": "tipo assim, o gerente grita, xinga e já falou que se eu abrir a boca no rh ele resolve cmg lá fora.",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "K2gIPuKrWE",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "car",
+     "bem",
+     "inf"
+    ],
+    "area": "comercial",
+    "excerpt": "Depois das demissões a mesma quantidade de tarefa ficou com metade da equipe. Às vezes no caminho para cá penso que um acidente pelo menos me daria uns dias de descanso. A variável é calculada de um jeito que nenhum vendedor entende",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "lNwb5OKdEQ",
+    "types": [
+     "as"
+    ],
+    "themes": [
+     "inf",
+     "car"
+    ],
+    "area": "atendimento",
+    "excerpt": "Meu banco de horas sumiu do sistema, matrícula [MATRICULA]. O supervisor do sábado some depois das dez e ninguem sabe a quem chamar.",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "7418WxFLn-",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "rem",
+     "cre",
+     "car",
+     "lid"
+    ],
+    "area": "comercial",
+    "excerpt": "A carteira de cada vendedor cresceu e o tempo pra visitar cliente sumiu. Quando contei que estava grávida meu gestor mudou comigo, me tiraram dos projetos importantes e disseram que era para eu ficar mais tranquila",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "4YeBZ5wIsb",
+    "types": [
+     "as"
+    ],
+    "themes": [
+     "lid",
+     "eqp"
+    ],
+    "area": "operacoes",
+    "excerpt": "O supervisor me chama pra conversar sozinha na sala dele dps do expediente e insiste em me levar em casa, eu sempre invento uma desculpa... tem mta fofoca entre as equipes",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "BabPV2_QGG",
+    "types": [
+     "av"
+    ],
+    "themes": [
+     "out"
+    ],
+    "area": "transporte",
+    "excerpt": "o [PESSOA] anda com uma faca no caminhao e mostra pra quem discute com ele. a gente cobre as ferias dos colegas e ninguem cobre as nossas",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "lxxds5TpPd",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "cul",
+     "rem",
+     "car"
+    ],
+    "area": "operacoes",
+    "excerpt": "Ja presenciei racismo aqui dentro e nada aconteceu com quem fez, mas os bneeficios são melhores que os da minha empresa anterior, mas o volume de pedidos dobrou e o número de pessoas no armazem é o mesmo.",
+    "date": "2026-10-20"
+   },
+   {
+    "id": "YcSVic3Yiw",
+    "types": [
+     "am",
+     "as"
+    ],
+    "themes": [
+     "lid",
+     "eqp",
+     "car"
+    ],
+    "area": "transporte",
+    "excerpt": "fui vítima de assédio sexual de um colega e o caso foi abafado. fazer hora extra virou rotina, ñ é mais exceção.",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "Vrf2ixkJ1k",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "lid",
+     "car",
+     "bem"
+    ],
+    "area": "operacoes",
+    "excerpt": "qdo da problema a culpa é sempre da equipe, nunca da gestao. metade da minha equipe ta a beira de um burnout, eu inclusive, ja tive crise de panico no trabalho",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "_7ypWvIVOC",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "lid",
+     "com"
+    ],
+    "area": "operacoes",
+    "excerpt": "Falei com a [PESSOA] e com o [PESSOA] do RH e ninguém resolve meu caso.",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "NvPfgsDzbU",
+    "types": [
+     "di"
+    ],
+    "themes": [
+     "cul",
+     "eqp"
+    ],
+    "area": "operacoes",
+    "excerpt": "Tem encarregado q só coloca as mulheres na conferencia e fala que empilhadeira ñ e coisa de mulher.",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "E89GdIH5zo",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "bem"
+    ],
+    "area": "atendimento",
+    "excerpt": "Tive uma crise no meio do expediente, coração disparado, achei que ia morrer, e mesmo assim tive que voltar pra fila depois",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "Ek-GxwokFy",
+    "types": [
+     "bo"
+    ],
+    "themes": [
+     "rem",
+     "car",
+     "bem"
+    ],
+    "area": "operacoes",
+    "excerpt": "ando tao cansado de tudo q ultimamente acho q seria um alívio não estar mais aqui, em lugar nenhum, o reajuste foi de 4,5% e a inflacao do ano foi maior a meta é alta, mas dá para bater com esforço...",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "RqiM5zbHbr",
+    "types": [
+     "am",
+     "bo"
+    ],
+    "themes": [
+     "lid",
+     "eqp",
+     "bem"
+    ],
+    "area": "atendimento",
+    "excerpt": "o que acontece no meu setor e assedio, humilhação todo dia na frente de todos o headset ta quebrado e n tem reposicao.",
+    "date": "2026-10-19"
+   },
+   {
+    "id": "e2Zf0E3-_b",
+    "types": [
+     "am"
+    ],
+    "themes": [
+     "lid",
+     "car",
+     "flx"
+    ],
+    "area": "transporte",
+    "excerpt": "O programador falou que se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir as contas. As rotas da madrugada cansam muito, queria mais revezamento.",
+    "date": "2026-10-19"
+   }
+  ]
+ },
+ "pipeline": {
+  "model": "gemma4:e2b-it-qat",
+  "quantization": "Q4_0",
+  "prompt_version": "classify.v3+708a3315",
+  "anonymizer_version": "1.1.0"
+ }
 }

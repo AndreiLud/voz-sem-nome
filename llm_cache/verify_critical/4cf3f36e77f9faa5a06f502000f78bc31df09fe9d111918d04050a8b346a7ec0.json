@@ -49,11 +49,11 @@
   "content": "{\"e\":\"trocaram o sistema de ponto, ainda estamos nos acostumando foram 46 horas extras so no mês passado.\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1237,
-  "cached_tokens": 1172,
+  "cached_tokens": 1171,
   "output_tokens": 37,
-  "total_ms": 8692,
+  "total_ms": 8304,
   "load_ms": 1,
-  "prompt_ms": 2850,
-  "eval_ms": 5821
+  "prompt_ms": 2732,
+  "eval_ms": 5545
  }
 }

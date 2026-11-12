@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"car\",\"bem\"],\"s\":\"neg\",\"c\":true,\"k\":[\"bo\"],\"e\":\"tô com burnout, já tive dois afastamentos esse ano e a cobranca so aumenta, e so lembram da gente qd\"\n}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2428,
-  "cached_tokens": 2392,
+  "cached_tokens": 2388,
   "output_tokens": 53,
-  "total_ms": 13348,
+  "total_ms": 12793,
   "load_ms": 1,
-  "prompt_ms": 2313,
-  "eval_ms": 11000
+  "prompt_ms": 2304,
+  "eval_ms": 10455
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"o gestor não sabe priorizar, tudo e urgente pra ontem\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1214,
-  "cached_tokens": 1178,
+  "cached_tokens": 1174,
   "output_tokens": 25,
-  "total_ms": 6453,
+  "total_ms": 5552,
   "load_ms": 1,
-  "prompt_ms": 1763,
-  "eval_ms": 4661
+  "prompt_ms": 1687,
+  "eval_ms": 3836
  }
 }

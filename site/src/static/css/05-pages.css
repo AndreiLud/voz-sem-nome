@@ -133,6 +133,8 @@
   marker-end: url("#dg-arrow");
 }
 
+.dg-links .dg-link--local { stroke-dasharray: 4 3; }
+
 .dg-arrowhead { fill: var(--muted); }
 .dg-redact { fill: var(--ink); }
 .dg-redact-text { fill: var(--on-ink); font-size: 12.5px; font-weight: 700; }
@@ -195,6 +197,16 @@
 
 .steps__text { display: block; color: var(--ink-2); }
 
+.local-mode {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  color: var(--ink-2);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.local-mode li { margin: 0; }
+
 /* Results and estimator ----------------------------------------------------- */
 
 .results-grid {
@@ -209,6 +221,30 @@
 .results-grid > li + li { margin: 0; }
 
 .results-notes { margin-block-start: var(--space-4); }
+
+.results-subhead { margin-block-end: var(--space-4); }
+
+.compare {
+  margin-block-start: var(--space-7);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.compare > * { margin: 0; }
+.compare__lead { color: var(--ink-2); max-inline-size: 70ch; }
+.compare__table { background: var(--surface); }
+.compare__table thead th:not(:first-child) { inline-size: 34%; }
+.compare__value { white-space: nowrap; }
+.compare__value .muted { font-size: var(--step--1); font-weight: 400; }
+.compare__value--missing { color: var(--ink-2); font-weight: 400; }
+.compare__setup td { color: var(--ink-2); }
+
+@container (width < 34rem) {
+  /* Setup rows are sentences: the column name above, the text below. */
+  .table--stack td.compare__text[data-label] { display: block; font-weight: 400; }
+  .table--stack td.compare__text[data-label]::before { display: block; font-weight: 700; color: var(--ink); }
+  .table--stack td.compare__text + td.compare__text { margin-block-start: var(--space-2); }
+}
 
 .estimate {
   margin-block-start: var(--section-space);
@@ -470,7 +506,8 @@
 .prose p + p,
 .prose p + .table-wrap,
 .prose .table-wrap + p,
-.prose p + .callout { margin-block-start: var(--space-4); }
+.prose p + .callout,
+.prose p + ul { margin-block-start: var(--space-4); }
 .prose .callout { margin-block-start: var(--space-4); }
 
 /* 404 ------------------------------------------------------------------------- */

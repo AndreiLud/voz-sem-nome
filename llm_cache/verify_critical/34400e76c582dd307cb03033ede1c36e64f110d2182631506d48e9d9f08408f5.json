@@ -49,11 +49,11 @@
   "content": "{\"e\":\"O programador falou que se eu reclamar da rota de novo vou ficar só com as piores entregas até pedir\", \"c\":true,\"k\":[\"am\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1230,
-  "cached_tokens": 1172,
+  "cached_tokens": 1166,
   "output_tokens": 38,
-  "total_ms": 8532,
+  "total_ms": 8480,
   "load_ms": 1,
-  "prompt_ms": 2480,
-  "eval_ms": 6023
+  "prompt_ms": 2671,
+  "eval_ms": 5778
  }
 }

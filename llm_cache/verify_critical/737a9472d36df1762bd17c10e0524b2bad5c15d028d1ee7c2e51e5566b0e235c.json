@@ -49,11 +49,11 @@
   "content": "{\"e\":\"O refeitório é pequeno e a fila toma metade do horario de almoço\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1206,
-  "cached_tokens": 1174,
+  "cached_tokens": 1164,
   "output_tokens": 28,
-  "total_ms": 5390,
-  "load_ms": 2,
-  "prompt_ms": 1312,
-  "eval_ms": 4054
+  "total_ms": 6174,
+  "load_ms": 1,
+  "prompt_ms": 1735,
+  "eval_ms": 4412
  }
 }

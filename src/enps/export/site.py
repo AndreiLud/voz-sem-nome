@@ -29,9 +29,9 @@ from enps.export.site_content import (
     fmt_signed, inline, load_sources,
 )
 from enps.export.site_data import (
-    DASHBOARD_SYNTHETIC_PATH, ESTIMATOR_FIELDS, METRICS_PATH, Loaded,
-    dashboard_preview, estimate, hardware, load_with_fallback, machine_seconds_per_comment,
-    reference_kind, result_values,
+    DASHBOARD_SYNTHETIC_PATH, ESTIMATOR_FIELDS, METRICS_PATH, MODES, Loaded, ResultValue,
+    comparison, dashboard_preview, estimate, hardware, load_with_fallback, machine_time,
+    mode_blocks, pipeline, reference_kind, result_values,
 )
 
 PAGES = ("home", "dashboard", "submit", "privacy", "not_found")
@@ -40,6 +40,7 @@ PAGE_STRINGS = {"dashboard": "dashboard", "submit": "submit"}  # i18n sections s
 CHIP_CODES = frozenset([*PII_TYPES, *site_files.EXTRA_PLACEHOLDERS])
 KEEP_ON_CLEAN = ("assets/og",)  # generated outside this build (social cards)
 TURNSTILE_ENV = "TURNSTILE_SITE_KEY"
+TIME_TRAVEL_DAYS = 7  # D1 point-in-time recovery window on the Workers Free plan
 
 
 @dataclass
@@ -103,31 +104,41 @@ class SiteRenderer:
         return self.url(lang, page, anchor or None)
 
     def text_vars(self) -> dict[str, Any]:
-        privacy, llm = self.src.settings["privacy"], self.src.settings["llm"]
+        privacy, llm, models = self.src.settings["privacy"], self.src.settings["llm"], self.src.site["models"]
         return {
             "k": privacy["min_group_size"],
             "days": privacy["public_retention_days"],
             "alert_days": privacy["alert_log_retention_days"],
+            # deleted D1 rows stay restorable by Time Travel for 7 days (Workers Free)
+            "gone_days": privacy["public_retention_days"] + TIME_TRAVEL_DAYS,
             "max": privacy["max_comment_chars"],
             "model": llm["model"],
+            "edge_model": models["edge"]["name"],
+            "edge_model_id": models["edge"]["id"],
+            "local_model": models["local"]["name"],
         }
 
     # page data ----------------------------------------------------------
 
     def results(self, lang: str) -> list[dict[str, Any]]:
-        """Result tiles with values already formatted for `lang`."""
-        out = []
-        for item in result_values(self.metrics.data):
-            out.append({
-                "key": item.key,
-                "measured": item.measured,
-                "value": self._fmt_kind(item.kind, item.value, lang),
-                "n": fmt_number(item.n, lang) if item.n is not None else None,
-                "ci": ({"lo": self._fmt_kind(item.kind, item.ci[0], lang),
-                        "hi": self._fmt_kind(item.kind, item.ci[1], lang)} if item.ci else None),
-                "extra": self._fmt_kind(item.extra_kind, item.extra, lang),
-            })
-        return out
+        """Headline tiles (live demo) with values already formatted for `lang`."""
+        return [self._formatted(item, lang) for item in result_values(self.metrics.data, "edge")]
+
+    def comparison(self, lang: str) -> list[dict[str, Any]]:
+        """Rows of the live demo vs local mode table, formatted for `lang`."""
+        return [{"key": row["edge"].key, **{mode: self._formatted(row[mode], lang) for mode in MODES}}
+                for row in comparison(self.metrics.data)]
+
+    def _formatted(self, item: ResultValue, lang: str) -> dict[str, Any]:
+        return {
+            "key": item.key,
+            "measured": item.measured,
+            "value": self._fmt_kind(item.kind, item.value, lang),
+            "n": fmt_number(item.n, lang) if item.n is not None else None,
+            "ci": ({"lo": self._fmt_kind(item.kind, item.ci[0], lang),
+                    "hi": self._fmt_kind(item.kind, item.ci[1], lang)} if item.ci else None),
+            "extra": self._fmt_kind(item.extra_kind, item.extra, lang),
+        }
 
     @staticmethod
     def _fmt_kind(kind: str, value: float | None, lang: str) -> str | None:
@@ -141,7 +152,8 @@ class SiteRenderer:
 
     def estimator(self, lang: str) -> dict[str, Any]:
         defaults = self.src.site["estimator"]
-        machine_s = machine_seconds_per_comment(self.metrics.data)
+        machine = machine_time(self.metrics.data)
+        machine_s = machine.seconds if machine else None
         result = estimate(defaults, machine_s)
         rows = []
         for key, kind, low, high, step in ESTIMATOR_FIELDS:
@@ -158,6 +170,7 @@ class SiteRenderer:
             "machine": fmt_hours(result.machine_hours, lang) if result.machine_hours is not None else None,
             "defaults": dict(defaults),
             "machine_s": machine_s,
+            "machine_mode": machine.mode if machine else None,
         }
 
     def preview(self, lang: str) -> dict[str, Any]:
@@ -237,6 +250,7 @@ class SiteRenderer:
             "vars": vars_,
             "samples": {"metrics": self.metrics.sample, "dashboard": self.dashboard.sample},
             "results": self.results(lang) if page == "home" else [],
+            "compare": self.comparison(lang) if page == "home" else [],
             "result_notes": self._result_notes(lang) if page == "home" else {},
             "est": self.estimator(lang) if page == "home" else {},
             "preview": self.preview(lang) if page == "home" else {},
@@ -247,19 +261,19 @@ class SiteRenderer:
         }
 
     def _result_notes(self, lang: str) -> dict[str, str | None]:
+        """Reference labels, versions of each mode and the local benchmark machine."""
         r = self.src.strings[lang]["home"]["results"]
-        ref = reference_kind(self.metrics.data)
+        blocks = mode_blocks(self.metrics.data)
+        refs = [ref for ref in (reference_kind(blocks[mode]) for mode in MODES) if ref]
         hw = hardware(self.metrics.data)
-        pipeline = self.metrics.data.get("pipeline") or {}
-        pipe_text = None
-        if all(pipeline.get(k) for k in ("model", "prompt_version", "anonymizer_version")):
-            pipe_text = fill(r["pipeline"], model=pipeline["model"], prompt=pipeline["prompt_version"],
-                             anonymizer=pipeline["anonymizer_version"])
-        return {
-            "reference": r["reference"][ref] if ref else None,
+        notes: dict[str, str | None] = {
+            "reference": r["reference"][refs[0]] if refs else None,
             "hardware": fill(r["hardware"], cpus=hw["cpus"], mem=fmt_number(hw["mem"], lang, 1)) if hw else None,
-            "pipeline": pipe_text,
         }
+        for mode in MODES:
+            parts = [fill(r["pipeline_parts"][name], value=value) for name, value in pipeline(blocks[mode]).items()]
+            notes[f"pipeline_{mode}"] = fill(r["pipeline"][mode], parts=", ".join(parts)) if parts else None
+        return notes
 
     def render(self, lang: str, page: str) -> str:
         template = self.env.get_template(f"{page}.html.j2")
@@ -325,7 +339,7 @@ def _write(path: Path, text: str | bytes) -> None:
 
 
 def _turnstile_key(src: SiteSources, environ: Mapping[str, str]) -> tuple[str, bool]:
-    key = environ.get(TURNSTILE_ENV, "").strip()
+    key = environ.get(TURNSTILE_ENV, "").strip() or str(src.site.get("turnstile_site_key") or "").strip()
     return (key, False) if key else (str(src.site["turnstile_test_key"]), True)
 
 
@@ -359,11 +373,12 @@ def build(
             report.pages.append(rel)
 
     data = out / "data"
+    machine = machine_time(metrics.data)
     _write(data / "dashboard-synthetic.json", dashboard.raw)
     _write(data / "taxonomy.json", site_files.dump_json(site_files.taxonomy_json(src)))
     _write(data / "config.json", site_files.dump_json(site_files.config_json(
         src, turnstile_key=turnstile_key, estimator=src.site["estimator"],
-        machine_s=machine_seconds_per_comment(metrics.data), samples=report.samples)))
+        machine_s=machine.seconds if machine else None, samples=report.samples)))
 
     base_url = renderer.base_url
     turnstile_origin = "https://" + src.site["turnstile_script"].split("/")[2]

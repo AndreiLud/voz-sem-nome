@@ -1,0 +1,282 @@
+{
+  "documents": 340,
+  "documents_with_gold": 60,
+  "overall": {
+    "gold": 104,
+    "caught": 95,
+    "caught_same_type": 95,
+    "recall": 0.9135,
+    "recall_typed": 0.9135,
+    "leaked": 9,
+    "leak_rate": 0.0865,
+    "predicted": 95,
+    "false_positives": 0,
+    "precision": 1
+  },
+  "by_gold_type": {
+    "CEP": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "CPF": {
+      "gold": 6,
+      "caught": 6,
+      "caught_same_type": 6,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "EMAIL": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "LOCAL": {
+      "gold": 13,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 0.3077,
+      "recall_typed": 0.3077,
+      "leaked": 9,
+      "leak_rate": 0.6923
+    },
+    "MATRICULA": {
+      "gold": 8,
+      "caught": 8,
+      "caught_same_type": 8,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "PESSOA": {
+      "gold": 47,
+      "caught": 47,
+      "caught_same_type": 47,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "PLACA": {
+      "gold": 4,
+      "caught": 4,
+      "caught_same_type": 4,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "RG": {
+      "gold": 5,
+      "caught": 5,
+      "caught_same_type": 5,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    },
+    "TELEFONE": {
+      "gold": 9,
+      "caught": 9,
+      "caught_same_type": 9,
+      "recall": 1,
+      "recall_typed": 1,
+      "leaked": 0,
+      "leak_rate": 0
+    }
+  },
+  "by_predicted_type": {
+    "CEP": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "CPF": {
+      "predicted": 6,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "EMAIL": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "LOCAL": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "MATRICULA": {
+      "predicted": 8,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "PESSOA": {
+      "predicted": 47,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "PLACA": {
+      "predicted": 4,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "RG": {
+      "predicted": 5,
+      "false_positives": 0,
+      "precision": 1
+    },
+    "TELEFONE": {
+      "predicted": 9,
+      "false_positives": 0,
+      "precision": 1
+    }
+  },
+  "misses": [
+    {
+      "id": "S0042",
+      "type": "LOCAL",
+      "text": "Mauá"
+    },
+    {
+      "id": "S0111",
+      "type": "LOCAL",
+      "text": "embu das artes"
+    },
+    {
+      "id": "S0259",
+      "type": "LOCAL",
+      "text": "Perus"
+    },
+    {
+      "id": "S0267",
+      "type": "LOCAL",
+      "text": "Parelheiros"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "pirituba"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "cajamar"
+    },
+    {
+      "id": "S0329",
+      "type": "LOCAL",
+      "text": "Sorocaba"
+    },
+    {
+      "id": "S0355",
+      "type": "LOCAL",
+      "text": "Guarulhos"
+    },
+    {
+      "id": "S0395",
+      "type": "LOCAL",
+      "text": "Itaquera"
+    }
+  ],
+  "type_mismatches": [],
+  "leaks": [
+    {
+      "id": "S0042",
+      "type": "LOCAL",
+      "text": "Mauá"
+    },
+    {
+      "id": "S0111",
+      "type": "LOCAL",
+      "text": "embu das artes"
+    },
+    {
+      "id": "S0259",
+      "type": "LOCAL",
+      "text": "Perus"
+    },
+    {
+      "id": "S0267",
+      "type": "LOCAL",
+      "text": "Parelheiros"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "pirituba"
+    },
+    {
+      "id": "S0319",
+      "type": "LOCAL",
+      "text": "cajamar"
+    },
+    {
+      "id": "S0329",
+      "type": "LOCAL",
+      "text": "Sorocaba"
+    },
+    {
+      "id": "S0355",
+      "type": "LOCAL",
+      "text": "Guarulhos"
+    },
+    {
+      "id": "S0395",
+      "type": "LOCAL",
+      "text": "Itaquera"
+    }
+  ],
+  "false_positives": [],
+  "anonymizer_version": "edge-1.0.0",
+  "gold_offset_problems": [],
+  "runtime": {
+    "node": "v24.22.2",
+    "cpu_clock": "process.cpuUsage, user + system time of the whole process, one call per comment",
+    "module_load_ms": 44.397,
+    "module_load_cpu_ms": 47.233,
+    "first_call": {
+      "id": "S0001",
+      "wall_ms": 0.107,
+      "cpu_ms": 0.741
+    },
+    "comments": 340,
+    "warmup_passes": 3,
+    "cold_pass_cpu_ms_per_comment": {
+      "mean": 0.087,
+      "p50": 0.059,
+      "p95": 0.262,
+      "max": 1.397
+    },
+    "cpu_ms_per_comment": {
+      "mean": 0.08,
+      "p50": 0.046,
+      "p95": 0.105,
+      "max": 1.346
+    },
+    "wall_ms_per_comment": {
+      "mean": 0.047,
+      "p50": 0.045,
+      "p95": 0.085,
+      "max": 0.341
+    },
+    "slowest": {
+      "id": "S0091",
+      "chars": 173,
+      "cpu_ms": 1.346
+    },
+    "anonymize_s": 0.016,
+    "ms_per_comment": 0.047
+  }
+}

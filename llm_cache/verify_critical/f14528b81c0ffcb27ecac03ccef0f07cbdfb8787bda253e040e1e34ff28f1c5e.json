@@ -49,11 +49,11 @@
   "content": "{\"e\":\"No fechamento do mês o financeiro vira a noite, todo mês a mesma história\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1207,
-  "cached_tokens": 1170,
+  "cached_tokens": 1174,
   "output_tokens": 30,
-  "total_ms": 7095,
-  "load_ms": 3,
-  "prompt_ms": 1713,
-  "eval_ms": 5346
+  "total_ms": 5857,
+  "load_ms": 1,
+  "prompt_ms": 1401,
+  "eval_ms": 4429
  }
 }

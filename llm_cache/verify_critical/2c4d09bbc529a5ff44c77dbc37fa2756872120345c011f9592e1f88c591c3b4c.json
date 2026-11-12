@@ -49,11 +49,11 @@
   "content": "{\"e\":\"fui diagnosticada com depressão e ansiedade por causa do trabalho e ninguem da gestao quis saber!\",\"c\":true,\"k\":[\"bo\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1213,
-  "cached_tokens": 1172,
+  "cached_tokens": 1174,
   "output_tokens": 37,
-  "total_ms": 10431,
+  "total_ms": 7602,
   "load_ms": 1,
-  "prompt_ms": 2511,
-  "eval_ms": 7869
+  "prompt_ms": 1615,
+  "eval_ms": 5964
  }
 }

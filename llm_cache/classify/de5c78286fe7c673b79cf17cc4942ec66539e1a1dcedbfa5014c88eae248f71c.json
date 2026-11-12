@@ -81,11 +81,11 @@
   "content": "{\"t\":[\"rem\",\"flx\"],\"s\":\"pos\",\"c\":false,\"k\":[],\"e\":\"\"}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 2442,
-  "cached_tokens": 2392,
+  "cached_tokens": 2391,
   "output_tokens": 24,
-  "total_ms": 7566,
-  "load_ms": 1,
-  "prompt_ms": 2832,
-  "eval_ms": 4705
+  "total_ms": 8153,
+  "load_ms": 2,
+  "prompt_ms": 2899,
+  "eval_ms": 5213
  }
 }

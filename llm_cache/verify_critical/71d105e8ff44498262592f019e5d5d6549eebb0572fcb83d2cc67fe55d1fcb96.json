@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Sofri ameaça de um colega por causa de uma discussão boba e a empresa não fez nada\",\"c\":true,\"k\":[\"av\"]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1210,
-  "cached_tokens": 1172,
+  "cached_tokens": 1179,
   "output_tokens": 34,
-  "total_ms": 6887,
+  "total_ms": 6783,
   "load_ms": 1,
-  "prompt_ms": 1564,
-  "eval_ms": 5297
+  "prompt_ms": 1313,
+  "eval_ms": 5442
  }
 }

@@ -49,11 +49,11 @@
   "content": "{\"e\":\"to de saco cheio, serio, não e frescura, é muita coisa ao mesmo tempo, mta cobranca, pouca gente e [\", \"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1225,
-  "cached_tokens": 1178,
+  "cached_tokens": 1169,
   "output_tokens": 43,
-  "total_ms": 9002,
-  "load_ms": 2,
-  "prompt_ms": 1940,
-  "eval_ms": 7035
+  "total_ms": 9292,
+  "load_ms": 1,
+  "prompt_ms": 2282,
+  "eval_ms": 6986
  }
 }

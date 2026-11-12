@@ -49,11 +49,11 @@
   "content": "{\"e\":\"cansado\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1191,
-  "cached_tokens": 1181,
+  "cached_tokens": 1178,
   "output_tokens": 14,
-  "total_ms": 2670,
+  "total_ms": 2791,
   "load_ms": 1,
-  "prompt_ms": 511,
-  "eval_ms": 2136
+  "prompt_ms": 613,
+  "eval_ms": 2148
  }
 }

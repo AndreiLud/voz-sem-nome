@@ -49,11 +49,11 @@
   "content": "{\"e\":\"a fila de atendimento não zera nunca, e ligação atrás de ligação, e faz tempo q eu nao aprendo nada\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1232,
-  "cached_tokens": 1171,
+  "cached_tokens": 1174,
   "output_tokens": 36,
-  "total_ms": 7884,
+  "total_ms": 8178,
   "load_ms": 1,
-  "prompt_ms": 2458,
-  "eval_ms": 5402
+  "prompt_ms": 2354,
+  "eval_ms": 5795
  }
 }

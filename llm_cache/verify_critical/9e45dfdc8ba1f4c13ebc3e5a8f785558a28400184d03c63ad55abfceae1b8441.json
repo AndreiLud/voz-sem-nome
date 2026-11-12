@@ -49,11 +49,11 @@
   "content": "{\"e\":\"todo ano a gente responde e todo ano nada muda, entao vou só dizer que o salário é ruim e a gestao é\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1227,
-  "cached_tokens": 1180,
+  "cached_tokens": 1173,
   "output_tokens": 39,
-  "total_ms": 8398,
+  "total_ms": 8246,
   "load_ms": 1,
-  "prompt_ms": 2039,
-  "eval_ms": 6336
+  "prompt_ms": 2195,
+  "eval_ms": 6027
  }
 }

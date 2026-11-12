@@ -49,11 +49,11 @@
   "content": "{\"e\":\"Pausa de 10 minutos pra 6 horas de telfeone e mt pouco... ando mt cansado, o ritmo tá pesado, o...\",\"c\":false,\"k\":[]}",
   "model": "gemma4:e2b-it-qat",
   "prompt_tokens": 1243,
-  "cached_tokens": 1173,
+  "cached_tokens": 1163,
   "output_tokens": 45,
-  "total_ms": 9704,
+  "total_ms": 10597,
   "load_ms": 1,
-  "prompt_ms": 2938,
-  "eval_ms": 6743
+  "prompt_ms": 3194,
+  "eval_ms": 7378
  }
 }
