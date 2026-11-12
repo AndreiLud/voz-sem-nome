@@ -130,6 +130,26 @@ describe("alerts of critical results", () => {
     assert.ok(payload.message_html.includes("Área: Operações"));
   });
 
+  it("counts the area like the public dashboard, without the answers before the start day", async () => {
+    // Five setup tests in the same area on the day before the start must not make it visible.
+    fetchMock = standardFetch();
+    const env = makeEnv({
+      AI: criticalAI(2), RL: undefined, ALERT_WEBHOOK_URL: WEBHOOK, ALERT_WEBHOOK_TOKEN: "hook-token",
+      PUBLIC_START_DAY: "2026-11-11",
+    });
+    const { app } = makeApp();
+    await seedSubmissions(env.DB, Array.from({ length: 5 }, () => ({ area: "operacoes", created_at: "2026-11-10T20:00:00.000+00:00" })));
+    await submitAndSettle(app, env, CRITICAL_COMMENT);
+    let payload = JSON.parse(fetchMock.calls.filter((c) => c.url.href === WEBHOOK)[0].body);
+    assert.equal(payload.area, null); // 6 answers in D1, 1 since the start
+    assert.ok(payload.message_html.includes("Área omitida (grupo pequeno)"));
+
+    await seedSubmissions(env.DB, Array.from({ length: 4 }, () => ({ area: "operacoes", created_at: "2026-11-11T12:00:00.000+00:00" })));
+    await submitAndSettle(app, env, `${CRITICAL_COMMENT} De novo.`, "198.51.100.77");
+    payload = JSON.parse(fetchMock.calls.filter((c) => c.url.href === WEBHOOK)[1].body);
+    assert.equal(payload.area, "operacoes"); // 6 since the start
+  });
+
   it("never fails the classification when the webhook fails", async () => {
     for (const handler of [() => new Response("down", { status: 500 }), () => Promise.reject(new TypeError("network"))]) {
       fetchMock = mockFetch((call) => (call.url.href === WEBHOOK ? handler() : new Response(JSON.stringify({ success: true }))));

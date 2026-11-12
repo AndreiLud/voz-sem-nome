@@ -68,5 +68,9 @@ Two deployments, measured separately:
 ## Use in production
 
 Counts from the live demo (submissions, distinct people per day, time from submission to result, critical cases and
-alerts) are read from D1 by `GET /api/v1/public/status` and shown on the dashboard. They start at the day the demo went
-live and are never mixed with the synthetic numbers.
+alerts) are read from D1 by `GET /api/v1/public/status` and shown on the dashboard. They are never mixed with the
+synthetic numbers.
+
+They start at `vars.PUBLIC_START_DAY` in `wrangler.jsonc` (2026-11-12). The 6 answers sent on 2026-11-11 were the
+author's tests of the deployed demo from a phone, so they are left out of the usage numbers and of the public dashboard.
+They stay in D1 until the 30-day purge, and each one can still be looked up by its tracking code.

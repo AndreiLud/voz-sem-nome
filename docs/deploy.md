@@ -60,6 +60,10 @@ The project runs in two ways.
 
 ### What to know
 
+* **Start of the public numbers.** `vars.PUBLIC_START_DAY` in `wrangler.jsonc` (a Sao Paulo day,
+  YYYY-MM-DD). Answers sent before it, such as your own tests, stay out of the public dashboard and of
+  the usage numbers. Move it to the day after your last test before sharing the link; leave it
+  empty to count everything.
 * **Model.** `vars.AI_MODEL` in `wrangler.jsonc` (default `@cf/google/gemma-4-26b-a4b-it`). The
   account has 10,000 free neurons a day, shared by every Worker of the account, reset at 00:00 UTC
   (21:00 in Brasília). One comment costs about 20 neurons, 40 when the verifier runs. When the

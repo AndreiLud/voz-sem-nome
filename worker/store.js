@@ -161,8 +161,9 @@ export class Store {
     if (statements.length) await this.db.batch(statements);
   }
 
-  dailyRows() {
-    return this.all("SELECT day, key, value FROM daily ORDER BY day, key");
+  /** Daily counters, from `fromDay` on when given. */
+  dailyRows(fromDay = null) {
+    return this.all("SELECT day, key, value FROM daily WHERE (? IS NULL OR day >= ?) ORDER BY day, key", fromDay, fromDay);
   }
 
   async dailyValues(day) {
@@ -321,12 +322,20 @@ export class Store {
 
   // ---------------------------------------------------------------- reads for the site
 
-  dashboardRows() {
-    return this.all(`SELECT ${DASHBOARD_COLUMNS} FROM submissions ORDER BY id`);
+  /** Rows of the public dashboard, created at or after `since` when given. */
+  dashboardRows(since = null) {
+    return this.all(
+      `SELECT ${DASHBOARD_COLUMNS} FROM submissions WHERE (? IS NULL OR created_at >= ?) ORDER BY id`,
+      since, since,
+    );
   }
 
-  areaCounts() {
-    return this.all("SELECT area, count(*) AS n FROM submissions GROUP BY area");
+  /** Answers per area, created at or after `since` when given (the rows of the public dashboard). */
+  areaCounts(since = null) {
+    return this.all(
+      "SELECT area, count(*) AS n FROM submissions WHERE (? IS NULL OR created_at >= ?) GROUP BY area",
+      since, since,
+    );
   }
 
   async statusCounts() {
@@ -346,14 +355,22 @@ export class Store {
     );
   }
 
-  alertTimes() {
-    return this.all("SELECT submitted_at, delivered_at FROM alerts ORDER BY id");
+  /** When each alert's answer was submitted and when the alert went out, for answers since `since`. */
+  alertTimes(since = null) {
+    return this.all(
+      "SELECT submitted_at, delivered_at FROM alerts WHERE (? IS NULL OR submitted_at >= ?) ORDER BY id",
+      since, since,
+    );
   }
 
-  async alertsSince(since, mode = null) {
+  /** Alerts detected since `since`, of `mode` when given, for answers submitted since `submittedSince` when given. */
+  async alertsSince(since, mode = null, submittedSince = null) {
     return (await this.db
-      .prepare("SELECT count(*) AS n FROM alerts WHERE detected_at >= ? AND (? IS NULL OR mode = ?)")
-      .bind(since, mode, mode)
+      .prepare(
+        "SELECT count(*) AS n FROM alerts WHERE detected_at >= ? AND (? IS NULL OR mode = ?) " +
+          "AND (? IS NULL OR submitted_at >= ?)",
+      )
+      .bind(since, mode, mode, submittedSince, submittedSince)
       .first("n")) ?? 0;
   }
 

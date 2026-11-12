@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { buildDashboard } from "../metrics/aggregates.js";
+import { publicStart } from "../clock.js";
 import { ensureSchema } from "../store.js";
 import { apiRequest, makeApp, makeCtx, makeEnv, seedSubmissions } from "./helpers.js";
 
@@ -136,5 +137,149 @@ describe("GET /api/v1/public/dashboard", () => {
     const { response, data } = await getJson(app, makeEnv(), "/api/v1/public/dashboard?dataset=private");
     assert.equal(response.status, 422);
     assert.deepEqual(data, { error: "validation", fields: { dataset: "must be public or synthetic" } });
+  });
+});
+
+describe("vars.PUBLIC_START_DAY", () => {
+  // Sao Paulo days start at 03:00 UTC; the test clock says 2026-11-11T15:00Z (day 2026-11-11).
+  async function seedTwoDays(env) {
+    await ensureSchema(env.DB);
+    await seedSubmissions(env.DB, [
+      // 2026-11-10 in Sao Paulo, including 01:00 UTC on the 11th (still 22:00 on the 10th there).
+      done({ created_at: "2026-11-10T14:00:00.000+00:00", finished_at: "2026-11-10T14:00:30.000+00:00", critical: 1, critical_types: '["am"]' }),
+      done({ created_at: "2026-11-11T01:00:00.000+00:00", finished_at: "2026-11-11T01:00:20.000+00:00" }),
+      // 2026-11-11 in Sao Paulo.
+      done({ created_at: "2026-11-11T03:00:00.000+00:00", finished_at: "2026-11-11T03:00:04.000+00:00" }),
+      done({ created_at: "2026-11-11T14:10:00.000+00:00", finished_at: "2026-11-11T14:10:10.000+00:00", critical: 1, critical_types: '["bo"]' }),
+      { status: "processing", created_at: "2026-11-10T14:59:00.000+00:00", started_at: "2026-11-10T14:59:00.000+00:00", attempts: 1 },
+    ]);
+    env.DB.sqlite.exec(`
+      INSERT INTO daily (day, key, value) VALUES
+        ('2026-11-10', 'submissions', 3), ('2026-11-10', 'distinct_submitters', 1), ('2026-11-10', 'classified', 2),
+        ('2026-11-10', 'critical', 1),
+        ('2026-11-11', 'submissions', 2), ('2026-11-11', 'distinct_submitters', 2), ('2026-11-11', 'classified', 2),
+        ('2026-11-11', 'critical', 1);
+      INSERT INTO alerts (public_id, critical_types, submitted_at, detected_at, delivered_at, mode) VALUES
+        ('x', '["am"]', '2026-11-10T14:00:00.000+00:00', '2026-11-10T14:00:30.000+00:00', '2026-11-10T14:00:30.000+00:00', 'immediate'),
+        ('y', '["bo"]', '2026-11-11T14:10:00.000+00:00', '2026-11-11T14:10:10.000+00:00', '2026-11-11T14:10:12.000+00:00', 'immediate');
+    `);
+  }
+
+  it("reads the day and the instant it starts in Sao Paulo", () => {
+    assert.deepEqual(publicStart({ PUBLIC_START_DAY: "2026-11-12" }), { day: "2026-11-12", iso: "2026-11-12T03:00:00.000+00:00" });
+    assert.deepEqual(publicStart({ PUBLIC_START_DAY: " 2026-11-12 " }), { day: "2026-11-12", iso: "2026-11-12T03:00:00.000+00:00" });
+    for (const value of [undefined, null, "", "12/11/2026", "2026-11-12T00:00", "2026-02-30", "2026-13-01", 20261112]) {
+      assert.equal(publicStart({ PUBLIC_START_DAY: value }), null, String(value));
+    }
+  });
+
+  it("leaves the answers before the start day out of the usage numbers", async () => {
+    const env = makeEnv({ PUBLIC_START_DAY: "2026-11-11" });
+    const { app } = makeApp();
+    await seedTwoDays(env);
+    const { data } = await getJson(app, env, "/api/v1/public/status");
+    assert.deepEqual(data.production, {
+      total_submissions: 2,
+      distinct_submitters: 2,
+      classified: 2,
+      latency_p50_seconds: 4,
+      latency_p95_seconds: 10,
+      alerts_sent: 1,
+      mean_submission_to_alert_seconds: 12,
+      first_public_day: "2026-11-11",
+    });
+    assert.equal(data.analyzed_today, 2);
+    assert.equal(data.critical_today, 1);
+    assert.equal(data.alerts_recorded, 1);
+    assert.equal(data.latency_p50_s, 4);
+    // The queue is real work: a row from before the start still shows as processing.
+    assert.equal(data.processing, 1);
+  });
+
+  it("counts every answer when the var is missing or invalid", async () => {
+    for (const value of [undefined, "", "amanha"]) {
+      const env = makeEnv(value === undefined ? {} : { PUBLIC_START_DAY: value });
+      const { app } = makeApp();
+      await seedTwoDays(env);
+      const { data } = await getJson(app, env, "/api/v1/public/status");
+      assert.equal(data.production.total_submissions, 5, String(value));
+      assert.equal(data.production.first_public_day, "2026-11-10");
+      assert.equal(data.production.alerts_sent, 2);
+      assert.equal(data.production.latency_p95_seconds, 30);
+    }
+  });
+
+  it("shows nothing of today before the start day", async () => {
+    const env = makeEnv({ PUBLIC_START_DAY: "2026-11-12" });
+    const { app } = makeApp();
+    await seedTwoDays(env);
+    const { data } = await getJson(app, env, "/api/v1/public/status");
+    assert.equal(data.analyzed_today, 0);
+    assert.equal(data.critical_today, 0);
+    assert.equal(data.alerts_recorded, 0);
+    assert.equal(data.latency_p50_s, null);
+    assert.equal(data.latency_p95_s, null);
+    assert.deepEqual(data.production, {
+      total_submissions: 0,
+      distinct_submitters: 0,
+      classified: 0,
+      latency_p50_seconds: null,
+      latency_p95_seconds: null,
+      alerts_sent: 0,
+      mean_submission_to_alert_seconds: null,
+      first_public_day: null,
+    });
+    assert.equal(data.processing, 1);
+  });
+
+  it("keeps today's tiles on today when the start day is earlier", async () => {
+    // How production runs after the start day: today's tiles start at today, the totals at the start.
+    const env = makeEnv({ PUBLIC_START_DAY: "2026-11-10" });
+    const { app } = makeApp();
+    await seedTwoDays(env);
+    const { data } = await getJson(app, env, "/api/v1/public/status");
+    assert.equal(data.analyzed_today, 2);
+    assert.equal(data.critical_today, 1);
+    assert.equal(data.latency_p50_s, 4);
+    assert.equal(data.latency_p95_s, 10);
+    assert.equal(data.alerts_recorded, 1);
+    assert.equal(data.production.total_submissions, 5);
+    assert.equal(data.production.first_public_day, "2026-11-10");
+    assert.equal(data.production.alerts_sent, 2);
+    assert.equal(data.production.latency_p95_seconds, 30);
+  });
+
+  it("leaves out the alert of an answer sent before the start and detected after it", async () => {
+    // Sent at 23:50 on 2026-11-10 in Sao Paulo, classified by the cron after midnight.
+    const env = makeEnv({ PUBLIC_START_DAY: "2026-11-11" });
+    const { app } = makeApp();
+    await seedTwoDays(env);
+    env.DB.sqlite.exec(`
+      INSERT INTO alerts (public_id, critical_types, submitted_at, detected_at, delivered_at, mode) VALUES
+        ('z', '["av"]', '2026-11-11T02:50:00.000+00:00', '2026-11-11T03:05:00.000+00:00', '2026-11-11T03:05:00.000+00:00', 'immediate');
+    `);
+    const { data } = await getJson(app, env, "/api/v1/public/status");
+    assert.equal(data.alerts_recorded, 1);
+    assert.equal(data.production.alerts_sent, 1);
+    assert.equal(data.production.mean_submission_to_alert_seconds, 12);
+  });
+
+  it("leaves the answers before the start day out of the public dashboard", async () => {
+    const env = makeEnv({ PUBLIC_START_DAY: "2026-11-11" });
+    const { app } = makeApp();
+    await seedTwoDays(env);
+    // Four more answers after the start, so the totals pass the minimum group of 5.
+    await seedSubmissions(env.DB, Array.from({ length: 4 }, (_, i) => done({
+      score: 6 + i, created_at: `2026-11-11T1${i}:00:00.000+00:00`, finished_at: `2026-11-11T1${i}:00:05.000+00:00`,
+    })));
+    const { data } = await getJson(app, env, "/api/v1/public/dashboard?dataset=public");
+    const stored = env.DB.rows(
+      "SELECT public_id, created_at, score, area, tenure, comment_anon, status, themes, sentiment, critical, " +
+        "critical_types, finished_at, model, prompt_version, anonymizer_version FROM submissions " +
+        "WHERE created_at >= '2026-11-11T03:00:00.000+00:00' ORDER BY id",
+    );
+    assert.equal(stored.length, 6);
+    assert.deepEqual(data, buildDashboard(stored, { dataset: "public", now: Date.parse("2026-11-11T15:00:00Z") }));
+    assert.equal(data.totals.responses, 6); // 9 rows in D1, 3 of them before the start
   });
 });

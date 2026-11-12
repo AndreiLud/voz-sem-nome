@@ -63,7 +63,11 @@
   "triggers": { "crons": ["*/10 * * * *", "17 6 * * *"] },
   "vars": {
     // Workers AI model of the live demo (the code falls back to the same id).
-    "AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"
+    "AI_MODEL": "@cf/google/gemma-4-26b-a4b-it",
+    // First Sao Paulo day (YYYY-MM-DD) shown on the public dashboard and counted in the usage
+    // numbers of /api/v1/public/status. Earlier answers were the author's setup tests; they stay
+    // reachable by their tracking code until the 30-day purge. Empty counts everything.
+    "PUBLIC_START_DAY": "2026-11-12"
   }
   // Secrets, set with `npx wrangler secret put <NAME>` (never in this file):
   //   TURNSTILE_SECRET     secret key of the Turnstile widget whose site key is

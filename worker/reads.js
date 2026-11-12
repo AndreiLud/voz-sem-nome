@@ -3,8 +3,13 @@
 // Status and the public dashboard are computed from D1 and kept for a minute per isolate, so a
 // page that polls them costs one computation per minute and stays inside the CPU budget of the
 // Free plan. The synthetic dashboard is the static file published with the site.
+//
+// vars.PUBLIC_START_DAY (a Sao Paulo day, see publicStart in clock.js) leaves the answers sent
+// before it (setup tests) out of the public dashboard and of the usage numbers, alerts included.
+// The queue counts and the ETA still see every row, since they describe work the Worker is really
+// doing.
 
-import { spDay, spDayStart, toIso } from "./clock.js";
+import { publicStart, spDay, spDayStart, toIso } from "./clock.js";
 import { error, json } from "./http.js";
 import { QUOTA_KEY } from "./limits.js";
 import { buildDashboard } from "./metrics/aggregates.js";
@@ -18,6 +23,8 @@ export const CACHE_TTL_MS = 60_000;
 export const DATASETS = ["public", "synthetic"];
 export const SYNTHETIC_PATH = "/data/dashboard-synthetic.json";
 const LATENCY_SAMPLE = 2000; // newest finished jobs used for the overall percentiles
+/** The later of two ISO instants written by toIso (same format, so they compare as strings). */
+const laterIso = (a, b) => (b !== null && b > a ? b : a);
 
 /** `compute()` once per CACHE_TTL_MS per isolate. */
 async function memoized(deps, key, compute) {
@@ -36,17 +43,20 @@ async function computeStatus(env, deps, now) {
   const store = new Store(env.DB);
   await store.ready();
   const day = spDay(now);
-  const since = toIso(spDayStart(day));
+  const start = publicStart(env);
+  const startIso = start ? start.iso : null;
+  const beforeStart = start !== null && day < start.day;
+  const since = laterIso(toIso(spDayStart(day)), startIso);
   const [counts, today, quotaDay, average, todayRows, alertsToday, daily, recent, alerts] = await Promise.all([
     store.statusCounts(),
-    store.dailyValues(day),
+    beforeStart ? {} : store.dailyValues(day),
     store.meta(QUOTA_KEY),
     store.averageJobSeconds(deps.settings.queue.eta_window),
     store.latencies({ since, limit: LATENCY_SAMPLE }),
-    store.alertsSince(since),
-    store.dailyRows(),
-    store.latencies({ limit: LATENCY_SAMPLE }),
-    store.alertTimes(),
+    store.alertsSince(since, null, startIso),
+    store.dailyRows(start ? start.day : null),
+    store.latencies({ since: startIso, limit: LATENCY_SAMPLE }),
+    store.alertTimes(startIso),
   ]);
   const exhausted = quotaExhausted(quotaDay, now);
   const todayMs = todayRows.map(latencyMs);
@@ -74,7 +84,8 @@ async function computePublicDashboard(env, deps, now) {
   const store = new Store(env.DB);
   await store.ready();
   const privacy = deps.settings.privacy;
-  return buildDashboard(await store.dashboardRows(), {
+  const start = publicStart(env);
+  return buildDashboard(await store.dashboardRows(start ? start.iso : null), {
     dataset: "public",
     now,
     cfg: { min_group_size: privacy.min_group_size, display_excerpt_chars: privacy.display_excerpt_chars },

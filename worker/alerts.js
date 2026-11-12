@@ -8,7 +8,7 @@
 // A webhook problem never fails the request; only its status code is logged.
 
 import { TAXONOMY } from "./classify/data.js";
-import { HOUR_MS, spDay, toIso } from "./clock.js";
+import { HOUR_MS, publicStart, spDay, toIso } from "./clock.js";
 import { logEvent } from "./log.js";
 import { visibleAreaCodes } from "./metrics/aggregates.js";
 import { publicExcerpt } from "./metrics/excerpt.js";
@@ -107,7 +107,10 @@ export async function recordAlert(store, env, settings, row, result, nowMs) {
     detected_at: detectedAt,
   };
   if (mode === "immediate" && env.ALERT_WEBHOOK_URL) {
-    const visible = visibleAreaCodes(await store.areaCounts(), { cfg: { min_group_size: settings.privacy.min_group_size } });
+    // The same rows as the public dashboard, so the alert never names an area the dashboard hides.
+    const start = publicStart(env);
+    const counts = await store.areaCounts(start ? start.iso : null);
+    const visible = visibleAreaCodes(counts, { cfg: { min_group_size: settings.privacy.min_group_size } });
     view.area = visible.has(row.area) ? row.area : null;
     await sendWebhook(env, alertPayload(view, settings));
   }

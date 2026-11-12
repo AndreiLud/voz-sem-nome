@@ -27,3 +27,18 @@ export const nextUtcMidnight = (ms) => Date.parse(`${utcDay(ms)}T00:00:00Z`) + D
 
 /** Whole seconds from `now` to `target`, at least 1. */
 export const secondsUntil = (target, now) => Math.max(1, Math.ceil((target - now) / 1000));
+
+const DAY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * {day, iso} of vars.PUBLIC_START_DAY: the day and the instant it starts in Sao Paulo. Null when
+ * the var is missing, empty or not a real date, and then every row counts.
+ */
+export function publicStart(env) {
+  const day = typeof env.PUBLIC_START_DAY === "string" ? env.PUBLIC_START_DAY.trim() : "";
+  if (!DAY_PATTERN.test(day)) return null;
+  const start = spDayStart(day);
+  // Date.parse rolls some impossible dates over (2026-02-30 becomes March 2), so check the round trip.
+  if (Number.isNaN(start) || spDay(start) !== day) return null;
+  return { day, iso: toIso(start) };
+}

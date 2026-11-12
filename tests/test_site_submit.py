@@ -5,6 +5,7 @@ import json
 import re
 import shutil
 import subprocess
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -207,7 +208,11 @@ def test_wrangler_config(wrangler):
     assert wrangler["observability"] == {"enabled": True, "logs": {"invocation_logs": False}}
     assert wrangler["ai"] == {"binding": "AI"}
     assert [(d["binding"], d["database_name"]) for d in wrangler["d1_databases"]] == [("DB", "voz-sem-nome")]
-    assert wrangler["vars"] == {"AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"}
+    assert set(wrangler["vars"]) == {"AI_MODEL", "PUBLIC_START_DAY"}
+    assert wrangler["vars"]["AI_MODEL"] == "@cf/google/gemma-4-26b-a4b-it"
+    # A real Sao Paulo day, or empty to count every answer (worker/reads.js publicStart).
+    start = wrangler["vars"]["PUBLIC_START_DAY"]
+    assert start == "" or date.fromisoformat(start).isoformat() == start
     assert "kv_namespaces" not in wrangler
     assert wrangler["triggers"] == {"crons": ["*/10 * * * *", "17 6 * * *"]}
 
