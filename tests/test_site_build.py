@@ -235,6 +235,8 @@ def test_no_external_scripts_or_styles_except_turnstile(built):
     headers = (built.out / "_headers").read_text(encoding="utf-8")
     assert "script-src 'self' https://challenges.cloudflare.com" in headers
     assert "frame-src https://challenges.cloudflare.com" in headers
+    assert "https://static.cloudflareinsights.com" in headers  # Web Analytics beacon, injected by Cloudflare
+    assert "connect-src 'self' https://cloudflareinsights.com;" in headers
 
 
 def test_no_inline_styles_or_scripts(built):

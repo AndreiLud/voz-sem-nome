@@ -270,7 +270,7 @@
             <strong>Answer</strong>            <span class="steps__text">The answer reaches the Cloudflare Worker with a score from 0 to 10, area, tenure and an optional comment. Before that, Turnstile checks that the sender is not a bot.</span>
           </li>
           <li>
-            <strong>Rules in the Worker</strong> <span class="kind-tag">RULE</span>            <span class="steps__text">Inside the Worker, patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates, employee IDs and addresses. A list of names from IBGE, the Brazilian statistics office, finds personal names. Each finding becomes a placeholder such as PESSOA, and the original text is dropped here.</span>
+            <strong>Rules in the Worker</strong> <span class="kind-tag">RULE</span>            <span class="steps__text">Inside the Worker, patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates, employee IDs and addresses. Lists from IBGE, the Brazilian statistics office, find names of people and places. Each finding becomes a placeholder such as PESSOA, and the original text is dropped here.</span>
           </li>
           <li>
             <strong>Names and places</strong> <span class="kind-tag">NER</span>            <span class="steps__text">Local mode only. A small spaCy model finds names of people and places the rules miss. The demo has no such step, so place names slip through more easily.</span>
@@ -315,7 +315,7 @@
         <p class="stat__value">100%</p>
         <ul class="stat__meta">
 <li>n = 104 personal data items</li><li>95% CI: 96% to 100%</li>        </ul>
-        <p class="stat__method">Share of the personal data planted in the synthetic dataset that the Worker replaced with placeholders, using only rules and the name list.</p>
+        <p class="stat__method">Share of the personal data planted in the synthetic dataset that the Worker replaced with placeholders, using only rules and the IBGE lists, without a name recognition model.</p>
         <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
@@ -328,39 +328,49 @@
         <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
-      <li class="stat stat--missing">
+      <li class="stat">
         <p class="stat__label">Critical cases found</p>
-        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Not measured yet</span></p>
+        <p class="stat__value">100%</p>
+        <ul class="stat__meta">
+<li>n = 20 critical cases</li><li>95% CI: 84% to 100%</li>        </ul>
         <p class="stat__method">Critical cases in the test set that the system flagged. This is the number that matters most: a missed case costs more than a false alarm.</p>
-        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Not measured yet</span></p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
-      <li class="stat stat--missing">
+      <li class="stat">
         <p class="stat__label">Correct alerts</p>
-        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Not measured yet</span></p>
+        <p class="stat__value">95%</p>
+        <ul class="stat__meta">
+<li>n = 21 alerts</li><li>95% CI: 77% to 99%</li>        </ul>
         <p class="stat__method">Among comments flagged as critical, the share that really was critical.</p>
-        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Not measured yet</span></p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
-      <li class="stat stat--missing">
+      <li class="stat">
         <p class="stat__label">Correct sentiment</p>
-        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Not measured yet</span></p>
+        <p class="stat__value">89%</p>
+        <ul class="stat__meta">
+<li>n = 100 comments</li><li>Cohen&#39;s kappa: 0.80</li>        </ul>
         <p class="stat__method">Test set comments where the sentiment matched the labels.</p>
-        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Not measured yet</span></p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
-      <li class="stat stat--missing">
+      <li class="stat">
         <p class="stat__label">Themes, macro F1</p>
-        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Not measured yet</span></p>
+        <p class="stat__value">0.86</p>
+        <ul class="stat__meta">
+<li>n = 100 comments</li>        </ul>
         <p class="stat__method">Mean F1 over the themes. Rare themes weigh the same as common ones.</p>
-        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Not measured yet</span></p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
-      <li class="stat stat--missing">
+      <li class="stat">
         <p class="stat__label">Time per comment</p>
-        <p class="stat__value stat__value--missing"><span class="redaction" aria-hidden="true"></span><span class="visually-hidden">Not measured yet</span></p>
+        <p class="stat__value">1.2 s</p>
+        <ul class="stat__meta">
+<li>n = 100 comments</li><li>p95: 2.9 s</li>        </ul>
         <p class="stat__method">Median classification time on Workers AI, measured by the Worker for each comment.</p>
-        <p class="badge badge--pending"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#pending"></use></svg><span>Not measured yet</span></p>
+        <p class="badge badge--measured"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#check"></use></svg><span>Measured</span></p>
 
       </li>
     </ul>
@@ -377,8 +387,8 @@
           <tbody>
             <tr class="compare__setup">
               <th scope="row">Anonymization</th>
-              <td class="compare__text" data-label="Demo (Cloudflare)">Rules and IBGE name list, in the Worker</td>
-              <td class="compare__text" data-label="Local mode (own server)">Rules, IBGE list and spaCy NER</td>
+              <td class="compare__text" data-label="Demo (Cloudflare)">Rules and IBGE lists, in the Worker</td>
+              <td class="compare__text" data-label="Local mode (own server)">Rules, IBGE lists and spaCy NER</td>
             </tr>
             <tr class="compare__setup">
               <th scope="row">Model</th>
@@ -397,27 +407,27 @@
             </tr>
             <tr>
               <th scope="row">Critical cases found</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value compare__value--missing">Not measured yet</span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>100%</strong> <span class="muted">(n = 20)</span></span></td>
               <td data-label="Local mode (own server)"><span class="compare__value"><strong>95%</strong> <span class="muted">(n = 20)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Correct alerts</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value compare__value--missing">Not measured yet</span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>95%</strong> <span class="muted">(n = 21)</span></span></td>
               <td data-label="Local mode (own server)"><span class="compare__value"><strong>90%</strong> <span class="muted">(n = 21)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Correct sentiment</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value compare__value--missing">Not measured yet</span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>89%</strong> <span class="muted">(n = 100)</span></span></td>
               <td data-label="Local mode (own server)"><span class="compare__value"><strong>81%</strong> <span class="muted">(n = 100)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Themes, macro F1</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value compare__value--missing">Not measured yet</span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>0.86</strong> <span class="muted">(n = 100)</span></span></td>
               <td data-label="Local mode (own server)"><span class="compare__value"><strong>0.66</strong> <span class="muted">(n = 100)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Time per comment</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value compare__value--missing">Not measured yet</span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>1.2 s</strong> <span class="muted">(n = 100)</span></span></td>
               <td data-label="Local mode (own server)"><span class="compare__value"><strong>7.3 s</strong> <span class="muted">(n = 300)</span></span></td>
             </tr>
           </tbody>
@@ -521,9 +531,9 @@
             <div><dt>Hours of manual work per year</dt><dd><span data-out="manual">37.5</span> h</dd></div>
             <div><dt>Hours of review with the system</dt><dd><span data-out="review">4.5</span> h</dd></div>
             <div class="estimate__main"><dt>Hours saved per year</dt><dd><output data-out="saved" aria-live="polite">33.0 h</output></dd></div>
-            <div><dt>Machine time per year</dt><dd><span data-out="machine">2.5</span> h</dd></div>
+            <div><dt>Machine time per year</dt><dd><span data-out="machine">0.4</span> h</dd></div>
           </dl>
-<p class="note">Machine time uses the mean measured on the local mode&#39;s CPU.</p>          <p><button class="btn btn--ghost btn--small" type="reset">Reset to default values</button></p>
+<p class="note">Machine time uses the mean measured on Workers AI.</p>          <p><button class="btn btn--ghost btn--small" type="reset">Reset to default values</button></p>
           <details class="details">
             <summary>How the calculation works</summary>
             <ul class="formula">
@@ -601,6 +611,6 @@
     </nav>
   </div>
 </footer>
-<script type="application/json" id="page-data">{"lang":"en","page":"home","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand.","estimate":{"title":"Hours saved","lead":"A simple calculation for your own case. Change the values in the table and the result updates right away.","note":"The default values are example assumptions, not measurements. Machine time comes from the measurements above: the demo's when it exists, otherwise the local mode's.","table_caption":"Assumptions of the estimate","col_assumption":"Assumption","col_value":"Value","rows":{"responses_per_cycle":{"label":"Answers per cycle","unit":"answers"},"comment_share":{"label":"Share with a comment","unit":"%"},"minutes_read_classify":{"label":"Minutes to read and classify one comment","unit":"min"},"minutes_anonymize":{"label":"Minutes to anonymize one comment by hand","unit":"min"},"cycles_per_year":{"label":"Survey cycles per year","unit":"cycles"},"review_share":{"label":"Share that still needs human review","unit":"%"},"minutes_per_review":{"label":"Minutes per review","unit":"min"}},"outputs_title":"Result of the estimate","outputs":{"comments":"Comments per year","manual":"Hours of manual work per year","review":"Hours of review with the system","saved":"Hours saved per year","machine":"Machine time per year"},"machine_not_measured":"Not measured yet","machine_source":{"edge":"Machine time uses the mean measured on Workers AI.","local":"Machine time uses the mean measured on the local mode's CPU."},"hours":"{value} h","formula_title":"How the calculation works","formula":["Comments per year = answers × share with a comment × cycles.","Manual work = comments × (reading minutes + anonymization minutes) ÷ 60.","Review with the system = comments × reviewed share × minutes per review ÷ 60.","Hours saved = manual work minus review. Machine time uses the measured mean per comment and does not count as people's work."],"reset":"Reset to default values","invalid":"Use a number between {min} and {max}."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"gone_days":37,"max":1000,"model":"gemma4:e2b-it-qat","edge_model":"Gemma 4 26B A4B","edge_model_id":"@cf/google/gemma-4-26b-a4b-it","local_model":"Gemma 4 E2B"},"estimator":{"defaults":{"responses_per_cycle":1000,"comment_share":0.45,"minutes_read_classify":1.5,"minutes_anonymize":1.0,"cycles_per_year":2,"review_share":0.15,"minutes_per_review":2.0},"machine_s":9.930343333333333}}</script>
+<script type="application/json" id="page-data">{"lang":"en","page":"home","strings":{"copy":"Copy","copied":"Copied","copy_failed":"Could not copy. Select the text and copy it by hand.","estimate":{"title":"Hours saved","lead":"A simple calculation for your own case. Change the values in the table and the result updates right away.","note":"The default values are example assumptions, not measurements. Machine time comes from the measurements above: the demo's when it exists, otherwise the local mode's.","table_caption":"Assumptions of the estimate","col_assumption":"Assumption","col_value":"Value","rows":{"responses_per_cycle":{"label":"Answers per cycle","unit":"answers"},"comment_share":{"label":"Share with a comment","unit":"%"},"minutes_read_classify":{"label":"Minutes to read and classify one comment","unit":"min"},"minutes_anonymize":{"label":"Minutes to anonymize one comment by hand","unit":"min"},"cycles_per_year":{"label":"Survey cycles per year","unit":"cycles"},"review_share":{"label":"Share that still needs human review","unit":"%"},"minutes_per_review":{"label":"Minutes per review","unit":"min"}},"outputs_title":"Result of the estimate","outputs":{"comments":"Comments per year","manual":"Hours of manual work per year","review":"Hours of review with the system","saved":"Hours saved per year","machine":"Machine time per year"},"machine_not_measured":"Not measured yet","machine_source":{"edge":"Machine time uses the mean measured on Workers AI.","local":"Machine time uses the mean measured on the local mode's CPU."},"hours":"{value} h","formula_title":"How the calculation works","formula":["Comments per year = answers × share with a comment × cycles.","Manual work = comments × (reading minutes + anonymization minutes) ÷ 60.","Review with the system = comments × reviewed share × minutes per review ÷ 60.","Hours saved = manual work minus review. Machine time uses the measured mean per comment and does not count as people's work."],"reset":"Reset to default values","invalid":"Use a number between {min} and {max}."}},"routes":{"home":{"pt":"/","en":"/en/"},"dashboard":{"pt":"/painel/","en":"/en/dashboard/"},"submit":{"pt":"/enviar/","en":"/en/submit/"},"privacy":{"pt":"/privacidade/","en":"/en/privacy/"},"not_found":{"pt":"/404.html","en":"/en/404.html"}},"anchors":{"problem":{"pt":"problema","en":"problem"},"solution":{"pt":"solucao","en":"solution"},"how":{"pt":"como-funciona","en":"how-it-works"},"results":{"pt":"resultados","en":"results"},"estimate":{"pt":"estimativa","en":"estimate"},"dashboard_preview":{"pt":"painel-resumo","en":"dashboard-preview"},"privacy_summary":{"pt":"privacidade-resumo","en":"privacy-summary"},"demo":{"pt":"demo","en":"demo"}},"query":{"dataset":{"param":{"pt":"base","en":"dataset"},"values":{"synthetic":{"pt":"sintetica","en":"synthetic"},"public":{"pt":"publica","en":"public"}}},"code":{"param":{"pt":"c","en":"c"}}},"config":"/data/config.json","taxonomy":"/data/taxonomy.json","vars":{"k":5,"days":30,"alert_days":90,"gone_days":37,"max":1000,"model":"gemma4:e2b-it-qat","edge_model":"Gemma 4 26B A4B","edge_model_id":"@cf/google/gemma-4-26b-a4b-it","local_model":"Gemma 4 E2B"},"estimator":{"defaults":{"responses_per_cycle":1000,"comment_share":0.45,"minutes_read_classify":1.5,"minutes_anonymize":1.0,"cycles_per_year":2,"review_share":0.15,"minutes_per_review":2.0},"machine_s":1.500489}}</script>
 </body>
 </html>

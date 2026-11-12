@@ -94,7 +94,7 @@
       <h2>Where the data is processed</h2>
       <p>The demo runs entirely on Cloudflare. No part of it runs on a home server.</p>
       <ul>
-<li><strong>Worker</strong>: the code that receives the answer, anonymizes the comment and stores the result.</li><li><strong>Workers AI</strong>: the Cloudflare service that runs the Gemma 4 26B A4B model and classifies the anonymized text.</li><li><strong>D1</strong>: Cloudflare's database, which holds the anonymized text, the score, area, tenure and the classification.</li><li><strong>Turnstile</strong>: the bot check.</li>      </ul>
+<li><strong>Worker</strong>: the code that receives the answer, anonymizes the comment and stores the result.</li><li><strong>Workers AI</strong>: the Cloudflare service that runs the Gemma 4 26B A4B model and classifies the anonymized text.</li><li><strong>D1</strong>: Cloudflare's database, which holds the anonymized text, the score, area, tenure and the classification.</li><li><strong>Turnstile</strong>: the bot check.</li><li><strong>Web Analytics</strong>: page visit counts, without cookies.</li>      </ul>
       <div class="callout"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>Processing and storage happen outside Brazil. Cloudflare lists companies in the United States and England as sub-processors for Workers AI (<a href="https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/">sub-processor list</a>), and D1 offers no location in Brazil or South America (<a href="https://developers.cloudflare.com/d1/configuration/data-location/">D1 data location</a>). This is an international data transfer, which is why the form says so before you submit.</p></div>
     </section>
 
@@ -105,7 +105,7 @@
 
     <section id="anonymize">
       <h2>What is anonymized and how</h2>
-      <p>The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, finds personal names. The demo does not use a name recognition model, so place names slip through more easily than in local mode. Only the text with placeholders reaches Workers AI.</p>
+      <p>The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. Official lists from IBGE, the Brazilian statistics office, find first names, surnames, municipalities and districts. The demo does not use the name recognition model of local mode, so a name or place missing from the lists can pass through. Only the text with placeholders reaches Workers AI.</p>
       <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
         <table class="table">
           <caption id="placeholders-caption">Placeholders used instead of personal data</caption>
@@ -138,7 +138,7 @@
     <section id="never">
       <h2>What is never stored</h2>
       <ul class="checklist">
-<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The original comment text.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Your IP address. It is the key of Cloudflare's submission rate limiter, which keeps only short lived counters, and it is never written to the database. To count distinct people per day, the Worker stores a code (hash) of the IP mixed with a value that changes every day. These codes are deleted the next day.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Tracking cookies or audience analytics. The site uses none.</span></li>      </ul>
+<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>The original comment text.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Your IP address. It is the key of Cloudflare's submission rate limiter, which keeps only short lived counters, and it is never written to the database. To count distinct people per day, the Worker stores a code (hash) of the IP mixed with a value that changes every day. These codes are deleted the next day.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Tracking cookies. The site uses none. To count visits it uses Cloudflare Web Analytics, which stores no cookies and nothing else in the browser and, according to Cloudflare, “does not collect or use your visitors’ personal data” (<a href="https://developers.cloudflare.com/web-analytics/about/">Web Analytics</a>).</span></li>      </ul>
     </section>
 
     <section id="retention">

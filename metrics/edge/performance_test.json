@@ -1,0 +1,47 @@
+{
+ "status": "measured",
+ "generated_at": "2026-11-12T01:55:48+00:00",
+ "split": "test",
+ "provider": "workers-ai",
+ "model": "@cf/google/gemma-4-26b-a4b-it",
+ "prompt_version": "classify.v3+708a3315",
+ "verifier_version": "verify_critical.v1+9b70b71e",
+ "anonymizer_version": "edge-1.1.0",
+ "n_comments": 100,
+ "statuses": {
+  "done": 100
+ },
+ "verifier_share": 0.47,
+ "latency": {
+  "mean_s": 1.500489,
+  "p50_s": 1.19355,
+  "p95_s": 2.9174849999999997,
+  "max_s": 10.2836
+ },
+ "latency_worker": {
+  "mean_s": 1.48071,
+  "p50_s": 1.1665,
+  "p95_s": 2.9041999999999994,
+  "max_s": 10.271
+ },
+ "latency_ai": {
+  "mean_s": 1.48071,
+  "p50_s": 1.1665,
+  "p95_s": 2.9041999999999994,
+  "max_s": 10.271
+ },
+ "tokens": {
+  "prompt_mean": 3002.83,
+  "output_mean": 36.37,
+  "prompt_total": 300283,
+  "output_total": 3637
+ },
+ "neurons_total": 2829.07,
+ "neurons_per_comment_estimate": 28.290652,
+ "neuron_prices": {
+  "@cf/google/gemma-4-26b-a4b-it": {
+   "input_per_m": 9091,
+   "output_per_m": 27273
+  }
+ }
+}

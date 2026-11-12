@@ -138,7 +138,7 @@ home:
       rules:
         title: "Rules in the Worker"
         lines: ["CPF, CNPJ, RG, CEP, email, phone, plate,", "employee ID, address, IBGE names"]
-        text: "Inside the Worker, patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates, employee IDs and addresses. A list of names from IBGE, the Brazilian statistics office, finds personal names. Each finding becomes a placeholder such as PESSOA, and the original text is dropped here."
+        text: "Inside the Worker, patterns and check digits find Brazilian documents (CPF, CNPJ, RG, CEP), email addresses, phone numbers, plates, employee IDs and addresses. Lists from IBGE, the Brazilian statistics office, find names of people and places. Each finding becomes a placeholder such as PESSOA, and the original text is dropped here."
       ner:
         title: "Names and places"
         lines: ["A small spaCy model finds what", "the rules miss"]
@@ -183,7 +183,7 @@ home:
     items:
       pii_recall:
         label: "Personal data found"
-        method: "Share of the personal data planted in the synthetic dataset that the Worker replaced with placeholders, using only rules and the name list."
+        method: "Share of the personal data planted in the synthetic dataset that the Worker replaced with placeholders, using only rules and the IBGE lists, without a name recognition model."
         n: "{n} personal data items"
       pii_leaks:
         label: "Comments with a leak"
@@ -220,7 +220,7 @@ home:
       col_local: "Local mode (own server)"
       n: "(n = {n})"
       rows:
-        anonymizer: {label: "Anonymization", edge: "Rules and IBGE name list, in the Worker", local: "Rules, IBGE list and spaCy NER"}
+        anonymizer: {label: "Anonymization", edge: "Rules and IBGE lists, in the Worker", local: "Rules, IBGE lists and spaCy NER"}
         model: {label: "Model", edge: "{edge_model} on Workers AI", local: "{local_model} on Ollama, on the CPU"}
     reference:
       intended: "Reference: labels set when the synthetic dataset was generated."
@@ -527,13 +527,14 @@ privacy:
         - "**Workers AI**: the Cloudflare service that runs the {edge_model} model and classifies the anonymized text."
         - "**D1**: Cloudflare's database, which holds the anonymized text, the score, area, tenure and the classification."
         - "**Turnstile**: the bot check."
+        - "**Web Analytics**: page visit counts, without cookies."
       abroad: "Processing and storage happen outside Brazil. Cloudflare lists companies in the United States and England as sub-processors for Workers AI ([sub-processor list](https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/)), and D1 offers no location in Brazil or South America ([D1 data location](https://developers.cloudflare.com/d1/configuration/data-location/)). This is an international data transfer, which is why the form says so before you submit."
     roles:
       title: "Controller and processor"
       text: "The person in charge of the project, Andrei Ludescher, is the controller (controlador under the LGPD): he decides what is collected and why. Cloudflare is the processor (operador): it processes the data on the controller's behalf. The [Cloudflare data processing addendum](https://www.cloudflare.com/cloudflare-customer-dpa/) puts it in these words: “the Customer is the Controller” and “Cloudflare is a Processor”. The addendum does not mention the LGPD. Cloudflare explains its view of the law on its [LGPD page](https://www.cloudflare.com/trust-hub/brazil-lgpd/). Turnstile is an exception: Cloudflare also uses the bot check signals to improve its own bot detection, and for that use it states that it is a controller ([Turnstile privacy policy](https://www.cloudflare.com/turnstile-privacy-policy/))."
     anonymize:
       title: "What is anonymized and how"
-      text: "The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. A list of names from IBGE, the Brazilian statistics office, finds personal names. The demo does not use a name recognition model, so place names slip through more easily than in local mode. Only the text with placeholders reaches Workers AI."
+      text: "The comment is anonymized inside the Worker, before it is stored and before it reaches the model. Fixed rules find documents, contact details and addresses by their patterns and check digits. Official lists from IBGE, the Brazilian statistics office, find first names, surnames, municipalities and districts. The demo does not use the name recognition model of local mode, so a name or place missing from the lists can pass through. Only the text with placeholders reaches Workers AI."
       table_caption: "Placeholders used instead of personal data"
       col_marker: "Placeholder"
       col_meaning: "What it replaces"
@@ -550,7 +551,7 @@ privacy:
       items:
         - "The original comment text."
         - "Your IP address. It is the key of Cloudflare's submission rate limiter, which keeps only short lived counters, and it is never written to the database. To count distinct people per day, the Worker stores a code (hash) of the IP mixed with a value that changes every day. These codes are deleted the next day."
-        - "Tracking cookies or audience analytics. The site uses none."
+        - "Tracking cookies. The site uses none. To count visits it uses Cloudflare Web Analytics, which stores no cookies and nothing else in the browser and, according to Cloudflare, “does not collect or use your visitors’ personal data” ([Web Analytics](https://developers.cloudflare.com/web-analytics/about/))."
     retention:
       title: "How long data is kept"
       items:

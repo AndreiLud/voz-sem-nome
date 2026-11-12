@@ -31,6 +31,7 @@ so the pipeline treats every comment as if it could contain personal data.
 | Part | What it does |
 |---|---|
 | Turnstile | bot check before the answer is accepted |
+| Web Analytics | page visit counts, without cookies |
 | Worker | validates the answer, anonymizes the comment, stores the result, records alerts |
 | Workers AI | classifies the anonymized comment with Gemma 4 26B A4B (`@cf/google/gemma-4-26b-a4b-it`) |
 | D1 | database for anonymized comments, codes for area and tenure, scores, classifications and alerts |
@@ -42,10 +43,10 @@ Controller" and that "Cloudflare is a Processor". Cloudflare describes its LGPD 
 the ANPD standard clauses, which a real company should review with its legal team.
 
 **Anonymization happens inside the Worker, before the model.** Rules for Brazilian formats (CPF, CNPJ, RG, phone,
-email, CEP, employee ID, vehicle plate, street address) and a list of common Brazilian first names from IBGE
-replace personal data with markers such as `[PESSOA]` and `[EMAIL]`. There is no NER at the edge, so place names
-slip through more easily than in local mode. The measured difference goes to `metrics/metrics.json`, and the site
-shows "not measured yet" until the Worker has been evaluated.
+email, CEP, employee ID, vehicle plate, street address) and official IBGE lists of first names, surnames,
+municipalities and districts replace personal data with markers such as `[PESSOA]` and `[EMAIL]`. There is no NER
+at the edge, so a name or place missing from the lists can pass through. Both versions are measured on the same synthetic set and the results are
+in `metrics/metrics.json`.
 Only the anonymized text reaches Workers AI and D1.
 
 **What Cloudflare says about Workers AI content.** From the
@@ -57,6 +58,12 @@ Only the anonymized text reaches Workers AI and D1.
 * Cloudflare may keep operational metadata (timestamps, model ids, token counts, latency), without the content.
 
 The Worker calls the model directly (no AI Gateway logging) and never writes comment text to its logs.
+
+**Web Analytics.** Cloudflare Web Analytics counts page visits. Cloudflare injects its beacon into the pages and the
+Content Security Policy allows it. The beacon stores no cookies and nothing in local or session storage (checked in
+its code), and Cloudflare states that it "does not collect or use your visitors' personal data"
+([Web Analytics](https://developers.cloudflare.com/web-analytics/about/)). It never sees comment text: the form sends
+the answer to the Worker only.
 
 **Outside Brazil.** Cloudflare lists third party GPU sub-processors for Workers AI in the United States and in
 England ([sub-processor list](https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/)). D1 has no

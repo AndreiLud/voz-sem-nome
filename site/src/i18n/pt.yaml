@@ -139,7 +139,7 @@ home:
       rules:
         title: "Regras no Worker"
         lines: ["CPF, CNPJ, RG, CEP, e-mail, telefone, placa,", "matrícula, endereço e nomes do IBGE"]
-        text: "Dentro do Worker, padrões e dígitos verificadores acham CPF, CNPJ, RG, CEP, e-mail, telefone, placa, matrícula e endereço. Uma lista de nomes do IBGE acha nomes de pessoas. Cada achado vira um marcador como PESSOA, e o texto original é descartado aqui."
+        text: "Dentro do Worker, padrões e dígitos verificadores acham CPF, CNPJ, RG, CEP, e-mail, telefone, placa, matrícula e endereço. Listas do IBGE acham nomes de pessoas e de lugares. Cada achado vira um marcador como PESSOA, e o texto original é descartado aqui."
       ner:
         title: "Nomes e lugares"
         lines: ["Modelo pequeno do spaCy acha o", "que as regras não cobrem"]
@@ -184,7 +184,7 @@ home:
     items:
       pii_recall:
         label: "Dados pessoais encontrados"
-        method: "Parcela dos dados pessoais plantados na base sintética que o Worker trocou por marcadores, só com regras e a lista de nomes."
+        method: "Parcela dos dados pessoais plantados na base sintética que o Worker trocou por marcadores, só com regras e as listas do IBGE, sem modelo de reconhecimento de nomes."
         n: "{n} dados pessoais"
       pii_leaks:
         label: "Comentários com vazamento"
@@ -221,7 +221,7 @@ home:
       col_local: "Modo local (servidor próprio)"
       n: "(n = {n})"
       rows:
-        anonymizer: {label: "Anonimização", edge: "Regras e lista de nomes do IBGE, no Worker", local: "Regras, lista do IBGE e NER do spaCy"}
+        anonymizer: {label: "Anonimização", edge: "Regras e listas do IBGE, no Worker", local: "Regras, listas do IBGE e NER do spaCy"}
         model: {label: "Modelo", edge: "{edge_model} no Workers AI", local: "{local_model} no Ollama, na CPU"}
     reference:
       intended: "Referência: rótulos definidos na geração da base sintética."
@@ -528,13 +528,14 @@ privacy:
         - "**Workers AI**: o serviço da Cloudflare que roda o modelo {edge_model} e classifica o texto anonimizado."
         - "**D1**: o banco de dados da Cloudflare, onde ficam o texto anonimizado, a nota, a área, o tempo de casa e a classificação."
         - "**Turnstile**: a verificação contra robôs."
+        - "**Web Analytics**: a contagem de visitas às páginas, sem cookies."
       abroad: "O processamento e o armazenamento acontecem fora do Brasil. A Cloudflare lista como suboperadores do Workers AI empresas nos Estados Unidos e na Inglaterra ([lista de suboperadores](https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/)), e o D1 não oferece localização no Brasil nem na América do Sul ([localização do D1](https://developers.cloudflare.com/d1/configuration/data-location/)). Isso é uma transferência internacional de dados, e por isso o formulário avisa antes do envio."
     roles:
       title: "Controlador e operador"
       text: "O responsável pelo projeto, Andrei Ludescher, é o controlador: decide o que é coletado e para quê. A Cloudflare é a operadora: trata os dados em nome do controlador. O [acordo de tratamento de dados da Cloudflare](https://www.cloudflare.com/cloudflare-customer-dpa/) diz isso com estas palavras: “the Customer is the Controller” e “Cloudflare is a Processor”. O acordo não cita a LGPD. A Cloudflare explica como vê a lei na [página sobre a LGPD](https://www.cloudflare.com/trust-hub/brazil-lgpd/). Há uma exceção no Turnstile: a Cloudflare também usa os sinais da verificação para melhorar a própria detecção de robôs e, nesse uso, se declara controladora ([política de privacidade do Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/))."
     anonymize:
       title: "O que é anonimizado e como"
-      text: "O comentário é anonimizado dentro do Worker, antes de ser gravado e antes de chegar ao modelo. Regras fixas acham documentos, contatos e endereços pelos padrões e dígitos verificadores. Uma lista de nomes do IBGE acha nomes de pessoas. A demonstração não usa um modelo de reconhecimento de nomes, então nomes de lugares escapam com mais facilidade que no modo local. Só o texto com marcadores chega ao Workers AI."
+      text: "O comentário é anonimizado dentro do Worker, antes de ser gravado e antes de chegar ao modelo. Regras fixas acham documentos, contatos e endereços pelos padrões e dígitos verificadores. Listas oficiais do IBGE acham nomes e sobrenomes de pessoas, municípios e distritos. A demonstração não usa o modelo de reconhecimento de nomes do modo local, então um nome ou lugar que não está nas listas pode passar. Só o texto com marcadores chega ao Workers AI."
       table_caption: "Marcadores usados no lugar de dados pessoais"
       col_marker: "Marcador"
       col_meaning: "O que substitui"
@@ -551,7 +552,7 @@ privacy:
       items:
         - "O texto original do comentário."
         - "O endereço IP. Ele serve de chave para o limitador de envios da Cloudflare, que só mantém contadores de curta duração, e nunca é gravado no banco. Para contar pessoas diferentes por dia, o Worker grava um código (hash) do IP misturado com um valor que muda todo dia. Esses códigos são apagados no dia seguinte."
-        - "Cookies de rastreamento ou ferramentas de análise de audiência. O site não usa nenhum."
+        - "Cookies de rastreamento. O site não usa nenhum. Para contar visitas, ele usa o Cloudflare Web Analytics, que não grava cookies nem dados no navegador e, segundo a Cloudflare, “does not collect or use your visitors’ personal data” ([Web Analytics](https://developers.cloudflare.com/web-analytics/about/))."
     retention:
       title: "Por quanto tempo"
       items:

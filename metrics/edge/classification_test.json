@@ -1,0 +1,1687 @@
+{
+ "split": "test",
+ "intended": {
+  "n": 100,
+  "missing_predictions": [],
+  "sentiment": {
+   "n": 100,
+   "accuracy": 0.89,
+   "kappa": 0.8025843503230439,
+   "labels": [
+    "pos",
+    "neu",
+    "neg"
+   ],
+   "confusion": [
+    [
+     22,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     3
+    ],
+    [
+     0,
+     3,
+     57
+    ]
+   ],
+   "missing_prediction": 0
+  },
+  "themes": {
+   "per_theme": {
+    "lid": {
+     "precision": 0.9,
+     "recall": 0.9310344827586207,
+     "f1": 0.9152542372881356,
+     "support": 29,
+     "tp": 27,
+     "fp": 3,
+     "fn": 2
+    },
+    "rem": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 24,
+     "tp": 24,
+     "fp": 0,
+     "fn": 0
+    },
+    "car": {
+     "precision": 0.9285714285714286,
+     "recall": 0.7878787878787878,
+     "f1": 0.8524590163934426,
+     "support": 33,
+     "tp": 26,
+     "fp": 2,
+     "fn": 7
+    },
+    "cre": {
+     "precision": 1.0,
+     "recall": 0.8461538461538461,
+     "f1": 0.9166666666666666,
+     "support": 13,
+     "tp": 11,
+     "fp": 0,
+     "fn": 2
+    },
+    "rec": {
+     "precision": 1.0,
+     "recall": 0.875,
+     "f1": 0.9333333333333333,
+     "support": 8,
+     "tp": 7,
+     "fp": 0,
+     "fn": 1
+    },
+    "com": {
+     "precision": 0.6,
+     "recall": 0.8181818181818182,
+     "f1": 0.6923076923076923,
+     "support": 11,
+     "tp": 9,
+     "fp": 6,
+     "fn": 2
+    },
+    "eqp": {
+     "precision": 0.7142857142857143,
+     "recall": 0.8333333333333334,
+     "f1": 0.7692307692307692,
+     "support": 12,
+     "tp": 10,
+     "fp": 4,
+     "fn": 2
+    },
+    "flx": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.8571428571428571,
+     "support": 12,
+     "tp": 9,
+     "fp": 0,
+     "fn": 3
+    },
+    "inf": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.8571428571428571,
+     "support": 15,
+     "tp": 15,
+     "fp": 5,
+     "fn": 0
+    },
+    "bem": {
+     "precision": 0.9285714285714286,
+     "recall": 0.8666666666666667,
+     "f1": 0.896551724137931,
+     "support": 15,
+     "tp": 13,
+     "fp": 1,
+     "fn": 2
+    },
+    "cul": {
+     "precision": 0.7,
+     "recall": 0.7777777777777778,
+     "f1": 0.7368421052631577,
+     "support": 9,
+     "tp": 7,
+     "fp": 3,
+     "fn": 2
+    },
+    "out": {
+     "precision": 0.9090909090909091,
+     "recall": 1.0,
+     "f1": 0.9523809523809523,
+     "support": 10,
+     "tp": 10,
+     "fp": 1,
+     "fn": 0
+    }
+   },
+   "macro_f1": 0.8649426842739829,
+   "micro_f1": 0.875,
+   "exact_match": 0.64
+  },
+  "critical": {
+   "tp": 20,
+   "fp": 1,
+   "fn": 0,
+   "tn": 79,
+   "precision": 0.9523809523809523,
+   "recall": 1.0,
+   "f1": 0.975609756097561,
+   "recall_ci95": [
+    0.8388748419471806,
+    1.0
+   ],
+   "precision_ci95": [
+    0.7733063992587743,
+    0.9915440121901737
+   ],
+   "by_type": {
+    "am": {
+     "support": 5,
+     "recall_flag": 1.0,
+     "recall_flag_ci95": [
+      0.5655175352168251,
+      1.0
+     ],
+     "recall_type": 1.0,
+     "recall_type_ci95": [
+      0.5655175352168251,
+      1.0
+     ]
+    },
+    "as": {
+     "support": 4,
+     "recall_flag": 1.0,
+     "recall_flag_ci95": [
+      0.5101091635454027,
+      1.0
+     ],
+     "recall_type": 1.0,
+     "recall_type_ci95": [
+      0.5101091635454027,
+      1.0
+     ]
+    },
+    "di": {
+     "support": 5,
+     "recall_flag": 1.0,
+     "recall_flag_ci95": [
+      0.5655175352168251,
+      1.0
+     ],
+     "recall_type": 1.0,
+     "recall_type_ci95": [
+      0.5655175352168251,
+      1.0
+     ]
+    },
+    "bo": {
+     "support": 4,
+     "recall_flag": 1.0,
+     "recall_flag_ci95": [
+      0.5101091635454027,
+      1.0
+     ],
+     "recall_type": 1.0,
+     "recall_type_ci95": [
+      0.5101091635454027,
+      1.0
+     ]
+    },
+    "av": {
+     "support": 3,
+     "recall_flag": 1.0,
+     "recall_flag_ci95": [
+      0.4385029682449546,
+      1.0
+     ],
+     "recall_type": 1.0,
+     "recall_type_ci95": [
+      0.4385029682449546,
+      1.0
+     ]
+    }
+   }
+  },
+  "errors": [
+   {
+    "id": "S0002",
+    "kinds": [
+     "critical_fp",
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "car",
+      "com",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "bo"
+     ]
+    },
+    "subtle": "0",
+    "traits": "abbreviations|typos|laughter"
+   },
+   {
+    "id": "S0006",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "eqp"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "eqp"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "formal"
+   },
+   {
+    "id": "S0033",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "com",
+      "inf"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "inf"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "formal|pii"
+   },
+   {
+    "id": "S0112",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "com",
+      "rem"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "rem"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0119",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "com"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "one_word"
+   },
+   {
+    "id": "S0132",
+    "kinds": [
+     "sentiment",
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "inf",
+      "lid",
+      "rec",
+      "rem"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "inf",
+      "rec",
+      "rem"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations|typos"
+   },
+   {
+    "id": "S0137",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "rem"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "rem"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "typos"
+   },
+   {
+    "id": "S0140",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "com",
+      "flx",
+      "rec"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "flx",
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "mixed|laughter"
+   },
+   {
+    "id": "S0259",
+    "kinds": [
+     "sentiment",
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "flx"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "out"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "pii|pii_decoy"
+   },
+   {
+    "id": "S0263",
+    "kinds": [
+     "sentiment",
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "lid"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0357",
+    "kinds": [
+     "sentiment"
+    ],
+    "ref": {
+     "themes": [
+      "flx",
+      "rem"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "flx",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "mixed"
+   },
+   {
+    "id": "S0362",
+    "kinds": [
+     "sentiment",
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cre",
+      "rem"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "cre",
+      "eqp",
+      "rem"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "typos"
+   },
+   {
+    "id": "S0004",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "formal"
+   },
+   {
+    "id": "S0026",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cre",
+      "cul"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "cul",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "subtle": "1",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0041",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "car",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "bo"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "eqp",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "bo"
+     ]
+    },
+    "subtle": "0",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0056",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "cul",
+      "eqp"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "as"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "eqp"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "as"
+     ]
+    },
+    "subtle": "0",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0064",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "com",
+      "cre",
+      "eqp"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "com",
+      "cre"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "mixed|abbreviations"
+   },
+   {
+    "id": "S0071",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "cul"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations|pii"
+   },
+   {
+    "id": "S0089",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "com",
+      "rec",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "rec",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations|laughter"
+   },
+   {
+    "id": "S0094",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "cre",
+      "eqp"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "eqp",
+      "inf"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0109",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "cre",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "cre",
+      "cul",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "rant|abbreviations|typos"
+   },
+   {
+    "id": "S0120",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "rec"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "slang|laughter"
+   },
+   {
+    "id": "S0130",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "lid"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "lid"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0161",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "inf"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0168",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "eqp"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0169",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "car",
+      "inf",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "inf",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0176",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "com",
+      "flx",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "com",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "formal"
+   },
+   {
+    "id": "S0185",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cre",
+      "cul"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "cre",
+      "cul",
+      "inf"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "subtle": "1",
+    "traits": "abbreviations|pii_decoy"
+   },
+   {
+    "id": "S0192",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cul"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "lid"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations|pii"
+   },
+   {
+    "id": "S0202",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "flx",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "am"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "am"
+     ]
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0205",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "inf"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": ""
+   },
+   {
+    "id": "S0232",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "car",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0240",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "eqp",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "av"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "inf",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "av"
+     ]
+    },
+    "subtle": "1",
+    "traits": ""
+   },
+   {
+    "id": "S0241",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cre",
+      "eqp"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "car",
+      "cre",
+      "eqp"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "mixed|abbreviations|pii_decoy"
+   },
+   {
+    "id": "S0245",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "cre",
+      "rec"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "cre",
+      "rec"
+     ],
+     "sentiment": "neu",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "mixed|abbreviations|decoy"
+   },
+   {
+    "id": "S0252",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "eqp",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "cul",
+      "eqp",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "di"
+     ]
+    },
+    "subtle": "1",
+    "traits": ""
+   },
+   {
+    "id": "S0274",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "flx"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "flx"
+     ],
+     "sentiment": "pos",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "repeated_letters"
+   },
+   {
+    "id": "S0286",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "eqp",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "slang|abbreviations|pii"
+   },
+   {
+    "id": "S0292",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cul"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "cul"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "typos|pii_decoy"
+   },
+   {
+    "id": "S0309",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "cul",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "as"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "cul",
+      "lid",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "am",
+      "as"
+     ]
+    },
+    "subtle": "0",
+    "traits": "formal|pii"
+   },
+   {
+    "id": "S0319",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "flx",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "com",
+      "flx",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "slang|abbreviations|pii"
+   },
+   {
+    "id": "S0340",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "bem",
+      "car",
+      "flx",
+      "lid"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "as"
+     ]
+    },
+    "pred": {
+     "themes": [
+      "bem",
+      "car",
+      "flx"
+     ],
+     "sentiment": "neg",
+     "critical": true,
+     "critical_types": [
+      "am",
+      "as"
+     ]
+    },
+    "subtle": "1",
+    "traits": "abbreviations"
+   },
+   {
+    "id": "S0351",
+    "kinds": [
+     "themes"
+    ],
+    "ref": {
+     "themes": [
+      "car",
+      "cre",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "pred": {
+     "themes": [
+      "cre",
+      "inf",
+      "rem"
+     ],
+     "sentiment": "neg",
+     "critical": false,
+     "critical_types": []
+    },
+    "subtle": "0",
+    "traits": "slang|abbreviations"
+   }
+  ],
+  "reference": "intended",
+  "critical_variants": {
+   "llm_only": {
+    "tp": 20,
+    "fp": 0,
+    "fn": 0,
+    "tn": 80,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "recall_ci95": [
+     0.8388748419471806,
+     1.0
+    ],
+    "precision_ci95": [
+     0.8388748419471806,
+     1.0
+    ],
+    "by_type": {
+     "am": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "as": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "di": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "bo": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "av": {
+      "support": 3,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.4385029682449546,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.4385029682449546,
+       1.0
+      ]
+     }
+    }
+   },
+   "llm_lexicon": {
+    "tp": 20,
+    "fp": 1,
+    "fn": 0,
+    "tn": 79,
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "recall_ci95": [
+     0.8388748419471806,
+     1.0
+    ],
+    "precision_ci95": [
+     0.7733063992587743,
+     0.9915440121901737
+    ],
+    "by_type": {
+     "am": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "as": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "di": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "bo": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "av": {
+      "support": 3,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.4385029682449546,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.4385029682449546,
+       1.0
+      ]
+     }
+    }
+   },
+   "full": {
+    "tp": 20,
+    "fp": 1,
+    "fn": 0,
+    "tn": 79,
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "recall_ci95": [
+     0.8388748419471806,
+     1.0
+    ],
+    "precision_ci95": [
+     0.7733063992587743,
+     0.9915440121901737
+    ],
+    "by_type": {
+     "am": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "as": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "di": {
+      "support": 5,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5655175352168251,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5655175352168251,
+       1.0
+      ]
+     },
+     "bo": {
+      "support": 4,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.5101091635454027,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.5101091635454027,
+       1.0
+      ]
+     },
+     "av": {
+      "support": 3,
+      "recall_flag": 1.0,
+      "recall_flag_ci95": [
+       0.4385029682449546,
+       1.0
+      ],
+      "recall_type": 1.0,
+      "recall_type_ci95": [
+       0.4385029682449546,
+       1.0
+      ]
+     }
+    }
+   }
+  }
+ },
+ "human": null
+}

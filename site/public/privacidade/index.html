@@ -94,7 +94,7 @@
       <h2>Onde os dados são tratados</h2>
       <p>A demonstração roda inteira na Cloudflare. Nenhuma parte roda num servidor caseiro.</p>
       <ul>
-<li><strong>Worker</strong>: o código que recebe a resposta, anonimiza o comentário e grava o resultado.</li><li><strong>Workers AI</strong>: o serviço da Cloudflare que roda o modelo Gemma 4 26B A4B e classifica o texto anonimizado.</li><li><strong>D1</strong>: o banco de dados da Cloudflare, onde ficam o texto anonimizado, a nota, a área, o tempo de casa e a classificação.</li><li><strong>Turnstile</strong>: a verificação contra robôs.</li>      </ul>
+<li><strong>Worker</strong>: o código que recebe a resposta, anonimiza o comentário e grava o resultado.</li><li><strong>Workers AI</strong>: o serviço da Cloudflare que roda o modelo Gemma 4 26B A4B e classifica o texto anonimizado.</li><li><strong>D1</strong>: o banco de dados da Cloudflare, onde ficam o texto anonimizado, a nota, a área, o tempo de casa e a classificação.</li><li><strong>Turnstile</strong>: a verificação contra robôs.</li><li><strong>Web Analytics</strong>: a contagem de visitas às páginas, sem cookies.</li>      </ul>
       <div class="callout"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#info"></use></svg><p>O processamento e o armazenamento acontecem fora do Brasil. A Cloudflare lista como suboperadores do Workers AI empresas nos Estados Unidos e na Inglaterra (<a href="https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/">lista de suboperadores</a>), e o D1 não oferece localização no Brasil nem na América do Sul (<a href="https://developers.cloudflare.com/d1/configuration/data-location/">localização do D1</a>). Isso é uma transferência internacional de dados, e por isso o formulário avisa antes do envio.</p></div>
     </section>
 
@@ -105,7 +105,7 @@
 
     <section id="anonymize">
       <h2>O que é anonimizado e como</h2>
-      <p>O comentário é anonimizado dentro do Worker, antes de ser gravado e antes de chegar ao modelo. Regras fixas acham documentos, contatos e endereços pelos padrões e dígitos verificadores. Uma lista de nomes do IBGE acha nomes de pessoas. A demonstração não usa um modelo de reconhecimento de nomes, então nomes de lugares escapam com mais facilidade que no modo local. Só o texto com marcadores chega ao Workers AI.</p>
+      <p>O comentário é anonimizado dentro do Worker, antes de ser gravado e antes de chegar ao modelo. Regras fixas acham documentos, contatos e endereços pelos padrões e dígitos verificadores. Listas oficiais do IBGE acham nomes e sobrenomes de pessoas, municípios e distritos. A demonstração não usa o modelo de reconhecimento de nomes do modo local, então um nome ou lugar que não está nas listas pode passar. Só o texto com marcadores chega ao Workers AI.</p>
       <div class="table-wrap" role="region" aria-labelledby="placeholders-caption" tabindex="0">
         <table class="table">
           <caption id="placeholders-caption">Marcadores usados no lugar de dados pessoais</caption>
@@ -138,7 +138,7 @@
     <section id="never">
       <h2>O que nunca é gravado</h2>
       <ul class="checklist">
-<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>O texto original do comentário.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>O endereço IP. Ele serve de chave para o limitador de envios da Cloudflare, que só mantém contadores de curta duração, e nunca é gravado no banco. Para contar pessoas diferentes por dia, o Worker grava um código (hash) do IP misturado com um valor que muda todo dia. Esses códigos são apagados no dia seguinte.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Cookies de rastreamento ou ferramentas de análise de audiência. O site não usa nenhum.</span></li>      </ul>
+<li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>O texto original do comentário.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>O endereço IP. Ele serve de chave para o limitador de envios da Cloudflare, que só mantém contadores de curta duração, e nunca é gravado no banco. Para contar pessoas diferentes por dia, o Worker grava um código (hash) do IP misturado com um valor que muda todo dia. Esses códigos são apagados no dia seguinte.</span></li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#lock"></use></svg><span>Cookies de rastreamento. O site não usa nenhum. Para contar visitas, ele usa o Cloudflare Web Analytics, que não grava cookies nem dados no navegador e, segundo a Cloudflare, “does not collect or use your visitors’ personal data” (<a href="https://developers.cloudflare.com/web-analytics/about/">Web Analytics</a>).</span></li>      </ul>
     </section>
 
     <section id="retention">

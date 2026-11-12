@@ -70,26 +70,36 @@ Measured on a synthetic survey of 400 answers (340 with a comment) from a fictit
 Before the IBGE place lists were added (versions 1.0.0 and edge-1.0.0) the results were 101 of 104 and 95 of 104.
 Only 13 of the planted items are places, so expect lower recall on real text.
 
-**Classification in local mode** (Gemma 4 E2B, prompt classify.v3, test split, compared with the labels the
-generator intended; agreement with human labels is being measured)
+**Classification** (test split, compared with the labels the generator intended; agreement with human labels is
+being measured)
+
+| | Public demo: Gemma 4 26B A4B on Workers AI | Local mode: Gemma 4 E2B on Ollama |
+|---|---|---|
+| Sentiment | 89% agreement, Cohen's kappa 0.80 | 81% agreement, Cohen's kappa 0.67 |
+| Themes | micro F1 0.88, macro F1 0.86 | micro F1 0.70, macro F1 0.66 |
+| Critical cases found | 20 of 20 (100%, 95% CI 84% to 100%), 1 false alarm | 19 of 20 (95%, 95% CI 76% to 99%), 2 false alarms |
+| Critical cases found by the model alone / with the lexicon / with the second reading | 20 / 20 / 20 of 20, with 0 / 1 / 1 false alarms | 15 / 16 / 19 of 20, with 0 / 1 / 2 false alarms |
+
+Both modes use the same prompt (classify.v3), the same taxonomy, lexicon and decision rules. The second reading and
+the lexicon are what bring the small local model close to the large one on critical cases; on the large model they
+added one false alarm and no extra case on this split.
+
+**Speed**
 
 | | Result |
 |---|---|
-| Sentiment | 81% agreement, Cohen's kappa 0.67 |
-| Themes | micro F1 0.70, macro F1 0.66 |
-| Critical cases found | 19 of 20 (95%, 95% CI 76% to 99%), 2 false alarms |
-| Critical cases found by the model alone / with the lexicon / with the second reading | 15 / 16 / 19 of 20 |
+| Public demo, 100 test comments sent one at a time | median 1.2 s, p95 2.9 s, slowest 10.3 s per comment, measured inside the Worker |
+| Public demo, Workers AI usage | 3,003 prompt tokens and 36 output tokens per comment on average (the second reading ran for 47% of them) |
+| Local mode, 300 comments, steady state | 49.7 min in total; median 7.3 s, p95 18.7 s per comment |
+| Local mode, first comment after a cold start | 57.9 s (model load and full prompt read) |
+| Local mode, generation | 5.5 tokens per second |
 
-**Speed in local mode** (Ollama 0.40.16, gemma4:e2b-it-qat Q4_0, a VM with 6 vCPUs, SSE4.2 only, 13.6 GiB, no GPU)
+The local server is a VM with 6 vCPUs (SSE4.2 only), 13.6 GiB of RAM and no GPU, running Ollama 0.40.16 and
+gemma4:e2b-it-qat (Q4_0).
 
-| | Result |
-|---|---|
-| 300 comments, steady state | 49.7 min in total; median 7.3 s, p95 18.7 s per comment |
-| First comment after a cold start | 57.9 s (model load and full prompt read) |
-| Generation | 5.5 tokens per second |
-
-**Public demo on Cloudflare**: classification agreement and time per comment on Workers AI are measured through the
-deployed Worker and will appear here and on the site once measured.
+**Estimate, not a measurement:** with the measured tokens and the per model prices Cloudflare publishes, a comment
+costs about 28 neurons. The Workers AI free allocation is 10,000 neurons a day, enough for about 350 comments a
+day; after that the demo holds new answers until the daily reset at 00:00 UTC.
 
 ## Privacy
 

@@ -13,15 +13,18 @@ FONT_CACHE = "public, max-age=31536000, immutable"
 DATA_CACHE = "public, max-age=300, must-revalidate"
 INDEXED_PAGES = ("home", "dashboard", "submit", "privacy")
 EXTRA_PLACEHOLDERS = ("ofensivo",)  # profanity mask used in public excerpts
+# Cloudflare Web Analytics: cookieless page view counts, injected by Cloudflare when turned on for the site.
+ANALYTICS_SCRIPT_ORIGIN = "https://static.cloudflareinsights.com"
+ANALYTICS_REPORT_ORIGIN = "https://cloudflareinsights.com"
 
 
 def content_security_policy(turnstile_origin: str) -> str:
-    """Self only, plus the Turnstile script and frame."""
+    """Self only, plus the Turnstile script and frame and the Cloudflare Web Analytics beacon."""
     directives = [
         "default-src 'self'",
-        f"script-src 'self' {turnstile_origin}",
+        f"script-src 'self' {turnstile_origin} {ANALYTICS_SCRIPT_ORIGIN}",
         f"frame-src {turnstile_origin}",
-        "connect-src 'self'",
+        f"connect-src 'self' {ANALYTICS_REPORT_ORIGIN}",
         "img-src 'self'",
         "style-src 'self'",
         "font-src 'self'",
