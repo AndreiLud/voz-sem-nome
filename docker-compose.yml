@@ -76,6 +76,11 @@ services:
   worker:
     <<: *app
     command: ["python", "-m", "enps.queue.worker"]
+    environment:
+      <<: *app-env
+      # Real answers are never written to llm_cache/: the cache would keep anonymized comments past
+      # the retention period. Only the synthetic pipeline below uses the cache.
+      ENPS_LLM_MODE: "no_cache"
     networks: [backend]
     depends_on:
       ollama: {condition: service_healthy}

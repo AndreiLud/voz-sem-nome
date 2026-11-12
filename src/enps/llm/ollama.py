@@ -1,12 +1,14 @@
 """Client for a local Ollama server, with a disk cache keyed on the full request.
 
-Every reply is stored under <cache_dir>/<task>/<sha256>.json together with the request that
-produced it, so an evaluation can be replayed later without the model (mode "offline").
+In the caching modes every reply is stored under <cache_dir>/<task>/<sha256>.json together with the
+request that produced it, so an evaluation can be replayed later without the model (mode "offline").
 
 Modes (settings.llm.mode):
     live         call the model, then write the cache
     cache_first  read the cache, call the model on a miss
     offline      read the cache, raise CacheMissError on a miss
+    no_cache     call the model and keep nothing on disk: the queue worker of a deployment, where a cache
+                 would keep anonymized comments past the retention period
 """
 from __future__ import annotations
 
@@ -23,7 +25,9 @@ import httpx
 
 from enps import config
 
-MODES = ("live", "cache_first", "offline")
+MODES = ("live", "cache_first", "offline", "no_cache")
+WRITES_CACHE = ("live", "cache_first")
+READS_CACHE = ("cache_first", "offline")
 OPTION_KEYS = ("temperature", "seed", "num_ctx", "num_predict", "num_batch")
 MODEL_INFO_DIR = "_model_info"
 _SAFE_NAME = re.compile(r"[^A-Za-z0-9_.-]")
@@ -176,14 +180,15 @@ class OllamaClient:
         request = {"model": self.model, "task": task, "system": system, "user": user,
                    "schema": schema, "options": opts}
         key = cache_key(request)
-        if self.mode != "live":
+        if self.mode in READS_CACHE:
             cached = self.cache.get(task, key)
             if cached is not None:
                 return cached
             if self.mode == "offline":
                 raise CacheMissError(f"no cached reply for task {task!r} (key {key[:12]})")
         reply = self._call(system=system, user=user, schema=schema, options=opts)
-        self.cache.put(task, key, request, reply)
+        if self.mode in WRITES_CACHE:
+            self.cache.put(task, key, request, reply)
         return reply
 
     def _call(self, *, system: str, user: str, schema: dict[str, Any],
@@ -225,6 +230,8 @@ class OllamaClient:
             return self.cache.get_model_info(self.model) or {
                 "model": self.model, "digest": None, "quantization": None,
                 "parameter_size": None, "runtime_version": None}
+        if self.mode == "no_cache":
+            return self._fetch_model_info()
         try:
             info = self._fetch_model_info()
         except LLMError:

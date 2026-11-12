@@ -186,3 +186,29 @@ def test_task_must_be_a_plain_folder_name(tmp_path, task):
     client = make_client(tmp_path, FakeServer())
     with pytest.raises(ValueError):
         client.chat(task=task, system="", user="", schema=SCHEMA)
+
+
+def test_no_cache_mode_calls_every_time_and_writes_nothing(tmp_path):
+    server = FakeServer()
+    make_client(tmp_path, server).model_info()  # a saved copy exists, and is not used below
+    chat(make_client(tmp_path, server))         # so does a cached reply for the same request
+    before = sorted(p.relative_to(tmp_path) for p in tmp_path.rglob("*"))
+    client = make_client(tmp_path, server, mode="no_cache")
+    first, second = chat(client), chat(client)
+    assert first.from_cache is False and second.from_cache is False
+    assert server.calls("/api/chat") == 3
+    assert client.model_info()["digest"] == "abc123"
+    assert server.calls("/api/tags") == 2
+    assert sorted(p.relative_to(tmp_path) for p in tmp_path.rglob("*")) == before
+
+    empty = tmp_path / "never-created"
+    fresh = make_client(empty, FakeServer(), mode="no_cache")
+    chat(fresh)
+    fresh.model_info()
+    assert not empty.exists()
+
+
+def test_no_cache_model_info_has_no_saved_fallback(tmp_path):
+    make_client(tmp_path, FakeServer()).model_info()
+    with pytest.raises(LLMError):
+        make_client(tmp_path, FakeServer(fail_info=True), mode="no_cache").model_info()

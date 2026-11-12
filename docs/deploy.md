@@ -121,6 +121,6 @@ docker compose up -d          # Ollama, the model download, both APIs, the queue
 .venv/bin/python scripts/dev_server.py   # the site on http://127.0.0.1:8787, API proxied to port 8001
 ```
 
-Everything listens on 127.0.0.1 only. The `tunnel` profile (`COMPOSE_PROFILES=tunnel`) can
-publish the public API through a Cloudflare Tunnel; the live demo does not use it. Pipeline on the
-synthetic data: `docker compose run --rm pipeline`.
+Everything listens on 127.0.0.1 only. The queue worker runs with `ENPS_LLM_MODE=no_cache`, so
+real comments never go to `llm_cache/`. Pipeline on the synthetic data:
+`docker compose run --rm pipeline`.

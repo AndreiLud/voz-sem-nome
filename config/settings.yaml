@@ -44,7 +44,7 @@ llm:
   verify_prompt: "verify_critical.v1"
   verifier_enabled: true
   cache_dir: "llm_cache"
-  mode: "live"                 # live | cache_first | offline
+  mode: "live"                 # live | cache_first | offline | no_cache (the worker of a deployment)
 
 queue:
   max_pending: 100             # public submissions beyond this get "queue full"

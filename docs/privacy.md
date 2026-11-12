@@ -127,7 +127,9 @@ request has to account for this window.
 
 Everything above that mentions Cloudflare does not apply. The comment is anonymized by the same rules plus the
 spaCy entity recognizer, classified by Gemma 4 E2B through Ollama on the server's CPU, and stored in SQLite on the
-same machine. n8n sends the alerts, the daily digest and deletes old submissions. No comment goes to Cloudflare
+same machine. The queue worker keeps no copy of the model's requests or answers: the model answer cache in
+`llm_cache/` is used only by the synthetic pipeline, so no real comment stays there past the retention period. n8n
+sends the alerts, the daily digest and deletes old submissions. No comment goes to Cloudflare
 or any other external service, except optional alert channels the organization turns on (see below). This is the
 mode for organizations that need nothing to leave their own infrastructure.
 
