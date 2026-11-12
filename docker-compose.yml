@@ -128,11 +128,14 @@ services:
     environment:
       <<: *app-env
       ENPS_PATHS_PIPELINE_DATABASE: "/app/data/pipeline/synthetic.db"
+      # live (call Ollama and cache the answers), cache_first or offline (replay llm_cache/ only).
+      ENPS_LLM_MODE: "${ENPS_LLM_MODE:-live}"
     volumes:
       - ./data:/app/data
       - ./llm_cache:/app/llm_cache
       - ./metrics:/app/metrics
       - ./site:/app/site
+      - ./wrangler.jsonc:/app/wrangler.jsonc:ro   # the export reads the demo's Workers AI model from it
     networks: [backend]
 
 volumes:
