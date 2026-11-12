@@ -288,6 +288,7 @@ def test_summary_writes_performance_and_agreement(data, tmp_path):
     assert set(intended["critical_variants"]) == {"llm_only", "llm_lexicon", "full"}
     human_result = result["classification"]["human"]
     assert human_result["reference"] == "human" and human_result["sentiment"]["accuracy"] == pytest.approx(10 / 11)
+    assert result["classification"]["panel"] is None  # no panel file given
 
     written = json.loads((data["out"] / "performance_test.json").read_text(encoding="utf-8"))
     assert written["generated_at"] == "2026-11-11T15:00:00+00:00"
@@ -300,3 +301,20 @@ def test_summary_without_predictions(data):
     assert result["performance"]["status"] == "not_measured"
     assert result["performance"]["latency"] == {"mean_s": None, "p50_s": None, "p95_s": None, "max_s": None}
     assert result["classification"]["intended"]["n"] == 0
+
+
+def test_summary_adds_the_panel_reference_when_present(data, tmp_path):
+    do_run(data, FakeWorker(), clock=fake_clock(30.0))
+    panel = tmp_path / "panel_test.csv"
+    with open(data["intended"], encoding="utf-8") as src, open(panel, "w", encoding="utf-8") as dst:
+        dst.write(src.read().replace("inf,neg", "inf,pos", 1))
+    result = ec.summarize("test", out_dir=data["out"], splits_path=data["splits"], intended=data["intended"],
+                          human=data["out"] / "none.csv", panel=panel, now=NOW)
+    classification = result["classification"]
+    assert classification["human"] is None
+    assert classification["panel"]["reference"] == "panel" and classification["panel"]["n"] == 12
+    assert classification["panel"]["sentiment"]["accuracy"] == pytest.approx(11 / 12)
+    assert classification["intended"]["sentiment"]["accuracy"] == 1.0
+    missing = ec.summarize("test", out_dir=data["out"], splits_path=data["splits"], intended=data["intended"],
+                           human=data["out"] / "none.csv", panel=tmp_path / "absent.csv", now=NOW)
+    assert missing["classification"]["panel"] is None

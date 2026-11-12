@@ -29,7 +29,7 @@ Expected shape of metrics/metrics.json v2 (every key optional):
     ANONYMIZATION = {"n_spans", "recall", "recall_ci95": [lo, hi], "precision", "n_comments",
                      "n_comments_with_pii", "comments_with_leak"}
     CLASSIFICATION = output of enps.evaluation.classification.evaluate, plus
-                     "reference": "intended" | "human"
+                     "reference": "intended" | "panel" | "human"
 
 A file without "modes" (version 1) holds the same blocks at the top level; they were all
 measured in local mode, so they are read as the local mode.
@@ -254,9 +254,9 @@ def hardware(metrics: Mapping[str, Any]) -> dict[str, Any] | None:
 
 
 def reference_kind(block: Mapping[str, Any]) -> str | None:
-    """Labels a mode's classification was compared with: "intended" or "human"."""
+    """Labels a mode's classification was compared with: "intended", "panel" or "human"."""
     ref = dig(block, "classification.reference")
-    if ref in ("intended", "human"):
+    if ref in ("intended", "panel", "human"):
         return str(ref)
     return "intended" if dig(block, "classification") else None
 

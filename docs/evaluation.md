@@ -1,6 +1,8 @@
 # How the numbers were measured
 
-Every number on the site and in the README comes from code in this repository and is stored under `metrics/`.
+Every number on the site and in the README comes from code in this repository and is stored under `metrics/`. The
+one exception is the labels of the blind model panel (below): they were made outside this code and are stored in
+`data/labels/panel/`, and `src/enps/evaluation/panel.py` recomputes their vote and agreement from the stored readings.
 A number that was not measured yet is shown as such. Estimates (the hours saved) are always labeled as estimates.
 
 ## Data and splits
@@ -15,12 +17,33 @@ A number that was not measured yet is shown as such. Estimates (the hours saved)
 
 ## References
 
-* **Human labels** (primary): the project owner labeled the 100 test comments in a blind sheet: the anonymized text
-  only, in shuffled order, with no model prediction and no generator label (`src/enps/evaluation/labeling.py`). The
-  guide given to the labeler is the taxonomy in `config/taxonomy.yaml`.
-* **Generator labels** (weaker): the themes, sentiment and critical flag the generator intended for each comment
-  (`intended_labels.csv`). They are reported separately and only as a secondary reference, because comments are
-  composed from labeled fragments and the composition can shift the meaning.
+* **Blind model panel** (main reference for now, `data/labels/panel_test.csv`). The project owner chose not to label the
+  test split by hand, so a different language model, from a provider other than the ones the system uses, labeled the
+  100 test comments blind:
+  * input: the same blind sheet a person would get (`data/labels/labeling_sheet.csv`: the anonymized text only, in
+    shuffled order, with no model prediction and no generator label), with neutral ids (C001 to C100), and the same
+    labeling guide (the taxonomy of `config/taxonomy.yaml` with its rules);
+  * three independent readings, each in its own session that could open only its batch file, in three different
+    orders, in batches of 50;
+  * themes, sentiment, the critical flag and the critical types are set by majority vote (2 of 3); the doubt flag is
+    set when any reading had a doubt; a comment without a majority on some field would go to one more reading that
+    saw the three answers and decided (`settled_by` in `data/labels/panel/readings.json`, which also keeps every
+    reading).
+
+  The three readings agreed on 97 of 100 sentiments (Fleiss kappa 0.96) and 99 of 100 critical flags (0.98), and no
+  comment needed the extra reading (`panel_readings` in `metrics/classification.json`, which also checks that every
+  final label is the vote of the readings). Against the generator labels, the panel matches all 20 critical cases and 88% of
+  the sentiments, with theme micro F1 0.92 (`panel_vs_intended` in `metrics/classification.json`).
+
+  These are **not human labels**. The three readings come from the same model, so their mistakes can be correlated,
+  and a model reference can share blind spots with the models it judges. The numbers measure agreement with an
+  independent automatic reading, nothing more.
+* **Human labels** (`data/labels/human_test.csv`, not done yet). The blind sheet and its guide stay ready
+  (`src/enps/evaluation/labeling.py`). When the file exists, the evaluation and the site use it as the main reference
+  automatically; the panel results stay in `metrics/classification.json` and `metrics/edge/classification_test.json`.
+* **Generator labels** (weaker, `intended_labels.csv`): the themes, sentiment and critical flag the generator intended
+  for each comment. They are always reported separately, because comments are composed from labeled fragments and the
+  composition can shift the meaning.
 
 ## Classification metrics
 

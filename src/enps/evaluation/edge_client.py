@@ -64,6 +64,7 @@ RESPONSES = Path("data/synthetic/responses.csv")
 SPLITS_FILE = Path("data/synthetic/splits.json")
 INTENDED = Path("data/synthetic/intended_labels.csv")
 HUMAN = Path("data/labels/human_test.csv")
+PANEL = Path("data/labels/panel_test.csv")  # blind labels from a language model, see docs/evaluation.md
 OUT_DIR = Path("metrics/edge")
 # Tokens of one model call used to estimate a comment before any answer (research notes:
 # about 2,100 prompt tokens and 40 output tokens per call, two calls when the verifier runs).
@@ -367,7 +368,7 @@ def agreement(records: Sequence[Mapping[str, Any]], ref_path: Path, ids: Sequenc
 
 
 def summarize(split: str, *, out_dir: Path, splits_path: Path, intended: Path, human: Path,
-              now: datetime | None = None) -> dict[str, Any]:
+              panel: Path | None = None, now: datetime | None = None) -> dict[str, Any]:
     """Write performance_<split>.json and classification_<split>.json; return both."""
     now = now or datetime.now(timezone.utc)
     records = list(read_records(predictions_path(out_dir, split)).values())
@@ -379,6 +380,7 @@ def summarize(split: str, *, out_dir: Path, splits_path: Path, intended: Path, h
         "split": split,
         "intended": agreement(records, intended, ids, "intended"),
         "human": agreement(records, human, ids, "human") if human.exists() else None,
+        "panel": agreement(records, panel, ids, "panel") if panel is not None and panel.exists() else None,
     }
     for name, data in (("performance", perf), ("classification", classification)):
         target = out_dir / f"{name}_{split}.json"
@@ -410,6 +412,7 @@ def main(argv: Sequence[str] | None = None, *, client: httpx.Client | None = Non
     sum_cmd = commands.add_parser("summary", help="write performance and agreement files of a split")
     sum_cmd.add_argument("--intended", type=Path, default=INTENDED)
     sum_cmd.add_argument("--human", type=Path, default=HUMAN)
+    sum_cmd.add_argument("--panel", type=Path, default=PANEL)
     for sub in (run_cmd, sum_cmd):
         sub.add_argument("--split", choices=SPLITS, required=True)
         sub.add_argument("--splits", type=Path, default=SPLITS_FILE)
@@ -420,7 +423,8 @@ def main(argv: Sequence[str] | None = None, *, client: httpx.Client | None = Non
 
     if args.command == "summary":
         result = summarize(args.split, out_dir=out_dir, splits_path=splits_path,
-                           intended=config.resolve(args.intended), human=config.resolve(args.human))
+                           intended=config.resolve(args.intended), human=config.resolve(args.human),
+                           panel=config.resolve(args.panel))
         perf, intended = result["performance"], result["classification"]["intended"]
         print(f"{args.split}: n={perf['n_comments']} p50={perf['latency']['p50_s']} s "
               f"p95={perf['latency']['p95_s']} s neurons/comment={perf['neurons_per_comment_estimate']} "

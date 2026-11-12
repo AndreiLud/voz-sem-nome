@@ -177,7 +177,7 @@ home:
 
   results:
     title: "Results"
-    lead: "Numbers measured on the synthetic dataset, which has known labels. The tiles show the live demo, which runs on Cloudflare. The table compares the demo with the local mode."
+    lead: "Numbers measured on the synthetic dataset. Anonymization is checked against personal data planted at known positions, and classification is compared with the reference named below the tiles. The tiles show the live demo, which runs on Cloudflare. The table compares the demo with the local mode."
     sample_note: "These numbers are samples. Measured results appear here after the evaluation."
     live_title: "Live demo (Cloudflare)"
     items:
@@ -225,6 +225,7 @@ home:
     reference:
       intended: "Reference: labels set when the synthetic dataset was generated."
       human: "Reference: labels from a person who read the comments without seeing the model's answer."
+      panel: "Reference: labels from another language model, from a different provider, which read the comments blind in three independent readings, by majority vote. These are not human labels."
     hardware: "Local mode server with {cpus} vCPUs and {mem} GiB of RAM."
     pipeline:
       edge: "Demo: {parts}."

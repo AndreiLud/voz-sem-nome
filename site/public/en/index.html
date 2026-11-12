@@ -306,7 +306,7 @@
   <div class="wrap">
     <header class="section-head">
       <h2 id="results-title">Results</h2>
-      <p class="lead">Numbers measured on the synthetic dataset, which has known labels. The tiles show the live demo, which runs on Cloudflare. The table compares the demo with the local mode.</p>
+      <p class="lead">Numbers measured on the synthetic dataset. Anonymization is checked against personal data planted at known positions, and classification is compared with the reference named below the tiles. The tiles show the live demo, which runs on Cloudflare. The table compares the demo with the local mode.</p>
     </header>
     <h3 class="results-subhead" id="results-live">Live demo (Cloudflare)</h3>
     <ul class="results-grid" aria-labelledby="results-live">
@@ -357,7 +357,7 @@
       </li>
       <li class="stat">
         <p class="stat__label">Themes, macro F1</p>
-        <p class="stat__value">0.86</p>
+        <p class="stat__value">0.88</p>
         <ul class="stat__meta">
 <li>n = 100 comments</li>        </ul>
         <p class="stat__method">Mean F1 over the themes. Rare themes weigh the same as common ones.</p>
@@ -374,7 +374,7 @@
 
       </li>
     </ul>
-    <p class="note results-notes">Reference: labels set when the synthetic dataset was generated. Demo: model @cf/google/gemma-4-26b-a4b-it, prompt classify.v3+708a3315, anonymizer edge-1.1.0.</p>
+    <p class="note results-notes">Reference: labels from another language model, from a different provider, which read the comments blind in three independent readings, by majority vote. These are not human labels. Demo: model @cf/google/gemma-4-26b-a4b-it, prompt classify.v3+708a3315, anonymizer edge-1.1.0.</p>
 
     <div class="compare">
       <h3 id="compare-title">Demo (Cloudflare) vs local mode (own server)</h3>
@@ -418,12 +418,12 @@
             <tr>
               <th scope="row">Correct sentiment</th>
               <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>89%</strong> <span class="muted">(n = 100)</span></span></td>
-              <td data-label="Local mode (own server)"><span class="compare__value"><strong>81%</strong> <span class="muted">(n = 100)</span></span></td>
+              <td data-label="Local mode (own server)"><span class="compare__value"><strong>85%</strong> <span class="muted">(n = 100)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Themes, macro F1</th>
-              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>0.86</strong> <span class="muted">(n = 100)</span></span></td>
-              <td data-label="Local mode (own server)"><span class="compare__value"><strong>0.66</strong> <span class="muted">(n = 100)</span></span></td>
+              <td data-label="Demo (Cloudflare)"><span class="compare__value"><strong>0.88</strong> <span class="muted">(n = 100)</span></span></td>
+              <td data-label="Local mode (own server)"><span class="compare__value"><strong>0.68</strong> <span class="muted">(n = 100)</span></span></td>
             </tr>
             <tr>
               <th scope="row">Time per comment</th>

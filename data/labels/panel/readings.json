@@ -1,0 +1,4321 @@
+{
+ "about": "Blind labels of the 100 test comments by a language model from a provider other than the ones the system uses: three independent readings (A, B, C) of the blind sheet with neutral ids; themes, sentiment, the critical flag and the critical types by majority vote (2 of 3); the doubt flag when any reading had a doubt; one more reading only for comments without a majority (none needed it). Not human labels. See docs/evaluation.md.",
+ "settled_by": {
+  "majority": 100
+ },
+ "agreement_between_readings": {
+  "fleiss_kappa": {
+   "sentiment": 0.963,
+   "critical": 0.979
+  },
+  "unanimous": {
+   "sentiment": 97,
+   "critical": 99
+  },
+  "pairwise": {
+   "A-B": {
+    "sentiment": 0.98,
+    "critical": 0.99,
+    "themes_jaccard": 0.92
+   },
+   "A-C": {
+    "sentiment": 0.98,
+    "critical": 1.0,
+    "themes_jaccard": 0.951
+   },
+   "B-C": {
+    "sentiment": 0.98,
+    "critical": 0.99,
+    "themes_jaccard": 0.946
+   }
+  }
+ },
+ "final": {
+  "S0002": {
+   "temas": [
+    "Carga de trabalho",
+    "Saúde e bem-estar",
+    "Ferramentas e processos",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0004": {
+   "temas": [
+    "Reconhecimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0006": {
+   "temas": [
+    "Carga de trabalho",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0011": {
+   "temas": [
+    "Liderança",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0015": {
+   "temas": [
+    "Carreira e desenvolvimento"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0016": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0020": {
+   "temas": [
+    "Liderança",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio moral"
+   ],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0022": {
+   "temas": [
+    "Ferramentas e processos",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0024": {
+   "temas": [
+    "Saúde e bem-estar",
+    "Salário e benefícios",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Burnout e saúde mental"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0026": {
+   "temas": [
+    "Liderança",
+    "Cultura e valores"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Discriminação"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0028": {
+   "temas": [
+    "Comunicação e transparência",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0033": {
+   "temas": [
+    "Ferramentas e processos",
+    "Comunicação e transparência",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0041": {
+   "temas": [
+    "Saúde e bem-estar",
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Burnout e saúde mental"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0042": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0056": {
+   "temas": [
+    "Cultura e valores",
+    "Carga de trabalho",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio sexual"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0057": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0058": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0059": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0061": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0062": {
+   "temas": [
+    "Cultura e valores",
+    "Carga de trabalho",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Discriminação"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0064": {
+   "temas": [
+    "Carreira e desenvolvimento",
+    "Colegas e equipe",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0065": {
+   "temas": [
+    "Colegas e equipe",
+    "Saúde e bem-estar",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Ameaça ou violência"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0068": {
+   "temas": [
+    "Liderança",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio sexual"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0071": {
+   "temas": [
+    "Reconhecimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0077": {
+   "temas": [
+    "Liderança",
+    "Carga de trabalho",
+    "Cultura e valores",
+    "Carreira e desenvolvimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Discriminação"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0087": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0089": {
+   "temas": [
+    "Reconhecimento",
+    "Salário e benefícios",
+    "Comunicação e transparência",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0090": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Ameaça ou violência",
+    "Assédio moral"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0094": {
+   "temas": [
+    "Colegas e equipe",
+    "Carga de trabalho",
+    "Carreira e desenvolvimento"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0105": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0109": {
+   "temas": [
+    "Carreira e desenvolvimento",
+    "Carga de trabalho",
+    "Salário e benefícios",
+    "Reconhecimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0112": {
+   "temas": [
+    "Comunicação e transparência",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0113": {
+   "temas": [
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0118": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0119": {
+   "temas": [
+    "Comunicação e transparência"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0120": {
+   "temas": [
+    "Reconhecimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0123": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0125": {
+   "temas": [
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0127": {
+   "temas": [
+    "Carga de trabalho"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0130": {
+   "temas": [
+    "Liderança",
+    "Comunicação e transparência"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0132": {
+   "temas": [
+    "Ferramentas e processos",
+    "Reconhecimento",
+    "Salário e benefícios",
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0137": {
+   "temas": [
+    "Carga de trabalho",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0140": {
+   "temas": [
+    "Reconhecimento",
+    "Comunicação e transparência",
+    "Flexibilidade e modelo de trabalho"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0150": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0161": {
+   "temas": [
+    "Ferramentas e processos",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0163": {
+   "temas": [
+    "Carga de trabalho",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0164": {
+   "temas": [
+    "Comunicação e transparência",
+    "Flexibilidade e modelo de trabalho",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0168": {
+   "temas": [
+    "Carga de trabalho"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0169": {
+   "temas": [
+    "Liderança",
+    "Carga de trabalho",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0173": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0176": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho",
+    "Comunicação e transparência",
+    "Salário e benefícios",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0179": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0185": {
+   "temas": [
+    "Cultura e valores",
+    "Carreira e desenvolvimento",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Discriminação"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0192": {
+   "temas": [
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0197": {
+   "temas": [
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0198": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho",
+    "Comunicação e transparência"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0202": {
+   "temas": [
+    "Liderança",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio moral"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0205": {
+   "temas": [
+    "Ferramentas e processos",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0208": {
+   "temas": [
+    "Ferramentas e processos",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0210": {
+   "temas": [
+    "Ferramentas e processos",
+    "Saúde e bem-estar",
+    "Liderança",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0221": {
+   "temas": [
+    "Salário e benefícios",
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0227": {
+   "temas": [
+    "Saúde e bem-estar",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Burnout e saúde mental"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0228": {
+   "temas": [
+    "Colegas e equipe"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0230": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0232": {
+   "temas": [
+    "Salário e benefícios",
+    "Saúde e bem-estar",
+    "Carga de trabalho",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0238": {
+   "temas": [
+    "Liderança",
+    "Carga de trabalho",
+    "Carreira e desenvolvimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0240": {
+   "temas": [
+    "Colegas e equipe",
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Ameaça ou violência"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0241": {
+   "temas": [
+    "Carreira e desenvolvimento",
+    "Colegas e equipe",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0245": {
+   "temas": [
+    "Carga de trabalho",
+    "Reconhecimento",
+    "Carreira e desenvolvimento",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0252": {
+   "temas": [
+    "Colegas e equipe",
+    "Liderança",
+    "Cultura e valores"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Discriminação"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0259": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0263": {
+   "temas": [
+    "Liderança",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0273": {
+   "temas": [
+    "Salário e benefícios",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0274": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho",
+    "Carga de trabalho"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0277": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0285": {
+   "temas": [
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Burnout e saúde mental"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0286": {
+   "temas": [
+    "Carga de trabalho",
+    "Salário e benefícios",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0292": {
+   "temas": [
+    "Comunicação e transparência",
+    "Cultura e valores"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0298": {
+   "temas": [
+    "Liderança",
+    "Flexibilidade e modelo de trabalho"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0306": {
+   "temas": [
+    "Carga de trabalho",
+    "Carreira e desenvolvimento",
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0308": {
+   "temas": [
+    "Carga de trabalho",
+    "Ferramentas e processos",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0309": {
+   "temas": [
+    "Cultura e valores",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio sexual"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0317": {
+   "temas": [
+    "Ferramentas e processos",
+    "Colegas e equipe",
+    "Cultura e valores"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0319": {
+   "temas": [
+    "Liderança",
+    "Flexibilidade e modelo de trabalho"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0329": {
+   "temas": [
+    "Salário e benefícios",
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0331": {
+   "temas": [
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0333": {
+   "temas": [
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0340": {
+   "temas": [
+    "Liderança",
+    "Flexibilidade e modelo de trabalho",
+    "Carga de trabalho",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio sexual"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0343": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0351": {
+   "temas": [
+    "Ferramentas e processos",
+    "Salário e benefícios",
+    "Carreira e desenvolvimento",
+    "Liderança"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0357": {
+   "temas": [
+    "Flexibilidade e modelo de trabalho",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0359": {
+   "temas": [
+    "Reconhecimento"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0362": {
+   "temas": [
+    "Salário e benefícios",
+    "Carreira e desenvolvimento",
+    "Colegas e equipe"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0363": {
+   "temas": [
+    "Liderança",
+    "Carreira e desenvolvimento"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio moral"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0372": {
+   "temas": [
+    "Salário e benefícios"
+   ],
+   "sentimento": "Positivo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0375": {
+   "temas": [
+    "Salário e benefícios",
+    "Saúde e bem-estar"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": false,
+   "settled_by": "majority"
+  },
+  "S0382": {
+   "temas": [
+    "Cultura e valores"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0388": {
+   "temas": [
+    "Outro"
+   ],
+   "sentimento": "Neutro",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0392": {
+   "temas": [
+    "Ferramentas e processos"
+   ],
+   "sentimento": "Negativo",
+   "critico": false,
+   "tipos": [],
+   "duvida": true,
+   "settled_by": "majority"
+  },
+  "S0396": {
+   "temas": [
+    "Liderança",
+    "Salário e benefícios"
+   ],
+   "sentimento": "Negativo",
+   "critico": true,
+   "tipos": [
+    "Assédio moral"
+   ],
+   "duvida": false,
+   "settled_by": "majority"
+  }
+ },
+ "readings": {
+  "A": {
+   "S0002": {
+    "temas": [
+     "Carga de trabalho",
+     "Saúde e bem-estar",
+     "Ferramentas e processos",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0004": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0006": {
+    "temas": [
+     "Carga de trabalho",
+     "Ferramentas e processos",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0011": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0015": {
+    "temas": [
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0016": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0020": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": true
+   },
+   "S0022": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0024": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0026": {
+    "temas": [
+     "Cultura e valores",
+     "Liderança",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0028": {
+    "temas": [
+     "Comunicação e transparência",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0033": {
+    "temas": [
+     "Ferramentas e processos",
+     "Comunicação e transparência",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0041": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0042": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0056": {
+    "temas": [
+     "Cultura e valores",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0057": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0058": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0059": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0061": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0062": {
+    "temas": [
+     "Cultura e valores",
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0064": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0065": {
+    "temas": [
+     "Colegas e equipe",
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0068": {
+    "temas": [
+     "Liderança",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0071": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0077": {
+    "temas": [
+     "Liderança",
+     "Carreira e desenvolvimento",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0087": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0089": {
+    "temas": [
+     "Salário e benefícios",
+     "Reconhecimento",
+     "Saúde e bem-estar",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0090": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência",
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0094": {
+    "temas": [
+     "Colegas e equipe",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0105": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0109": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Salário e benefícios",
+     "Carga de trabalho",
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0112": {
+    "temas": [
+     "Comunicação e transparência",
+     "Salário e benefícios",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0113": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0118": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0119": {
+    "temas": [
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0120": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0123": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0125": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0127": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0130": {
+    "temas": [
+     "Liderança",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0132": {
+    "temas": [
+     "Ferramentas e processos",
+     "Reconhecimento",
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0137": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0140": {
+    "temas": [
+     "Reconhecimento",
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0150": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0161": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0163": {
+    "temas": [
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0164": {
+    "temas": [
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0168": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0169": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0173": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0176": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Comunicação e transparência",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0179": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0185": {
+    "temas": [
+     "Cultura e valores",
+     "Carreira e desenvolvimento",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0192": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0197": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0198": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0202": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0205": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0208": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0210": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar",
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0221": {
+    "temas": [
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0227": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0228": {
+    "temas": [
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0230": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0232": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar",
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0238": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0240": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0241": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0245": {
+    "temas": [
+     "Carga de trabalho",
+     "Reconhecimento",
+     "Carreira e desenvolvimento",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0252": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação",
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0259": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0263": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0273": {
+    "temas": [
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0274": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0277": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0285": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0286": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0292": {
+    "temas": [
+     "Cultura e valores",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0298": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0306": {
+    "temas": [
+     "Carga de trabalho",
+     "Liderança",
+     "Carreira e desenvolvimento",
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0308": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0309": {
+    "temas": [
+     "Cultura e valores",
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0317": {
+    "temas": [
+     "Ferramentas e processos",
+     "Colegas e equipe",
+     "Cultura e valores"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0319": {
+    "temas": [
+     "Liderança",
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0329": {
+    "temas": [
+     "Salário e benefícios",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0331": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0333": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0340": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0343": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0351": {
+    "temas": [
+     "Ferramentas e processos",
+     "Salário e benefícios",
+     "Carreira e desenvolvimento",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0357": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0359": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0362": {
+    "temas": [
+     "Salário e benefícios",
+     "Carreira e desenvolvimento",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0363": {
+    "temas": [
+     "Liderança",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0372": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0375": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0382": {
+    "temas": [
+     "Cultura e valores"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0388": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0392": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0396": {
+    "temas": [
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   }
+  },
+  "B": {
+   "S0002": {
+    "temas": [
+     "Carga de trabalho",
+     "Saúde e bem-estar",
+     "Ferramentas e processos",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0004": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0006": {
+    "temas": [
+     "Carga de trabalho",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0011": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0015": {
+    "temas": [
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0016": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0020": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": true
+   },
+   "S0022": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0024": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0026": {
+    "temas": [
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0028": {
+    "temas": [
+     "Ferramentas e processos",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0033": {
+    "temas": [
+     "Ferramentas e processos",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0041": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0042": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0056": {
+    "temas": [
+     "Cultura e valores",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0057": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0058": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0059": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0061": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0062": {
+    "temas": [
+     "Cultura e valores",
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0064": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0065": {
+    "temas": [
+     "Colegas e equipe",
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0068": {
+    "temas": [
+     "Liderança",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0071": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0077": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0087": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0089": {
+    "temas": [
+     "Reconhecimento",
+     "Salário e benefícios",
+     "Comunicação e transparência",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0090": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral",
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0094": {
+    "temas": [
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0105": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0109": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0112": {
+    "temas": [
+     "Comunicação e transparência",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0113": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0118": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0119": {
+    "temas": [
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0120": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0123": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0125": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0127": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0130": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0132": {
+    "temas": [
+     "Ferramentas e processos",
+     "Reconhecimento",
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0137": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0140": {
+    "temas": [
+     "Reconhecimento",
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0150": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0161": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": true
+   },
+   "S0163": {
+    "temas": [
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0164": {
+    "temas": [
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0168": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0169": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0173": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0176": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Comunicação e transparência",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0179": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0185": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Cultura e valores",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0192": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0197": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0198": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0202": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0205": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0208": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0210": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar",
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0221": {
+    "temas": [
+     "Salário e benefícios",
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0227": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0228": {
+    "temas": [
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0230": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0232": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0238": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0240": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0241": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0245": {
+    "temas": [
+     "Reconhecimento",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0252": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0259": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0263": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0273": {
+    "temas": [
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0274": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0277": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0285": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0286": {
+    "temas": [
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0292": {
+    "temas": [
+     "Comunicação e transparência",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0298": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0306": {
+    "temas": [
+     "Carga de trabalho",
+     "Carreira e desenvolvimento",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0308": {
+    "temas": [
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0309": {
+    "temas": [
+     "Cultura e valores",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0317": {
+    "temas": [
+     "Ferramentas e processos",
+     "Colegas e equipe",
+     "Cultura e valores"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0319": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0329": {
+    "temas": [
+     "Salário e benefícios",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0331": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0333": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0340": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0343": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0351": {
+    "temas": [
+     "Ferramentas e processos",
+     "Salário e benefícios",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0357": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0359": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0362": {
+    "temas": [
+     "Salário e benefícios",
+     "Carreira e desenvolvimento",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0363": {
+    "temas": [
+     "Liderança",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0372": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0375": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0382": {
+    "temas": [
+     "Cultura e valores"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0388": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0392": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0396": {
+    "temas": [
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   }
+  },
+  "C": {
+   "S0002": {
+    "temas": [
+     "Carga de trabalho",
+     "Saúde e bem-estar",
+     "Ferramentas e processos",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0004": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0006": {
+    "temas": [
+     "Carga de trabalho",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0011": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0015": {
+    "temas": [
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0016": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0020": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": true
+   },
+   "S0022": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0024": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0026": {
+    "temas": [
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0028": {
+    "temas": [
+     "Comunicação e transparência",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0033": {
+    "temas": [
+     "Ferramentas e processos",
+     "Comunicação e transparência",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0041": {
+    "temas": [
+     "Liderança",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0042": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0056": {
+    "temas": [
+     "Cultura e valores",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0057": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0058": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0059": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0061": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0062": {
+    "temas": [
+     "Cultura e valores",
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0064": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0065": {
+    "temas": [
+     "Colegas e equipe",
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0068": {
+    "temas": [
+     "Liderança",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0071": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0077": {
+    "temas": [
+     "Liderança",
+     "Cultura e valores",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0087": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0089": {
+    "temas": [
+     "Reconhecimento",
+     "Salário e benefícios",
+     "Comunicação e transparência",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0090": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência",
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0094": {
+    "temas": [
+     "Colegas e equipe",
+     "Carreira e desenvolvimento",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0105": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0109": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Carga de trabalho",
+     "Salário e benefícios",
+     "Reconhecimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0112": {
+    "temas": [
+     "Comunicação e transparência",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0113": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0118": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0119": {
+    "temas": [
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0120": {
+    "temas": [
+     "Reconhecimento",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0123": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0125": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0127": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0130": {
+    "temas": [
+     "Liderança",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0132": {
+    "temas": [
+     "Ferramentas e processos",
+     "Reconhecimento",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0137": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0140": {
+    "temas": [
+     "Reconhecimento",
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0150": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0161": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0163": {
+    "temas": [
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0164": {
+    "temas": [
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0168": {
+    "temas": [
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0169": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0173": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0176": {
+    "temas": [
+     "Comunicação e transparência",
+     "Flexibilidade e modelo de trabalho",
+     "Salário e benefícios",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0179": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0185": {
+    "temas": [
+     "Cultura e valores",
+     "Carreira e desenvolvimento",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0192": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0197": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0198": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Comunicação e transparência"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0202": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0205": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0208": {
+    "temas": [
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0210": {
+    "temas": [
+     "Ferramentas e processos",
+     "Saúde e bem-estar",
+     "Carga de trabalho",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0221": {
+    "temas": [
+     "Salário e benefícios",
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0227": {
+    "temas": [
+     "Saúde e bem-estar",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0228": {
+    "temas": [
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0230": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0232": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar",
+     "Ferramentas e processos",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0238": {
+    "temas": [
+     "Liderança",
+     "Carga de trabalho",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0240": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Ameaça ou violência"
+    ],
+    "duvida": false
+   },
+   "S0241": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Colegas e equipe",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0245": {
+    "temas": [
+     "Carga de trabalho",
+     "Reconhecimento",
+     "Carreira e desenvolvimento",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0252": {
+    "temas": [
+     "Colegas e equipe",
+     "Liderança",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Discriminação"
+    ],
+    "duvida": false
+   },
+   "S0259": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0263": {
+    "temas": [
+     "Liderança",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0273": {
+    "temas": [
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0274": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0277": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0285": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Burnout e saúde mental"
+    ],
+    "duvida": false
+   },
+   "S0286": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0292": {
+    "temas": [
+     "Comunicação e transparência",
+     "Cultura e valores"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0298": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0306": {
+    "temas": [
+     "Carga de trabalho",
+     "Carreira e desenvolvimento",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0308": {
+    "temas": [
+     "Carga de trabalho",
+     "Salário e benefícios",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0309": {
+    "temas": [
+     "Cultura e valores",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0317": {
+    "temas": [
+     "Colegas e equipe",
+     "Ferramentas e processos",
+     "Cultura e valores"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0319": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0329": {
+    "temas": [
+     "Salário e benefícios",
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0331": {
+    "temas": [
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0333": {
+    "temas": [
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0340": {
+    "temas": [
+     "Liderança",
+     "Flexibilidade e modelo de trabalho",
+     "Carga de trabalho",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio sexual"
+    ],
+    "duvida": false
+   },
+   "S0343": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0351": {
+    "temas": [
+     "Ferramentas e processos",
+     "Salário e benefícios",
+     "Carreira e desenvolvimento",
+     "Liderança"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0357": {
+    "temas": [
+     "Flexibilidade e modelo de trabalho",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0359": {
+    "temas": [
+     "Reconhecimento"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0362": {
+    "temas": [
+     "Carreira e desenvolvimento",
+     "Salário e benefícios",
+     "Colegas e equipe"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0363": {
+    "temas": [
+     "Liderança",
+     "Carreira e desenvolvimento"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   },
+   "S0372": {
+    "temas": [
+     "Salário e benefícios"
+    ],
+    "sentimento": "Positivo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0375": {
+    "temas": [
+     "Salário e benefícios",
+     "Saúde e bem-estar"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0382": {
+    "temas": [
+     "Cultura e valores"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0388": {
+    "temas": [
+     "Outro"
+    ],
+    "sentimento": "Neutro",
+    "critico": false,
+    "tipos": [],
+    "duvida": true
+   },
+   "S0392": {
+    "temas": [
+     "Ferramentas e processos"
+    ],
+    "sentimento": "Negativo",
+    "critico": false,
+    "tipos": [],
+    "duvida": false
+   },
+   "S0396": {
+    "temas": [
+     "Liderança",
+     "Salário e benefícios"
+    ],
+    "sentimento": "Negativo",
+    "critico": true,
+    "tipos": [
+     "Assédio moral"
+    ],
+    "duvida": false
+   }
+  }
+ }
+}

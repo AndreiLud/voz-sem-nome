@@ -214,8 +214,32 @@ def step_evaluate() -> dict[str, Any]:
     out["intended_all"] = run(config.resolve(SYNTH / "intended_labels.csv"), None, "intended")
     human = config.resolve("data/labels/human_test.csv")
     out["human_test"] = run(human, test_ids, "human") if human.exists() else None
+    panel = config.resolve("data/labels/panel_test.csv")
+    out["panel_test"] = run(panel, test_ids, "panel") if panel.exists() else None
+    out["panel_vs_intended"] = None
+    readings = config.resolve("data/labels/panel/readings.json")
+    if readings.exists():
+        from enps.evaluation.panel import summary as panel_summary
+        out["panel_readings"] = panel_summary(readings)
+    if panel.exists():
+        # How far the two references are from each other: the panel read as predictions against the generator.
+        intended_ref, intended_extra = read_reference(config.resolve(SYNTH / "intended_labels.csv"), test_ids)
+        panel_ref, _ = read_reference(panel, test_ids)
+        out["panel_vs_intended"] = {k: v for k, v in evaluate(intended_ref, panel_ref, intended_extra).items()
+                                    if k != "errors"}
     _write_json(METRICS / "classification.json", out)
     return out
+
+
+# Main reference of each mode: human labels when they exist, then the blind model panel, then the
+# labels the generator intended. The generator's labels are always kept apart as well.
+EDGE_REFERENCES = ("human", "panel", "intended")
+LOCAL_REFERENCES = ("human_test", "panel_test", "intended_test")
+
+
+def preferred(classification: Mapping[str, Any], keys: Sequence[str]) -> Mapping[str, Any] | None:
+    """The first evaluation present among `keys`."""
+    return next((classification[k] for k in keys if classification.get(k)), None)
 
 
 def _brief(result: Mapping[str, Any] | None) -> dict[str, Any] | None:
@@ -279,7 +303,7 @@ def _edge_block(llm: Mapping[str, Any]) -> dict[str, Any]:
                      "verifier_version": load_prompt(llm["verify_prompt"]).prompt_version,
                      "anonymizer_version": (anon or {}).get("anonymizer_version")},
         "anonymization": _anonymization_block(anon),
-        "classification": _brief(classification.get("human") or classification.get("intended")),
+        "classification": _brief(preferred(classification, EDGE_REFERENCES)),
         "classification_intended": _brief(classification.get("intended")),
         "performance": perf or {"status": "not_measured"},
     }
@@ -304,7 +328,7 @@ def _local_block(preds: list[dict[str, Any]], llm: Mapping[str, Any]) -> dict[st
                      "verifier_version": next((p["verifier_version"] for p in preds if p.get("verifier_version")), None),
                      "anonymizer_version": (anon or {}).get("anonymizer_version")},
         "anonymization": _anonymization_block(anon),
-        "classification": _brief(classification.get("human_test") or classification.get("intended_test")),
+        "classification": _brief(preferred(classification, LOCAL_REFERENCES)),
         "classification_intended": _brief(classification.get("intended_test")),
         "classification_intended_all": _brief(classification.get("intended_all")),
         "performance": performance,

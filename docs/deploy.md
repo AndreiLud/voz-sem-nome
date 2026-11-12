@@ -108,8 +108,8 @@ Splits: `test`, `dev`, `dev_quick`, `all` and `benchmark300` (the first 300 comm
 are appended to `metrics/edge/predictions_<split>.jsonl`; running the same command the next day
 continues where it stopped. `summary` writes `metrics/edge/performance_<split>.json` (latency of
 the model calls and end to end, tokens, neurons) and `metrics/edge/classification_<split>.json`
-(agreement with the intended labels and, when `data/labels/human_test.csv` exists, with the human
-labels).
+(agreement with the intended labels and, when the files exist, with the blind model panel in
+`data/labels/panel_test.csv` and the human labels in `data/labels/human_test.csv`).
 
 ## Local mode with docker compose
 

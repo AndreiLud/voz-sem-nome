@@ -1,0 +1,101 @@
+id,comentario,tema_1,tema_2,tema_3,tema_4,sentimento,critico,tipo_critico_1,tipo_critico_2,duvida,observacao
+S0002,"queria entendr melhor como e calculada a plr, a pressao do dia a dia ta me deixando estressdo, seria bom revisar os processos internos, tem mta etapa repetida kkkk",Carga de trabalho,Saúde e bem-estar,Ferramentas e processos,Salário e benefícios,Negativo,Não,,,Sim,majority
+S0004,Só lembram da gente quando dá errado. Agradeço a atenção.,Reconhecimento,,,,Negativo,Não,,,,majority
+S0006,"É corrido, mas é organizado, a gente sabe o que precisa entregar. A equipe mudou muito esse ano, ainda está se ajustando.",Carga de trabalho,Colegas e equipe,,,Neutro,Não,,,Sim,majority
+S0011,"meu gestor e gente boa, pena q vive sobrecarregado a [PESSOA] ([EMAIL]) sabe de tudo isso e pode confirmar",Liderança,Carga de trabalho,,,Neutro,Não,,,Sim,majority
+S0015,Mais treinamentooo,Carreira e desenvolvimento,,,,Neutro,Não,,,Sim,majority
+S0016,otima empresa kkk,Outro,,,,Negativo,Não,,,Sim,majority
+S0020,"o que acontece no meu setor e assedio, humilhação todo dia na frente de todos o headset ta quebrado e n tem reposicao.",Liderança,Ferramentas e processos,,,Negativo,Sim,Assédio moral,,Sim,majority
+S0022,A luz da doca 2 está queimada faz duas semanas. Seria bom revisar a distribuição de tarefas da equipe.,Ferramentas e processos,Carga de trabalho,,,Negativo,Não,,,Sim,majority
+S0024,"ando tao cansado de tudo q ultimamente acho q seria um alívio não estar mais aqui, em lugar nenhum, o reajuste foi de 4,5% e a inflacao do ano foi maior a meta é alta, mas dá para bater com esforço...",Saúde e bem-estar,Salário e benefícios,Carga de trabalho,,Negativo,Sim,Burnout e saúde mental,,,majority
+S0026,Tem encarregado q só coloca as mulheres na conferencia e fala que empilhadeira ñ e coisa de mulher.,Liderança,Cultura e valores,,,Negativo,Sim,Discriminação,,,majority
+S0028,Falei com a [PESSOA] e com o [PESSOA] do RH e ninguém resolve meu caso.,Comunicação e transparência,Ferramentas e processos,,,Negativo,Não,,,Sim,majority
+S0033,O sistema não aceita meu cpf [CPF] para cadastrar dependente. Seria bom ter um canal oficial para tirar dúvidas. Fico à disposição.,Ferramentas e processos,Comunicação e transparência,Salário e benefícios,,Negativo,Não,,,Sim,majority
+S0041,"qdo da problema a culpa é sempre da equipe, nunca da gestao. metade da minha equipe ta a beira de um burnout, eu inclusive, ja tive crise de panico no trabalho",Saúde e bem-estar,Liderança,,,Negativo,Sim,Burnout e saúde mental,,,majority
+S0042,"Quem mora em [LOCAL] sofre com o trânsito, a empresa podia liberar pelo menos um dia de home office!",Flexibilidade e modelo de trabalho,,,,Negativo,Não,,,Sim,majority
+S0056,"fui vítima de assédio sexual de um colega e o caso foi abafado. fazer hora extra virou rotina, ñ é mais exceção.",Cultura e valores,Carga de trabalho,Colegas e equipe,,Negativo,Sim,Assédio sexual,,,majority
+S0057,meu gestor da autonomia e confia no time. meu rg e [RG] caso precisem me identificar...,Liderança,,,,Positivo,Não,,,,majority
+S0058,"E o seguinte: vou morrer de saudade do meu antigo supervisor, ele foi transferido.",Liderança,,,,Positivo,Não,,,Sim,majority
+S0059,"minha lideranca n conhece o trabalho q a gente faz no dia a dia... a [PESSOA] pode confirmar, o telefone dela e [TELEFONE] hahaha",Liderança,,,,Negativo,Não,,,,majority
+S0061,Sem comentários,Outro,,,,Neutro,Não,,,,majority
+S0062,"Ja presenciei racismo aqui dentro e nada aconteceu com quem fez, mas os bneeficios são melhores que os da minha empresa anterior, mas o volume de pedidos dobrou e o número de pessoas no armazem é o mesmo.",Cultura e valores,Carga de trabalho,Salário e benefícios,,Negativo,Sim,Discriminação,,,majority
+S0064,"O pdi que a gente preenche some na gaveta e o comercial vende o q a operação ñ consegue entregar e sobra pra todo mundo, só q a carga de trabalho ta tranquila, da para fazer td no horário...",Carreira e desenvolvimento,Colegas e equipe,Carga de trabalho,,Negativo,Não,,,Sim,majority
+S0065,o [PESSOA] anda com uma faca no caminhao e mostra pra quem discute com ele. a gente cobre as ferias dos colegas e ninguem cobre as nossas,Colegas e equipe,Saúde e bem-estar,Carga de trabalho,,Negativo,Sim,Ameaça ou violência,,,majority
+S0068,"O supervisor me chama pra conversar sozinha na sala dele dps do expediente e insiste em me levar em casa, eu sempre invento uma desculpa... tem mta fofoca entre as equipes",Liderança,Colegas e equipe,,,Negativo,Sim,Assédio sexual,,,majority
+S0071,"sou a matrícula [MATRICULA] do turno da noite, ninguem olha pra gente.",Reconhecimento,,,,Negativo,Não,,,,majority
+S0077,"A carteira de cada vendedor cresceu e o tempo pra visitar cliente sumiu. Quando contei que estava grávida meu gestor mudou comigo, me tiraram dos projetos importantes e disseram que era para eu ficar mais tranquila",Liderança,Carga de trabalho,Cultura e valores,Carreira e desenvolvimento,Negativo,Sim,Discriminação,,,majority
+S0087,Empresa boa de trabalhar,Outro,,,,Positivo,Não,,,Sim,majority
+S0089,"entao, o destaque do mes e sempre o msm grupinho, cortaram a cesta basica sem aviso nenhum... saio daqui com dor nas costas todo dia kkk",Reconhecimento,Salário e benefícios,Comunicação e transparência,Saúde e bem-estar,Negativo,Não,,,Sim,majority
+S0090,"tipo assim, o gerente grita, xinga e já falou que se eu abrir a boca no rh ele resolve cmg lá fora.",Liderança,,,,Negativo,Sim,Ameaça ou violência,Assédio moral,,majority
+S0094,"na real, o time de tecnologia é muito bom tecnicamente e generoso para ensinar, o time protege a sprint, quase ñ entra demanda no meio.",Colegas e equipe,Carga de trabalho,Carreira e desenvolvimento,,Positivo,Não,,,,majority
+S0105,chefe bom,Liderança,,,,Positivo,Não,,,,majority
+S0109,"me prometeram crescimento qdo entrei, hj faço o mesmo trabalho, com o dobro da demanda, sem aumento, vendo gente de fora entrar ganhando mais. cansie",Carreira e desenvolvimento,Carga de trabalho,Salário e benefícios,Reconhecimento,Negativo,Não,,,,majority
+S0112,O informativo semanal ajuda a saber o que acontece nas outras áreas. Podiam revisar a tabela de cargos e salários.,Comunicação e transparência,Salário e benefícios,,,Neutro,Não,,,Sim,majority
+S0113,cade a plr,Salário e benefícios,,,,Negativo,Não,,,,majority
+S0118,Já tive empregos melhores. Atenciosamente.,Outro,,,,Negativo,Não,,,Sim,majority
+S0119,transparencia,Comunicação e transparência,,,,Neutro,Não,,,Sim,majority
+S0120,a gente rala muito e ninguém fala nem um obrigado hahaha,Reconhecimento,,,,Negativo,Não,,,,majority
+S0123,Nada pra falar agora,Outro,,,,Neutro,Não,,,,majority
+S0125,VR baixo,Salário e benefícios,,,,Negativo,Não,,,,majority
+S0127,"a gente tem tempo de fazer as coisas com calma, sem atropelo",Carga de trabalho,,,,Positivo,Não,,,,majority
+S0130,a gestão da minha area é justa e transparente com todo mundo,Liderança,Comunicação e transparência,,,Positivo,Não,,,,majority
+S0132,"o sistema novo de estoque facilitou mto a vida e tem época de mto trabalho e epoca tranquila, normal, e meu gestor sempre agraedce o esforço da equipe e podiam revisar a tabela de cargos e salários...",Ferramentas e processos,Reconhecimento,Salário e benefícios,Liderança,Positivo,Não,,,Sim,majority
+S0137,"Com o reforco dos temporarios a doca deu conta da black friday sem virar a notie, o salário é dentro da média, nada demais",Carga de trabalho,Salário e benefícios,,,Positivo,Não,,,Sim,majority
+S0140,Sinto que meu trabalho é valorizado. Mas mudaram a escala por mensagem no grupo no domingo à noite kkk,Reconhecimento,Comunicação e transparência,Flexibilidade e modelo de trabalho,,Neutro,Não,,,Sim,majority
+S0150,Não recomendo,Outro,,,,Negativo,Não,,,Sim,majority
+S0161,"O EPI demora para ser trocado, minha bota está furada",Ferramentas e processos,Saúde e bem-estar,,,Negativo,Não,,,Sim,majority
+S0163,"Essa meta é uma ameaça pro meu fim de semana kkk. Mas o reembolso ficou simples, agora é tudo pelo aplicativo. Só isso.",Carga de trabalho,Ferramentas e processos,,,Neutro,Não,,,Sim,majority
+S0164,"A diretoria foi transparente sobre a fase dificl e eu respeitei isso a empresa respeita meu horario, ninguém manda mensagem de madrugada podiam ter acompanhamento de nutricionista no refeitório",Comunicação e transparência,Flexibilidade e modelo de trabalho,Saúde e bem-estar,,Positivo,Não,,,,majority
+S0168,"Falando com sinceridade, depois que contrataram mais gente o ritmo melhorou muito.",Carga de trabalho,,,,Positivo,Não,,,,majority
+S0169,"a gerência decide td sem ouvir quem está na ponta. a fila de atendimento n zera nunca, e ligacao atras de ligacao, e o ar condicionado do atendimento n funciona no verão",Liderança,Carga de trabalho,Ferramentas e processos,,Negativo,Não,,,,majority
+S0173,show hahaha,Outro,,,,Positivo,Não,,,Sim,majority
+S0176,"Em primeiro lugar, agradeço pela pesquisa. Mudaram a escala por mensagem no grupo no domingo à noite. Não tem auxílio creche, para quem tem filho pequeno pesa muito. A demanda chega toda no último dia e o prazo é para ontem.",Flexibilidade e modelo de trabalho,Comunicação e transparência,Salário e benefícios,Carga de trabalho,Negativo,Não,,,,majority
+S0179,N/a,Outro,,,,Neutro,Não,,,,majority
+S0185,"Com 52 anos virei o tiozinho do time, me deixam fora das tecnologias novas porque acham que eu n vou acompanhar...",Cultura e valores,Carreira e desenvolvimento,Colegas e equipe,,Negativo,Sim,Discriminação,,,majority
+S0192,"a [PESSOA] do rh e otima, mas ñ tem autonomia nenhuma",Ferramentas e processos,,,,Negativo,Não,,,Sim,majority
+S0197,a sala ficou sem luz a tarde toda e ngm da manutenção apareceuuu,Ferramentas e processos,,,,Negativo,Não,,,,majority
+S0198,"Seria importante rever o modelo presencial, considerando a produtividade que tivemos no período remoto, porém, a transparência da diretoria na divulgação dos resultados foi muito positiva. Agradeço a atenção.",Flexibilidade e modelo de trabalho,Comunicação e transparência,,,Neutro,Não,,,,majority
+S0202,"Olha, falta gente no atendimento e quem fica cobre a escala de quem saiu. Sofro assédio moral do meu supervisor há meses e tenho medo de denunciar",Liderança,Carga de trabalho,,,Negativo,Sim,Assédio moral,,,majority
+S0205,Falta um lugar decente para descansar na pausa.,Ferramentas e processos,Saúde e bem-estar,,,Negativo,Não,,,,majority
+S0208,com a ura nova o cliente já chega irritado e qm segura tudo somos nos!,Ferramentas e processos,Carga de trabalho,,,Negativo,Não,,,Sim,majority
+S0210,"TODO MÊS A MESMA COISA, sistema caindo, cliente xingando, fila lotada e a supervisão preocupada com o tempo de pausa, é piada, o estresse no atendimento e mt grande, tem cliente que xinga o dia inteiro",Ferramentas e processos,Saúde e bem-estar,Liderança,Carga de trabalho,Negativo,Não,,,Sim,majority
+S0221,"gostei do reajuste desse ano, minha coordenadora é mt humana, sempre pergunta como a gente tá. é nóis.",Salário e benefícios,Liderança,,,Positivo,Não,,,,majority
+S0227,"Faz meses que trabalho de madrugada e no fim de semana, esqueço coisas simples e não consigo mais desligar.",Saúde e bem-estar,Carga de trabalho,,,Negativo,Sim,Burnout e saúde mental,,,majority
+S0228,Equipe top,Colegas e equipe,,,,Positivo,Não,,,,majority
+S0230,"parabens para a gestao, conseguiu fazre metade do time pedir as contas no msm ano kkkk",Liderança,,,,Negativo,Não,,,Sim,majority
+S0232,A ergonomia dos postos podia ser avaliada de novo; a programação joga as entregas mais longe pro fim do dia. O adicional noturno vem errado no holerite quase todo mês. É isso.,Salário e benefícios,Saúde e bem-estar,Carga de trabalho,Ferramentas e processos,Negativo,Não,,,,majority
+S0238,"a [PESSOA] e a [PESSOA] seguram a fila sozinhas no sabado... falta preparo pros lideres, mta gente virou chefe só por tempo de casaaaa",Liderança,Carga de trabalho,Carreira e desenvolvimento,,Negativo,Não,,,,majority
+S0240,Teve empurrão na doca semana passada por causa de uma carga e o encarregado mandou todo mundo esquecer o assunto,Colegas e equipe,Liderança,,,Negativo,Sim,Ameaça ou violência,,,majority
+S0241,"foi uma vitoria a equipe bater a meta msm com tanta gente de férias, só que a empresa contrata senior de fora em vez de desenvolver quem já ta aqui, espero q leiam",Carreira e desenvolvimento,Colegas e equipe,Carga de trabalho,,Negativo,Não,,,Sim,majority
+S0245,"Tô morta de cansaço, mas é fim de mês, normal. Só lembram da gente quando da errado, mas a mentoria com o pessoal mais experiente me ajudou demais. Espero que leiam.",Carga de trabalho,Reconhecimento,Carreira e desenvolvimento,Saúde e bem-estar,Negativo,Não,,,Sim,majority
+S0252,O pessoal faz piada com meu sotaque nordestino em toda reunião e o gestor ri junto.,Colegas e equipe,Liderança,Cultura e valores,,Negativo,Sim,Discriminação,,,majority
+S0259,"sou a [PESSOA], matricula [MATRICULA], moro em [LOCAL] e chego todo dia antes das 5h!!",Flexibilidade e modelo de trabalho,,,,Neutro,Não,,,Sim,majority
+S0263,"Cada supervisor faz de um jeito, não tem um padrão. É isso.",Liderança,Ferramentas e processos,,,Negativo,Não,,,,majority
+S0273,"o convenio médico e bom, ja precisei e fui bem atendido, o seu [PESSOA] da portaria e sempre gentil, alegra o dia de todo mundo hahaha",Salário e benefícios,Colegas e equipe,,,Positivo,Não,,,,majority
+S0274,A escala nova do armazém aliviou bastante o turno da noiteeeee.,Flexibilidade e modelo de trabalho,Carga de trabalho,,,Positivo,Não,,,,majority
+S0277,o gerente defende o time quando a diretoria aperta.,Liderança,,,,Positivo,Não,,,,majority
+S0285,Choro no banheiro antes de entrar no turno quase todo dia,Saúde e bem-estar,,,,Negativo,Sim,Burnout e saúde mental,,,majority
+S0286,"o [PESSOA] da expedição vive cobrindo falta dos outros. o vr ta zoado, n dá nem para a marmita",Carga de trabalho,Salário e benefícios,Colegas e equipe,,Negativo,Não,,,Sim,majority
+S0292,"A direoria pinta tudo cor de rosa na apresentacao, mas no chão do armazém a realidade e outra",Comunicação e transparência,Cultura e valores,,,Negativo,Não,,,,majority
+S0298,meu gestor deu força quando precisei sair mais cedo por causa do meu filho...,Liderança,Flexibilidade e modelo de trabalho,,,Positivo,Não,,,,majority
+S0306,"O supervisor matou a gente de trabalhar essa semana, mas pelo menos pagou a pizza queria fazer job rotation mas meu gestor não liberaaa!",Carga de trabalho,Carreira e desenvolvimento,Liderança,,Negativo,Não,,,,majority
+S0308,A carga de trabalho so aumenta e o time so diminui e o holerite nao chega no meu email [EMAIL] desde agosto,Carga de trabalho,Ferramentas e processos,Salário e benefícios,,Negativo,Não,,,,majority
+S0309,"Bom dia. Tem gente nova entrando ganhando mais do que quem está aqui há anos. O que o [PESSOA] do comercial faz com as estagiárias tem nome, é assédio, convite para sair, mensagem fora de hora, e todo mundo finge que não vê.",Cultura e valores,Salário e benefícios,,,Negativo,Sim,Assédio sexual,,,majority
+S0317,"A pipeline de deploy nova ficou redonda. A equipe é muito unida, um cobre o outro, o projeto social com as escolas do bairro é muito bonito",Ferramentas e processos,Colegas e equipe,Cultura e valores,,Positivo,Não,,,,majority
+S0319,"A supervisao ñ dá retorno de nada, a gente pergunta e fica no vacuo, moro em pirituba, em cajamar, e n tem ônibus q chegue no horario do turno",Liderança,Flexibilidade e modelo de trabalho,,,Negativo,Não,,,Sim,majority
+S0329,fui transferido de [LOCAL] para ca e ate hoje o [PESSOA] do DP ñ acertou meu vale transporte!,Salário e benefícios,Ferramentas e processos,,,Negativo,Não,,,,majority
+S0331,A palestra sobre saude mental e burnout foi mt boa,Saúde e bem-estar,,,,Positivo,Não,,,,majority
+S0333,falta um lider q defenda a equipe la em cima kkkkk,Liderança,,,,Negativo,Não,,,,majority
+S0340,"Podiam ter acompanhamento de nutricionista no refeitório, e depois q eu recusei sair com o coordenador minhas escalas pioraram de repente... prazo apertado aqui e regra, nao exceção",Liderança,Flexibilidade e modelo de trabalho,Carga de trabalho,Saúde e bem-estar,Negativo,Sim,Assédio sexual,,,majority
+S0343,"aqui é complicado, mas preciso do emprego.",Outro,,,,Negativo,Não,,,Sim,majority
+S0351,o b.o. sempre sobra pra quem tá na ponta o rastreador do caminhão trava e a central acha q a gente parou à toa faz tempo q eu não aprendo nada novo aqui. o salario está bem abaixo do mercado!,Ferramentas e processos,Salário e benefícios,Carreira e desenvolvimento,Liderança,Negativo,Não,,,,majority
+S0357,"os benefícios sao melhores que os da minha empresa anterior. mas banco de horas que nunca dá para usar não e banco, é dívida.",Flexibilidade e modelo de trabalho,Salário e benefícios,,,Negativo,Não,,,Sim,majority
+S0359,Quando a gente bate a meta a empresa faz questão de comemorar.,Reconhecimento,,,,Positivo,Não,,,,majority
+S0362,"A comissao é boa qando a meta é realista. Tenho aprendido muito com o time, cada mês uma coisa nova.",Salário e benefícios,Carreira e desenvolvimento,Colegas e equipe,,Positivo,Não,,,,majority
+S0363,"nao existe plano de carreira, a gente não sabe pra onde pode ir. o encarregado [PESSOA] xinga a equipe de tudo q é nome, isso é assédio e todo mundo sabe",Liderança,Carreira e desenvolvimento,,,Negativo,Sim,Assédio moral,,,majority
+S0372,Plano de saúde bom,Salário e benefícios,,,,Positivo,Não,,,,majority
+S0375,Podiam ter acompanhamento de nutricionista no refeitório. A PLR esse ano veio uma vergonha.,Salário e benefícios,Saúde e bem-estar,,,Negativo,Não,,,,majority
+S0382,A cultura muda muito de área pra área,Cultura e valores,,,,Neutro,Não,,,Sim,majority
+S0388,gratidão kkkk,Outro,,,,Neutro,Não,,,Sim,majority
+S0392,o informe de rendimentos saiu com o cpf [CPF] errado,Ferramentas e processos,,,,Negativo,Não,,,Sim,majority
+S0396,"O reajuste desse ano nem cobriu a inflacao, meu coordenador repete toda semana que tem uma pilha de curriculos na mesa dele e q eu sou fácil de trocar.",Liderança,Salário e benefícios,,,Negativo,Sim,Assédio moral,,,majority

@@ -178,7 +178,7 @@ home:
 
   results:
     title: "Resultados"
-    lead: "Números medidos na base sintética, que tem rótulos conhecidos. Os quadros mostram a demo ao vivo, que roda na Cloudflare. A tabela compara a demo com o modo local."
+    lead: "Números medidos na base sintética. A anonimização é conferida com dados pessoais plantados em posições conhecidas, e a classificação é comparada com a referência indicada abaixo dos quadros. Os quadros mostram a demo ao vivo, que roda na Cloudflare. A tabela compara a demo com o modo local."
     sample_note: "Estes números são de exemplo. Os resultados medidos aparecem aqui depois da avaliação."
     live_title: "Demo ao vivo (Cloudflare)"
     items:
@@ -226,6 +226,7 @@ home:
     reference:
       intended: "Referência: rótulos definidos na geração da base sintética."
       human: "Referência: rótulos de uma pessoa que leu os comentários sem ver a resposta do modelo."
+      panel: "Referência: rótulos de outro modelo de linguagem, de outro fornecedor, que leu os comentários às cegas em três leituras independentes, com voto da maioria. Não são rótulos humanos."
     hardware: "Servidor do modo local com {cpus} vCPUs e {mem} GiB de RAM."
     pipeline:
       edge: "Demo: {parts}."
