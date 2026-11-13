@@ -86,7 +86,9 @@ Two deployments, measured separately:
   total, mean, p50, p95, tokens per second, model, quantization and hardware.
 * **Cloudflare demo** (`python -m enps.evaluation.edge_client`, `metrics/edge/`): the same comments sent through the
   deployed Worker (anonymization in JavaScript, then Workers AI). Latency of the model part and end to end per
-  comment, tokens, and an estimate of the Workers AI allocation used.
+  comment, tokens, and an estimate of the Workers AI allocation used. The speed reported for the demo comes from the
+  first 300 comments (`benchmark300`), sent one at a time and spread over two days to stay inside the daily free
+  allocation.
 
 ## Use in production
 

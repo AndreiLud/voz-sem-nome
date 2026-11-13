@@ -103,8 +103,9 @@ added one false alarm and no extra case on this split.
 
 | | Result |
 |---|---|
-| Public demo, 100 test comments sent one at a time | median 1.2 s, p95 2.9 s, slowest 10.3 s per comment, measured inside the Worker |
-| Public demo, Workers AI usage | 3,003 prompt tokens and 36 output tokens per comment on average (the second reading ran for 47% of them) |
+| Public demo, first 300 comments sent one at a time, over two days to stay inside the daily free allocation | median 1.1 s, p95 4.0 s, slowest 69.2 s per comment, from request to answer |
+| Public demo, slow tail | 9 of the 300 took 15 s or more, all of it inside the Workers AI call |
+| Public demo, Workers AI usage | 2,922 prompt tokens and 32 output tokens per comment on average (the second reading ran for 40% of them) |
 | Local mode, 300 comments, steady state | 49.7 min in total; median 7.3 s, p95 18.7 s per comment |
 | Local mode, first comment after a cold start | 57.9 s (model load and full prompt read) |
 | Local mode, generation | 5.5 tokens per second |
@@ -113,7 +114,7 @@ The local server is a VM with 6 vCPUs (SSE4.2 only), 13.6 GiB of RAM and no GPU,
 gemma4:e2b-it-qat (Q4_0).
 
 **Estimate, not a measurement:** with the measured tokens and the per model prices Cloudflare publishes, a comment
-costs about 28 neurons. The Workers AI free allocation is 10,000 neurons a day, enough for about 350 comments a
+costs about 27 neurons. The Workers AI free allocation is 10,000 neurons a day, enough for about 360 comments a
 day; after that the demo holds new answers until the daily reset at 00:00 UTC.
 
 ## Privacy

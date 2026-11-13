@@ -105,7 +105,7 @@
       "review_share": 0.15,
       "minutes_per_review": 2.0
     },
-    "machine_seconds_per_comment": 1.500489
+    "machine_seconds_per_comment": 2.1825433333333333
   },
   "sample": {
     "metrics": false,

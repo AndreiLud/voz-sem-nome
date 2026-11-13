@@ -209,7 +209,7 @@ home:
         n: "{n} comentários"
       latency:
         label: "Tempo por comentário"
-        method: "Mediana do tempo de classificação no Workers AI, medida pelo Worker em cada comentário."
+        method: "Mediana do tempo de resposta do Worker (anonimização e Workers AI), do envio à resposta, com um comentário por vez."
         n: "{n} comentários"
         extra: "p95: {value}"
     ci: "IC 95%: {lo} a {hi}"
