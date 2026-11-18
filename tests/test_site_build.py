@@ -462,6 +462,24 @@ def test_estimate_with_default_assumptions(sources):
     assert estimate(sources.site["estimator"], machine_s=None).machine_hours is None
 
 
+def test_estimator_count_fields_render_plain_digits(built):
+    # A group separator in the default value ("1.000") turned into a decimal point once the field was
+    # edited ("1.0000" read as 1), so counts are rendered as plain digits with a numeric keypad.
+    for page in (built.out / "index.html", built.out / "en" / "index.html"):
+        html = page.read_text(encoding="utf-8")
+        inputs = re.findall(r'<input class="input input--number"[^>]*>', html)
+        assert len(inputs) == 7, page
+        for tag in inputs:
+            kind = re.search(r'data-kind="([^"]+)"', tag).group(1)
+            value = re.search(r'value="([^"]*)"', tag).group(1)
+            mode = re.search(r'inputmode="([^"]+)"', tag).group(1)
+            if kind == "count":
+                assert value.isdigit() and mode == "numeric", (page, tag)
+            else:
+                assert mode == "decimal", (page, tag)
+        assert 'name="responses_per_cycle"' in html and 'value="1000"' in html
+
+
 # ------------------------------------------------------------------ dev server
 
 

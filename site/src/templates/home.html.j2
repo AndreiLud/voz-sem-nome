@@ -205,7 +205,7 @@
                 <th scope="row"><label for="est-{{ row.key }}">{{ label.label }}</label></th>
                 <td>
                   <span class="input-unit">
-                    <input class="input input--number" id="est-{{ row.key }}" name="{{ row.key }}" type="text" inputmode="decimal" autocomplete="off" value="{{ row.value }}" data-kind="{{ row.kind }}" data-min="{{ row.min }}" data-max="{{ row.max }}" aria-describedby="est-{{ row.key }}-unit est-{{ row.key }}-error">
+                    <input class="input input--number" id="est-{{ row.key }}" name="{{ row.key }}" type="text" inputmode="{{ 'numeric' if row.kind == 'count' else 'decimal' }}" autocomplete="off" value="{{ row.value }}" data-kind="{{ row.kind }}" data-min="{{ row.min }}" data-max="{{ row.max }}" aria-describedby="est-{{ row.key }}-unit est-{{ row.key }}-error">
                     <span class="input-unit__unit" id="est-{{ row.key }}-unit">{{ label.unit }}</span>
                   </span>
                   <span class="field-error" id="est-{{ row.key }}-error" hidden></span>

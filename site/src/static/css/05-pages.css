@@ -267,6 +267,8 @@
 .table--inputs th,
 .table--inputs td { vertical-align: middle; }
 .table--inputs td { white-space: nowrap; }
+/* The error message wraps inside the value cell and never widens the column. */
+.table--inputs .field-error { white-space: normal; contain: inline-size; }
 
 .estimate__out {
   display: grid;

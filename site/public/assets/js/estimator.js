@@ -1,7 +1,7 @@
 // Hours-saved estimator on the landing page. The build renders the result for the default
 // assumptions (works without JavaScript); this module recalculates on every edit.
 // compute() mirrors enps/export/site_data.estimate(); keep both in step.
-import { fmtHours, fmtNumber, parseNumber } from "./lib/format.js";
+import { fmtHours, fmtNumber, parseInteger, parseNumber } from "./lib/format.js";
 
 /** Hours per year from the assumptions (shares as fractions). */
 export function compute(values, machineSeconds) {
@@ -12,13 +12,14 @@ export function compute(values, machineSeconds) {
   return { comments, manual, review, saved: manual - review, machine };
 }
 
-/** Value of one input, or null when it is not a number inside its limits. */
+/** Value of one input, or null when it is not a number inside its limits (counts are whole numbers). */
 export function readInput(input, lang) {
-  const value = parseNumber(input.value, lang);
+  const kind = input.dataset.kind;
+  const value = kind === "count" ? parseInteger(input.value, lang) : parseNumber(input.value, lang);
   const min = Number(input.dataset.min);
   const max = Number(input.dataset.max);
   if (value === null || value < min || value > max) return null;
-  return input.dataset.kind === "share" ? value / 100 : value;
+  return kind === "share" ? value / 100 : value;
 }
 
 export function initEstimator(page, form = document.getElementById("estimator")) {
@@ -35,7 +36,8 @@ export function initEstimator(page, form = document.getElementById("estimator"))
     const error = errorFor(input);
     if (show) {
       input.setAttribute("aria-invalid", "true");
-      error.textContent = page.t("estimate.invalid", {
+      const key = input.dataset.kind === "count" ? "estimate.invalid_count" : "estimate.invalid";
+      error.textContent = page.t(key, {
         min: fmtNumber(Number(input.dataset.min), lang),
         max: fmtNumber(Number(input.dataset.max), lang),
       });

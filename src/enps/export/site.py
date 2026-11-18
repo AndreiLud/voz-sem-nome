@@ -158,9 +158,11 @@ class SiteRenderer:
         rows = []
         for key, kind, low, high, step in ESTIMATOR_FIELDS:
             value = defaults[key] * 100 if kind == "share" else defaults[key]
-            digits = 0 if float(value).is_integer() else 1
-            rows.append({"key": key, "kind": kind, "min": low, "max": high, "step": step,
-                         "value": fmt_number(value, lang, digits)})
+            if kind == "count":
+                text = str(int(value))  # plain digits: no group separator to trip over while editing
+            else:
+                text = fmt_number(value, lang, 0 if float(value).is_integer() else 1)
+            rows.append({"key": key, "kind": kind, "min": low, "max": high, "step": step, "value": text})
         return {
             "rows": rows,
             "comments": fmt_number(result.comments, lang),

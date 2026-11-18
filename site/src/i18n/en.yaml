@@ -270,6 +270,7 @@ home:
       - "Hours saved = manual work minus review. Machine time uses the measured mean per comment and does not count as people's work."
     reset: "Reset to default values"
     invalid: "Use a number between {min} and {max}."
+    invalid_count: "Use a whole number between {min} and {max}."
 
   preview:
     title: "The dashboard"

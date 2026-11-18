@@ -271,6 +271,7 @@ home:
       - "Horas economizadas = trabalho manual menos revisão. O tempo de máquina usa a média medida por comentário e não conta como trabalho de pessoas."
     reset: "Voltar aos valores padrão"
     invalid: "Use um número entre {min} e {max}."
+    invalid_count: "Use um número inteiro entre {min} e {max}."
 
   preview:
     title: "O painel"

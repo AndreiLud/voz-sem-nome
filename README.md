@@ -141,8 +141,8 @@ docker compose run --rm pipeline                         # live model calls, ans
 ENPS_LLM_MODE=offline docker compose run --rm pipeline   # replays llm_cache/, no model needed
 ```
 
-Tests: `PYTHONPATH=src python -m pytest` (the model is mocked) and, for the Worker,
-`docker run --rm -v "$PWD":/w -w /w node:24-bookworm-slim node --test worker/test/`.
+Tests: `PYTHONPATH=src python -m pytest` (the model is mocked) and, for the Worker and the site's browser scripts,
+`docker run --rm -v "$PWD":/w -w /w node:24-bookworm-slim node --test worker/test/ site/test/`.
 
 ## Repository
 
